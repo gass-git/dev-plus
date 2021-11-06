@@ -9,7 +9,7 @@ const ScrollDisplay = () => {
     var welcomeMsg = "...welcome visitor...";
     var space = (<Fragment>&nbsp;&nbsp;&nbsp;&nbsp;</Fragment>);
 
-    async function gitEvent(){
+    /*async function gitEvent(){
         var response = await fetch(git_events_api),
             arr = await response.json(),
             msg = arr[0].payload.commits[0].message,
@@ -20,13 +20,13 @@ const ScrollDisplay = () => {
     useEffect(() => {
         gitEvent();
     }, []);
-
+*/
     return (
         <div className="msg-display">
             <div className="scroll-text">
                 {welcomeMsg} 
                 {space}
-                Last Github commit: {lastEvent.message} (repo: {lastEvent.repository})....
+                {/*Last Github commit: {lastEvent.message} (repo: {lastEvent.repository})....*/}
             </div>
         </div>      
     );
