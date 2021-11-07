@@ -3,24 +3,6 @@
   width: 800px;
   /*border: 1px solid black;*/
 }
-/* 
----- FIRST ROW ----
-*/
-.first-row .border-img {
-  margin: 0 auto;
-  border: 33px solid transparent;
-  padding: 0px;
-  border-image: url("http://localhost:3000/images/border1.png") 33 round;
-  width: 734px;
-  height: 0px;
-  z-index: 99;
-}
-.first-row .border-img .inner-container {
-  height: 56px;
-  margin: -28px -30px;
-  background-color: rgb(0, 0, 0, 0.3);
-  overflow: hidden;
-}
 .second-row {
   display: flex;
   /*border: 1px solid white;*/
@@ -30,163 +12,15 @@
 */
 .second-row .left-side {
 }
-.second-row .left-side .border-img {
-  margin: 0 auto;
-  border: 33px solid transparent;
-  padding: 0px;
-  border-image: url("http://localhost:3000/images/border2.png") 33 round;
-  width: 200px;
-  height: 100px;
-  z-index: 99;
-}
-.second-row .left-side .border-img .inner-container {
-  height: 156px;
-  margin: -28px -30px;
-  background-color: rgb(0, 0, 0, 0.3);
-  overflow: hidden;
-  /* border: 1px solid white; */
-}
-.second-row .left-side .border-img .inner-container .menu-wrapper {
-  padding-top: 10px;
-  height: 100%;
-  width: 100%;
-  /* border: 1px solid orange; */
-}
-.second-row .left-side .border-img .inner-container .menu-wrapper > div {
-  font-family: "Play", sans-serif;
-  color: rgb(255, 255, 255, 0.5);
-  /* text-transform: uppercase; */
-  font-size: 17px;
-  margin: 2px auto 0px auto;
-  width: 94%;
-  /* border: 1px solid green; */
-  padding: 10px 0 10px 0;
-  text-align: center;
-  cursor: pointer;
-  border: 1px dashed rgb(255, 255, 255, 0.2);
-}
-.second-row .left-side .border-img .inner-container .menu-wrapper > div:hover {
-  background: rgb(255, 255, 255, 0.1);
-  color: rgb(255, 255, 255, 0.9);
-}
+
 .second-row .right-side {
   padding-left: 3px;
 }
-.second-row .right-side .border-img {
-  margin: 0 auto;
-  border: 33px solid transparent;
-  padding: 0px;
-  border-image: url("http://localhost:3000/images/border2.png") 33 round;
-  width: 465px;
-  height: 100px;
-  z-index: 99;
-}
-.second-row .right-side .border-img .inner-container {
-  display: flex;
-  height: 156px;
-  margin: -28px -30px;
-  background-color: rgb(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-.second-row .right-side .border-img .inner-container .pic-name {
-  margin-top: 10px;
-  margin-left: 12px;
-  text-align: center;
-  width: 25%;
-  min-width: 130px;
-  height: 135px;
-  border: 1px solid white;
-}
-.second-row .right-side .border-img .inner-container .pic-name .name {
-  margin-top: 2px;
-  font-family: "press start 2p", "Segoe UI", sans-serif;
-  color: rgb(255, 255, 255, 0.7);
-  font-size: 16px;
-  width: 100%;
-  text-align: center;
-  /* border: 1px solid white; */
-}
-.second-row .right-side .border-img .inner-container .pic-name .pic {
-  margin-top: 5px;
-  color: white;
-  display: inline-block;
-  /* border: 1px solid white; */
-}
-.pic img {
-  opacity: 0.8;
-  height: 110px;
-  width: 110px;
-}
-.second-row .right-side .border-img .inner-container .info {
-  margin: 10px;
-  width: 75%;
-  color: white;
-  border: 1px solid white;
-}
+
 /*
 ---- THIRD ROW  ----
 */
 .third-row {
   display: flex;
   /*border: 1px solid white;*/
-}
-.third-row .border-img {
-  margin: 0 auto;
-  border: 33px solid transparent;
-  padding: 0px;
-  border-image: url("http://localhost:3000/images/border1.png") 33 round;
-  width: 734px;
-  height: 180px;
-  z-index: 99;
-}
-.third-row .border-img .inner-container {
-  height: 236px;
-  margin: -28px -30px;
-  background-color: rgb(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-.third-row .arrow-menu {
-  display: flex;
-  width: 100%;
-  /*  border: 1px solid white; */
-  height: 50px;
-}
-.third-row .arrow-menu .left-arrow {
-  width: 5%;
-  height: 50px;
-  /*  border: 1px solid white; */
-}
-.third-row .arrow-menu .right-arrow {
-  width: 5%;
-  height: 50px;
-  text-align: center;
-  /* border: 1px solid white; */
-}
-/* ---- ARROW ICONS ---- */
-.third-row .arrow-menu img {
-  margin-top: 12px;
-  cursor: pointer;
-}
-/* ---------------------- */
-.third-row .arrow-menu .next {
-  width: 25%;
-  height: 50px;
-  color: white;
-  text-align: center;
-  /* border: 1px solid white; */
-}
-.third-row .arrow-menu .previews {
-  width: 25%;
-  height: 50px;
-  color: white;
-  text-align: center;
-  /* border: 1px solid white; */
-}
-.third-row .arrow-menu .selected {
-  margin-top: 9px;
-  width: 40%;
-  height: 25px;
-  color: rgb(255, 255, 255, 0.6);
-  text-align: center;
-  border: 1px solid white;
 }

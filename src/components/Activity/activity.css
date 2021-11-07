@@ -1,0 +1,60 @@
+.activity .border-img {
+  margin: 0 auto;
+  border: 33px solid transparent;
+  padding: 0px;
+  border-image: url("http://localhost:3000/images/border1.png") 33 round;
+  width: 734px;
+  height: 180px;
+  z-index: 99;
+}
+.activity .inner-container {
+  height: 236px;
+  margin: -28px -30px;
+  background-color: rgb(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.activity .arrow-menu {
+  display: flex;
+  width: 100%;
+  /*  border: 1px solid white; */
+  height: 50px;
+}
+.activity .left-arrow {
+  width: 5%;
+  height: 50px;
+  /*  border: 1px solid white; */
+}
+.activity .right-arrow {
+  width: 5%;
+  height: 50px;
+  text-align: center;
+  /* border: 1px solid white; */
+}
+/* ---- ARROW ICONS ---- */
+.activity .arrow-menu img {
+  margin-top: 12px;
+  cursor: pointer;
+}
+/* ---------------------- */
+.activity .arrow-menu .next {
+  width: 25%;
+  height: 50px;
+  color: white;
+  text-align: center;
+  /* border: 1px solid white; */
+}
+.activity .arrow-menu .previews {
+  width: 25%;
+  height: 50px;
+  color: white;
+  text-align: center;
+  /* border: 1px solid white; */
+}
+.activity .arrow-menu .selected {
+  margin-top: 9px;
+  width: 40%;
+  height: 25px;
+  color: rgb(255, 255, 255, 0.6);
+  text-align: center;
+  border: 1px solid white;
+}

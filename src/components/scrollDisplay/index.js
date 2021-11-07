@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import "./styles.css";
+import "./scrollDisplay.css";
 import { Fragment } from "react";
 
 let git_events_api = 'https://api.github.com/users/gass-git/events/public';
@@ -22,15 +22,21 @@ const ScrollDisplay = () => {
     }, []);
 */
     return (
-    <div className="msg-display">
-        <div className="text-container">
-            <div className="scroll-text">
-                {welcomeMsg} 
-                {space}
-                {/*Last Github commit: {lastEvent.message} (repo: {lastEvent.repository})....*/}
+    <section className="scroll-display">
+        <div className="border-img">
+            <div className="inner-container">
+                <div className="msg-display">
+                    <div className="text-container">
+                        <div className="scroll-text">
+                            {welcomeMsg} 
+                            {space}
+                            {/*Last Github commit: {lastEvent.message} (repo: {lastEvent.repository})....*/}
+                        </div>
+                    </div>    
+                </div>
             </div>
-        </div>    
-    </div>
+        </div>
+    </section>
     );
 }
 
