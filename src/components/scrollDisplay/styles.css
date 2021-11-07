@@ -1,14 +1,19 @@
 .msg-display {
-  margin-top: 20px;
-  width: 1500px;
-  height: 30px;
-  font-family: "Press Start 2P", cursive;
-  font-size: 15px;
-  color: rgba(255, 251, 182, 0.5);
-  display: inline-block;
-  /* border: 1px solid black; */
+  width: 98%;
+  height: 33px;
+  margin: 11px auto 0 auto;
+  overflow: hidden;
+  border-radius: 3px;
+  background: rgb(0, 0, 0, 0.3);
 }
-.msg-display .scroll-text {
+.msg-display .text-container {
+  padding-top: 10px;
+  width: 1500px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 14px;
+  color: rgba(255, 251, 182, 0.5);
+}
+.msg-display .text-container .scroll-text {
   text-align: right;
   /* animation properties */
   -moz-transform: translateX(-100%);

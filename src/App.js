@@ -32,7 +32,17 @@ const App = () => {
         <div className="left-side">
           <div className="border-img">
             <div className="inner-container">
-              menu
+              <div className="menu-wrapper">
+                <div>
+                  General
+                </div>
+                <div>
+                  About
+                </div>
+                <div>
+                  Skills
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -40,7 +50,17 @@ const App = () => {
         <div className="right-side">
           <div className="border-img">
               <div className="inner-container">
-                content
+                <div className="pic-name">
+                  <div className="name">
+                    GASS
+                  </div>
+                  <div className="pic">
+                    <img src="http://localhost:3000/images/avatar.png" alt="" />
+                  </div>
+                </div>
+                <div className="info">
+                  asasd asdasd
+                </div>
               </div>
           </div>
         </div>

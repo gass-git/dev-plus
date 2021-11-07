@@ -22,13 +22,15 @@ const ScrollDisplay = () => {
     }, []);
 */
     return (
-        <div className="msg-display">
+    <div className="msg-display">
+        <div className="text-container">
             <div className="scroll-text">
                 {welcomeMsg} 
                 {space}
                 {/*Last Github commit: {lastEvent.message} (repo: {lastEvent.repository})....*/}
             </div>
-        </div>      
+        </div>    
+    </div>
     );
 }
 
