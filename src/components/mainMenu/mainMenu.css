@@ -22,16 +22,18 @@
 }
 .main-menu .menu-wrapper > div {
   font-family: "Play", sans-serif;
-  color: rgb(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255, 0.6);
   font-size: 18px;
   margin: 2px auto 0px auto;
   width: 94%;
   padding: 4px 0 4px 0;
   text-align: center;
   cursor: pointer;
-  /* border: 1px dashed rgb(255, 255, 255, 0.2); */
 }
-.main-menu .menu-wrapper > div:hover {
-  background: rgb(255, 255, 255, 0.1);
-  color: rgb(255, 255, 255, 0.9);
+.main-menu .menu-wrapper .not-selected:hover {
+  background: rgb(84, 65, 121, 0.2);
+}
+.main-menu .selected {
+  background: rgb(84, 65, 121, 0.5);
+  color: rgb(255, 255, 255, 0.8) !important;
 }

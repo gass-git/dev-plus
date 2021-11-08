@@ -14,26 +14,15 @@
   background-color: rgb(0, 0, 0, 0.3);
   overflow: hidden;
 }
-/*
-.basic-info .pic-name .name {
-  margin-top: 2px;
-  font-family: "press start 2p", "Segoe UI", sans-serif;
-  color: rgb(255, 255, 255, 0.7);
-  font-size: 16px;
-  width: 100%;
-  text-align: center;
-  border: 1px solid white;
-} 
-*/
 .basic-info .pic-container {
   min-width: 125px;
   height: 122px;
   margin-left: 10px;
   margin-top: 10px;
-  background: rgb(87, 87, 87);
+  background: rgb(87, 87, 87, 0.4);
   overflow: hidden;
   display: inline-block;
-  border: 2px solid rgb(255, 255, 255, 0.3);
+  border: 2px solid rgb(84, 65, 121, 0.7);
 }
 .basic-info .pic-container img {
   margin-left: -4px;
@@ -55,7 +44,7 @@
   margin-top: 3px;
   margin-left: 10px;
   font-family: "press start 2p", sans-serif;
-  opacity: 0.8;
+  opacity: 0.9;
   color: white;
 }
 .basic-info .class {
@@ -63,23 +52,23 @@
   margin-top: 5px;
   font-family: "play", sans-serif;
   color: white;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 /*
 -- INFO
 */
 .basic-info .info {
-  margin: 10px;
+  margin: 9px 13px 10px 10px;
   width: 75%;
   color: white;
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 .basic-info .info > div {
   display: flex;
   font-family: "play", sans-serif;
   margin-top: 2px;
   background: rgb(84, 65, 121, 0.5);
-  height: 25px;
+  padding: 5px 0 5px 0;
   width: 100%;
 }
 .basic-info .info label {
@@ -95,4 +84,11 @@
   text-align: right;
   color: white;
   /* border: 1px solid white; */
+}
+.basic-info .info data i {
+  font-size: 14px;
+  color: greenyellow;
+}
+.basic-info .info data span {
+  color: greenyellow;
 }

@@ -35,7 +35,7 @@ const BasicInfo = () => {
           </div>
           <div>
             <label>SO Points</label>
-            <data>2373</data>
+            <data>2373 &nbsp;<i class="fas fa-arrow-up"></i> <span>343</span></data>
           </div>
         </div>
       

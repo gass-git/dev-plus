@@ -2,7 +2,7 @@
   margin: 0 auto;
   border: 33px solid transparent;
   padding: 0px;
-  border-image: url("http://localhost:3000/images/border1.png") 33 round;
+  border-image: url("http://localhost:3000/images/border2.png") 33 round;
   width: 734px;
   height: 0px;
   z-index: 99;
@@ -20,14 +20,14 @@
   margin: 11px auto 0 auto;
   overflow: hidden;
   border-radius: 3px;
-  background: rgb(0, 0, 0, 0.3);
+  /*  background: rgb(84, 65, 121, 0.5); */
 }
 .msg-display .text-container {
   padding-top: 10px;
   width: 1500px;
   font-family: "Press Start 2P", cursive;
-  font-size: 14px;
-  color: rgba(255, 251, 182, 0.5);
+  font-size: 12px;
+  color: rgba(188, 255, 80, 0.5);
 }
 .msg-display .text-container .scroll-text {
   text-align: right;
