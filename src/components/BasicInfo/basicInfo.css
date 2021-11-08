@@ -1,11 +1,12 @@
+/*
+--  PARENT CONTAINER AND AVATAR
+*/
 .basic-info .border-img {
   margin: 0 auto;
   border: 33px solid transparent;
-  padding: 0px;
   border-image: url("http://localhost:3000/images/border2.png") 33 round;
   min-width: 535px;
   height: 90px;
-  z-index: 99;
 }
 .basic-info .inner-container {
   display: flex;

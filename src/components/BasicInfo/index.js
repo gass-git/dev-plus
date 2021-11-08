@@ -11,6 +11,7 @@ const BasicInfo = () => {
             <img src="http://localhost:3000/images/avatar.png" alt="" />
           </div>
         
+        {/* -- AVATAR AND NAME -- */}
         <div className="username-wrapper">
           <div className="username">
             GASS
@@ -20,6 +21,7 @@ const BasicInfo = () => {
           </div>
         </div>
 
+        {/* -- INFO -- */}
         <div className="info">
           <div>
             <label>Profession</label>

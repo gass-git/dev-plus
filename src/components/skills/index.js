@@ -13,7 +13,7 @@ const Skills = () => {
               CORE TECH
             </div>
             <div className="skills-wrapper">
-              {/* JavaScript */}
+              {/* -- JavaScript -- */}
               <div>
                 <div className="badge-wrapper">
                   <i className="devicon-javascript-plain yellow"></i>
@@ -27,7 +27,7 @@ const Skills = () => {
                   </div>
                 </div>
               </div>
-              {/* HTML */}
+              {/* -- HTML -- */}
               <div>
                 <div className="badge-wrapper">
                   <i className="devicon-html5-plain orangered"></i>

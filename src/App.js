@@ -13,11 +13,14 @@ const App = () => {
 
   return (
     <div className="main-wrapper">
-
+       
+      {/* -- FIRST ROW -- */}
       <section className="first-row">
         <ScrollDisplay />
       </section>
-      
+      {/* --------------- */}
+
+      {/* -- SECOND ROW -- */}
       <section className="second-row">
         <div className="left-side">
           <MainMenu selected={selected} setSelected={setSelected}/>
@@ -26,7 +29,9 @@ const App = () => {
           <BasicInfo />
         </div>
       </section>
-      
+      {/* ------------------ */}
+
+      {/* -- THIRD ROW --  */}
       <section className="third-row">
         <div className="content-display">
           <div className="border-img">
@@ -39,6 +44,7 @@ const App = () => {
           </div>
         </div>
       </section>
+      {/* ---------------- */}
 
     </div>
   );

@@ -7,10 +7,10 @@
 }
 .about .content {
   padding: 10px;
-  font-family: "play", sans-serif;
   width: 95%;
   height: 130px;
+  font-family: "play", sans-serif;
+  color: rgb(255, 255, 255, 0.6);
   margin: 10px auto 5px auto;
   /* background: rgb(84, 65, 121, 0.5); */
-  color: rgb(255, 255, 255, 0.7);
 }
