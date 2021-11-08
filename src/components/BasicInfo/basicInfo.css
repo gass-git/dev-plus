@@ -3,26 +3,18 @@
   border: 33px solid transparent;
   padding: 0px;
   border-image: url("http://localhost:3000/images/border2.png") 33 round;
-  width: 465px;
-  height: 100px;
+  min-width: 535px;
+  height: 90px;
   z-index: 99;
 }
 .basic-info .inner-container {
   display: flex;
-  height: 156px;
+  height: 146px;
   margin: -28px -30px;
   background-color: rgb(0, 0, 0, 0.3);
   overflow: hidden;
 }
-.basic-info .pic-name {
-  margin-top: 10px;
-  margin-left: 12px;
-  text-align: center;
-  width: 25%;
-  min-width: 130px;
-  height: 135px;
-  border: 1px solid white;
-}
+/*
 .basic-info .pic-name .name {
   margin-top: 2px;
   font-family: "press start 2p", "Segoe UI", sans-serif;
@@ -30,22 +22,77 @@
   font-size: 16px;
   width: 100%;
   text-align: center;
-  /* border: 1px solid white; */
-}
-.basic-info .pic-name .pic {
-  margin-top: 5px;
-  color: white;
+  border: 1px solid white;
+} 
+*/
+.basic-info .pic-container {
+  min-width: 125px;
+  height: 122px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background: rgb(87, 87, 87);
+  overflow: hidden;
   display: inline-block;
+  border: 2px solid rgb(255, 255, 255, 0.3);
+}
+.basic-info .pic-container img {
+  margin-left: -4px;
+  height: 130px;
+  width: 130px;
+}
+
+/* 
+-- USERNAME CONTAINER
+*/
+.basic-info .username-wrapper {
+  margin-left: 5px;
+  margin-top: 10px;
+  min-width: 140px;
+  height: 122px;
   /* border: 1px solid white; */
 }
-.basic-info .pic img {
+.basic-info .username {
+  margin-top: 3px;
+  margin-left: 10px;
+  font-family: "press start 2p", sans-serif;
   opacity: 0.8;
-  height: 110px;
-  width: 110px;
+  color: white;
 }
+.basic-info .class {
+  margin-left: 10px;
+  margin-top: 5px;
+  font-family: "play", sans-serif;
+  color: white;
+  opacity: 0.8;
+}
+/*
+-- INFO
+*/
 .basic-info .info {
   margin: 10px;
   width: 75%;
   color: white;
   border: 1px solid white;
+}
+.basic-info .info > div {
+  display: flex;
+  font-family: "play", sans-serif;
+  margin-top: 2px;
+  background: rgb(84, 65, 121, 0.5);
+  height: 25px;
+  width: 100%;
+}
+.basic-info .info label {
+  width: 50%;
+  text-align: left;
+  margin-left: 5px;
+  color: rgb(50, 193, 205);
+  /* border: 1px solid white; */
+}
+.basic-info .info data {
+  width: 50%;
+  margin-right: 5px;
+  text-align: right;
+  color: white;
+  /* border: 1px solid white; */
 }
