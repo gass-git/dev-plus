@@ -1,0 +1,16 @@
+.about .title {
+  width: 95%;
+  color: rgb(255, 255, 255, 0.8);
+  font-family: "press start 2p", sans-serif;
+  margin: 15px auto 0 auto;
+  /* border: 1px solid white; */
+}
+.about .content {
+  padding: 10px;
+  font-family: "play", sans-serif;
+  width: 95%;
+  height: 130px;
+  margin: 10px auto 5px auto;
+  /* background: rgb(84, 65, 121, 0.5); */
+  color: rgb(255, 255, 255, 0.7);
+}

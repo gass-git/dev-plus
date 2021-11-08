@@ -1,0 +1,92 @@
+.skills .title {
+  width: 95%;
+  color: rgb(255, 255, 255, 0.8);
+  font-family: "press start 2p", sans-serif;
+  margin: 15px auto 0 auto;
+  /* border: 1px solid white; */
+}
+.skills .sub-title {
+  font-family: "play", sans-serif;
+  padding: 4px 0 4px 0;
+  /* border: 1px solid white; */
+}
+.skills .content {
+  display: flex;
+  font-family: "play", sans-serif;
+  width: 95%;
+  height: 130px;
+  margin: 10px auto 5px auto;
+  /* background: rgb(84, 65, 121, 0.5); */
+  color: rgb(255, 255, 255, 0.7);
+  /* border: 1px solid white; */
+}
+.skills .left-side {
+  width: 50%;
+  /* border: 1px solid green; */
+}
+.skills .right-side {
+  width: 50%;
+  /* border: 1px solid green; */
+}
+.skills .skills-wrapper {
+  margin-top: 5px;
+  /* border: 1px solid orange; */
+}
+.skills .skills-wrapper > div {
+  display: flex;
+  margin-top: 10px;
+  height: 30px;
+  /* border: 1px solid white; */
+}
+.skills .badge-wrapper {
+  min-width: 30px;
+  max-width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 2px 1px 0 1px;
+  border: 1px solid white;
+}
+.skills .details {
+  display: flex;
+  width: calc(100% - 30px);
+  /* border: 1px solid red; */
+}
+.skills .name {
+  margin-top: 7px;
+  display: inline-block;
+  padding-left: 10px;
+  width: 80%;
+}
+.skills .score {
+  margin-left: 3px;
+  margin-top: 7px;
+  display: inline-block;
+  width: 10%;
+}
+.skills .bb-yellow {
+  border-bottom: 1px solid rgb(253, 234, 60);
+}
+.skills .bb-orangered {
+  border-bottom: 1px solid orangered;
+}
+.skills .bb-blue {
+  border-bottom: 1px solid blue;
+}
+.skills .bb-grey {
+  border-bottom: 1px solid grey;
+}
+.skills i {
+  font-size: 27px;
+}
+.skills .yellow {
+  color: rgb(255, 255, 4);
+}
+.skills .orangered {
+  color: orangered;
+}
+.skills .blue {
+  color: blue;
+}
+.skills .grey {
+  color: grey;
+}
