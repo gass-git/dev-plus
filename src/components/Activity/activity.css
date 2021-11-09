@@ -19,11 +19,11 @@
   padding: 4px 0 4px 0;
   /* border: 1px solid white; */
 }
-.activity .block-wrapper {
+.activity .container {
   margin-top: 10px;
   border: 1px solid orange;
 }
-.activity .block-wrapper > div {
+.activity .container > .block {
   display: flex;
   margin-top: 3px;
   height: 30px;
