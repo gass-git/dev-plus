@@ -16,25 +16,25 @@ const MainMenu = ({selected, setSelected}) => {
           className={selected === 'about' ? 'selected' : "not-selected"} 
           onClick={() => select('about')}
           >
-            About
+           📜 About
           </div>
           <div 
           className={selected === 'skills' ? 'selected' : "not-selected"} 
           onClick={() => select('skills')}
           >
-            Skills
+           🏹 Skills
           </div>
           <div 
           className={selected === 'projects' ? 'selected' : "not-selected"} 
           onClick={() => select('projects')}
           >
-            Projects
+            🧪 Projects
           </div>
           <div 
           className={selected === 'activity' ? 'selected' : "not-selected"} 
           onClick={() => select('activity')}
           >
-            Activity
+           🌍 Activity
           </div>
         </div>
       </div>

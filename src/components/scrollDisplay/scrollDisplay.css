@@ -2,7 +2,7 @@
   margin: 0 auto;
   border: 33px solid transparent;
   padding: 0px;
-  border-image: url("http://localhost:3000/images/border2.png") 33 round;
+  border-image: url("http://localhost:3000/images/border1.png") 33 round;
   width: 734px;
   height: 0px;
   z-index: 99;
