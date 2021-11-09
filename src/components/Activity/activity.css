@@ -12,7 +12,7 @@
   height: 180px;
   margin: 10px auto 5px auto;
   color: rgb(255, 255, 255, 0.7);
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 .activity .sub-title {
   font-family: "play", sans-serif;
@@ -21,11 +21,11 @@
 }
 .activity .container {
   margin-top: 10px;
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
 }
 .activity .container > .block {
   display: flex;
   margin-top: 3px;
   height: 30px;
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
 }

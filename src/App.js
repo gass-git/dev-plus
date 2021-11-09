@@ -6,33 +6,49 @@ import BasicInfo from './components/basicInfo/index';
 import Projects from './components/projects/index';
 import Skills from './components/skills/index';
 import About from './components/about/index';
+import Activity from './components/activity/index';
 
-let answers_api =
-  "https://api.stackexchange.com/2.3/users/14895985/answers?order=desc&sort=activity&site=stackoverflow";
+let answers_api = "https://api.stackexchange.com/2.3/users/14895985/answers?order=desc&sort=activity&site=stackoverflow";
+let events_api = "https://api.github.com/users/gass-git/events/public";
+let repos_api = "https://api.github.com/users/gass-git/repos";
 
 const App = () => {
   var [selected, setSelected] = useState('about');
   var [answers, setAnswers] = useState([]);
+  var [gitEvents, setGitEvents] = useState([]);
+  var [repos, setRepos] = useState([]);
+
+  async function getGitEvents() {
+    var req = await fetch(events_api), 
+      respArray = await req.json(),
+      latestFive = respArray.slice(0,4); 
+    setGitEvents(latestFive);
+  }
+
+  async function getRepos() {
+    var req = await fetch(repos_api),
+      respArray = await req.json();
+    setRepos(respArray);
+  }
 
   async function get_SO_data(){
     
     // Get answers data
-    let resp = await fetch(answers_api);
-    let obj = await resp.json();
-    var answersArr = obj.items.slice(0, 5);
+    let req = await fetch(answers_api);
+    let resp = await req.json();
+    var answersArr = resp.items.slice(0, 4);
 
     console.log(answersArr)
 
-    let titles = [];
     let merged = [];
     // Get question title
     answersArr.forEach(async function(answer, index){
         
       var id = answer.question_id;
       let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow`;
-      let resp = await fetch(questions_api);
-      let obj = await resp.json();
-      let title = obj.items[0].title;
+      let req = await fetch(questions_api);
+      let resp = await resp.json();
+      let title = resp.items[0].title;
 
         merged.push({
          ...answersArr[index], 
@@ -45,7 +61,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    get_SO_data();
+    getGitEvents();
+   // get_SO_data();
   }, []);
 
   return (
@@ -74,7 +91,7 @@ const App = () => {
               {selected === "about" ? <About /> : null}
               {selected === "skills" ? <Skills /> : null} 
               {selected === "projects" ? <Projects /> : null}
-           {/*   {selected === "activity" ? <Activity answers={answers} questions={questions} /> : null}  */}
+              {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} /> : null}
             </div>
           </div>
         </div>
