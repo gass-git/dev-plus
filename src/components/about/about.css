@@ -2,13 +2,14 @@
   width: 95%;
   color: rgb(255, 255, 255, 0.8);
   font-family: "press start 2p", sans-serif;
-  margin: 15px auto 0 auto;
+  margin: 20px auto 0 auto;
   /* border: 1px solid white; */
 }
 .about .content {
   padding: 10px;
   width: 95%;
-  height: 130px;
+  line-height: 22px;
+  letter-spacing: 1px;
   font-family: "play", sans-serif;
   color: rgb(255, 255, 255, 0.6);
   margin: 10px auto 5px auto;

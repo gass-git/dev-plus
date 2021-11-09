@@ -13,12 +13,11 @@ const App = () => {
 
   return (
     <div className="main-wrapper">
-       
+      
       {/* -- FIRST ROW -- */}
       <section className="first-row">
         <ScrollDisplay />
       </section>
-      {/* --------------- */}
 
       {/* -- SECOND ROW -- */}
       <section className="second-row">
@@ -29,7 +28,6 @@ const App = () => {
           <BasicInfo />
         </div>
       </section>
-      {/* ------------------ */}
 
       {/* -- THIRD ROW --  */}
       <section className="third-row">
@@ -44,7 +42,6 @@ const App = () => {
           </div>
         </div>
       </section>
-      {/* ---------------- */}
 
     </div>
   );
