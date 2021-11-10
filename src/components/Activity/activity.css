@@ -6,6 +6,7 @@
   /* border: 1px solid white; */
 }
 .activity .content {
+  display: flex;
   padding: 10px;
   font-family: "play", sans-serif;
   width: 95%;
@@ -19,6 +20,22 @@
   padding: 4px 0 4px 0;
   /* border: 1px solid white; */
 }
+.activity .left-side {
+  width: 40%;
+  border: 1px solid white;
+}
+.activity .left-side > div {
+  border: 1px dashed rgb(255, 255, 255, 0.5);
+  padding: 10px 5px 15px 10px;
+  cursor: pointer;
+}
+.activity .right-side {
+  width: 70%;
+  border: 1px solid white;
+}
+.activity .selected {
+  background: rgb(255, 255, 255, 0.1);
+}
 .activity .container {
   margin-top: 10px;
   /* border: 1px solid orange; */
@@ -27,5 +44,20 @@
   display: flex;
   margin-top: 3px;
   height: 30px;
+  cursor: pointer;
   /* border: 1px solid orange; */
+}
+.activity .question {
+  width: 60%;
+  border: 1px solid green;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.activity .date {
+  width: 20%;
+  border: 1px solid orange;
+}
+.activity i {
+  font-size: 30px;
 }

@@ -37,17 +37,15 @@ const App = () => {
     let req = await fetch(answers_api);
     let resp = await req.json();
     var answersArr = resp.items.slice(0, 4);
-
-    console.log(answersArr)
-
     let merged = [];
-    // Get question title
+
+    // Get questions title
     answersArr.forEach(async function(answer, index){
         
       var id = answer.question_id;
       let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow`;
       let req = await fetch(questions_api);
-      let resp = await resp.json();
+      let resp = await req.json();
       let title = resp.items[0].title;
 
         merged.push({
@@ -57,12 +55,12 @@ const App = () => {
       
     }) 
     
-      console.log(merged)
+      setAnswers(merged);
   };
 
   useEffect(() => {
     getGitEvents();
-   // get_SO_data();
+    get_SO_data();
   }, []);
 
   return (
