@@ -10,15 +10,27 @@ import About from './components/about/index';
 import Activity from './components/activity/index';
 
 let answers_api = "https://api.stackexchange.com/2.3/users/14895985/answers?order=desc&sort=activity&site=stackoverflow";
+let SO_user_info_api = "https://api.stackexchange.com/2.3/users/14895985?order=desc&sort=reputation&site=stackoverflow";
 let events_api = "https://api.github.com/users/gass-git/events/public";
 let repos_api = "https://api.github.com/users/gass-git/repos";
 
 const App = () => {
   var [loading, setLoading] = useState(true);
   var [selected, setSelected] = useState('about');
+  var [repData, setRepData] = useState([]);
   var [answers, setAnswers] = useState([]);
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
+
+
+  async function getReputation(){
+    var req = await fetch(SO_user_info_api),
+      resp = await req.json(),
+      reputation = resp.items[0].reputation,
+      repChangeMonth = await resp.items[0].reputation_change_month,
+      newElement = { total: reputation, monthChange: repChangeMonth };
+    setRepData(newElement);
+  };
 
   function showLoading() {
     setTimeout(() => {
@@ -39,7 +51,7 @@ const App = () => {
     setRepos(respArray);
   }
 
-  async function get_SO_data(){
+  async function getAnswers(){
     
     // Get answers data
     let req = await fetch(answers_api);
@@ -68,8 +80,9 @@ const App = () => {
 
   useEffect(() => {
     showLoading();
+    getReputation();
     getRepos();
-    get_SO_data();
+    getAnswers();
     getGitEvents();
   }, []);
 
@@ -92,10 +105,13 @@ const App = () => {
         {/* -- SECOND ROW -- */}
         <section className="second-row">
           <div className="left-side">
-            <MainMenu selected={selected} setSelected={setSelected}/>
+            <MainMenu 
+              selected={selected} 
+              setSelected={setSelected}
+            />
           </div>
           <div className="right-side">
-            <BasicInfo />
+            <BasicInfo repData={repData}/>
           </div>
         </section>
 
