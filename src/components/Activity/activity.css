@@ -21,42 +21,50 @@
   /* border: 1px solid white; */
 }
 .activity .left-side {
-  width: 40%;
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 .activity .left-side > div {
   border: 1px dashed rgb(255, 255, 255, 0.5);
   padding: 10px 5px 15px 10px;
+  min-width: 250px;
   cursor: pointer;
 }
 .activity .right-side {
-  width: 70%;
-  border: 1px solid white;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* border: 1px solid white; */
 }
 .activity .selected {
   background: rgb(255, 255, 255, 0.1);
 }
 .activity .container {
-  margin-top: 10px;
   /* border: 1px solid orange; */
 }
-.activity .container > .block {
+.activity .block {
   display: flex;
-  margin-top: 3px;
+  margin-top: 0px;
   height: 30px;
   cursor: pointer;
+  padding-right: 10px;
   /* border: 1px solid orange; */
 }
 .activity .question {
-  width: 60%;
-  border: 1px solid green;
+  width: 35%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  /* border: 1px solid green; */
 }
 .activity .date {
-  width: 20%;
-  border: 1px solid orange;
+  width: 120px;
+  /* border: 1px solid orange; */
+}
+.activity .commit {
+  width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* border: 1px solid green; */
 }
 .activity i {
   font-size: 30px;

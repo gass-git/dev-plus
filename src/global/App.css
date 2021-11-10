@@ -1,4 +1,7 @@
-.main-wrapper {
+.hide-page {
+  display: none;
+}
+.show-page {
   margin: 50px auto 30px auto;
   width: 800px;
   /*border: 1px solid black;*/

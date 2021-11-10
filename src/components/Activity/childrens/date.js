@@ -3,26 +3,13 @@ import { Fragment } from "react";
 
 const Date = ({ entry }) => {
   var x = new window.Date(entry * 1000),
-  months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
-  ],
-  year = x.getFullYear(), month = months[x.getMonth()], 
+  year = x.getFullYear(), month = x.getMonth() + 1, 
   day = x.getDate();
   
   if(day < 10) { day = "0" + day }
+  if(month < 10) { month = "0" + month }
 
-  var convertedDate = month + " " + day + " " + year;
+  var convertedDate = year + "-" + month + "-" + day;
   return <Fragment>{convertedDate}</Fragment>;
 };
 

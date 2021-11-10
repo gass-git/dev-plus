@@ -1,5 +1,6 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect, Fragment } from 'react';
 import './global/App.css';
+import './global/loader.css';
 import ScrollDisplay from './components/scrollDisplay/index';
 import MainMenu from './components/mainMenu/index';
 import BasicInfo from './components/basicInfo/index';
@@ -13,10 +14,17 @@ let events_api = "https://api.github.com/users/gass-git/events/public";
 let repos_api = "https://api.github.com/users/gass-git/repos";
 
 const App = () => {
+  var [loading, setLoading] = useState(true);
   var [selected, setSelected] = useState('about');
   var [answers, setAnswers] = useState([]);
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
+
+  function showLoading() {
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000);
+  }
 
   async function getGitEvents() {
     var req = await fetch(events_api), 
@@ -59,43 +67,54 @@ const App = () => {
   };
 
   useEffect(() => {
-    getGitEvents();
+    showLoading();
+    getRepos();
     get_SO_data();
+    getGitEvents();
   }, []);
 
-  return (
-    <div className="main-wrapper">
-      
-      {/* -- FIRST ROW -- */}
-      {/*<section className="first-row">
-        <ScrollDisplay />
-      </section>
+  return [
+    <Fragment>
+      {/* -- SPINNER -- */}
+      <div className={loading ? "loader" : "no-loader"}>
+          Loading...
+      </div>
 
-      {/* -- SECOND ROW -- */}
-      <section className="second-row">
-        <div className="left-side">
-          <MainMenu selected={selected} setSelected={setSelected}/>
-        </div>
-        <div className="right-side">
-          <BasicInfo />
-        </div>
-      </section>
+      <div className={loading ? "hide-page" : "show-page"}>
+        
+        {/* -- FIRST ROW -- */}
+         
+        <section className="first-row">
+          <ScrollDisplay />
+        </section>
+       
 
-      {/* -- THIRD ROW --  */}
-      <section className="third-row">
-        <div className="content-display">
-          <div className="border-img">
-            <div className="inner-container">
-              {selected === "about" ? <About /> : null}
-              {selected === "skills" ? <Skills /> : null} 
-              {selected === "projects" ? <Projects /> : null}
-              {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} /> : null}
+        {/* -- SECOND ROW -- */}
+        <section className="second-row">
+          <div className="left-side">
+            <MainMenu selected={selected} setSelected={setSelected}/>
+          </div>
+          <div className="right-side">
+            <BasicInfo />
+          </div>
+        </section>
+
+        {/* -- THIRD ROW --  */}
+        <section className="third-row">
+          <div className="content-display">
+            <div className="border-img">
+              <div className="inner-container">
+                {selected === "about" ? <About /> : null}
+                {selected === "skills" ? <Skills /> : null} 
+                {selected === "projects" ? <Projects /> : null}
+                {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} /> : null}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-  );
+        </section>
+      </div>
+    </Fragment>
+  ]
 }
 
 export default App;
