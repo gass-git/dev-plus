@@ -14,32 +14,29 @@
   margin: 10px auto 5px auto;
   color: rgb(255, 255, 255, 0.7);
   /* background: rgb(84, 65, 121, 0.5); */
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 .projects .left-side {
   padding: 10px;
   width: 30%;
-  border: 1px solid orange;
-}
-.projects .left-side i {
-  font-size: 30px;
-}
-.projects .left-side > div {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-  color: white;
-  margin-top: 3px;
-  padding: 5px;
+  border-right: 1px solid orange;
 }
 .projects .right-side {
-  width: 70%;
-  border: 1px solid blue;
+  margin-left: 15px;
+  width: 60%;
+  /* border: 1px solid blue; */
 }
 .projects .right-side .about {
   width: 95%;
-  border: 1px solid green;
+  margin-bottom: 10px;
+  /* border: 1px solid green; */
+}
+.projects .right-side .link {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 10px;
+  /* border: 1px solid white; */
 }
 .projects .right-side .tags-wrapper {
 }
@@ -50,15 +47,19 @@
   border-radius: 5px;
   background: rgb(84, 65, 121, 0.5);
 }
-.projects .right-side .link {
-  border: 1px solid white;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 .projects .right-side .link a {
   text-decoration: none !important;
   color: lightblue;
+}
+.projects .left-side .name {
+  overflow: hidden;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  color: white;
+  margin-top: 3px;
+  padding: 5px;
 }
 .projects .selected {
   background: rgb(84, 65, 121, 0.5);
@@ -66,4 +67,26 @@
 }
 .projects .not-selected:hover {
   background: rgb(84, 65, 121, 0.2);
+}
+.projects .top-arrow-box {
+  height: 25px;
+  text-align: center;
+  /* border: 1px solid white; */
+}
+.projects .top-arrow-box i {
+  font-size: 25px;
+  margin-top: 5px;
+  cursor: pointer;
+  /* border: 1px solid white; */
+}
+.projects .bottom-arrow-box {
+  height: 25px;
+  text-align: center;
+  /* border: 1px solid white; */
+}
+.projects .bottom-arrow-box i {
+  font-size: 25px;
+  margin-top: -15px;
+  cursor: pointer;
+  /* border: 1px solid white; */
 }

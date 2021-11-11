@@ -14,20 +14,20 @@ const Projects = ({repos}) => {
     <Fragment>
       <div className="about">
               {repos[current].about}
+      </div>
+      <div className="link">
+        <a href={repos[current].url} target="_blank">
+        <i class="fas fa-link"></i> {repos[current].url}
+        </a>
+      </div>
+      <div className="tags-wrapper">
+        {repos[current].topics.map((topic)=>{
+          return [
+            <div className="tag">
+              {topic}
             </div>
-            <div className="link">
-              <a href={repos[current].url} target="_blank">
-              <i class="fas fa-link"></i> {repos[current].url}
-              </a>
-            </div>
-            <div className="tags">
-              {repos[current].topics.map((topic)=>{
-                return [
-                  <div className="tag">
-                    {topic}
-                  </div>
-                ];
-              })}
+          ];
+        })}
       </div>
     </Fragment>];
   }
@@ -61,7 +61,7 @@ const Projects = ({repos}) => {
         </div>
         <div className="content">
             <div className="left-side">
-              <div>
+              <div className="top-arrow-box">
                 <i 
                   class={currentSection > 1 ? "fas fa-sort-up" : null}
                   onClick={() => showPreviews()}
@@ -70,8 +70,8 @@ const Projects = ({repos}) => {
             {
               indexes.map((i) => {
                 return[
-                  <div 
-              className={current === i ? "selected" : "not-selected"}
+                  <div
+              className={current === i ? "name selected" : "name not-selected"}
               onClick={() => select(i)}
             >
               {repos[i].name}
@@ -79,8 +79,8 @@ const Projects = ({repos}) => {
                 ]
               })
             }
-            <div>
-              More <i 
+            <div className="bottom-arrow-box">
+               <i 
                 class={currentSection === totalSections ? null : "fas fa-sort-down"}
                 onClick={() => showNext()}
               />
