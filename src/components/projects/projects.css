@@ -6,11 +6,64 @@
   /* border: 1px solid white; */
 }
 .projects .content {
+  display: flex;
   padding: 10px;
   font-family: "play", sans-serif;
   width: 95%;
-  height: 130px;
+  height: 180px;
   margin: 10px auto 5px auto;
-  /* background: rgb(84, 65, 121, 0.5); */
   color: rgb(255, 255, 255, 0.7);
+  /* background: rgb(84, 65, 121, 0.5); */
+  border: 1px solid white;
+}
+.projects .left-side {
+  padding: 10px;
+  width: 30%;
+  border: 1px solid orange;
+}
+.projects .left-side i {
+  font-size: 30px;
+}
+.projects .left-side > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  color: white;
+  margin-top: 3px;
+  padding: 5px;
+}
+.projects .right-side {
+  width: 70%;
+  border: 1px solid blue;
+}
+.projects .right-side .about {
+  width: 95%;
+  border: 1px solid green;
+}
+.projects .right-side .tags-wrapper {
+}
+.projects .right-side .tag {
+  display: inline-block;
+  margin: 5px;
+  padding: 3px;
+  border-radius: 5px;
+  background: rgb(84, 65, 121, 0.5);
+}
+.projects .right-side .link {
+  border: 1px solid white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.projects .right-side .link a {
+  text-decoration: none !important;
+  color: lightblue;
+}
+.projects .selected {
+  background: rgb(84, 65, 121, 0.5);
+  color: rgb(255, 255, 255, 0.8) !important;
+}
+.projects .not-selected:hover {
+  background: rgb(84, 65, 121, 0.2);
 }

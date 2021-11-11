@@ -1,7 +1,7 @@
 import React from "react";
 import './basicInfo.css';
 
-const BasicInfo = ({repData}) => {
+const BasicInfo = ({reputation}) => {
   return (
   <section className="basic-info">
     <div className="border-img">
@@ -38,9 +38,9 @@ const BasicInfo = ({repData}) => {
           <div>
             <label>SO Points</label>
             <data>
-              {repData.total} &nbsp;
+              {reputation.total} &nbsp;
               <i class="fas fa-arrow-up" /> 
-              <span>{repData.monthChange}</span>
+              <span>{reputation.monthChange}</span>
             </data>
           </div>
         </div>

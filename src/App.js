@@ -17,7 +17,7 @@ let repos_api = "https://api.github.com/users/gass-git/repos";
 const App = () => {
   var [loading, setLoading] = useState(true);
   var [selected, setSelected] = useState('about');
-  var [repData, setRepData] = useState([]);
+  var [reputation, setReputation] = useState([]);
   var [answers, setAnswers] = useState([]);
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
@@ -29,7 +29,7 @@ const App = () => {
       reputation = resp.items[0].reputation,
       repChangeMonth = await resp.items[0].reputation_change_month,
       newElement = { total: reputation, monthChange: repChangeMonth };
-    setRepData(newElement);
+    setReputation(newElement);
   };
 
   function showLoading() {
@@ -47,43 +47,51 @@ const App = () => {
 
   async function getRepos() {
     var req = await fetch(repos_api),
-      respArray = await req.json();
-    setRepos(respArray);
+      respArray = await req.json(),
+      newArray = [], 
+      newObj = null;
+
+    respArray.forEach((repo)=>{
+      newObj = {
+        'name' : repo.name, 
+        'about' : repo.description, 
+        'url' : repo.homepage,
+        'topics' : repo.topics
+      };
+      newArray.push(newObj);
+    });
+    setRepos(newArray);
   }
 
   async function getAnswers(){
-    
     // Get answers data
-    let req = await fetch(answers_api);
-    let resp = await req.json();
-    var answersArr = resp.items.slice(0, 4);
-    let merged = [];
+    let req = await fetch(answers_api),
+      resp = await req.json(),
+      answersArr = resp.items.slice(0, 4),
+      merged = [];
 
     // Get questions title
     answersArr.forEach(async function(answer, index){
-        
       var id = answer.question_id;
       let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow`;
-      let req = await fetch(questions_api);
-      let resp = await req.json();
-      let title = resp.items[0].title;
+      let req = await fetch(questions_api),
+       resp = await req.json(),
+       title = resp.items[0].title;
 
         merged.push({
          ...answersArr[index], 
          ...{'title' : title}
         });
-      
-    }) 
-    
-      setAnswers(merged);
+    })
+    setAnswers(merged);
   };
 
   useEffect(() => {
-    showLoading();
-    getReputation();
-    getRepos();
-    getAnswers();
-    getGitEvents();
+       showLoading();
+    // getReputation();
+       getRepos();
+    // getAnswers();
+    // getGitEvents();
   }, []);
 
   return [
@@ -111,7 +119,7 @@ const App = () => {
             />
           </div>
           <div className="right-side">
-            <BasicInfo repData={repData}/>
+            <BasicInfo reputation={reputation}/>
           </div>
         </section>
 
@@ -122,7 +130,7 @@ const App = () => {
               <div className="inner-container">
                 {selected === "about" ? <About /> : null}
                 {selected === "skills" ? <Skills /> : null} 
-                {selected === "projects" ? <Projects /> : null}
+                {selected === "projects" ? <Projects repos={repos} /> : null}
                 {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} /> : null}
               </div>
             </div>
