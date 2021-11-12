@@ -39,7 +39,7 @@ const App = () => {
     });
 
     let sortedArr = newArray.sort((a, b) => {return b.id - a.id});
-    console.log(sortedArr)
+    setPosts(sortedArr);
   }
 
   async function getReputation(){
@@ -114,10 +114,10 @@ const App = () => {
   useEffect(() => {
        showLoading();
     getWritings();
-       // getReputation();
-    //   getRepos();
-    // getAnswers();
-    // getGitEvents();
+       getReputation();
+      getRepos();
+     getAnswers();
+     getGitEvents();
   }, []);
 
   return [
@@ -157,7 +157,7 @@ const App = () => {
                 {selected === "about" ? <About /> : null}
                 {selected === "skills" ? <Skills /> : null} 
                 {selected === "projects" ? <Projects repos={repos} /> : null}
-                {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} /> : null}
+                {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} posts={posts} /> : null}
               </div>
             </div>
           </div>

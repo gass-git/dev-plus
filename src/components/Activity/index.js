@@ -2,7 +2,7 @@ import React, {Fragment, useState} from "react";
 import './activity.css';
 import Date from './childrens/date';
 
-const Activity = ({answers, gitEvents}) => {
+const Activity = ({answers, gitEvents, posts}) => {
   var [current, setCurrent] = useState('stackoverflow');
   var space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
 
@@ -17,7 +17,19 @@ const Activity = ({answers, gitEvents}) => {
             RECENT WRITINGS
           </div>
         <div className="container">
-          EMPTY
+          {
+            posts.map((post) => {
+              let postURL = `https://blog.gass.dev/post=${post.id}+no_scroll`;
+              let date = post.created_at;
+              date = date.slice(0,10);
+
+              return [
+              <a href={postURL} className="block" target="_blank">
+               {date} {space} {post.title}
+              </a>
+              ]
+            })
+          }
         </div> 
       </Fragment>
     ]
