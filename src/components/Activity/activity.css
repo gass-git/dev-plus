@@ -78,3 +78,10 @@
   white-space: nowrap;
   /* border: 1px solid green; */
 }
+.activity .post-title {
+  width: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* border: 1px solid green; */
+}

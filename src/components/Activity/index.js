@@ -25,7 +25,12 @@ const Activity = ({answers, gitEvents, posts}) => {
 
               return [
               <a href={postURL} className="block" target="_blank">
-               {date} {space} {post.title}
+               <div className="date">
+                {date}
+               </div> 
+               <div className="post-title">
+                {post.title}
+               </div>
               </a>
               ]
             })

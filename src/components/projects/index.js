@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Fragment } from "react/cjs/react.production.min";
+import { Fragment } from "react";
 import './projects.css';
 
 const Projects = ({repos}) => {
@@ -8,17 +8,36 @@ const Projects = ({repos}) => {
   var totalSections = Math.ceil(totalRepos/3);
   var [currentSection, setCurrentSection] = useState(1);
   var [indexes, setIndexes] = useState([0,1,2]);
+  var space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
 
   const RepoDetails = () => {
+    let link = repos[current].url;
+    
+    const LinkField = () => {
+      if(link){
+        return [
+          <a href={link} target="_blank">
+            <i class="fas fa-link" />
+             {space} {repos[current].url}
+          </a>
+        ];
+      }else{
+        return [
+          <div>
+            <i class="fas fa-link" />
+              {space} No link available
+          </div>
+        ];
+      }
+    }
+
     return [
     <Fragment>
       <div className="about">
               {repos[current].about}
       </div>
       <div className="link">
-        <a href={repos[current].url} target="_blank">
-        <i class="fas fa-link"></i> {repos[current].url}
-        </a>
+        <LinkField />
       </div>
       <div className="tags-wrapper">
         {repos[current].topics.map((topic)=>{
