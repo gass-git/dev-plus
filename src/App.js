@@ -13,6 +13,7 @@ let answers_api = "https://api.stackexchange.com/2.3/users/14895985/answers?orde
 let SO_user_info_api = "https://api.stackexchange.com/2.3/users/14895985?order=desc&sort=reputation&site=stackoverflow";
 let events_api = "https://api.github.com/users/gass-git/events/public";
 let repos_api = "https://api.github.com/users/gass-git/repos";
+let posts_api = "https://blog.gass.dev/api/posts";
 
 const App = () => {
   var [loading, setLoading] = useState(true);
@@ -21,6 +22,25 @@ const App = () => {
   var [answers, setAnswers] = useState([]);
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
+  var [posts, setPosts] = useState([]);
+
+  async function getWritings(){
+    let req = await fetch(posts_api),
+      resp = await req.json(),
+      newArray = [];
+    
+    resp.forEach((post) => {
+      newArray.push({
+        'id' : post.id,
+        'title' : post.title,
+        'created_at' : post.created_at,
+        'views' : post.views
+      });
+    });
+
+    let sortedArr = newArray.sort((a, b) => {return b.id - a.id});
+    console.log(sortedArr)
+  }
 
   async function getReputation(){
     var req = await fetch(SO_user_info_api),
@@ -93,8 +113,9 @@ const App = () => {
 
   useEffect(() => {
        showLoading();
-    // getReputation();
-       getRepos();
+    getWritings();
+       // getReputation();
+    //   getRepos();
     // getAnswers();
     // getGitEvents();
   }, []);
