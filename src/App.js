@@ -132,7 +132,11 @@ const App = () => {
         {/* -- FIRST ROW -- */}
          
         <section className="first-row">
-          <ScrollDisplay />
+          <ScrollDisplay 
+            gitEvents={gitEvents}
+            answers={answers}
+            posts={posts}
+          />
         </section>
        
 

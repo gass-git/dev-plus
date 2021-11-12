@@ -38,8 +38,8 @@ const BasicInfo = ({reputation}) => {
           <div>
             <label>SO Points</label>
             <data>
-              {reputation.total} &nbsp;
-              <i class="fas fa-arrow-up" /> 
+              {reputation.total} &nbsp;&nbsp;
+              <i class="fas fa-arrow-up" />&nbsp;
               <span>{reputation.monthChange}</span>
             </data>
           </div>

@@ -16,25 +16,46 @@ const MainMenu = ({selected, setSelected}) => {
           className={selected === 'about' ? 'selected' : "not-selected"} 
           onClick={() => select('about')}
           >
-           📜 About
+            <div className="icon">
+              📜 
+            </div>
+            <div className="label">
+              About
+            </div>
           </div>
           <div 
           className={selected === 'skills' ? 'selected' : "not-selected"} 
           onClick={() => select('skills')}
           >
-           🏹 Skills
+            <div className="icon">
+              🏹 
+            </div>
+            <div className="label">
+              Skills
+            </div>
           </div>
           <div 
           className={selected === 'projects' ? 'selected' : "not-selected"} 
           onClick={() => select('projects')}
           >
-            🧪 Projects
+            <div className="icon">
+              🧪
+            </div>
+            <div className="label">
+              Projects
+            </div>
+             
           </div>
           <div 
           className={selected === 'activity' ? 'selected' : "not-selected"} 
           onClick={() => select('activity')}
           >
-           🌍 Activity
+            <div className="icon">
+              🌍 
+            </div>
+            <div className="label">
+              Activity
+            </div>
           </div>
         </div>
       </div>

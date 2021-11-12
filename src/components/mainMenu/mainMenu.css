@@ -30,10 +30,25 @@
   text-align: center;
   cursor: pointer;
 }
+.main-menu .menu-wrapper .not-selected {
+  display: flex;
+}
 .main-menu .menu-wrapper .not-selected:hover {
   background: rgb(84, 65, 121, 0.2);
 }
-.main-menu .selected {
+.main-menu .menu-wrapper .selected {
+  display: flex;
   background: rgb(84, 65, 121, 0.5);
   color: rgb(255, 255, 255, 0.8) !important;
+}
+.main-menu .icon {
+  margin-left: 10%;
+  width: 30%;
+  text-align: center;
+  /* border: 1px solid white; */
+}
+.main-menu .label {
+  width: 45%;
+  text-align: left;
+  /* border: 1px solid white; */
 }
