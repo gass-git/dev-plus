@@ -22,7 +22,6 @@ const App = () => {
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
 
-
   async function getReputation(){
     var req = await fetch(SO_user_info_api),
       resp = await req.json(),
@@ -56,11 +55,17 @@ const App = () => {
         'name' : repo.name, 
         'about' : repo.description, 
         'url' : repo.homepage,
-        'topics' : repo.topics
+        'topics' : repo.topics,
+        'created_at' : repo.created_at
       };
       newArray.push(newObj);
     });
-    setRepos(newArray);
+    // Remove repos with about section empty
+    let filteredArr = newArray.filter((repo) => { return repo.about != null ? true : false });
+    
+    // Sort array from old to new 
+    let sortedArr = filteredArr.sort((a,b) =>  new Date(a.created_at) - new Date(b.created_at));
+    setRepos(sortedArr);
   }
 
   async function getAnswers(){

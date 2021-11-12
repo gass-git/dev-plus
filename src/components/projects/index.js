@@ -43,6 +43,7 @@ const Projects = ({repos}) => {
     newIndexes = [firstIndex, secondIndex, thirdIndex];
     setIndexes(newIndexes);
     setCurrentSection(currentSection - 1);
+    setCurrent(firstIndex);
   }
 
   function showNext(){
@@ -52,6 +53,7 @@ const Projects = ({repos}) => {
     newIndexes = [firstIndex, secondIndex, thirdIndex];
     setIndexes(newIndexes);
     setCurrentSection(currentSection + 1);
+    setCurrent(firstIndex);
   }
 
   return (
@@ -74,7 +76,7 @@ const Projects = ({repos}) => {
               className={current === i ? "name selected" : "name not-selected"}
               onClick={() => select(i)}
             >
-              {repos[i].name}
+              {repos[i] ?repos[i].name : null}
             </div>
                 ]
               })
