@@ -1,7 +1,8 @@
 import React from "react";
 import './skills.css';
+import GlitchTitle from "./glitchTitle/index";
 
-const Skills = () => {
+const Skills = ({glitch}) => {
 
   const Skill = ({lang, label, score}) => {
     return (
@@ -23,9 +24,7 @@ const Skills = () => {
 
   return(
       <section className="skills">
-      <div className="title">
-        Skills
-      </div>
+      <GlitchTitle entry="Skills" glitch={glitch}/>
       <div className="content">
         <div className="left-side">
           <div className="sub-title">

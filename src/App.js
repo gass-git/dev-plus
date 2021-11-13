@@ -23,6 +23,8 @@ const App = () => {
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
   var [posts, setPosts] = useState([]);
+  var [intervalTime, setIntervalTime] = useState(4000);
+  var [glitch, setGlitch] = useState(false);
 
   async function getWritings(){
     let req = await fetch(posts_api),
@@ -113,12 +115,25 @@ const App = () => {
 
   useEffect(() => {
     showLoading();
-    getWritings();
-    getReputation();
-    getRepos();
-    getAnswers();
-    getGitEvents();
+   // getWritings();
+   // getReputation();
+   // getRepos();
+   // getAnswers();
+   // getGitEvents();
   }, []);
+
+  useEffect(() => {
+    
+    var interval = setInterval(() => {
+    
+      setGlitch(!glitch);
+      
+      var random = 4000 + Math.random()*5000;
+      setIntervalTime(random)
+      console.log(random)
+    }, intervalTime);
+    return () => clearInterval(interval);
+  });
 
   return [
     <Fragment>
@@ -158,8 +173,8 @@ const App = () => {
           <div className="content-display">
             <div className="border-img">
               <div className="inner-container">
-                {selected === "about" ? <About /> : null}
-                {selected === "skills" ? <Skills /> : null} 
+                {selected === "about" ? <About glitch={glitch}/> : null}
+                {selected === "skills" ? <Skills glitch={glitch}/> : null} 
                 {selected === "projects" ? <Projects repos={repos} /> : null}
                 {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} posts={posts} /> : null}
               </div>

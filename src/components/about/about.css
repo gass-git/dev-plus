@@ -1,12 +1,4 @@
-.about .title {
-  width: 95%;
-  color: rgb(255, 255, 255, 0.8);
-  font-family: "press start 2p", sans-serif;
-  margin: 20px auto 0 auto;
-  /* border: 1px solid white; */
-}
 .about .content {
-  padding: 10px;
   width: 95%;
   line-height: 22px;
   letter-spacing: 1px;

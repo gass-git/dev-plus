@@ -1,12 +1,11 @@
 import React from "react";
 import './about.css';
+import GlitchTitle from './glitchTitle/index';
 
-const About = () => {
+const About = ({glitch}) => {
     return(
       <section className="about">
-        <div className="title">
-          About
-        </div>
+        <GlitchTitle entry="About" glitch={glitch}/>
         <div className="content">
           Coding is a catalyst for creation, to portray an idea
           into reality and be able to interact with it anywhere
