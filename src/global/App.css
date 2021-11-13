@@ -30,11 +30,11 @@
   border: 33px solid transparent;
   border-image: url("http://localhost:3000/images/border3.png") 33 round;
   width: 734px;
-  height: 230px;
+  height: 250px;
 }
 .third-row .inner-container {
-  height: 286px;
+  height: 306px;
   margin: -28px -30px;
-  background-color: rgb(0, 0, 0, 0.6);
+  background-color: var(--bg1);
   overflow: hidden;
 }

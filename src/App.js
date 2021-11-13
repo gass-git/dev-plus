@@ -115,11 +115,11 @@ const App = () => {
 
   useEffect(() => {
     showLoading();
-   // getWritings();
-   // getReputation();
-   // getRepos();
-   // getAnswers();
-   // getGitEvents();
+    getWritings();
+    getReputation();
+    getRepos();
+     getAnswers();
+     getGitEvents();
   }, []);
 
   useEffect(() => {

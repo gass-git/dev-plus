@@ -10,7 +10,7 @@
 .main-menu .inner-container {
   height: 166px;
   margin: -28px -30px;
-  background-color: rgb(0, 0, 0, 0.6);
+  background-color: var(--bg1);
   overflow: hidden;
   /* border: 1px solid white; */
 }
@@ -22,7 +22,7 @@
 }
 .main-menu .menu-wrapper > div {
   font-family: "Play", sans-serif;
-  color: rgb(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255, 0.8);
   font-size: 18px;
   margin: 4px auto 0px auto;
   width: 94%;
@@ -35,13 +35,13 @@
   border-radius: 2px;
 }
 .main-menu .menu-wrapper .not-selected:hover {
-  background: rgba(70, 38, 54, 0.3);
+  background: var(--color2);
 }
 .main-menu .menu-wrapper .selected {
   display: flex;
-  background: rgba(70, 38, 54, 0.7);
+  background: var(--color1);
   border-radius: 2px;
-  color: #f1be32 !important;
+  color: var(--text-color1);
 }
 .main-menu .icon {
   margin-left: 10%;

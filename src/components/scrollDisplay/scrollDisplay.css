@@ -10,7 +10,7 @@
 .scroll-display .border-img .inner-container {
   height: 56px;
   margin: -28px -30px;
-  background-color: rgb(0, 0, 0, 0.6);
+  background-color: var(--bg1);
   overflow: hidden;
 }
 
