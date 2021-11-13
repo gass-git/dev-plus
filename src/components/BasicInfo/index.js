@@ -16,26 +16,38 @@ const BasicInfo = ({reputation}) => {
           <div className="username">
             GASS
           </div>
-          <div className="class">
-           💾 Developer
+          <div className="sub-username">
+           Developer
           </div>
         </div>
 
         {/* -- INFO -- */}
         <div className="info">
           <div>
+            <div className="icon">
+              <img src="http://localhost:3000/images/metal-icon.png" alt="" />
+            </div>
             <label>Profession</label>
             <data>Engineer</data>
           </div>
           <div>
+            <div className="icon">
+              <img src="http://localhost:3000/images/metal-icon.png" alt="" />
+            </div>
             <label>Started Coding</label>
             <data>2004</data>
           </div>
           <div>
+            <div className="icon">
+              <img src="http://localhost:3000/images/metal-icon.png" alt="" />
+            </div>
             <label>Turned Pro</label>
             <data>2020</data>
           </div>
           <div>
+            <div className="icon">
+              <img src="http://localhost:3000/images/metal-icon.png" alt="" />
+            </div>
             <label>SO Points</label>
             <data>
               {reputation.total} &nbsp;&nbsp;

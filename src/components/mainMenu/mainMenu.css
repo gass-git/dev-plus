@@ -4,42 +4,44 @@
   padding: 0px;
   border-image: url("http://localhost:3000/images/border2.png") 33 round;
   width: 130px;
-  height: 102px;
+  height: 110px;
   z-index: 99;
 }
 .main-menu .inner-container {
-  height: 158px;
+  height: 166px;
   margin: -28px -30px;
   background-color: rgb(0, 0, 0, 0.7);
   overflow: hidden;
   /* border: 1px solid white; */
 }
 .main-menu .menu-wrapper {
-  padding-top: 10px;
+  padding-top: 5px;
   height: 100%;
   width: 100%;
   /* border: 1px solid orange; */
 }
 .main-menu .menu-wrapper > div {
   font-family: "Play", sans-serif;
-  color: rgb(255, 255, 255, 0.6);
+  color: rgb(255, 255, 255, 0.9);
   font-size: 18px;
-  margin: 2px auto 0px auto;
+  margin: 4px auto 0px auto;
   width: 94%;
-  padding: 4px 0 4px 0;
+  padding: 5px 0 5px 0;
   text-align: center;
   cursor: pointer;
 }
 .main-menu .menu-wrapper .not-selected {
   display: flex;
+  border-radius: 2px;
 }
 .main-menu .menu-wrapper .not-selected:hover {
-  background: rgb(84, 65, 121, 0.2);
+  background: rgba(70, 38, 54, 0.3);
 }
 .main-menu .menu-wrapper .selected {
   display: flex;
-  background: rgb(84, 65, 121, 0.5);
-  color: rgb(255, 255, 255, 0.8) !important;
+  background: rgba(70, 38, 54, 0.7);
+  border-radius: 2px;
+  color: #f1be32 !important;
 }
 .main-menu .icon {
   margin-left: 10%;
@@ -49,6 +51,7 @@
 }
 .main-menu .label {
   width: 45%;
+  margin-top: 2px;
   text-align: left;
   /* border: 1px solid white; */
 }

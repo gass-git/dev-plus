@@ -112,12 +112,12 @@ const App = () => {
   };
 
   useEffect(() => {
-       showLoading();
+    showLoading();
     getWritings();
-       getReputation();
-      getRepos();
-     getAnswers();
-     getGitEvents();
+    getReputation();
+    getRepos();
+    getAnswers();
+    getGitEvents();
   }, []);
 
   return [
