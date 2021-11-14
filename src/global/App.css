@@ -35,6 +35,6 @@
 .third-row .inner-container {
   height: 306px;
   margin: -28px -30px;
-  background-color: var(--bg1);
+  background: var(--bg1);
   overflow: hidden;
 }

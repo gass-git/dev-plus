@@ -77,9 +77,7 @@ const Projects = ({repos}) => {
 
   return (
       <section className="projects">
-        <div className="title">
-          Projects
-        </div>
+     
         <div className="content">
             <div className="left-side">
               <div className="top-arrow-box">

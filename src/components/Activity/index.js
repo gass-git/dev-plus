@@ -101,9 +101,7 @@ const Activity = ({answers, gitEvents, posts}) => {
 
   return (
     <section className="activity">
-      <div className="title">
-        Activity
-      </div>
+      
       <div className="content">
         
         {/* -- LEFT SIDE -- */}
