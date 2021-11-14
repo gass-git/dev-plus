@@ -10,7 +10,7 @@
 .scroll-display .border-img .inner-container {
   height: 56px;
   margin: -28px -30px;
-  background-image: linear-gradient(rgba(46, 46, 46, 0.4), var(--bg1));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), var(--bg1));
   overflow: hidden;
 }
 
