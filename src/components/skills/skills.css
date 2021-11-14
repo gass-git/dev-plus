@@ -1,16 +1,16 @@
 .skills .sub-title {
   font-family: "play", sans-serif;
-  padding: 4px 0 4px 0;
+  padding: 4px 0 10px 0;
   /* border: 1px solid white; */
 }
 .skills .content {
   display: flex;
   font-family: "play", sans-serif;
-  width: 95%;
+  width: 92%;
   height: 130px;
-  margin: 10px auto 5px auto;
+  margin: 25px auto 5px auto;
   /* background: rgb(84, 65, 121, 0.5); */
-  color: rgb(255, 255, 255, 0.7);
+  color: white;
   /* border: 1px solid white; */
 }
 .skills .left-side {
@@ -23,20 +23,23 @@
 }
 .skills .skills-wrapper {
   margin-top: 5px;
+  margin-left: 7px;
   /* border: 1px solid orange; */
 }
 .skills .skills-wrapper > div {
   display: flex;
-  margin-top: 12px;
+  margin-top: 15px;
   height: 30px;
   /* border: 1px solid orange; */
 }
 .skills .badge-wrapper {
+  cursor: pointer;
   height: 30px;
   padding: 5px 5px 0px 5px;
   border-radius: 4px;
-  border: 1px solid rgb(255, 255, 255, 0.6);
-  color: rgb(255, 255, 255, 0.8);
+  background: var(--pink1);
+  border: 1px solid rgb(255, 255, 255, 0.3);
+  color: var(--cloud-color1);
 }
 .skills .details {
   display: flex;
@@ -49,10 +52,65 @@
   width: 80%;
 }
 .skills .score {
-  margin-top: 7px;
+  text-align: center;
+  margin-top: 8px;
   display: inline-block;
-  width: 10%;
+  width: 8%;
 }
 .skills i {
   font-size: 26px;
+}
+/* 
+-- Skills underline
+*/
+.skills .javascript {
+  border-bottom: 1px solid rgb(240, 219, 79);
+}
+.skills .html5 {
+  border-bottom: 1px solid rgb(241, 124, 95);
+}
+.skills .css3 {
+  border-bottom: 1px solid rgb(73, 106, 238);
+}
+.skills .php {
+  border-bottom: 1px solid rgb(137, 147, 190);
+}
+.skills .react {
+  border-bottom: 1px solid rgb(124, 197, 217);
+}
+.skills .laravel {
+  border-bottom: 1px solid rgb(255, 120, 67);
+}
+.skills .jquery {
+  border-bottom: 1px solid rgb(39, 151, 231);
+}
+.skills .bootstrap {
+  border-bottom: 1px solid rgb(178, 140, 235);
+}
+/* 
+-- Skills badge mouse over
+*/
+.skills .javascript-hover {
+  color: rgb(240, 219, 79);
+}
+.skills .html5-hover {
+  color: rgb(241, 124, 95);
+}
+.skills .css3-hover {
+  color: rgb(73, 106, 238);
+}
+.skills .php-hover {
+  color: rgb(137, 147, 190);
+}
+.skills .react-hover {
+  color: rgb(124, 197, 217);
+}
+.skills .laravel-hover {
+  color: rgb(255, 120, 67);
+}
+.skills .jquery-hover {
+  color: rgb(39, 151, 231);
+}
+.skills .bootstrap-hover {
+  color: rgb(178, 140, 235);
 }

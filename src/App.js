@@ -116,7 +116,7 @@ const App = () => {
   useEffect(() => {
     showLoading();
     getWritings();
-  //  getReputation();
+  getReputation();
     getRepos();
    //  getAnswers();
      getGitEvents();

@@ -16,20 +16,31 @@
   overflow: hidden;
 }
 .basic-info .pic-container {
-  min-width: 135px;
-  height: 144px;
+  margin: -2px auto;
+  border: 5px solid transparent;
+  border-image: url("http://localhost:3000/images/avatar-border-16-16.png") 5
+    round;
+  min-width: 137px;
+  height: 137px;
   margin-left: 10px;
   margin-top: 9px;
   background: var(--pink1);
-  overflow: hidden;
-  display: inline-block;
-  border: 2px solid rgb(255, 255, 255, 0.5);
+  /*  background: rgba(250, 161, 200, 0.2);*/
+  border-radius: 4px;
+  /*
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(255, 217, 233, 0.3),
+    var(--pink1)
+  );
+  */
 }
 .basic-info .pic-container img {
-  opacity: 0.8;
+  opacity: 0.9;
+  margin-top: -2px;
   margin-left: -3px;
-  height: 145px;
-  width: 145px;
+  height: 142px;
+  width: 144px;
 }
 
 /* 
