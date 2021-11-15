@@ -1,24 +1,29 @@
 .main-menu .border-img {
   margin: 0 auto;
-  border: 33px solid transparent;
-  padding: 0px;
-  border-image: url("http://localhost:3000/images/border2.png") 33 round;
-  width: 130px;
-  height: 110px;
+  border: 19px solid transparent;
+  border-image: url("http://localhost:3000/images/border-60px.png") 19 round;
+  width: 157px;
+  height: 132px;
   z-index: 99;
 }
 .main-menu .inner-container {
-  height: 166px;
+  height: 157px;
   margin: -28px -30px;
-  background-image: url("http://localhost:3000/images/black-metal-texture-080.png");
-  background-repeat: no-repeat;
-  background-size: auto;
-  /*background-color: var(--bg1);*/
+  margin: -14px -14px 0 -14px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    0deg,
+    rgb(17, 60, 252, 0.6),
+    rgb(17, 60, 252, 0.6) 1px,
+    rgb(25, 52, 152, 0.7) 2px,
+    rgb(25, 52, 152, 0.7) 3px
+  );
   overflow: hidden;
   /* border: 1px solid white; */
+  border: 1px solid rgba(14, 16, 98, 0.4);
 }
 .main-menu .menu-wrapper {
-  padding-top: 5px;
+  padding-top: 1px;
   height: 100%;
   width: 100%;
   /* border: 1px solid orange; */
@@ -26,10 +31,10 @@
 .main-menu .menu-wrapper > div {
   font-family: "Play", sans-serif;
   color: white;
-  font-size: 16px;
-  margin: 8px auto 0px auto;
-  width: 90%;
-  padding: 3px 0 3px 0;
+  font-size: 18px;
+  margin: 3px auto 0px auto;
+  width: 95%;
+  padding: 5px 0 5px 0;
   text-align: center;
   cursor: pointer;
   border: 1px solid transparent;
@@ -44,26 +49,15 @@
 }
 .main-menu .menu-wrapper .selected {
   display: flex;
+  background-color: rgb(255, 255, 255, 0.3);
   /* background: var(--color1); */
-  background-image: url("http://localhost:3000/images/metal-texture-300x100.png");
-  background-repeat: no-repeat;
-  background-size: auto;
-  border-radius: 4px;
-  color: black;
-  font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
-  border: 1px solid rgb(218, 173, 114, 0.8);
+
+  border-radius: 2px;
   /* color: var(--text-color1); */
 }
-.main-menu .icon {
-  margin-left: 10%;
-  width: 30%;
-  text-align: center;
-  /* border: 1px solid white; */
-}
 .main-menu .label {
-  width: 45%;
+  width: 100%;
   margin-top: 2px;
-  text-align: left;
+  text-align: center;
   /* border: 1px solid white; */
 }

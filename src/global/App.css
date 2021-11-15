@@ -11,6 +11,7 @@
 }
 */
 .second-row {
+  margin-top: 3px;
   display: flex;
   /*border: 1px solid white;*/
 }
@@ -26,18 +27,29 @@
   /*border: 1px solid white;*/
 }
 .third-row .border-img {
-  margin: 0 auto;
-  border: 33px solid transparent;
-  border-image: url("http://localhost:3000/images/border3.png") 33 round;
-  width: 734px;
-  height: 210px;
+  margin: 3px auto;
+  border: 19px solid transparent;
+  border-image: url("http://localhost:3000/images/border-60px.png") 19 round;
+  width: 770px;
+  height: 180px;
 }
 .third-row .inner-container {
-  height: 266px;
-  margin: -28px -30px;
-  background-image: url("http://localhost:3000/images/black-metal-texture-080.png");
+  height: 205px;
+  margin: -14px -14px 0 -14px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    0deg,
+    rgb(17, 60, 252, 0.6),
+    rgb(17, 60, 252, 0.6) 1px,
+    rgb(25, 52, 152, 0.7) 2px,
+    rgb(25, 52, 152, 0.7) 3px
+  );
+
+  /* background-image: linear-gradient(rgb(64, 91, 139, 0.6), rgb(3, 16, 64, 0.6));*/
+  /* background-image: url("http://localhost:3000/images/black-metal-texture-050.png");
   background-repeat: no-repeat;
-  background-size: auto;
-  /*background: var(--bg1);*/
+  background-size: auto;*/
+  /*background-color: var(--bg1);*/
   overflow: hidden;
+  border: 1px solid rgba(14, 16, 98, 0.4);
 }

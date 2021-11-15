@@ -37,12 +37,8 @@ const About = ({arrowEffect}) => {
   const ArrowDown = () => {
     return [
       <div className="down-arrow-box">
-            <img src={arrowEffect ? arrow1 : arrow2} 
-            onMouseOver={() => handleMouseOver()}
-            onMouseLeave={() => handleMouseLeave()} 
-            onClick={() => setCurrent(current+1)}
-            />
-          </div>
+        <i class="fas fa-caret-down"></i>
+      </div>
     ];
   }
 
