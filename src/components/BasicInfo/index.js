@@ -8,7 +8,7 @@ const BasicInfo = ({reputation}) => {
       
       <div className="inner-container">
           <div className="pic-container">
-            <img src="http://localhost:3000/images/avatar.png" alt="" />
+            <img src="http://localhost:3000/images/avatar4.png" alt="" />
           </div>
         
         {/* -- AVATAR AND NAME -- */}

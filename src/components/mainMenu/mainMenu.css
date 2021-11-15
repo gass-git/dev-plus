@@ -10,7 +10,10 @@
 .main-menu .inner-container {
   height: 166px;
   margin: -28px -30px;
-  background-color: var(--bg1);
+  background-image: url("http://localhost:3000/images/black-metal-texture-100.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  /*background-color: var(--bg1);*/
   overflow: hidden;
   /* border: 1px solid white; */
 }
@@ -39,9 +42,14 @@
 }
 .main-menu .menu-wrapper .selected {
   display: flex;
-  background: var(--color1);
+  /* background: var(--color1); */
+  background-image: url("http://localhost:3000/images/metal-texture.png");
+  background-repeat: no-repeat;
+  background-size: auto;
   border-radius: 2px;
-  color: var(--text-color1);
+  color: black;
+  font-weight: bold;
+  /* color: var(--text-color1); */
 }
 .main-menu .icon {
   margin-left: 10%;

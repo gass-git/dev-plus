@@ -30,11 +30,14 @@
   border: 33px solid transparent;
   border-image: url("http://localhost:3000/images/border3.png") 33 round;
   width: 734px;
-  height: 250px;
+  height: 240px;
 }
 .third-row .inner-container {
-  height: 306px;
+  height: 296px;
   margin: -28px -30px;
-  background: var(--bg1);
+  background-image: url("http://localhost:3000/images/black-metal-texture-100.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  /*background: var(--bg1);*/
   overflow: hidden;
 }
