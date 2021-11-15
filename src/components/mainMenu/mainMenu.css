@@ -28,27 +28,30 @@
   color: white;
   font-size: 18px;
   margin: 4px auto 0px auto;
-  width: 94%;
-  padding: 5px 0 5px 0;
+  width: 90%;
+  padding: 4px 0 4px 0;
   text-align: center;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 .main-menu .menu-wrapper .not-selected {
   display: flex;
   border-radius: 2px;
 }
 .main-menu .menu-wrapper .not-selected:hover {
-  background: var(--color2);
+  background: rgba(189, 189, 189, 0.2);
+  border: 1px solid rgb(218, 173, 114, 0.2);
 }
 .main-menu .menu-wrapper .selected {
   display: flex;
   /* background: var(--color1); */
-  background-image: url("http://localhost:3000/images/metal-texture.png");
+  background-image: url("http://localhost:3000/images/metal-texture-300x100.png");
   background-repeat: no-repeat;
   background-size: auto;
   border-radius: 2px;
   color: black;
   font-weight: bold;
+  border: 1px solid rgb(218, 173, 114, 1);
   /* color: var(--text-color1); */
 }
 .main-menu .icon {
