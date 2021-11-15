@@ -1,5 +1,6 @@
 .about .highlight {
   border-bottom: 1px solid var(--yellow1);
+  font-style: italic;
 }
 .about .content {
   width: 92%;

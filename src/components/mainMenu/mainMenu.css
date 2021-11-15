@@ -10,7 +10,7 @@
 .main-menu .inner-container {
   height: 166px;
   margin: -28px -30px;
-  background-image: url("http://localhost:3000/images/black-metal-texture-100.png");
+  background-image: url("http://localhost:3000/images/black-metal-texture-080.png");
   background-repeat: no-repeat;
   background-size: auto;
   /*background-color: var(--bg1);*/
@@ -26,17 +26,17 @@
 .main-menu .menu-wrapper > div {
   font-family: "Play", sans-serif;
   color: white;
-  font-size: 18px;
-  margin: 4px auto 0px auto;
+  font-size: 16px;
+  margin: 8px auto 0px auto;
   width: 90%;
-  padding: 4px 0 4px 0;
+  padding: 3px 0 3px 0;
   text-align: center;
   cursor: pointer;
   border: 1px solid transparent;
 }
 .main-menu .menu-wrapper .not-selected {
   display: flex;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 .main-menu .menu-wrapper .not-selected:hover {
   background: rgba(189, 189, 189, 0.2);
@@ -48,10 +48,11 @@
   background-image: url("http://localhost:3000/images/metal-texture-300x100.png");
   background-repeat: no-repeat;
   background-size: auto;
-  border-radius: 2px;
+  border-radius: 4px;
   color: black;
   font-weight: bold;
-  border: 1px solid rgb(218, 173, 114, 1);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
+  border: 1px solid rgb(218, 173, 114, 0.8);
   /* color: var(--text-color1); */
 }
 .main-menu .icon {

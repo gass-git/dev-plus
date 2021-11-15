@@ -37,9 +37,18 @@
   height: 30px;
   padding: 5px 5px 0px 5px;
   border-radius: 4px;
-  background: var(--pink1);
-  border: 1px solid rgb(255, 255, 255, 0.3);
-  color: var(--cloud-color1);
+  background-image: url("http://localhost:3000/images/metal-texture-300x100.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  /*background: var(--pink1);*/
+  /*border: 1px solid rgb(255, 255, 255, 0.3);*/
+  color: rgb(29, 29, 29);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.skills .badge-wrapper:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .skills .details {
   display: flex;
@@ -89,7 +98,7 @@
 }
 /* 
 -- Skills badge mouse over
-*/
+*/ /*
 .skills .javascript-hover {
   color: rgb(240, 219, 79);
 }
@@ -114,3 +123,4 @@
 .skills .bootstrap-hover {
   color: rgb(178, 140, 235);
 }
+*/
