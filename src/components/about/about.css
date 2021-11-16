@@ -1,14 +1,14 @@
 .about .highlight {
-  border-bottom: 1px solid var(--yellow1);
+  border-bottom: 1px solid rgb(255, 255, 255, 0.4);
   font-style: italic;
 }
 .about .content {
   width: 92%;
   text-align: justify;
-  line-height: 25px;
+  line-height: 30px;
   letter-spacing: 1px;
   font-family: "play", sans-serif;
-  font-size: 16px;
+  font-size: 17px;
   color: white;
   margin: 25px auto 5px auto;
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
@@ -27,4 +27,22 @@
   color: rgb(255, 255, 255, 0.9);
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
+  animation: flicker 1500ms infinite;
+}
+.about .down-arrow-box i:hover {
+  animation: none;
+}
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }

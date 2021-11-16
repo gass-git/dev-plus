@@ -7,7 +7,7 @@
   --green1: rgb(54, 182, 31);
 }
 body {
-  background-image: url("http://localhost:3000/images/pixel-bg-5.jpg");
+  background-image: url("http://localhost:3000/images/pixel-bg-2.jpg");
   background-attachment: fixed;
   background-size: cover;
   margin: 0;

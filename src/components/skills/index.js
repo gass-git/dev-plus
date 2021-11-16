@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import './skills.css';
-import GlitchTitle from "./glitchTitle/index";
 
 const Skills = () => {
 

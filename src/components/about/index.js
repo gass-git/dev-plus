@@ -1,10 +1,7 @@
 import React, {Fragment, useState} from "react";
 import './about.css';
-import GlitchTitle from './glitchTitle/index';
 
 const About = ({arrowEffect}) => {
-  var [arrow1, setArrow1] = useState("http://localhost:3000/images/down-arrow.png");
-  var arrow2 = "http://localhost:3000/images/down-arrow-yellow-border.png";
   var [current, setCurrent] = useState(0);
   var text = [
     <Fragment>
@@ -26,18 +23,10 @@ const About = ({arrowEffect}) => {
     </Fragment>
   ];
 
-  function handleMouseOver(){
-    setArrow1(arrow2);
-  }
-
-  function handleMouseLeave(){
-    setArrow1("http://localhost:3000/images/down-arrow.png");
-  }
-
   const ArrowDown = () => {
     return [
       <div className="down-arrow-box">
-        <i class="fas fa-caret-down"></i>
+        <i class="fas fa-caret-down" onClick={() => setCurrent(current+1)}/>
       </div>
     ];
   }
