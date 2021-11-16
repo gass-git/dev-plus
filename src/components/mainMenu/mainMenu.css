@@ -32,6 +32,8 @@
   font-family: "Play", sans-serif;
   color: white;
   font-size: 18px;
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
+    1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   margin: 3px auto 0px auto;
   width: 95%;
   padding: 5px 0 5px 0;

@@ -7,8 +7,9 @@ const BasicInfo = ({reputation}) => {
     <div className="border-img">
       
       <div className="inner-container">
-          <div className="pic-container">
-            <img src="http://localhost:3000/images/avatar4.png" alt="" />
+          
+          <div className="avatar-wrapper">
+            <img src="http://localhost:3000/images/avatar6.png" alt="" />
           </div>
         
         {/* -- AVATAR AND NAME -- */}
@@ -24,30 +25,18 @@ const BasicInfo = ({reputation}) => {
         {/* -- INFO -- */}
         <div className="info">
           <div>
-            <div className="icon">
-              <img src="http://localhost:3000/images/metal-icon.png" alt="" />
-            </div>
             <label>Profession</label>
             <data>Engineer</data>
           </div>
           <div>
-            <div className="icon">
-              <img src="http://localhost:3000/images/metal-icon.png" alt="" />
-            </div>
             <label>Started Coding</label>
             <data>2004</data>
           </div>
           <div>
-            <div className="icon">
-              <img src="http://localhost:3000/images/metal-icon.png" alt="" />
-            </div>
             <label>Turned Pro</label>
             <data>2020</data>
           </div>
           <div>
-            <div className="icon">
-              <img src="http://localhost:3000/images/metal-icon.png" alt="" />
-            </div>
             <label>SO Points</label>
             <data>
               {reputation.total} &nbsp;&nbsp;

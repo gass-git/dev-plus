@@ -26,33 +26,19 @@
   /*background-color: var(--bg1);*/
   overflow: hidden;
 }
-.basic-info .pic-container {
-  margin: -2px auto;
-  border: 5px solid transparent;
-  border-image: url("http://localhost:3000/images/avatar-border-16-16.png") 5
-    round;
-  min-width: 137px;
-  height: 137px;
-  margin-left: 10px;
-  margin-top: 9px;
-  /*background: var(--pink1);*/
-  /*  background: rgba(250, 161, 200, 0.2);*/
-  border-radius: 4px;
-  /*
-  background-image: linear-gradient(
-    to bottom right,
-    rgba(255, 217, 233, 0.3),
-    var(--pink1)
-  );
-  */
+.basic-info .avatar-wrapper {
+  margin-left: 5px;
+  margin-top: 5px;
+  border-radius: 2px;
+  min-width: 160px;
+  height: 150px;
+  overflow: hidden;
+  background: rgb(255, 255, 255, 0.3);
 }
-.basic-info .pic-container img {
+.basic-info .avatar-wrapper img {
   opacity: 0.9;
-  margin-top: -2px;
-  margin-left: -2px;
-  height: 141px;
-  width: 141px;
-  border-radius: 4px;
+  height: 160px;
+  width: 160px;
 }
 
 /* 
@@ -70,18 +56,23 @@
   margin-left: 10px;
   font-family: "press start 2p", sans-serif;
   color: rgb(255, 255, 255, 1);
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
+    1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
 }
 .basic-info .sub-username {
   margin-left: 10px;
   margin-top: 5px;
   font-family: "play", sans-serif;
-  color: rgb(218, 173, 114);
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
+    1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
+  font-size: 17px;
+  color: white;
 }
 /*
 -- INFO
 */
 .basic-info .info {
-  margin: 8px 13px 10px 10px;
+  margin: 3px 4px 10px 10px;
   width: 75%;
   color: white;
   /* border: 1px solid white; */
@@ -89,15 +80,13 @@
 .basic-info .info > div {
   display: flex;
   font-family: "play", sans-serif;
-  margin-top: 0px;
-  /* background: rgba(70, 38, 54, 0.7); */
-  padding: 10px 0 6px 0;
+  margin-top: 3px;
+  font-size: 17px;
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
+    1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
+  padding: 7px 0 4px 0;
   width: 100%;
-  /* border: 1px solid white; */
-}
-.basic-info .info .icon {
-  margin-top: 2px;
-  margin-left: 10px;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.3);
   /* border: 1px solid white; */
 }
 .basic-info .info label {
@@ -105,7 +94,7 @@
   width: 50%;
   text-align: left;
   margin-left: 7px;
-  color: var(--cloud-color1);
+  color: white;
   /* border: 1px solid white; */
 }
 .basic-info .info data {
