@@ -1,49 +1,53 @@
-.activity .title {
-  width: 95%;
-  color: rgb(255, 255, 255, 0.8);
-  font-family: "press start 2p", sans-serif;
-  margin: 20px auto 0 auto;
-  /* border: 1px solid white; */
-}
 .activity .sub-title {
   font-family: "play", sans-serif;
   padding: 4px 0 15px 10px;
+  color: white;
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
+    1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   /* border: 1px solid white; */
 }
 .activity .content {
   display: flex;
-  padding: 10px;
+  padding: 0px;
   font-family: "play", sans-serif;
-  width: 95%;
-  height: 180px;
-  margin: 10px auto 5px auto;
-  color: rgb(255, 255, 255, 0.7);
-  /* border: 1px solid blue; */
+  width: 100%;
+  margin: 0px auto 0px auto;
+  color: white;
+  /* border: 1px solid green; */
 }
-.activity .left-side {
-  width: 15%;
-  border-right: 1px solid white;
-}
-.activity .left-side > div {
-  padding: 5px 8px 4px 8px;
+.activity .right-side {
+  width: 100px;
   margin-top: 4px;
-  margin-right: 20px;
+  border-left: 1px solid rgb(255, 255, 255, 0.3);
+  /* border-right: 1px solid green; */
+}
+.activity .right-side > div {
+  padding: 8px 8px 8px 8px;
+  margin-left: 6px;
+  margin-right: 1px;
   cursor: pointer;
   font-size: 40px;
   text-align: center;
+  border-radius: 2px;
   /* border: 1px dashed rgb(255, 255, 255, 0.5); */
 }
-.activity .right-side {
+.activity .left-side {
   width: 85%;
   margin-left: 15px;
+  margin-top: 20px;
   /*border: 1px solid white;*/
 }
 .activity .selected {
-  background: rgb(84, 65, 121, 0.5);
+  background: rgb(255, 255, 255, 0.3);
   color: rgb(255, 255, 255, 0.8) !important;
 }
+.activity .not-selected {
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.2), 0 1px rgb(0, 0, 0, 0.2),
+    1px 0 rgb(0, 0, 0, 0.2), 0 -1px rgb(0, 0, 0, 0.2);
+}
 .activity .not-selected:hover {
-  background: rgb(84, 65, 121, 0.2);
+  background: rgb(255, 255, 255, 0.1);
+  text-shadow: none;
 }
 .activity .content .container {
   width: 600px;
@@ -51,14 +55,17 @@
 }
 .activity .block {
   text-decoration: none !important;
-  color: rgb(255, 255, 255, 0.5) !important;
+  color: white !important;
   display: flex;
   padding: 5px 5px 5px 10px;
   cursor: pointer;
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
+    1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
+  border-bottom: 1px solid transparent;
   /* border: 1px solid green; */
 }
 .activity .block:hover {
-  background: rgb(84, 65, 121, 0.5);
+  border-bottom: 1px solid rgb(255, 255, 255, 0.4);
 }
 .activity .question {
   width: 75%;

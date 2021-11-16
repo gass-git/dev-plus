@@ -101,36 +101,37 @@ const Activity = ({answers, gitEvents, posts}) => {
 
   return (
     <section className="activity">
-      
       <div className="content">
         
+        
+
         {/* -- LEFT SIDE -- */}
         <div className="left-side">
-          <div 
+          {current === "stackoverflow" ? <Stackoverflow /> : null}
+          {current === "github" ? <GithubEvents /> : null}
+          {current === "writings" ? <Writings /> : null}
+        </div>
+
+      {/* -- RIGHT SIDE -- */}
+      <div className="right-side">
+          <div style={{ marginTop:"0px" }}
             className={current === "stackoverflow" ? "selected" : "not-selected"}
             onClick={() => select('stackoverflow')}
           >
             <i className="fab fa-stack-overflow" /> 
           </div>
-          <div 
+          <div style={{ marginTop:"4px" }}
             className={current === "github" ? "selected" : "not-selected"}
             onClick={() => select('github')}
           >
             <i className="fab fa-github" />
           </div>
-          <div 
+          <div style={{ marginTop:"4px" }}
             className={current === "writings" ? "selected" : "not-selected"}
             onClick={() => select('writings')}
           >
             <i className="far fa-keyboard" />
           </div>
-        </div>
-
-        {/* -- RIGHT SIDE -- */}
-        <div className="right-side">
-          {current === "stackoverflow" ? <Stackoverflow /> : null}
-          {current === "github" ? <GithubEvents /> : null}
-          {current === "writings" ? <Writings /> : null}
         </div>
 
       </div>

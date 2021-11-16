@@ -116,7 +116,7 @@ const App = () => {
     getWritings();
   // getReputation();
     getRepos();
-   // getAnswers();
+  // getAnswers();
      getGitEvents();
   }, []);
 

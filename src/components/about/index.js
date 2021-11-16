@@ -14,7 +14,7 @@ const About = ({arrowEffect}) => {
     <Fragment>
       My main interest is to <span className="highlight"> enjoy the process and 
       challenges</span> that appear on the coding coast but
-      at the same time make cool things and hopefully <span className="highlight">add value to peoples lifes</span>. 
+      at the same time make cool things and hopefully <span className="highlight">add value to peoples lifes</span>...
     </Fragment>,
     <Fragment>
       This is mainly where I want to be, in the <span className="highlight">world of ideas</span>
