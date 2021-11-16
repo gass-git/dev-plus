@@ -23,9 +23,6 @@ const App = () => {
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
   var [posts, setPosts] = useState([]);
-  var [intervalTime, setIntervalTime] = useState(4000);
-  var [glitch, setGlitch] = useState(false);
-  var [arrowEffect, setArrowEffect] = useState(false);
 
   async function getWritings(){
     let req = await fetch(posts_api),
@@ -123,25 +120,6 @@ const App = () => {
      getGitEvents();
   }, []);
 
-  useEffect(() => {
-    
-    var interval = setInterval(() => {
-      setArrowEffect(!arrowEffect);
-    },1000);
-
-    /* -- INTERVAL FOR GLICTH EFFECT
-    var interval = setInterval(() => {
-    
-      setGlitch(!glitch);
-      
-      var random = 4000 + Math.random()*5000;
-      setIntervalTime(random)
-      console.log(random)
-    }, intervalTime);*/
-
-    return () => clearInterval(interval);
-  });
-
   return [
     <Fragment>
       {/* -- SPINNER -- */}
@@ -180,8 +158,8 @@ const App = () => {
           <div className="content-display">
             <div className="border-img">
               <div className="inner-container">
-                {selected === "about" ? <About arrowEffect={arrowEffect}/> : null}
-                {selected === "skills" ? <Skills glitch={glitch}/> : null} 
+                {selected === "about" ? <About /> : null}
+                {selected === "skills" ? <Skills /> : null} 
                 {selected === "projects" ? <Projects repos={repos} /> : null}
                 {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} posts={posts} /> : null}
               </div>

@@ -44,12 +44,6 @@
     rgb(25, 52, 152, 0.7) 2px,
     rgb(25, 52, 152, 0.7) 3px
   );
-
-  /* background-image: linear-gradient(rgb(64, 91, 139, 0.6), rgb(3, 16, 64, 0.6));*/
-  /* background-image: url("http://localhost:3000/images/black-metal-texture-050.png");
-  background-repeat: no-repeat;
-  background-size: auto;*/
-  /*background-color: var(--bg1);*/
   overflow: hidden;
   border: 1px solid rgba(14, 16, 98, 0.4);
 }
