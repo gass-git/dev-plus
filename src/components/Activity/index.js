@@ -4,10 +4,16 @@ import Date from './childrens/date';
 
 const Activity = ({answers, gitEvents, posts}) => {
   var [current, setCurrent] = useState('stackoverflow');
+  var [floorNumber, setFloorNumber] = useState(3);
   var space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
 
   function select(entry){
     setCurrent(entry);
+    
+    // Elevator floor
+    if(entry === "stackoverflow"){setFloorNumber(3)}
+    else if(entry === "github"){setFloorNumber(2)}
+    else if(entry === "writings"){setFloorNumber(1)}
   }
 
   const Writings = () => {
@@ -103,8 +109,6 @@ const Activity = ({answers, gitEvents, posts}) => {
     <section className="activity">
       <div className="content">
         
-        
-
         {/* -- LEFT SIDE -- */}
         <div className="left-side">
           {current === "stackoverflow" ? <Stackoverflow /> : null}
@@ -114,25 +118,31 @@ const Activity = ({answers, gitEvents, posts}) => {
 
       {/* -- RIGHT SIDE -- */}
       <div className="right-side">
-          <div style={{ marginTop:"0px" }}
-            className={current === "stackoverflow" ? "selected" : "not-selected"}
-            onClick={() => select('stackoverflow')}
-          >
-            <i className="fab fa-stack-overflow" /> 
-          </div>
-          <div style={{ marginTop:"4px" }}
-            className={current === "github" ? "selected" : "not-selected"}
-            onClick={() => select('github')}
-          >
-            <i className="fab fa-github" />
-          </div>
-          <div style={{ marginTop:"4px" }}
-            className={current === "writings" ? "selected" : "not-selected"}
-            onClick={() => select('writings')}
-          >
-            <i className="far fa-keyboard" />
-          </div>
+        
+        <div style={{ marginTop:"0px" }}
+          className={current === "stackoverflow" ? "option selected" : "option not-selected"}
+          onClick={() => select('stackoverflow')}
+        >
+          <i className="fab fa-stack-overflow" /> 
         </div>
+        <div style={{ marginTop:"5px" }}
+          className={current === "github" ? "option selected" : "option not-selected"}
+          onClick={() => select('github')}
+        >
+          <i className="fab fa-github" />
+        </div>
+        <div style={{ marginTop:"6px" }}
+          className={current === "writings" ? "option selected" : "option not-selected"}
+          onClick={() => select('writings')}
+        >
+          <i className="far fa-keyboard" />
+        </div>
+
+        {/* ELEVATOR */}
+        <div className={`elevator floor-${floorNumber}`}>
+        </div>
+
+      </div>
 
       </div>
     </section>

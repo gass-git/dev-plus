@@ -16,15 +16,35 @@
   /* border: 1px solid green; */
 }
 .activity .right-side {
+  position: relative;
   width: 100px;
   margin-top: 4px;
-  border-left: 1px solid rgb(255, 255, 255, 0.3);
+  border-left: 2px solid rgb(255, 255, 255, 0.3);
   /* border-right: 1px solid green; */
 }
-.activity .right-side > div {
+.activity .right-side .elevator {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  height: 61px;
+  width: 2px;
+  border-radius: 50%;
+  background: var(--green1);
+  transition: 400ms;
+}
+.activity .right-side .floor-3 {
+  transform: translateY(0px);
+}
+.activity .right-side .floor-2 {
+  transform: translateY(68px);
+}
+.activity .right-side .floor-1 {
+  transform: translateY(136px);
+}
+.activity .right-side .option {
   padding: 8px 8px 8px 8px;
   margin-left: 6px;
-  margin-right: 1px;
+  margin-right: 3px;
   cursor: pointer;
   font-size: 40px;
   text-align: center;
@@ -39,9 +59,10 @@
 }
 .activity .selected {
   background: rgb(255, 255, 255, 0.3);
-  color: rgb(255, 255, 255, 0.8) !important;
+  color: rgb(255, 255, 255, 1);
 }
 .activity .not-selected {
+  color: rgb(255, 255, 255, 0.8);
   text-shadow: -1px 0 rgb(0, 0, 0, 0.2), 0 1px rgb(0, 0, 0, 0.2),
     1px 0 rgb(0, 0, 0, 0.2), 0 -1px rgb(0, 0, 0, 0.2);
 }

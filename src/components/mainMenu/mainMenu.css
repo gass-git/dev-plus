@@ -46,8 +46,7 @@
   border-radius: 4px;
 }
 .main-menu .menu-wrapper .not-selected:hover {
-  background: rgba(189, 189, 189, 0.2);
-  border: 1px solid rgb(218, 173, 114, 0.2);
+  background: rgba(255, 255, 255, 0.1);
 }
 .main-menu .menu-wrapper .selected {
   display: flex;
