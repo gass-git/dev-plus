@@ -77,37 +77,41 @@ const Projects = ({repos}) => {
 
   return (
       <section className="projects">
-     
         <div className="content">
-            <div className="left-side">
-              <div className="top-arrow-box">
-                <i 
-                  class={currentSection > 1 ? "fas fa-sort-up" : null}
-                  onClick={() => showPreviews()}
-                />
-              </div>
-            {
-              indexes.map((i) => {
-                return[
-                  <div
-              className={current === i ? "name selected" : "name not-selected"}
-              onClick={() => select(i)}
-            >
-              {repos[i] ?repos[i].name : null}
-            </div>
-                ]
-              })
-            }
-            <div className="bottom-arrow-box">
-               <i 
-                class={currentSection === totalSections ? null : "fas fa-sort-down"}
-                onClick={() => showNext()}
-              />
-            </div>
-          </div>
-          <div className="right-side">
+
+          {/* LEFT SIDE */}
+          <div className="left-side">
             <RepoDetails />
           </div>
+
+          {/* RIGHT SIDE */}
+          <div className="right-side">
+            <div className="top-arrow-box">
+              <i 
+                class={currentSection > 1 ? "fas fa-sort-up" : "fas fa-sort-up opacity-05"}
+                onClick={currentSection > 1 ? showPreviews : null}
+              />
+            </div>
+          {
+            indexes.map((i) => {
+              return[
+                <div
+            className={current === i ? "name selected" : "name not-selected"}
+            onClick={() => select(i)}
+          >
+            {repos[i] ?repos[i].name : null}
+          </div>
+              ]
+            })
+          }
+          <div className="bottom-arrow-box">
+              <i 
+              class={currentSection != totalSections ? "fas fa-sort-down" : "fas fa-sort-down opacity-05"}
+              onClick={currentSection != totalSections ? showNext : null }
+            />
+          </div>
+        </div>
+         
         </div>
     </section>
   );

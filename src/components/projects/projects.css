@@ -1,6 +1,6 @@
 .projects .title {
   width: 95%;
-  color: rgb(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255, 1);
   font-family: "press start 2p", sans-serif;
   margin: 20px auto 0 auto;
   font-size: 15px;
@@ -8,69 +8,80 @@
 }
 .projects .content {
   display: flex;
-  padding: 10px;
   font-family: "play", sans-serif;
-  width: 95%;
-  height: 180px;
+  width: 100%;
+  height: 100%;
   margin: 10px auto 5px auto;
-  color: rgb(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255, 1);
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
+    1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   /* background: rgb(84, 65, 121, 0.5); */
   /* border: 1px solid white; */
 }
 .projects .left-side {
-  padding: 10px;
-  width: 30%;
-  border-right: 1px solid orange;
-}
-.projects .right-side {
   margin-left: 15px;
-  width: 60%;
-  /* border: 1px solid blue; */
+  width: 80%;
+  /*border: 1px solid blue;*/
 }
-.projects .right-side .about {
-  width: 95%;
+.projects .left-side .about {
+  margin-top: 20px;
   margin-bottom: 10px;
+  margin-left: 10px;
+  width: 95%;
   /* border: 1px solid green; */
 }
-.projects .right-side .link {
+.projects .left-side .link {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 10px;
+  margin-left: 10px;
+  width: 60%;
   /* border: 1px solid white; */
 }
-.projects .right-side .tags-wrapper {
+.projects .left-side .tags-wrapper {
 }
-.projects .right-side .tag {
+.projects .left-side .tag {
   display: inline-block;
-  margin: 5px;
+  margin: 3px;
   padding: 3px;
   border-radius: 5px;
   background: rgb(84, 65, 121, 0.5);
+  text-shadow: none;
 }
-.projects .right-side .link a {
+.projects .left-side .link a {
   text-decoration: none !important;
   color: lightblue;
 }
-.projects .left-side .name {
+.projects .right-side {
+  height: 180px;
+  width: 25%;
+  border-left: 2px solid rgb(255, 255, 255, 0.3);
+  /*border: 1px solid white;*/
+}
+.projects .right-side .name {
+  margin: 3px 5px 0px 5px;
   overflow: hidden;
+  text-align: center;
+  border-radius: 2px;
   max-width: 200px;
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
   color: white;
-  margin-top: 3px;
-  padding: 5px;
+  font-size: 17px;
+  padding: 10px;
 }
 .projects .selected {
-  background: rgb(84, 65, 121, 0.5);
-  color: rgb(255, 255, 255, 0.8) !important;
+  background: rgb(255, 255, 255, 0.3);
+  color: rgb(255, 255, 255, 1) !important;
 }
 .projects .not-selected:hover {
-  background: rgb(84, 65, 121, 0.2);
+  background: rgb(255, 255, 255, 0.1);
 }
 .projects .top-arrow-box {
   height: 25px;
+  margin-bottom: 0px;
   text-align: center;
   /* border: 1px solid white; */
 }
@@ -81,6 +92,7 @@
   /* border: 1px solid white; */
 }
 .projects .bottom-arrow-box {
+  margin-top: 10px;
   height: 25px;
   text-align: center;
   /* border: 1px solid white; */
@@ -90,4 +102,8 @@
   margin-top: -15px;
   cursor: pointer;
   /* border: 1px solid white; */
+}
+.projects .opacity-05 {
+  opacity: 0.5 !important;
+  cursor: default !important;
 }
