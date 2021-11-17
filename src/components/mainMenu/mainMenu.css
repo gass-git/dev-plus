@@ -20,45 +20,74 @@
   );
   overflow: hidden;
   /* border: 1px solid white; */
-  border: 1px solid rgba(14, 16, 98, 0.4);
+  border: 1px solid rgba(94, 94, 109, 0.4);
 }
 .main-menu .menu-wrapper {
+  position: relative;
   padding-top: 1px;
   height: 100%;
   width: 100%;
-  /* border: 1px solid orange; */
-}
-.main-menu .menu-wrapper > div {
   font-family: "Play", sans-serif;
   color: white;
   font-size: 18px;
+  /* border: 1px solid orange; */
+}
+.main-menu .menu-wrapper .elevator {
+  position: absolute;
+  z-index: 1;
+  border-radius: 2px;
+  top: 4px;
+  left: 3px;
+  width: 175px;
+  height: 33px;
+  background: rgb(255, 255, 255, 0.4);
+  transition: 200ms;
+  border: 1px solid rgba(208, 255, 0, 0.2);
+  animation: main-menu-waver 1500ms infinite;
+}
+.main-menu .menu-wrapper .floor-4 {
+  transform: translateY(0px);
+}
+.main-menu .menu-wrapper .floor-3 {
+  transform: translateY(38px);
+}
+.main-menu .menu-wrapper .floor-2 {
+  transform: translateY(76px);
+}
+.main-menu .menu-wrapper .floor-1 {
+  transform: translateY(114px);
+}
+.main-menu .menu-wrapper .option {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  border-radius: 2px;
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   margin: 3px auto 0px auto;
-  width: 95%;
+  width: 175px;
   padding: 5px 0 5px 0;
   text-align: center;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: 1px solid rgba(208, 255, 0, 0);
 }
-.main-menu .menu-wrapper .not-selected {
-  display: flex;
-  border-radius: 4px;
-}
-.main-menu .menu-wrapper .not-selected:hover {
+.main-menu .menu-wrapper .option:hover {
   background: rgba(255, 255, 255, 0.1);
-}
-.main-menu .menu-wrapper .selected {
-  display: flex;
-  background-color: rgb(255, 255, 255, 0.3);
-  /* background: var(--color1); */
-
-  border-radius: 2px;
-  /* color: var(--text-color1); */
+  border: 1px solid rgba(208, 255, 0, 0.2);
 }
 .main-menu .label {
   width: 100%;
-  margin-top: 2px;
+  padding-top: 2px;
   text-align: center;
-  /* border: 1px solid white; */
+}
+@keyframes main-menu-waver {
+  0% {
+    background: rgb(255, 255, 255, 0.3);
+  }
+  50% {
+    background: rgb(255, 255, 255, 0.4);
+  }
+  100% {
+    background: rgb(255, 255, 255, 0.3);
+  }
 }

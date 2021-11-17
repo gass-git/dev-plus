@@ -2,9 +2,16 @@ import React, {useState, useEffect} from "react";
 import './mainMenu.css';
 
 const MainMenu = ({selected, setSelected}) => {
-  
+  var [currentFloor, setCurrentFloor] = useState(4);
+
   function select(entry){
     setSelected(entry);
+    
+    // Elevator
+    if(entry === 'about') {setCurrentFloor(4)}
+    else if(entry === 'skills') {setCurrentFloor(3)}
+    else if(entry === 'projects') {setCurrentFloor(2)}
+    else if(entry === 'activity') {setCurrentFloor(1)}
   }
   
   return (
@@ -13,16 +20,16 @@ const MainMenu = ({selected, setSelected}) => {
       <div className="inner-container">
         <div className="menu-wrapper">
           <div 
-          className={selected === 'about' ? 'selected' : "not-selected"} 
+          className="option"
           onClick={() => select('about')}
           >
-            
-            <div className="label">
+            <div 
+            className="label">
               About
             </div>
           </div>
           <div 
-          className={selected === 'skills' ? 'selected' : "not-selected"} 
+          className="option"
           onClick={() => select('skills')}
           >
            
@@ -31,7 +38,7 @@ const MainMenu = ({selected, setSelected}) => {
             </div>
           </div>
           <div 
-          className={selected === 'projects' ? 'selected' : "not-selected"} 
+          className="option"
           onClick={() => select('projects')}
           >
             
@@ -41,7 +48,7 @@ const MainMenu = ({selected, setSelected}) => {
              
           </div>
           <div 
-          className={selected === 'activity' ? 'selected' : "not-selected"} 
+          className="option"
           onClick={() => select('activity')}
           >
             
@@ -49,6 +56,11 @@ const MainMenu = ({selected, setSelected}) => {
               Activity
             </div>
           </div>
+
+          {/* ELEVATOR */}
+          <div className={`elevator floor-${currentFloor}`}>
+          </div>
+
         </div>
       </div>
     </div>
