@@ -14,6 +14,7 @@ let SO_user_info_api = "https://api.stackexchange.com/2.3/users/14895985?order=d
 let events_api = "https://api.github.com/users/gass-git/events/public";
 let repos_api = "https://api.github.com/users/gass-git/repos";
 let posts_api = "https://blog.gass.dev/api/posts";
+let scores_api =  "https://api.stackexchange.com/2.3/users/14895985/top-tags?site=stackoverflow";
 
 const App = () => {
   var [loading, setLoading] = useState(true);
@@ -23,6 +24,7 @@ const App = () => {
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
   var [posts, setPosts] = useState([]);
+  var [scores, setScores] = useState([]);
 
   async function getWritings(){
     let req = await fetch(posts_api),
@@ -70,8 +72,8 @@ const App = () => {
       }
     }); 
 
-    var latestFive = filteredArr.slice(0,4); 
-    setGitEvents(latestFive);
+    var latestFour = filteredArr.slice(0,4); 
+    setGitEvents(latestFour);
   }
 
   async function getRepos() {
@@ -121,6 +123,13 @@ const App = () => {
     setAnswers(merged);
   };
 
+  async function getSkillScores(){
+    var req = await fetch(scores_api),
+      resp = await req.json(),
+      arr = resp.items;
+    setScores(arr);
+  }
+
   useEffect(() => {
     showLoading();
     getWritings();
@@ -128,6 +137,7 @@ const App = () => {
     getRepos();
 // getAnswers();
      getGitEvents();
+     getSkillScores();
   }, []);
 
   return [
@@ -169,7 +179,7 @@ const App = () => {
             <div className="border-img">
               <div className="inner-container">
                 {selected === "about" ? <About /> : null}
-                {selected === "skills" ? <Skills /> : null} 
+                {selected === "skills" ? <Skills scores={scores}/> : null} 
                 {selected === "projects" ? <Projects repos={repos} /> : null}
                 {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} posts={posts} /> : null}
               </div>

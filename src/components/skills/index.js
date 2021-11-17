@@ -1,10 +1,26 @@
 import React, {useState} from "react";
 import './skills.css';
 
-const Skills = () => {
+const Skills = ({scores}) => {
 
-  const Skill = ({lang, label, score}) => {
+  const Skill = ({lang, label}) => {
     var [over, setOver] = useState(false);
+
+    function getScore(tag){
+      if(tag === 'html5') { tag = 'html' }
+      else if(tag === 'css3') {tag = 'css'}
+
+      var points = scores.filter(obj => obj.tag_name === tag)
+      .map(el => el.answer_score);
+  
+      if(points.length === 0) points = "NF";
+      return points;
+    }
+
+    function getUrl(tag){
+      var url = `https://stackoverflow.com/search?tab=votes&q=user%3a14895985 [${tag}]`;
+      return url;
+    }
 
     function handleMouseOver(){
       setOver(true);
@@ -16,20 +32,25 @@ const Skills = () => {
 
     return (
       <div>
-        <div className={over ? `badge-wrapper ${lang}-hover` : `badge-wrapper`} 
+        <a href={getUrl(lang)} 
+        className="block" 
+        target="_blank"
           onMouseOver={() => handleMouseOver()}
           onMouseLeave={() => handleMouseLeave()}
         >
-          <i className={`devicon-${lang}-plain`}></i>
-        </div>
-        <div className="details">
-          <div className={`name ${lang}`}>
+          <div className={over ? `badge-wrapper ${lang}-hover` : `badge-wrapper`} >
+            <i className={`devicon-${lang}-plain`}></i>
+          </div>
+        
+          <div className={`name`}>
             {label}
-          </div>
+          </div>  
+
           <div className="score">
-            {score}
+            {getScore(lang)}
           </div>
-        </div>
+
+        </a>
       </div>
     );
   }
@@ -38,9 +59,9 @@ const Skills = () => {
       <section className="skills">
       <div className="content">
         <div className="left-side">
-          <div className="sub-title">
+          {/*<div className="sub-title">
           ✨ CORE TECH
-          </div>
+          </div> */}
           <div className="skills-wrapper">
             <Skill lang="javascript" label="JavaScript" score="30" /> 
             <Skill lang="html5" label="HTML5" score="23" /> 
@@ -49,14 +70,14 @@ const Skills = () => {
           </div>
         </div>
         <div className="right-side">
-          <div className="sub-title">
+          {/*<div className="sub-title">
            📚 FRAMEWORKS & LIBRARIES
-          </div>
+          </div>*/}
           <div className="skills-wrapper">
-            <Skill lang="react" label="React" score="10" /> 
-            <Skill lang="jquery" label="jQuery" score="2" /> 
-            <Skill lang="laravel" label="Laravel" score="18" /> 
-            <Skill lang="bootstrap" label="Bootstrap" score="8" /> 
+            <Skill lang="react" label="React" /> 
+            <Skill lang="jquery" label="jQuery"  /> 
+            <Skill lang="laravel" label="Laravel" /> 
+            <Skill lang="java" label="Java"  /> 
           </div>
         </div>
       </div>
