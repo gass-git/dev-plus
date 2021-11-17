@@ -87,13 +87,15 @@ const Activity = ({answers, gitEvents, posts}) => {
               let repoURL = "https://github.com/" + repoName + "/commits/master";
               repoName = repoName.slice(9);
               let date = data.created_at;
+              let commit = data.payload.commits[0].message;
+
               date = date.slice(0,10);
               return [
                 <a href={repoURL} className='block' target="_blank" rel="">
                   <div className="date">
                     {date}
                   </div>
-                  <div className="commit">{data.payload.commits[0].message}</div>
+                  <div className="commit">{commit}</div>
                   <div>{repoName}</div>
                 </a>
               ]
@@ -120,19 +122,19 @@ const Activity = ({answers, gitEvents, posts}) => {
       <div className="right-side">
         
         <div style={{ marginTop:"0px" }}
-          className={current === "stackoverflow" ? "option selected" : "option not-selected"}
+          className="option"
           onClick={() => select('stackoverflow')}
         >
           <i className="fab fa-stack-overflow" /> 
         </div>
         <div style={{ marginTop:"5px" }}
-          className={current === "github" ? "option selected" : "option not-selected"}
+          className="option"
           onClick={() => select('github')}
         >
           <i className="fab fa-github" />
         </div>
         <div style={{ marginTop:"6px" }}
-          className={current === "writings" ? "option selected" : "option not-selected"}
+          className="option"
           onClick={() => select('writings')}
         >
           <i className="far fa-keyboard" />

@@ -41,8 +41,8 @@
   width: 175px;
   height: 33px;
   background: rgb(255, 255, 255, 0.4);
-  transition: 200ms;
-  border: 1px solid rgba(208, 255, 0, 0.2);
+  transition: 300ms;
+  border: 1px solid rgba(208, 255, 0, 0.1);
   animation: main-menu-waver 1500ms infinite;
 }
 .main-menu .menu-wrapper .floor-4 {
@@ -73,7 +73,7 @@
 }
 .main-menu .menu-wrapper .option:hover {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(208, 255, 0, 0.2);
+  border: 1px solid rgba(208, 255, 0, 0);
 }
 .main-menu .label {
   width: 100%;

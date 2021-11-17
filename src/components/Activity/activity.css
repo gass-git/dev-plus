@@ -19,18 +19,20 @@
   position: relative;
   width: 100px;
   margin-top: 4px;
-  border-left: 2px solid rgb(255, 255, 255, 0.3);
+  border-left: 1px solid rgb(255, 255, 255, 0.2);
   /* border-right: 1px solid green; */
 }
 .activity .right-side .elevator {
   position: absolute;
+  z-index: 1;
   top: 0;
-  left: -2px;
-  height: 61px;
-  width: 2px;
-  border-radius: 50%;
-  background: var(--green1);
-  transition: 400ms;
+  left: 6px;
+  height: 59px;
+  width: 91px;
+  border-radius: 2px;
+  background: rgb(255, 255, 255, 0.3);
+  transition: 300ms;
+  border: 1px solid rgba(208, 255, 0, 0.1);
 }
 .activity .right-side .floor-3 {
   transform: translateY(0px);
@@ -42,29 +44,25 @@
   transform: translateY(136px);
 }
 .activity .right-side .option {
-  padding: 8px 8px 8px 8px;
+  position: relative;
+  z-index: 2;
+  padding: 7px 8px 7px 8px;
   margin-left: 6px;
-  margin-right: 3px;
+  margin-right: 0px;
   cursor: pointer;
   font-size: 40px;
   text-align: center;
   border-radius: 2px;
-  /* border: 1px dashed rgb(255, 255, 255, 0.5); */
+  border: 1px solid rgba(208, 255, 0, 0);
+}
+.activity .right-side .option:hover {
+  background: rgb(255, 255, 255, 0.1);
 }
 .activity .left-side {
   width: 85%;
   margin-left: 15px;
   margin-top: 20px;
   /*border: 1px solid white;*/
-}
-.activity .selected {
-  background: rgb(255, 255, 255, 0.3);
-  color: rgb(255, 255, 255, 1);
-}
-.activity .not-selected {
-  color: rgb(255, 255, 255, 0.8);
-  text-shadow: -1px 0 rgb(0, 0, 0, 0.2), 0 1px rgb(0, 0, 0, 0.2),
-    1px 0 rgb(0, 0, 0, 0.2), 0 -1px rgb(0, 0, 0, 0.2);
 }
 .activity .not-selected:hover {
   background: rgb(255, 255, 255, 0.1);

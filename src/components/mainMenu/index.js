@@ -2,16 +2,16 @@ import React, {useState, useEffect} from "react";
 import './mainMenu.css';
 
 const MainMenu = ({selected, setSelected}) => {
-  var [currentFloor, setCurrentFloor] = useState(4);
+  var [floorNumber, setFloorNumber] = useState(4);
 
   function select(entry){
     setSelected(entry);
     
     // Elevator
-    if(entry === 'about') {setCurrentFloor(4)}
-    else if(entry === 'skills') {setCurrentFloor(3)}
-    else if(entry === 'projects') {setCurrentFloor(2)}
-    else if(entry === 'activity') {setCurrentFloor(1)}
+    if(entry === 'about') {setFloorNumber(4)}
+    else if(entry === 'skills') {setFloorNumber(3)}
+    else if(entry === 'projects') {setFloorNumber(2)}
+    else if(entry === 'activity') {setFloorNumber(1)}
   }
   
   return (
@@ -58,7 +58,7 @@ const MainMenu = ({selected, setSelected}) => {
           </div>
 
           {/* ELEVATOR */}
-          <div className={`elevator floor-${currentFloor}`}>
+          <div className={`elevator floor-${floorNumber}`}>
           </div>
 
         </div>

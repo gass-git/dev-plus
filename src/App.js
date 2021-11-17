@@ -59,8 +59,18 @@ const App = () => {
 
   async function getGitEvents() {
     var req = await fetch(events_api), 
-      respArray = await req.json(),
-      latestFive = respArray.slice(0,4); 
+      respArray = await req.json();
+
+    var filteredArr = [];
+
+    // Delete events that have no commits
+    respArray.forEach((el) => {
+      if(el.payload.action != 'started'){
+        filteredArr.push(el);
+      }
+    }); 
+
+    var latestFive = filteredArr.slice(0,4); 
     setGitEvents(latestFive);
   }
 
