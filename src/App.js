@@ -28,6 +28,9 @@ const App = () => {
   var [posts, setPosts] = useState([]);
   var [scores, setScores] = useState([]);
 
+  // Variables for ScrollDisplay component
+  var [lastCommit, setLastCommit] = useState([]);
+
   async function getWritings(){
     let req = await fetch(posts_api),
       resp = await req.json(),
@@ -76,6 +79,16 @@ const App = () => {
 
     var latestFour = filteredArr.slice(0,4); 
     setGitEvents(latestFour);
+
+    // Variables for scroll display component
+    var lastCommitMsg = latestFour[0].payload.commits[0].message;
+    var fromRepo = latestFour[0].repo.name;
+    fromRepo = fromRepo.slice(9);
+    setLastCommit({
+      'message' : lastCommitMsg,
+      'repo' : fromRepo
+    });
+
   }
 
   async function getRepos() {
@@ -135,9 +148,9 @@ const App = () => {
   useEffect(() => {
     showLoading();
     getWritings();
-  getReputation();
+    getReputation();
     getRepos();
-  getAnswers();
+    getAnswers();
      getGitEvents();
      getSkillScores();
   }, []);
@@ -152,27 +165,23 @@ const App = () => {
     return () => clearInterval(interval);
   });
 
-
   return [
     <Fragment>
       {/* -- SPINNER -- */}
       <div className={loading ? "loader" : "no-loader"}>
           Loading...
       </div>
-
       <div className={loading ? "hide-page" : "show-page"}>
         
-        {/* -- FIRST ROW -- */}
-         
+        {/* -- FIRST ROW -- */} 
         <section className="first-row">
           <ScrollDisplay 
-            gitEvents={gitEvents}
+            lastCommit={lastCommit}
             answers={answers}
             posts={posts}
           />
         </section>
-       
-
+      
         {/* -- SECOND ROW -- */}
         <section className="second-row">
           <div className="left-side">

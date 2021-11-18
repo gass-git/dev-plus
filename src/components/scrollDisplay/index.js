@@ -2,13 +2,11 @@ import React, {useState, useEffect} from "react";
 import "./scrollDisplay.css";
 import { Fragment } from "react";
 
-let git_events_api = 'https://api.github.com/users/gass-git/events/public';
-
-const ScrollDisplay = () => {
+const ScrollDisplay = ({lastCommit, answers, posts}) => {
     var welcomeMsg = "...welcome visitor...";
     var space = (<Fragment>&nbsp;&nbsp;&nbsp;&nbsp;</Fragment>);
-       
-    // Will need to do API fetching inside this component
+    
+    
 
     return (
     <section className="scroll-display">
@@ -18,8 +16,9 @@ const ScrollDisplay = () => {
                     <div className="text-container">
                         <div className="scroll-text">
                             {space}
-                            Last Github commit:  (repo: )....
+                            Last Github commit: {lastCommit.message} (repo: {lastCommit.repo})....
                             Last blog post: ....
+                           
                         </div>
                     </div>    
                 </div>
