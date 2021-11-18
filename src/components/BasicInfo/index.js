@@ -1,16 +1,18 @@
 import React from "react";
 import './basicInfo.css';
+import Glitch from './glitch';
 
-const BasicInfo = ({reputation}) => {
+const BasicInfo = ({reputation, avatarGlitch}) => {
   return (
   <section className="basic-info">
     <div className="border-img">
       
       <div className="inner-container">
+      
+        <div className="avatar-wrapper">
+          <Glitch avatarGlitch={avatarGlitch}/>
+        </div>
           
-          <div className="avatar-wrapper">
-            <img src="http://localhost:3000/images/avatar6.png" alt="" />
-          </div>
         
         {/* -- AVATAR AND NAME -- */}
         <div className="username-wrapper">

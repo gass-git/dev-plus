@@ -19,6 +19,8 @@ let scores_api =  "https://api.stackexchange.com/2.3/users/14895985/top-tags?sit
 const App = () => {
   var [loading, setLoading] = useState(true);
   var [selected, setSelected] = useState('about');
+  var [avatarGlitch, setAvatarGlitch] = useState(false);
+  var [intervalTime, setIntervalTime] = useState(10000);
   var [reputation, setReputation] = useState([]);
   var [answers, setAnswers] = useState([]);
   var [gitEvents, setGitEvents] = useState([]);
@@ -140,6 +142,18 @@ const App = () => {
     // getSkillScores();
   }, []);
 
+  useEffect(() => {
+
+    var interval = setInterval(() => {
+      setAvatarGlitch(!avatarGlitch);
+      var random = 8000 + Math.random()*10000;
+      setIntervalTime(random)
+      console.log(random)
+    }, intervalTime);
+    return () => clearInterval(interval);
+  });
+
+
   return [
     <Fragment>
       {/* -- SPINNER -- */}
@@ -169,7 +183,7 @@ const App = () => {
             />
           </div>
           <div className="right-side">
-            <BasicInfo reputation={reputation}/>
+            <BasicInfo reputation={reputation} avatarGlitch={avatarGlitch}/>
           </div>
         </section>
 

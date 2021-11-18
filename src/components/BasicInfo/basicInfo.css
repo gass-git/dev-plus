@@ -28,7 +28,7 @@
   min-width: 160px;
   height: 150px;
   overflow: hidden;
-  background: rgb(255, 255, 255, 0.3);
+  background: rgb(255, 255, 255, 0.2);
 }
 .basic-info .avatar-wrapper img {
   opacity: 0.9;
