@@ -18,42 +18,46 @@
 .activity .right-side {
   position: relative;
   width: 100px;
-  margin-top: 4px;
+  margin-top: 7px;
+  margin-bottom: 3px;
   border-left: 1px solid rgb(255, 255, 255, 0.2);
   /* border-right: 1px solid green; */
 }
 .activity .right-side .elevator {
   position: absolute;
   z-index: 1;
-  top: 0;
+  top: 1px;
   left: 6px;
-  height: 59px;
-  width: 91px;
+  height: 58px;
+  width: 90px;
   border-radius: 2px;
   background: rgb(255, 255, 255, 0.3);
   transition: 300ms;
   border: 1px solid rgba(208, 255, 0, 0.1);
 }
 .activity .right-side .floor-3 {
-  transform: translateY(0px);
+  transform: translateY(-2px);
 }
 .activity .right-side .floor-2 {
-  transform: translateY(68px);
+  transform: translateY(66px);
 }
 .activity .right-side .floor-1 {
-  transform: translateY(136px);
+  transform: translateY(132px);
 }
 .activity .right-side .option {
   position: relative;
   z-index: 2;
-  padding: 7px 8px 7px 8px;
+  height: 58px;
   margin-left: 6px;
-  margin-right: 0px;
+  margin-right: 2px;
   cursor: pointer;
   font-size: 40px;
   text-align: center;
   border-radius: 2px;
   border: 1px solid rgba(208, 255, 0, 0);
+}
+.activity .right-side .option i {
+  margin: 8px auto;
 }
 .activity .right-side .option:hover {
   background: rgb(255, 255, 255, 0.1);
@@ -63,10 +67,6 @@
   margin-left: 15px;
   margin-top: 20px;
   /*border: 1px solid white;*/
-}
-.activity .not-selected:hover {
-  background: rgb(255, 255, 255, 0.1);
-  text-shadow: none;
 }
 .activity .content .container {
   width: 600px;

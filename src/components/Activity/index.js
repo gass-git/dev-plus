@@ -121,13 +121,13 @@ const Activity = ({answers, gitEvents, posts}) => {
       {/* -- RIGHT SIDE -- */}
       <div className="right-side">
         
-        <div style={{ marginTop:"0px" }}
-          className="option"
+        <div style={{ marginTop:"-1px" }}
+          className="option selected"
           onClick={() => select('stackoverflow')}
         >
           <i className="fab fa-stack-overflow" /> 
         </div>
-        <div style={{ marginTop:"5px" }}
+        <div style={{ marginTop:"7px" }}
           className="option"
           onClick={() => select('github')}
         >

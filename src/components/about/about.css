@@ -6,6 +6,7 @@
   width: 92%;
   text-align: justify;
   line-height: 30px;
+  height: 125px;
   letter-spacing: 1px;
   font-family: "play", sans-serif;
   font-size: 17px;
@@ -13,12 +14,12 @@
   margin: 25px auto 5px auto;
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
-  /* border: 1px solid white; */
+  /* border: 1px solid white;*/
 }
 .about .down-arrow-box {
   width: 92%;
   text-align: center;
-  margin: 15px auto 5px auto;
+  margin: 0px auto 5px auto;
   /* border: 1px solid white; */
 }
 .about .down-arrow-box i {

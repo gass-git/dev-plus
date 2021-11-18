@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from "react";
 import './about.css';
 
-const About = ({arrowEffect}) => {
+const About = () => {
   var [current, setCurrent] = useState(0);
   var text = [
     <Fragment>
@@ -26,7 +26,7 @@ const About = ({arrowEffect}) => {
   const ArrowDown = () => {
     return [
       <div className="down-arrow-box">
-        <i class="fas fa-caret-down" onClick={() => setCurrent(current+1)}/>
+        <i class="fas fa-caret-down" onClick={() => setCurrent(current + 1)} />
       </div>
     ];
   }
