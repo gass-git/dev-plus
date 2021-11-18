@@ -92,18 +92,20 @@ const Projects = ({repos}) => {
                 onClick={currentSection > 1 ? showPreviews : null}
               />
             </div>
-          {
-            indexes.map((i) => {
-              return[
-                <div
-            className={current === i ? "name selected" : "name not-selected"}
-            onClick={() => select(i)}
-          >
-            {repos[i] ?repos[i].name : null}
-          </div>
-              ]
-            })
-          }
+            <div className="names-wrapper">
+              {
+                indexes.map((i) => {
+                  return[
+                    <div
+                      className={current === i ? "name selected" : "name not-selected"}
+                      onClick={() => select(i)}
+                    >
+                    {repos[i] ?repos[i].name : null}
+                    </div>
+                  ]
+                })
+              }
+            </div>  
           <div className="bottom-arrow-box">
               <i 
               class={currentSection != totalSections ? "fas fa-sort-down" : "fas fa-sort-down opacity-05"}

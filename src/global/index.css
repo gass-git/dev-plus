@@ -2,8 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 :root {
   --bg1: rgba(0, 0, 0, 0.5);
-  --yellow1: rgb(241, 190, 50);
-  --yellow2: rgb(248, 217, 131);
+  --yellow1: rgb(234, 203, 99);
+  --yellow2: rgb(241, 190, 50);
+  --yellow3: rgb(248, 217, 131);
   --green1: rgb(54, 182, 31);
 }
 body {

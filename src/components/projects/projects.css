@@ -54,13 +54,21 @@
   color: lightblue;
 }
 .projects .right-side {
-  height: 180px;
+  margin-top: 3px;
+  height: 177px;
   width: 25%;
-  border-left: 2px solid rgb(255, 255, 255, 0.3);
+  min-width: 150px;
+  border-left: 1px solid rgb(255, 255, 255, 0.2);
   /*border: 1px solid white;*/
 }
+.projects .right-side .names-wrapper {
+  margin-top: 3px;
+  margin-bottom: 10px;
+  min-height: 122px;
+  border: 1px solid transparent;
+}
 .projects .right-side .name {
-  margin: 3px 5px 0px 5px;
+  margin: 5px 5px 5px 5px;
   overflow: hidden;
   text-align: center;
   border-radius: 2px;
@@ -69,37 +77,39 @@
   white-space: nowrap;
   cursor: pointer;
   color: white;
-  font-size: 17px;
-  padding: 10px;
+  font-size: 16px;
+  padding: 7px 3px 6px 3px;
+  border: 1px solid transparent;
+  text-transform: capitalize;
 }
 .projects .selected {
   background: rgb(255, 255, 255, 0.3);
-  color: rgb(255, 255, 255, 1) !important;
+  border: 1px solid rgba(208, 255, 0, 0.1) !important;
 }
 .projects .not-selected:hover {
   background: rgb(255, 255, 255, 0.1);
 }
 .projects .top-arrow-box {
   height: 25px;
+  margin-top: -5px;
   margin-bottom: 0px;
   text-align: center;
   /* border: 1px solid white; */
 }
 .projects .top-arrow-box i {
   font-size: 25px;
-  margin-top: 5px;
+  margin-top: 4px;
   cursor: pointer;
-  /* border: 1px solid white; */
+  /* border: 1px solid white;*/
 }
 .projects .bottom-arrow-box {
-  margin-top: 10px;
   height: 25px;
   text-align: center;
-  /* border: 1px solid white; */
+  /* border: 1px solid white;*/
 }
 .projects .bottom-arrow-box i {
   font-size: 25px;
-  margin-top: -15px;
+  margin-top: 0px;
   cursor: pointer;
   /* border: 1px solid white; */
 }
