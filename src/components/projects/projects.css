@@ -51,7 +51,20 @@
 }
 .projects .left-side .link a {
   text-decoration: none !important;
-  color: lightblue;
+  color: var(--yellow2);
+}
+.projects .left-side .link a:hover {
+  color: var(--yellow1);
+}
+.projects .left-side .link i {
+  text-decoration: none !important;
+  color: var(--gray);
+}
+.projects .left-side .not-available {
+  color: var(--yellow2);
+}
+.projects .left-side .not-available i {
+  color: var(--light-red);
 }
 .projects .right-side {
   margin-top: 3px;
@@ -62,9 +75,9 @@
   /*border: 1px solid white;*/
 }
 .projects .right-side .names-wrapper {
-  margin-top: 3px;
-  margin-bottom: 10px;
-  min-height: 122px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  min-height: 125px;
   border: 1px solid transparent;
 }
 .projects .right-side .name {
@@ -78,7 +91,7 @@
   cursor: pointer;
   color: white;
   font-size: 16px;
-  padding: 7px 3px 6px 3px;
+  padding: 7px 3px 7px 3px;
   border: 1px solid transparent;
   text-transform: capitalize;
 }
@@ -94,7 +107,7 @@
   margin-top: -5px;
   margin-bottom: 0px;
   text-align: center;
-  /* border: 1px solid white; */
+  border: 1px solid transparent;
 }
 .projects .top-arrow-box i {
   font-size: 25px;
@@ -105,7 +118,7 @@
 .projects .bottom-arrow-box {
   height: 25px;
   text-align: center;
-  /* border: 1px solid white;*/
+  border: 1px solid transparent;
 }
 .projects .bottom-arrow-box i {
   font-size: 25px;

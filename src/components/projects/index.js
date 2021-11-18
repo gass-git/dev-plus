@@ -17,14 +17,14 @@ const Projects = ({repos}) => {
       if(link){
         return [
           <a href={link} target="_blank">
-            <i class="fas fa-link" />
+            <i class="fas fa-paperclip" />
              {space} {repos[current].url}
           </a>
         ];
       }else{
         return [
-          <div>
-            <i class="fas fa-link" />
+          <div className="not-available">
+            <i class="far fa-times-circle" />
               {space} No link available
           </div>
         ];

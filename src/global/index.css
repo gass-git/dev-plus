@@ -2,10 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 :root {
   --bg1: rgba(0, 0, 0, 0.5);
-  --yellow1: rgb(234, 203, 99);
-  --yellow2: rgb(241, 190, 50);
+  --yellow1: rgb(245, 214, 112);
+  --yellow2: rgb(236, 184, 41);
   --yellow3: rgb(248, 217, 131);
   --green1: rgb(54, 182, 31);
+  --light-blue: rgb(136, 224, 239);
+  --light-red: rgb(254, 143, 143);
+  --light-gray: rgb(213, 213, 213);
+  --gray: rgb(177, 177, 177);
 }
 body {
   background-image: url("http://localhost:3000/images/pixel-bg-2.jpg");
