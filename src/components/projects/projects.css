@@ -16,7 +16,6 @@
   color: rgb(255, 255, 255, 1);
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
-  /* background: rgb(84, 65, 121, 0.5); */
   /* border: 1px solid white; */
 }
 .projects .left-side {
@@ -91,7 +90,7 @@
   cursor: pointer;
   color: white;
   font-size: 16px;
-  padding: 7px 3px 7px 3px;
+  padding: 7px 5px 7px 9px;
   border: 1px solid transparent;
   text-transform: capitalize;
 }
