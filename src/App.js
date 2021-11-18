@@ -26,6 +26,7 @@ const App = () => {
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
   var [posts, setPosts] = useState([]);
+  var [lastPost, setLastPost] = useState([]);
   var [scores, setScores] = useState([]);
 
   // Variables for ScrollDisplay component
@@ -47,6 +48,7 @@ const App = () => {
 
     let sortedArr = newArray.sort((a, b) => {return b.id - a.id});
     setPosts(sortedArr);
+    setLastPost(sortedArr[0]);
   }
 
   async function getReputation(){
@@ -84,10 +86,17 @@ const App = () => {
     var lastCommitMsg = latestFour[0].payload.commits[0].message;
     var fromRepo = latestFour[0].repo.name;
     fromRepo = fromRepo.slice(9);
+    var createdAt = latestFour[0].created_at;
+    var date = createdAt.slice(0,10);
+    var time = createdAt.slice(11, 19);
+    console.log(time);
     setLastCommit({
       'message' : lastCommitMsg,
-      'repo' : fromRepo
+      'repo' : fromRepo,
+      'date' : date,
+      'time' : time
     });
+    console.log()
 
   }
 
@@ -178,7 +187,7 @@ const App = () => {
           <ScrollDisplay 
             lastCommit={lastCommit}
             answers={answers}
-            posts={posts}
+            lastPost={lastPost}
           />
         </section>
       

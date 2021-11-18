@@ -37,22 +37,24 @@
 }
 .msg-display .text-container {
   padding-top: 15px;
-  width: 2500px;
+  width: 4000px;
   height: 30px;
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
   color: rgb(241, 190, 50, 0.8);
 }
 .msg-display .text-container .scroll-text {
-  text-align: right;
+  text-align: left;
   /* animation properties */
   -moz-transform: translateX(-100%);
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
 
-  -moz-animation: my-animation 30s linear infinite;
-  -webkit-animation: my-animation 30s linear infinite;
-  animation: my-animation 30s linear infinite;
+  -moz-animation: my-animation 45s linear infinite;
+  -webkit-animation: my-animation 45s linear infinite;
+  animation: my-animation 45s linear infinite;
+  width: 4000px;
+  /* border: 1px solid orange;*/
 }
 /* for Firefox */
 @-moz-keyframes my-animation {
