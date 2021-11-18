@@ -135,11 +135,11 @@ const App = () => {
   useEffect(() => {
     showLoading();
     getWritings();
- // getReputation();
+  getReputation();
     getRepos();
- // getAnswers();
+  getAnswers();
      getGitEvents();
-    // getSkillScores();
+     getSkillScores();
   }, []);
 
   useEffect(() => {
@@ -148,7 +148,6 @@ const App = () => {
       setAvatarGlitch(!avatarGlitch);
       var random = 8000 + Math.random()*10000;
       setIntervalTime(random)
-      console.log(random)
     }, intervalTime);
     return () => clearInterval(interval);
   });
