@@ -92,17 +92,27 @@ const Projects = ({repos}) => {
                 onClick={currentSection > 1 ? showPreviews : null}
               />
             </div>
-            <div className="names-wrapper">
+            <div className="options-wrapper">
               {
                 indexes.map((i) => {
-                  return[
-                    <div
-                      className={current === i ? "name selected" : "name not-selected"}
-                      onClick={() => select(i)}
-                    >
-                    {repos[i] ?repos[i].name : null}
-                    </div>
-                  ]
+                  let iconClass = current === i ? "far fa-folder-open" : "far fa-folder";
+
+                  if(parseInt(i) < totalRepos){
+                    return[
+                      <div
+                        className={current === i ? "option selected" : "option not-selected"}
+                        onClick={() => select(i)}
+                      >
+                        <div className="folder">
+                          <i class={iconClass}></i>
+                        </div>
+                        <div className="project-name">
+                          {repos[i] ?repos[i].name : null}
+                        </div>
+                      
+                      </div>
+                    ]
+                  }
                 })
               }
             </div>  

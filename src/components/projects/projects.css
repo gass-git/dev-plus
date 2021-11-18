@@ -8,6 +8,7 @@
 }
 .projects .content {
   display: flex;
+  justify-content: flex-end;
   font-family: "play", sans-serif;
   width: 100%;
   height: 100%;
@@ -20,7 +21,7 @@
 }
 .projects .left-side {
   margin-left: 15px;
-  width: 80%;
+  width: 100%;
   /*border: 1px solid blue;*/
 }
 .projects .left-side .about {
@@ -69,24 +70,23 @@
 .projects .right-side {
   margin-top: 3px;
   height: 177px;
-  width: 25%;
-  min-width: 150px;
+  min-height: 125px;
+  min-width: 220px;
+  max-width: 220px;
   border-left: 1px solid rgb(255, 255, 255, 0.2);
   /*border: 1px solid white;*/
 }
-.projects .right-side .names-wrapper {
+.projects .right-side .options-wrapper {
   margin-top: 5px;
   margin-bottom: 0px;
   min-height: 125px;
   border: 1px solid transparent;
 }
-.projects .right-side .name {
+.projects .right-side .option {
+  display: flex;
   margin: 5px 5px 5px 5px;
-  overflow: hidden;
-  text-align: center;
   border-radius: 2px;
   max-width: 200px;
-  text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
   color: white;
@@ -94,6 +94,16 @@
   padding: 7px 3px 7px 3px;
   border: 1px solid transparent;
   text-transform: capitalize;
+}
+.projects .right-side .option .folder {
+  min-width: 25px;
+  /* border: 1px solid white; */
+}
+.projects .right-side .option .project-name {
+  margin-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* border: 1px solid white; */
 }
 .projects .selected {
   background: rgb(255, 255, 255, 0.3);
