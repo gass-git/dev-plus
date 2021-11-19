@@ -31,6 +31,9 @@ const App = () => {
 
   // Variables for ScrollDisplay component
   var [lastCommit, setLastCommit] = useState([]);
+  var [msgIndex, setMsgIndex] = useState(0);
+  var maxIndex = 2;
+  var scrollInterval = 25; // Seconds it takes for the scroll animation
 
   async function getWritings(){
     let req = await fetch(posts_api),
@@ -167,10 +170,36 @@ const App = () => {
   useEffect(() => {
 
     var interval = setInterval(() => {
+      
+      // Variables for ScrollDisplay
+      msgIndex < maxIndex ? setMsgIndex(msgIndex + 1) : setMsgIndex(0);
+
+      // --- Avatar glitch effect ---
+      // msRange: miliseconds range to generate in random
+      var msRange = (scrollInterval - 7) * 1000;
+      var glitchDuration = 5000; // miliseconds
+      var random = Math.random() * msRange;
+     
+      // Turn effect on
+      setTimeout(() => {
+        setAvatarGlitch(true);
+      }, random)
+
+      // Turn effect off
+      setTimeout(() => {
+        setAvatarGlitch(false);
+      }, random + glitchDuration)
+
+    }, scrollInterval * 1000);
+
+    /*
+    var interval = setInterval(() => {
       setAvatarGlitch(!avatarGlitch);
       var random = 8000 + Math.random()*10000;
       setIntervalTime(random)
-    }, intervalTime);
+    }, intervalTime); 
+    */
+
     return () => clearInterval(interval);
   });
 
@@ -188,6 +217,7 @@ const App = () => {
             lastCommit={lastCommit}
             answers={answers}
             lastPost={lastPost}
+            msgIndex={msgIndex}
           />
         </section>
       

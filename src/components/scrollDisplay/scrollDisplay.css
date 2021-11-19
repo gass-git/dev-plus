@@ -37,7 +37,7 @@
 }
 .msg-display .text-container {
   padding-top: 15px;
-  width: 4000px;
+  width: 2000px;
   height: 30px;
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
@@ -50,10 +50,10 @@
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
 
-  -moz-animation: my-animation 45s linear infinite;
-  -webkit-animation: my-animation 45s linear infinite;
-  animation: my-animation 45s linear infinite;
-  width: 4000px;
+  -moz-animation: my-animation 25s linear infinite;
+  -webkit-animation: my-animation 25s linear infinite;
+  animation: my-animation 25s linear infinite;
+  width: 2000px;
   /* border: 1px solid orange;*/
 }
 /* for Firefox */

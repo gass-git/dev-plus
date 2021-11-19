@@ -20,7 +20,7 @@ const Activity = ({answers, gitEvents, posts}) => {
     return [
       <Fragment>
         <div className="sub-title">
-            RECENT WRITINGS
+            LATEST WRITINGS
           </div>
         <div className="container">
           {
