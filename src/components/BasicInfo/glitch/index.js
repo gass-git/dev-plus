@@ -1,15 +1,16 @@
 import React from 'react';
 import './glitch.css';
+import avatar from  "../../../assets/images/avatar6.png"
 
 const Glitch = ({avatarGlitch}) => {
-   
+
     return (
         <section className={avatarGlitch ? "avatar-glitch effect" : "avatar-glitch"}>
-            <div className="first"><img src="http://localhost:3000/images/avatar6.png" alt="" /></div>
-            <span><img src="http://localhost:3000/images/avatar6.png" alt="" /></span>
-            <span><img src="http://localhost:3000/images/avatar6.png" alt="" /></span>
-            <span><img src="http://localhost:3000/images/avatar6.png" alt="" /></span>
-            <span><img src="http://localhost:3000/images/avatar6.png" alt="" /></span>
+            <div className="first"><img src={avatar} alt="" /></div>
+            <span><img src={avatar} alt="" /></span>
+            <span><img src={avatar} alt="" /></span>
+            <span><img src={avatar} alt="" /></span>
+            <span><img src={avatar} alt="" /></span>
         </section>
     );
 }

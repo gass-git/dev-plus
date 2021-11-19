@@ -175,11 +175,11 @@ const App = () => {
   useEffect(() => {
     showLoading();
     getWritings();
-    getReputation();
+   // getReputation();
     getRepos();
-    getAnswers();
+   // getAnswers();
      getGitEvents();
-     getSkillScores();
+   //  getSkillScores();
   }, []);
 
   useEffect(() => {

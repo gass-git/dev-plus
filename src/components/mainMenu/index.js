@@ -1,10 +1,17 @@
 import React, {useState, useEffect} from "react";
 import './mainMenu.css';
+import useSound from "use-sound";
+import switchSound from '../../assets/sounds/switch2.mp3';
 
 const MainMenu = ({selected, setSelected}) => {
   var [floorNumber, setFloorNumber] = useState(4);
+  const [playSwitchSound] = useSound(switchSound);
 
   function select(entry){
+    // Play sound
+    playSwitchSound();
+
+    // Select option
     setSelected(entry);
     
     // Elevator

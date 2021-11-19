@@ -29,7 +29,7 @@
 .third-row .border-img {
   margin: 3px auto;
   border: 19px solid transparent;
-  border-image: url("http://localhost:3000/images/border-60px.png") 19 round;
+  border-image: url("../assets/images/border-60px.png") 19 round;
   width: 770px;
   height: 180px;
 }
