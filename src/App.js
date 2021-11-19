@@ -20,17 +20,23 @@ const App = () => {
   var [loading, setLoading] = useState(true);
   var [selected, setSelected] = useState('about');
   var [avatarGlitch, setAvatarGlitch] = useState(false);
-  var [intervalTime, setIntervalTime] = useState(10000);
-  var [reputation, setReputation] = useState([]);
-  var [answers, setAnswers] = useState([]);
+
+  // Github variables
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
+
+  // Blog variables
   var [posts, setPosts] = useState([]);
   var [lastPost, setLastPost] = useState([]);
+
+  // Stack Overflow variables
+  var [reputation, setReputation] = useState([]);
+  var [answers, setAnswers] = useState([]);
   var [scores, setScores] = useState([]);
 
-  // Variables for ScrollDisplay component
+  // ScrollDisplay variables
   var [lastCommit, setLastCommit] = useState([]);
+  var [lastAnswer, setLastAnswer] = useState(); 
   var [msgIndex, setMsgIndex] = useState(0);
   var maxIndex = 2;
   var scrollInterval = 25; // Seconds it takes for the scroll animation
@@ -59,7 +65,10 @@ const App = () => {
       resp = await req.json(),
       reputation = resp.items[0].reputation,
       repChangeMonth = await resp.items[0].reputation_change_month,
-      newElement = { total: reputation, monthChange: repChangeMonth };
+      newElement = { 
+        'total': reputation, 
+        'monthChange': repChangeMonth 
+      };
     setReputation(newElement);
   };
 
@@ -99,7 +108,6 @@ const App = () => {
       'date' : date,
       'time' : time
     });
-    console.log()
 
   }
 
@@ -140,14 +148,21 @@ const App = () => {
       let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow`;
       let req = await fetch(questions_api),
        resp = await req.json(),
-       title = resp.items[0].title;
+       questionTitle = resp.items[0].title;
 
         merged.push({
          ...answersArr[index], 
-         ...{'title' : title}
+         ...{'title' : questionTitle}
         });
     })
+
     setAnswers(merged);
+
+    // -- Variable for ScrollDisplay component --
+    // setTimeout is to solve a delay issue with the API
+    setTimeout(() => {
+      setLastAnswer(merged[0].title)
+    }, 10000);
   };
 
   async function getSkillScores(){
@@ -192,14 +207,6 @@ const App = () => {
 
     }, scrollInterval * 1000);
 
-    /*
-    var interval = setInterval(() => {
-      setAvatarGlitch(!avatarGlitch);
-      var random = 8000 + Math.random()*10000;
-      setIntervalTime(random)
-    }, intervalTime); 
-    */
-
     return () => clearInterval(interval);
   });
 
@@ -215,9 +222,10 @@ const App = () => {
         <section className="first-row">
           <ScrollDisplay 
             lastCommit={lastCommit}
-            answers={answers}
+            lastAnswer={lastAnswer}
             lastPost={lastPost}
             msgIndex={msgIndex}
+            reputation={reputation}
           />
         </section>
       
