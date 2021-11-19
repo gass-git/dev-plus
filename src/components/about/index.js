@@ -1,8 +1,11 @@
 import React, {Fragment, useState} from "react";
 import './about.css';
+import useSound from "use-sound";
+import tickSound from '../../assets/sounds/sound-6.wav';
 
 const About = () => {
   var [current, setCurrent] = useState(0);
+  const [playSound] = useSound(tickSound, {volume: 0.6});
   var text = [
     <Fragment>
       For me coding is a <span className="highlight">catalyst for creation</span>, to portray 
@@ -24,9 +27,17 @@ const About = () => {
   ];
 
   const ArrowDown = () => {
+
+    function handleCurrent(){
+      
+      // Sound effect
+      playSound();
+      setCurrent(current + 1);
+    }
+
     return [
       <div className="down-arrow-box">
-        <i class="fas fa-caret-down" onClick={() => setCurrent(current + 1)} />
+        <i class="fas fa-caret-down" onClick={() => handleCurrent()} />
       </div>
     ];
   }

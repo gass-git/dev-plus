@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { Fragment } from "react";
 import './projects.css';
+import useSound from "use-sound";
+import tickSound from "../../assets/sounds/sound-6.wav";
 
 const Projects = ({repos}) => {
   var [current, setCurrent] = useState(0);
@@ -9,6 +11,7 @@ const Projects = ({repos}) => {
   var [currentSection, setCurrentSection] = useState(1);
   var [indexes, setIndexes] = useState([0,1,2]);
   var space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
+  const [playSound] = useSound(tickSound,{volume: 0.6});
 
   const RepoDetails = () => {
     let link = repos[current].url;
@@ -75,6 +78,18 @@ const Projects = ({repos}) => {
     setCurrent(firstIndex);
   }
 
+  function handleUpClick(){
+    // Sound effect
+    playSound();
+    if(currentSection > 1){showPreviews()} 
+  }
+
+  function handleDownClick(){
+    // Sound effect
+    playSound();
+    if(currentSection != totalSections){showNext()}
+  }
+
   return (
       <section className="projects">
         <div className="content">
@@ -89,7 +104,7 @@ const Projects = ({repos}) => {
             <div className="top-arrow-box">
               <i 
                 class={currentSection > 1 ? "fas fa-sort-up" : "fas fa-sort-up opacity-05"}
-                onClick={currentSection > 1 ? showPreviews : null}
+                onClick={handleUpClick}
               />
             </div>
             <div className="options-wrapper">
@@ -119,7 +134,7 @@ const Projects = ({repos}) => {
           <div className="bottom-arrow-box">
               <i 
               class={currentSection != totalSections ? "fas fa-sort-down" : "fas fa-sort-down opacity-05"}
-              onClick={currentSection != totalSections ? showNext : null }
+              onClick={handleDownClick}
             />
           </div>
         </div>
