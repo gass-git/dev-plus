@@ -19,7 +19,7 @@ const Projects = ({repos}) => {
     const LinkField = () => {
       if(link){
         return [
-          <a href={link} target="_blank">
+          <a href={link} target="_blank" rel="noreferrer">
             <i class="fas fa-paperclip" />
              {space} {repos[current].url}
           </a>
@@ -87,7 +87,7 @@ const Projects = ({repos}) => {
   function handleDownClick(){
     // Sound effect
     playSound();
-    if(currentSection != totalSections){showNext()}
+    if(currentSection !== totalSections){showNext()}
   }
 
   return (
@@ -128,12 +128,13 @@ const Projects = ({repos}) => {
                       </div>
                     ]
                   }
+                  else { return null; }
                 })
               }
             </div>  
           <div className="bottom-arrow-box">
               <i 
-              class={currentSection != totalSections ? "fas fa-sort-down" : "fas fa-sort-down opacity-05"}
+              class={currentSection !== totalSections ? "fas fa-sort-down" : "fas fa-sort-down opacity-05"}
               onClick={handleDownClick}
             />
           </div>

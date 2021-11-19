@@ -5,7 +5,6 @@ import Date from './childrens/date';
 const Activity = ({answers, gitEvents, posts}) => {
   var [current, setCurrent] = useState('stackoverflow');
   var [floorNumber, setFloorNumber] = useState(3);
-  var space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
 
   function select(entry){
     setCurrent(entry);
@@ -30,7 +29,7 @@ const Activity = ({answers, gitEvents, posts}) => {
               date = date.slice(0,10);
 
               return [
-              <a href={postURL} className="block" target="_blank">
+              <a href={postURL} className="block" target="_blank" rel="noreferrer">
                <div className="date">
                 {date}
                </div> 
@@ -58,7 +57,7 @@ const Activity = ({answers, gitEvents, posts}) => {
               let answerURL = "https://stackoverflow.com/a/" + data.answer_id;
 
               return [
-                <a href={answerURL} className="block" target="_blank" rel="">
+                <a href={answerURL} className="block" target="_blank" rel="noreferrer">
                   <div className="date">
                     <Date entry={data.creation_date} />
                   </div>
@@ -91,7 +90,7 @@ const Activity = ({answers, gitEvents, posts}) => {
 
               date = date.slice(0,10);
               return [
-                <a href={repoURL} className='block' target="_blank" rel="">
+                <a href={repoURL} className='block' target="_blank" rel="noreferrer">
                   <div className="date">
                     {date}
                   </div>

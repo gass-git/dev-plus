@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import './mainMenu.css';
 import useSound from "use-sound";
 import soundOne from '../../assets/sounds/sound-7.wav';

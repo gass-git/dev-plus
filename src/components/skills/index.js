@@ -37,6 +37,7 @@ const Skills = ({scores}) => {
         target="_blank"
           onMouseOver={() => handleMouseOver()}
           onMouseLeave={() => handleMouseLeave()}
+        rel="noreferrer"
         >
           <div className={over ? `badge-wrapper ${lang}-hover` : `badge-wrapper`} >
             <i className={`devicon-${lang}-plain`}></i>
