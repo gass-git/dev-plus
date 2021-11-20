@@ -1,13 +1,19 @@
 import React, {Fragment, useState} from "react";
 import './activity.css';
 import Date from './childrens/date';
+import useSound from "use-sound";
+import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
 const Activity = ({answers, gitEvents, posts}) => {
   var [current, setCurrent] = useState('stackoverflow');
   var [floorNumber, setFloorNumber] = useState(3);
+  const [playSound] = useSound(selectionSound, {volume: 0.8});
 
   function select(entry){
     setCurrent(entry);
+
+    // Sound effect
+    playSound();
     
     // Elevator floor
     if(entry === "stackoverflow"){setFloorNumber(3)}

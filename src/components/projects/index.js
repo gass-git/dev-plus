@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import { Fragment } from "react";
 import './projects.css';
 import useSound from "use-sound";
-import tickSound from "../../assets/sounds/sound-6.wav";
+import tickSound from "../../assets/sounds/tick-sound.wav";
+import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
 const Projects = ({repos}) => {
   var [current, setCurrent] = useState(0);
@@ -11,7 +12,8 @@ const Projects = ({repos}) => {
   var [currentSection, setCurrentSection] = useState(1);
   var [indexes, setIndexes] = useState([0,1,2]);
   var space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
-  const [playSound] = useSound(tickSound,{volume: 0.6});
+  const [playTickSound] = useSound(tickSound,{volume: 0.6});
+  const [playSelectionSound] = useSound(selectionSound, {volume:0.8});
 
   const RepoDetails = () => {
     let link = repos[current].url;
@@ -56,6 +58,9 @@ const Projects = ({repos}) => {
 
   function select(repo){
     setCurrent(repo);
+
+    // Sound effect
+    playSelectionSound();
   }
 
   function showPreviews(){
@@ -80,13 +85,13 @@ const Projects = ({repos}) => {
 
   function handleUpClick(){
     // Sound effect
-    playSound();
+    playTickSound();
     if(currentSection > 1){showPreviews()} 
   }
 
   function handleDownClick(){
     // Sound effect
-    playSound();
+    playTickSound();
     if(currentSection !== totalSections){showNext()}
   }
 

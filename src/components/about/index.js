@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from "react";
 import './about.css';
 import useSound from "use-sound";
-import tickSound from '../../assets/sounds/sound-6.wav';
+import tickSound from '../../assets/sounds/tick-sound.wav';
 
 const About = () => {
   var [current, setCurrent] = useState(0);

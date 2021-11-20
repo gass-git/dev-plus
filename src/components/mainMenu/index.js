@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import './mainMenu.css';
 import useSound from "use-sound";
-import soundOne from '../../assets/sounds/sound-7.wav';
+import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
 const MainMenu = ({selected, setSelected}) => {
   var [floorNumber, setFloorNumber] = useState(4);
-  const [playSwitchSound] = useSound(soundOne, {volume: 0.8});
+  const [playSwitchSound] = useSound(selectionSound, {volume: 0.8});
 
   function select(entry){
     // Play sound
