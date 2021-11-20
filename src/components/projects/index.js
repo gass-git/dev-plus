@@ -21,15 +21,15 @@ const Projects = ({repos}) => {
     const LinkField = () => {
       if(link){
         return [
-          <a href={link} target="_blank" rel="noreferrer">
-            <i class="fas fa-paperclip" />
+          <a key={5} href={link} target="_blank" rel="noreferrer">
+            <i className="fas fa-paperclip" />
              {space} {repos[current].url}
           </a>
         ];
       }else{
         return [
-          <div className="not-available">
-            <i class="far fa-times-circle" />
+          <div key={6} className="not-available">
+            <i className="far fa-times-circle" />
               {space} No link available
           </div>
         ];
@@ -37,21 +37,23 @@ const Projects = ({repos}) => {
     }
 
     return [
-    <Fragment>
-      <div className="about">
+    <Fragment key={7}>
+      <div key={12} className="about">
               {repos[current].about}
       </div>
-      <div className="link">
+      <div key={13} className="link">
         <LinkField />
       </div>
-      <div className="tags-wrapper">
-        {repos[current].topics.map((topic)=>{
-          return [
-            <div className="tag">
-              {topic}
-            </div>
-          ];
-        })}
+      <div key={14} className="tags-wrapper">
+        {
+          repos[current].topics.map((topic)=>{
+            return [
+              <div key={8} className="tag">
+                {topic}
+              </div>
+            ];
+          })
+        }
       </div>
     </Fragment>];
   }
@@ -96,7 +98,7 @@ const Projects = ({repos}) => {
   }
 
   return (
-      <section className="projects">
+      <section key={17} className="projects">
         <div className="content">
 
           {/* LEFT SIDE */}
@@ -108,7 +110,7 @@ const Projects = ({repos}) => {
           <div className="right-side">
             <div className="top-arrow-box">
               <i 
-                class={currentSection > 1 ? "fas fa-sort-up" : "fas fa-sort-up opacity-05"}
+                className={currentSection > 1 ? "fas fa-sort-up" : "fas fa-sort-up opacity-05"}
                 onClick={handleUpClick}
               />
             </div>
@@ -120,11 +122,12 @@ const Projects = ({repos}) => {
                   if(parseInt(i) < totalRepos){
                     return[
                       <div
+                        key={20}
                         className={current === i ? "option selected" : "option not-selected"}
                         onClick={() => select(i)}
                       >
                         <div className="folder">
-                          <i class={iconClass}></i>
+                          <i className={iconClass}></i>
                         </div>
                         <div className="project-name">
                           {repos[i] ?repos[i].name : null}
@@ -139,7 +142,7 @@ const Projects = ({repos}) => {
             </div>  
           <div className="bottom-arrow-box">
               <i 
-              class={currentSection !== totalSections ? "fas fa-sort-down" : "fas fa-sort-down opacity-05"}
+              className={currentSection !== totalSections ? "fas fa-sort-down" : "fas fa-sort-down opacity-05"}
               onClick={handleDownClick}
             />
           </div>

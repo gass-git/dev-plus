@@ -23,7 +23,7 @@ const Activity = ({answers, gitEvents, posts}) => {
 
   const Writings = () => {
     return [
-      <Fragment>
+      <Fragment key={0}>
         <div className="sub-title">
             LATEST WRITINGS
           </div>
@@ -35,7 +35,7 @@ const Activity = ({answers, gitEvents, posts}) => {
               date = date.slice(0,10);
 
               return [
-              <a href={postURL} className="block" target="_blank" rel="noreferrer">
+              <a key={post.id} href={postURL} className="block" target="_blank" rel="noreferrer">
                <div className="date">
                 {date}
                </div> 
@@ -53,7 +53,7 @@ const Activity = ({answers, gitEvents, posts}) => {
 
   const Stackoverflow = () => {
     return [
-      <Fragment>
+      <Fragment key={1}>
         <div className="sub-title">
             LATEST EDITS & ANSWERS
           </div>
@@ -63,7 +63,7 @@ const Activity = ({answers, gitEvents, posts}) => {
               let answerURL = "https://stackoverflow.com/a/" + data.answer_id;
 
               return [
-                <a href={answerURL} className="block" target="_blank" rel="noreferrer">
+                <a key={23} href={answerURL} className="block" target="_blank" rel="noreferrer">
                   <div className="date">
                     <Date entry={data.creation_date} />
                   </div>
@@ -80,11 +80,13 @@ const Activity = ({answers, gitEvents, posts}) => {
   }
 
   const GithubEvents = () => {
+    
+    
     return [
-      <Fragment>
+      <Fragment key={2}>
         <div className="sub-title">
             LATEST COMMITS
-          </div>
+        </div>
         <div className="container">
           {
             gitEvents.map((data) => {
@@ -93,10 +95,11 @@ const Activity = ({answers, gitEvents, posts}) => {
               repoName = repoName.slice(9);
               let date = data.created_at;
               let commit = data.payload.commits[0].message;
+              let push_id = data.payload.push_id;
 
               date = date.slice(0,10);
               return [
-                <a href={repoURL} className='block' target="_blank" rel="noreferrer">
+                <a key={push_id} href={repoURL} className='block' target="_blank" rel="noreferrer">
                   <div className="date">
                     {date}
                   </div>

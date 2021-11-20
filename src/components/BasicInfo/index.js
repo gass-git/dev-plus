@@ -42,7 +42,7 @@ const BasicInfo = ({reputation, avatarGlitch}) => {
             <label>SO Points</label>
             <data>
               {reputation.total} &nbsp;&nbsp;
-              <i class="fas fa-arrow-up" />&nbsp;
+              <i className="fas fa-arrow-up" />&nbsp;
               <span>{reputation.monthChange}</span>
             </data>
           </div>

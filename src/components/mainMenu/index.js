@@ -3,16 +3,15 @@ import './mainMenu.css';
 import useSound from "use-sound";
 import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
-const MainMenu = ({selected, setSelected}) => {
+const MainMenu = ({setSelected}) => {
   var [floorNumber, setFloorNumber] = useState(4);
   const [playSwitchSound] = useSound(selectionSound, {volume: 0.8});
 
   function select(entry){
-    // Play sound
-    playSwitchSound();
-
-    // Select option
     setSelected(entry);
+    
+    // Sound effect
+    playSwitchSound();
     
     // Elevator
     if(entry === 'about') {setFloorNumber(4)}

@@ -86,7 +86,7 @@ const App = () => {
 
     // Delete events that have no commits
     respArray.forEach((el) => {
-      if(el.payload.action != 'started'){
+      if(el.payload.action !== 'started'){
         filteredArr.push(el);
       }
     }); 
@@ -101,7 +101,7 @@ const App = () => {
     var createdAt = latestFour[0].created_at;
     var date = createdAt.slice(0,10);
     var time = createdAt.slice(11, 19);
-    console.log(time);
+
     setLastCommit({
       'message' : lastCommitMsg,
       'repo' : fromRepo,
@@ -175,11 +175,11 @@ const App = () => {
   useEffect(() => {
     showLoading();
     getWritings();
-   // getReputation();
+    getReputation();
     getRepos();
-   // getAnswers();
-     getGitEvents();
-   //  getSkillScores();
+    getAnswers();
+    getGitEvents();
+    getSkillScores();
   }, []);
 
   useEffect(() => {
@@ -219,17 +219,19 @@ const App = () => {
       <div className={loading ? "hide-page" : "show-page"}>
         
         {/* -- FIRST ROW -- */} 
+      
         <section className="first-row">
           <ScrollDisplay 
             lastCommit={lastCommit}
             lastAnswer={lastAnswer}
             lastPost={lastPost}
             msgIndex={msgIndex}
-            reputation={reputation}
           />
         </section>
       
+
         {/* -- SECOND ROW -- */}
+      
         <section className="second-row">
           <div className="left-side">
             <MainMenu 
@@ -241,8 +243,10 @@ const App = () => {
             <BasicInfo reputation={reputation} avatarGlitch={avatarGlitch}/>
           </div>
         </section>
+      
 
         {/* -- THIRD ROW --  */}
+        
         <section className="third-row">
           <div className="content-display">
             <div className="border-img">
@@ -255,7 +259,10 @@ const App = () => {
             </div>
           </div>
         </section>
+        
+
       </div>
+        
     </Fragment>
   ]
 }

@@ -10,10 +10,10 @@ const Skills = ({scores}) => {
       if(tag === 'html5') { tag = 'html' }
       else if(tag === 'css3') {tag = 'css'}
 
-      var points = scores.filter(obj => obj.tag_name === tag)
-      .map(el => el.answer_score);
+      var filteredData = scores.filter((data) => {return data.tag_name === tag});
+      var points = filteredData.map((lang) => { return lang.answer_score});
   
-      if(points.length === 0) points = "NF";
+      points = points.length === 0 ?  "NF" : points;
       return points;
     }
 
@@ -64,10 +64,10 @@ const Skills = ({scores}) => {
           ✨ CORE TECH
           </div> */}
           <div className="skills-wrapper">
-            <Skill lang="javascript" label="JavaScript" score="30" /> 
-            <Skill lang="html5" label="HTML5" score="23" /> 
-            <Skill lang="css3" label="CSS3" score="12" /> 
-            <Skill lang="php" label="Hypertext Preprocessor" score="5" /> 
+            <Skill key={1} lang="javascript" label="JavaScript" score="30" /> 
+            <Skill key={2} lang="html5" label="HTML5" score="23" /> 
+            <Skill key={3} lang="css3" label="CSS3" score="12" /> 
+            <Skill key={4} lang="php" label="Hypertext Preprocessor" score="5" /> 
           </div>
         </div>
         <div className="right-side">
@@ -75,10 +75,10 @@ const Skills = ({scores}) => {
            📚 FRAMEWORKS & LIBRARIES
           </div>*/}
           <div className="skills-wrapper">
-            <Skill lang="react" label="React" /> 
-            <Skill lang="jquery" label="jQuery"  /> 
-            <Skill lang="laravel" label="Laravel" /> 
-            <Skill lang="java" label="Java"  /> 
+            <Skill key={5} lang="react" label="React" /> 
+            <Skill key={6} lang="jquery" label="jQuery"  /> 
+            <Skill key={7} lang="laravel" label="Laravel" /> 
+            <Skill key={8} lang="java" label="Java"  /> 
           </div>
         </div>
       </div>

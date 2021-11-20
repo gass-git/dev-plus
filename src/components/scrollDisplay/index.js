@@ -2,7 +2,7 @@ import React from "react";
 import "./scrollDisplay.css";
 import { Fragment } from "react";
 
-const ScrollDisplay = ({lastCommit, lastAnswer, reputation, lastPost, msgIndex}) => {
+const ScrollDisplay = ({lastCommit, lastAnswer, lastPost, msgIndex}) => {
     var messages = [
         <Fragment> 
             Last Github commit - {lastCommit.message} (repo: {lastCommit.repo}) 

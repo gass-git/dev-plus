@@ -27,7 +27,6 @@ const About = () => {
   ];
 
   const ArrowDown = () => {
-
     function handleCurrent(){
       
       // Sound effect
@@ -36,8 +35,8 @@ const About = () => {
     }
 
     return [
-      <div className="down-arrow-box">
-        <i class="fas fa-caret-down" onClick={() => handleCurrent()} />
+      <div key={current} className="down-arrow-box">
+        <i className="fas fa-caret-down" onClick={() => handleCurrent()} />
       </div>
     ];
   }
