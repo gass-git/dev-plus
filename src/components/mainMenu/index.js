@@ -5,7 +5,7 @@ import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
 const MainMenu = ({setSelected}) => {
   var [floorNumber, setFloorNumber] = useState(4);
-  const [playSwitchSound] = useSound(selectionSound, {volume: 0.8});
+  const [playSwitchSound] = useSound(selectionSound, {volume: 1});
 
   function select(entry){
     setSelected(entry);

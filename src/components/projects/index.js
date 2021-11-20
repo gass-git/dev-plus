@@ -13,7 +13,7 @@ const Projects = ({repos}) => {
   var [indexes, setIndexes] = useState([0,1,2]);
   var space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
   const [playTickSound] = useSound(tickSound,{volume: 0.6});
-  const [playSelectionSound] = useSound(selectionSound, {volume:0.8});
+  const [playSelectionSound] = useSound(selectionSound, {volume:1});
 
   const RepoDetails = () => {
     let link = repos[current].url;

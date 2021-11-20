@@ -7,7 +7,7 @@ import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 const Activity = ({answers, gitEvents, posts}) => {
   var [current, setCurrent] = useState('stackoverflow');
   var [floorNumber, setFloorNumber] = useState(3);
-  const [playSound] = useSound(selectionSound, {volume: 0.8});
+  const [playSound] = useSound(selectionSound, {volume: 1});
 
   function select(entry){
     setCurrent(entry);
