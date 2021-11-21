@@ -15,11 +15,14 @@ let events_api = "https://api.github.com/users/gass-git/events/public";
 let repos_api = "https://api.github.com/users/gass-git/repos";
 let posts_api = "https://blog.gass.dev/api/posts";
 let scores_api =  "https://api.stackexchange.com/2.3/users/14895985/top-tags?site=stackoverflow";
+let geolocation_api = "https://geolocation-db.com/json/";
 
 const App = () => {
+  // Global variables
   var [loading, setLoading] = useState(true);
   var [selected, setSelected] = useState('about');
   var [avatarGlitch, setAvatarGlitch] = useState(false);
+  var [visitorIP, setVisitorIP] = useState();
 
   // Github variables
   var [gitEvents, setGitEvents] = useState([]);
@@ -40,6 +43,13 @@ const App = () => {
   var [msgIndex, setMsgIndex] = useState(0);
   var maxIndex = 2;
   var scrollInterval = 25; // Seconds it takes for the scroll animation
+
+  async function getVisitorIP(){
+    let req = await fetch(geolocation_api),
+    resp = await req.json();
+
+    setVisitorIP(resp.IPv4);
+  }
 
   async function getWritings(){
     let req = await fetch(posts_api),
@@ -175,11 +185,12 @@ const App = () => {
   useEffect(() => {
     showLoading();
     getWritings();
-    getReputation();
+ //   getReputation();
     getRepos();
-    getAnswers();
+ //   getAnswers();
     getGitEvents();
-    getSkillScores();
+ //   getSkillScores();
+    getVisitorIP();
   }, []);
 
   useEffect(() => {
@@ -260,7 +271,6 @@ const App = () => {
           </div>
         </section>
         
-
       </div>
         
     </Fragment>

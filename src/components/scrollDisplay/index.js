@@ -4,7 +4,7 @@ import { Fragment } from "react";
 
 const ScrollDisplay = ({lastCommit, lastAnswer, lastPost, msgIndex}) => {
     var messages = [
-        <Fragment> 
+       <Fragment> 
             Last Github commit - {lastCommit.message} (repo: {lastCommit.repo}) 
             &nbsp; {lastCommit.date} {lastCommit.time}
         </Fragment>,
