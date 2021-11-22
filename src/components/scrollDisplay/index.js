@@ -2,7 +2,7 @@ import React from "react";
 import "./scrollDisplay.css";
 import { Fragment } from "react";
 
-const ScrollDisplay = ({lastCommit, lastAnswer, lastPost, msgIndex}) => {
+const ScrollDisplay = ({lastCommit, lastAnswer, lastPost, msgIndex, uniqueVisitors}) => {
     var messages = [
        <Fragment> 
             Last Github commit - {lastCommit.message} (repo: {lastCommit.repo}) 
@@ -13,7 +13,10 @@ const ScrollDisplay = ({lastCommit, lastAnswer, lastPost, msgIndex}) => {
         </Fragment>,
         <Fragment>
             Last on Stack Overflow - {lastAnswer} 
-        </Fragment>
+        </Fragment>,
+        <Fragment>
+        Unique visitors to date - {uniqueVisitors} and counting..
+    </Fragment>,
     ];
 
     return (

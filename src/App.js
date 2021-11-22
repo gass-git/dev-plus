@@ -1,4 +1,5 @@
 import React, {useState, useEffect, Fragment } from 'react';
+import axios from 'axios';
 import './global/App.css';
 import './global/loader.css';
 import ScrollDisplay from './components/scrollDisplay/index';
@@ -15,14 +16,13 @@ let events_api = "https://api.github.com/users/gass-git/events/public";
 let repos_api = "https://api.github.com/users/gass-git/repos";
 let posts_api = "https://blog.gass.dev/api/posts";
 let scores_api =  "https://api.stackexchange.com/2.3/users/14895985/top-tags?site=stackoverflow";
-let geolocation_api = "https://geolocation-db.com/json/";
 
 const App = () => {
   // Global variables
   var [loading, setLoading] = useState(true);
   var [selected, setSelected] = useState('about');
   var [avatarGlitch, setAvatarGlitch] = useState(false);
-  var [visitorIP, setVisitorIP] = useState();
+  var [uniqueVisitors, setUniqueVisitors] = useState();
 
   // Github variables
   var [gitEvents, setGitEvents] = useState([]);
@@ -44,11 +44,16 @@ const App = () => {
   var maxIndex = 2;
   var scrollInterval = 25; // Seconds it takes for the scroll animation
 
-  async function getVisitorIP(){
-    let req = await fetch(geolocation_api),
-    resp = await req.json();
+  function saveVisit(){
+    axios.post('https://api.gass.dev/save_ip');
+  }
 
-    setVisitorIP(resp.IPv4);
+  function getUniqueVisitors(){
+    axios.get('https://api.gass.dev/unique_visitors')
+    .then(function (response){
+      let visits_count = response.data.count;
+      setUniqueVisitors(visits_count);
+    })
   }
 
   async function getWritings(){
@@ -190,7 +195,8 @@ const App = () => {
  //   getAnswers();
     getGitEvents();
  //   getSkillScores();
-    getVisitorIP();
+    saveVisit();
+    getUniqueVisitors();
   }, []);
 
   useEffect(() => {
@@ -237,6 +243,7 @@ const App = () => {
             lastAnswer={lastAnswer}
             lastPost={lastPost}
             msgIndex={msgIndex}
+            uniqueVisitors={uniqueVisitors}
           />
         </section>
       
@@ -270,7 +277,7 @@ const App = () => {
             </div>
           </div>
         </section>
-        
+
       </div>
         
     </Fragment>
