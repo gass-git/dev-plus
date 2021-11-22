@@ -121,28 +121,44 @@ const App = () => {
     });
   }
 
-  async function getRepos() {
-    var req = await fetch(repos_api),
-      respArray = await req.json(),
-      newArray = [], 
-      newObj = null;
+  function getRepos() {
+    axios.get(repos_api)
+    .then((resp)=> {
+      let newArray = [];
 
-    respArray.forEach((repo) => {
-      newObj = {
-        'name' : repo.name, 
-        'about' : repo.description, 
-        'url' : repo.homepage,
-        'topics' : repo.topics,
-        'created_at' : repo.created_at
-      };
-      newArray.push(newObj);
+      resp.data.forEach((repo)=>{
+        newArray.push({
+          'name': repo.name,
+          'about': repo.description,
+          'url' : repo.homepage,
+          'topics' : repo.topics,
+          'created_at' : repo.created_at
+        });
+
+      });
+      
+      // Remove repos that have the ABOUT SECTION empty
+      let filteredArray = newArray.filter((repo) => {
+         return repo.about !== null ? true : false; 
+      });
+
+      // Sort repos from old to new
+      let sortedArray = filteredArray.sort((a,b) =>  {
+        return (new Date(a.created_at) - new Date(b.created_at));
+      });
+
+      setRepos(sortedArray);
     });
-    // Remove repos with about section empty
+    
+    /*
+    
+    
     let filteredArr = newArray.filter((repo) => { return repo.about != null ? true : false });
     
     // Sort array from old to new 
     let sortedArr = filteredArr.sort((a,b) =>  new Date(a.created_at) - new Date(b.created_at));
     setRepos(sortedArr);
+    */
   }
 
   function getAnswers(){
