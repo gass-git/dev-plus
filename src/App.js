@@ -44,7 +44,7 @@ const App = () => {
   var maxIndex = 2;
   var scrollInterval = 25; // Seconds it takes for the scroll animation
 
-  function saveVisit(){
+  function processVisit(){
     axios.post('https://api.gass.dev/save_ip');
   }
 
@@ -56,23 +56,24 @@ const App = () => {
     })
   }
 
-  async function getWritings(){
-    let req = await fetch(posts_api),
-      resp = await req.json(),
-      newArray = [];
-    
-    resp.forEach((post) => {
-      newArray.push({
-        'id' : post.id,
-        'title' : post.title,
-        'created_at' : post.created_at,
-        'views' : post.views
-      });
-    });
+  function getWritings(){
+    let newArray = [];
 
-    let sortedArr = newArray.sort((a, b) => {return b.id - a.id});
-    setPosts(sortedArr);
-    setLastPost(sortedArr[0]);
+    axios.get(posts_api)
+      .then(function (resp){
+        resp.data.forEach((post) => {
+          newArray.push({
+            'id' : post.id,
+            'title' : post.title,
+            'created_at' : post.created_at,
+            'views' : post.views
+          });
+        });
+
+        let sortedArr = newArray.sort((a, b) => {return b.id - a.id});
+        setPosts(sortedArr);
+        setLastPost(sortedArr[0]);
+      })
   }
 
   async function getReputation(){
@@ -195,7 +196,7 @@ const App = () => {
  //   getAnswers();
     getGitEvents();
  //   getSkillScores();
-    saveVisit();
+    processVisit();
     getUniqueVisitors();
   }, []);
 
