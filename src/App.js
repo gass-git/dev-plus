@@ -44,23 +44,29 @@ const App = () => {
   var maxIndex = 2;
   var scrollInterval = 25; // Seconds it takes for the scroll animation
 
+  function showLoading() {
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000);
+  }
+
   function processVisit(){
     axios.post('https://api.gass.dev/save_ip');
   }
 
   function getUniqueVisitors(){
     axios.get('https://api.gass.dev/unique_visitors')
-    .then(function (response){
+    .then((response) => {
       let visits_count = response.data.count;
       setUniqueVisitors(visits_count);
-    })
+    });
   }
 
   function getWritings(){
     let newArray = [];
 
     axios.get(posts_api)
-      .then(function (resp){
+    .then((resp) => {
         resp.data.forEach((post) => {
           newArray.push({
             'id' : post.id,
@@ -73,59 +79,46 @@ const App = () => {
         let sortedArr = newArray.sort((a, b) => {return b.id - a.id});
         setPosts(sortedArr);
         setLastPost(sortedArr[0]);
-      })
+      });
   }
 
   function getReputation(){
     axios.get(SO_user_info_api)
-      .then(function(resp){
-        var reputation = resp.data.items[0].reputation,
-          reputationChange = resp.data.items[0].reputation_change_month,
-          newElement = {
-            'total': reputation, 
-            'monthChange': reputationChange 
-          }
-        setReputation(newElement);
-      });
-  }
-
-  function showLoading() {
-    setTimeout(() => {
-      setLoading(false)
-    }, 2000);
-  }
-
-  async function getGitEvents() {
-    var req = await fetch(events_api), 
-      respArray = await req.json();
-
-    var filteredArr = [];
-
-    // Delete events that have no commits
-    respArray.forEach((el) => {
-      if(el.payload.action !== 'started'){
-        filteredArr.push(el);
-      }
-    }); 
-
-    var latestFour = filteredArr.slice(0,4); 
-    setGitEvents(latestFour);
-
-    // Variables for scroll display component
-    var lastCommitMsg = latestFour[0].payload.commits[0].message;
-    var fromRepo = latestFour[0].repo.name;
-    fromRepo = fromRepo.slice(9);
-    var createdAt = latestFour[0].created_at;
-    var date = createdAt.slice(0,10);
-    var time = createdAt.slice(11, 19);
-
-    setLastCommit({
-      'message' : lastCommitMsg,
-      'repo' : fromRepo,
-      'date' : date,
-      'time' : time
+    .then((resp) => {
+      var reputation = resp.data.items[0].reputation,
+        reputationChange = resp.data.items[0].reputation_change_month,
+        newElement = {
+          'total': reputation, 
+          'monthChange': reputationChange 
+        }
+      setReputation(newElement);
     });
+  }
 
+  function getGitEvents() {
+    axios.get(events_api)
+    .then((resp) => {
+      var filteredArray = [];
+
+      resp.data.forEach((gitEvent)=>{
+        if(gitEvent.payload.action !== 'started'){
+          filteredArray.push(gitEvent);
+        }
+      });
+      let latestFour = filteredArray.slice(0,4);
+      setGitEvents(latestFour);
+    
+      // Variables for scroll display component
+      var repo = latestFour[0].repo.name.slice(9),
+      createdAt = latestFour[0].created_at;
+
+      setLastCommit({
+        'message' : latestFour[0].payload.commits[0].message,
+        'repo' : repo,
+        'date' : createdAt.slice(0,10),
+        'time' : createdAt.slice(11, 19)
+      });
+    });
   }
 
   async function getRepos() {
@@ -134,7 +127,7 @@ const App = () => {
       newArray = [], 
       newObj = null;
 
-    respArray.forEach((repo)=>{
+    respArray.forEach((repo) => {
       newObj = {
         'name' : repo.name, 
         'about' : repo.description, 
@@ -155,34 +148,30 @@ const App = () => {
   function getAnswers(){
     var mergedArrays = [];
     
-    axios.get(answers_api).then(
-      function(resp){
-        // Last 4 asnswers data
-        let answersArray = resp.data.items.slice(0,4);
+    axios.get(answers_api)
+    .then((resp) => {
+      // Last 4 asnswers data
+      let answersArray = resp.data.items.slice(0,4);
       
-        // Get questions titles associated to the answers
-        answersArray.forEach(
-          function(answer, index){
-            let id = answer.question_id;
-            let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow`
+      // Get questions titles associated to the answers
+      answersArray.forEach((answer, index) => {
+          let id = answer.question_id;
+          let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow`
+          
+          axios.get(questions_api)
+          .then((resp) => {
+            let questionTitle = resp.data.items[0].title;
             
-            axios.get(questions_api)
-              .then(
-                function(resp){
-                  let questionTitle = resp.data.items[0].title;
-                  
-                  mergedArrays.push({
-                    ...answersArray[index],
-                    ...{'title':questionTitle}
-                  });
-                  setAnswers(mergedArrays);
-                  setLastAnswer(mergedArrays[0].title);
-                }
-              );  
-          }
-        );
-      }
-    );
+            mergedArrays.push({
+              ...answersArray[index],
+              ...{'title':questionTitle}
+            });
+            setAnswers(mergedArrays);
+            setLastAnswer(mergedArrays[0].title);
+          });  
+        }
+      );
+    });
   };
 
   function getSkillScores(){
