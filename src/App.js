@@ -183,16 +183,16 @@ const App = () => {
   };
 
   async function getSkillScores(){
-    var req = await fetch(scores_api),
-      resp = await req.json(),
-      arr = resp.items;
-    setScores(arr);
+    axios.get(scores_api)
+      .then(function(resp){
+        setScores(resp.data.items)
+      })
   }
 
   useEffect(() => {
     showLoading();
     getWritings();
-    getReputation();
+  //  getReputation();
     getRepos();
  //   getAnswers();
     getGitEvents();
