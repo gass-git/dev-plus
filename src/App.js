@@ -76,17 +76,18 @@ const App = () => {
       })
   }
 
-  async function getReputation(){
-    var req = await fetch(SO_user_info_api),
-      resp = await req.json(),
-      reputation = resp.items[0].reputation,
-      repChangeMonth = await resp.items[0].reputation_change_month,
-      newElement = { 
-        'total': reputation, 
-        'monthChange': repChangeMonth 
-      };
-    setReputation(newElement);
-  };
+  function getReputation(){
+    axios.get(SO_user_info_api)
+      .then(function(resp){
+        var reputation = resp.data.items[0].reputation,
+          reputationChange = resp.data.items[0].reputation_change_month,
+          newElement = {
+            'total': reputation, 
+            'monthChange': reputationChange 
+          }
+        setReputation(newElement);
+      });
+  }
 
   function showLoading() {
     setTimeout(() => {
@@ -191,7 +192,7 @@ const App = () => {
   useEffect(() => {
     showLoading();
     getWritings();
- //   getReputation();
+    getReputation();
     getRepos();
  //   getAnswers();
     getGitEvents();
