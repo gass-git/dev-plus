@@ -1,5 +1,4 @@
 import React, {useState, useEffect, Fragment } from 'react';
-import axios from 'axios';
 import './global/App.css';
 import './global/loader.css';
 import ScrollDisplay from './components/scrollDisplay/index';
@@ -9,26 +8,23 @@ import Projects from './components/projects/index';
 import Skills from './components/skills/index';
 import About from './components/about/index';
 import Activity from './components/activity/index';
-
-let answers_api = "https://api.stackexchange.com/2.3/users/14895985/answers?order=desc&sort=activity&site=stackoverflow";
-let SO_user_info_api = "https://api.stackexchange.com/2.3/users/14895985?order=desc&sort=reputation&site=stackoverflow";
-let events_api = "https://api.github.com/users/gass-git/events/public";
-let repos_api = "https://api.github.com/users/gass-git/repos";
-let posts_api = "https://blog.gass.dev/api/posts";
-let scores_api =  "https://api.stackexchange.com/2.3/users/14895985/top-tags?site=stackoverflow";
+import processVisit from './api/processVisit';
+import getUniqueVisits from './api/getUniqueVisits';
+import showLoading from './functions/showLoading';
+import getSkillScores from './api/getSkillScores';
+import getWritings from './api/getWritings';
+import getReputation from './api/getReputation';
+import getRepos from './api/getRepos';
+import getGitEvents from './api/getGitEvents';
+import getAnswers from './api/getAnswers';
 
 const App = () => {
-  // Global variables
   var [loading, setLoading] = useState(true);
   var [selected, setSelected] = useState('about');
   var [avatarGlitch, setAvatarGlitch] = useState(false);
-  var [uniqueVisitors, setUniqueVisitors] = useState();
-
-  // Github variables
+  var [uniqueVisits, setUniqueVisits] = useState();
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
-
-  // Blog variables
   var [posts, setPosts] = useState([]);
   var [lastPost, setLastPost] = useState([]);
 
@@ -41,178 +37,23 @@ const App = () => {
   var [lastCommit, setLastCommit] = useState([]);
   var [lastAnswer, setLastAnswer] = useState(); 
   var [msgIndex, setMsgIndex] = useState(0);
-  var maxIndex = 2;
+  var maxIndex = 3; 
   var scrollInterval = 25; // Seconds it takes for the scroll animation
 
-  function showLoading() {
-    setTimeout(() => {
-      setLoading(false)
-    }, 2000);
-  }
-
-  function processVisit(){
-    axios.post('https://api.gass.dev/save_ip');
-  }
-
-  function getUniqueVisitors(){
-    axios.get('https://api.gass.dev/unique_visitors')
-    .then((response) => {
-      let visits_count = response.data.count;
-      setUniqueVisitors(visits_count);
-    });
-  }
-
-  function getWritings(){
-    let newArray = [];
-
-    axios.get(posts_api)
-    .then((resp) => {
-        resp.data.forEach((post) => {
-          newArray.push({
-            'id' : post.id,
-            'title' : post.title,
-            'created_at' : post.created_at,
-            'views' : post.views
-          });
-        });
-
-        let sortedArr = newArray.sort((a, b) => {return b.id - a.id});
-        setPosts(sortedArr);
-        setLastPost(sortedArr[0]);
-      });
-  }
-
-  function getReputation(){
-    axios.get(SO_user_info_api)
-    .then((resp) => {
-      var reputation = resp.data.items[0].reputation,
-        reputationChange = resp.data.items[0].reputation_change_month,
-        newElement = {
-          'total': reputation, 
-          'monthChange': reputationChange 
-        }
-      setReputation(newElement);
-    });
-  }
-
-  function getGitEvents() {
-    axios.get(events_api)
-    .then((resp) => {
-      var filteredArray = [];
-
-      resp.data.forEach((gitEvent)=>{
-        if(gitEvent.payload.action !== 'started'){
-          filteredArray.push(gitEvent);
-        }
-      });
-      let latestFour = filteredArray.slice(0,4);
-      setGitEvents(latestFour);
-    
-      // Variables for scroll display component
-      var repo = latestFour[0].repo.name.slice(9),
-      createdAt = latestFour[0].created_at;
-
-      setLastCommit({
-        'message' : latestFour[0].payload.commits[0].message,
-        'repo' : repo,
-        'date' : createdAt.slice(0,10),
-        'time' : createdAt.slice(11, 19)
-      });
-    });
-  }
-
-  function getRepos() {
-    axios.get(repos_api)
-    .then((resp)=> {
-      let newArray = [];
-
-      resp.data.forEach((repo)=>{
-        newArray.push({
-          'name': repo.name,
-          'about': repo.description,
-          'url' : repo.homepage,
-          'topics' : repo.topics,
-          'created_at' : repo.created_at
-        });
-
-      });
-      
-      // Remove repos that have the ABOUT SECTION empty
-      let filteredArray = newArray.filter((repo) => {
-         return repo.about !== null ? true : false; 
-      });
-
-      // Sort repos from old to new
-      let sortedArray = filteredArray.sort((a,b) =>  {
-        return (new Date(a.created_at) - new Date(b.created_at));
-      });
-
-      setRepos(sortedArray);
-    });
-    
-    /*
-    
-    
-    let filteredArr = newArray.filter((repo) => { return repo.about != null ? true : false });
-    
-    // Sort array from old to new 
-    let sortedArr = filteredArr.sort((a,b) =>  new Date(a.created_at) - new Date(b.created_at));
-    setRepos(sortedArr);
-    */
-  }
-
-  function getAnswers(){
-    var mergedArrays = [];
-    
-    axios.get(answers_api)
-    .then((resp) => {
-      // Last 4 asnswers data
-      let answersArray = resp.data.items.slice(0,4);
-      
-      // Get questions titles associated to the answers
-      answersArray.forEach((answer, index) => {
-          let id = answer.question_id;
-          let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow`
-          
-          axios.get(questions_api)
-          .then((resp) => {
-            let questionTitle = resp.data.items[0].title;
-            
-            mergedArrays.push({
-              ...answersArray[index],
-              ...{'title':questionTitle}
-            });
-            setAnswers(mergedArrays);
-            setLastAnswer(mergedArrays[0].title);
-          });  
-        }
-      );
-    });
-  };
-
-  function getSkillScores(){
-    axios.get(scores_api)
-      .then(function(resp){
-        setScores(resp.data.items)
-      })
-  }
-
   useEffect(() => {
-    showLoading();
-    getWritings();
-  //  getReputation();
-    getRepos();
-    getAnswers();
-    getGitEvents();
- //   getSkillScores();
+    showLoading({setLoading});
     processVisit();
-    getUniqueVisitors();
+    getUniqueVisits({setUniqueVisits});
+    getWritings({setPosts, setLastPost});
+    getReputation({setReputation});
+    getRepos({setRepos});
+    getAnswers({setAnswers, setLastAnswer});
+    getGitEvents({setGitEvents, setLastCommit});
+    getSkillScores({setScores});
   }, []);
 
   useEffect(() => {
-
     var interval = setInterval(() => {
-      
       // Variables for ScrollDisplay
       msgIndex < maxIndex ? setMsgIndex(msgIndex + 1) : setMsgIndex(0);
 
@@ -233,7 +74,6 @@ const App = () => {
       }, random + glitchDuration)
 
     }, scrollInterval * 1000);
-
     return () => clearInterval(interval);
   });
 
@@ -243,23 +83,20 @@ const App = () => {
       <div className={loading ? "loader" : "no-loader"}>
           Loading...
       </div>
+
       <div className={loading ? "hide-page" : "show-page"}>
-        
         {/* -- FIRST ROW -- */} 
-      
         <section className="first-row">
           <ScrollDisplay 
             lastCommit={lastCommit}
             lastAnswer={lastAnswer}
             lastPost={lastPost}
             msgIndex={msgIndex}
-            uniqueVisitors={uniqueVisitors}
+            uniqueVisits={uniqueVisits}
           />
         </section>
-      
 
         {/* -- SECOND ROW -- */}
-      
         <section className="second-row">
           <div className="left-side">
             <MainMenu 
@@ -271,10 +108,8 @@ const App = () => {
             <BasicInfo reputation={reputation} avatarGlitch={avatarGlitch}/>
           </div>
         </section>
-      
 
         {/* -- THIRD ROW --  */}
-        
         <section className="third-row">
           <div className="content-display">
             <div className="border-img">
@@ -287,9 +122,7 @@ const App = () => {
             </div>
           </div>
         </section>
-
-      </div>
-        
+      </div>        
     </Fragment>
   ]
 }
