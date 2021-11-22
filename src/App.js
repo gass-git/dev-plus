@@ -152,37 +152,40 @@ const App = () => {
     setRepos(sortedArr);
   }
 
-  async function getAnswers(){
-    // Get answers data
-    let req = await fetch(answers_api),
-      resp = await req.json(),
-      answersArr = resp.items.slice(0, 4),
-      merged = [];
-
-    // Get questions title
-    answersArr.forEach(async function(answer, index){
-      var id = answer.question_id;
-      let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow`;
-      let req = await fetch(questions_api),
-       resp = await req.json(),
-       questionTitle = resp.items[0].title;
-
-        merged.push({
-         ...answersArr[index], 
-         ...{'title' : questionTitle}
-        });
-    })
-
-    setAnswers(merged);
-
-    // -- Variable for ScrollDisplay component --
-    // setTimeout is to solve a delay issue with the API
-    setTimeout(() => {
-      setLastAnswer(merged[0].title)
-    }, 10000);
+  function getAnswers(){
+    var mergedArrays = [];
+    
+    axios.get(answers_api).then(
+      function(resp){
+        // Last 4 asnswers data
+        let answersArray = resp.data.items.slice(0,4);
+      
+        // Get questions titles associated to the answers
+        answersArray.forEach(
+          function(answer, index){
+            let id = answer.question_id;
+            let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow`
+            
+            axios.get(questions_api)
+              .then(
+                function(resp){
+                  let questionTitle = resp.data.items[0].title;
+                  
+                  mergedArrays.push({
+                    ...answersArray[index],
+                    ...{'title':questionTitle}
+                  });
+                  setAnswers(mergedArrays);
+                  setLastAnswer(mergedArrays[0].title);
+                }
+              );  
+          }
+        );
+      }
+    );
   };
 
-  async function getSkillScores(){
+  function getSkillScores(){
     axios.get(scores_api)
       .then(function(resp){
         setScores(resp.data.items)
@@ -194,7 +197,7 @@ const App = () => {
     getWritings();
   //  getReputation();
     getRepos();
- //   getAnswers();
+    getAnswers();
     getGitEvents();
  //   getSkillScores();
     processVisit();
