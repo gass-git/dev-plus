@@ -45,11 +45,11 @@ const App = () => {
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
-   getReputation({setReputation});
-    getRepos({setRepos});
-    getAnswers({setAnswers, setLastAnswer});
-    getGitEvents({setGitEvents, setLastCommit});
-   getSkillScores({setScores});
+  // getReputation({setReputation});
+  //  getRepos({setRepos});
+  //  getAnswers({setAnswers, setLastAnswer});
+  //  getGitEvents({setGitEvents, setLastCommit});
+  // getSkillScores({setScores});
   }, []);
 
   useEffect(() => {
