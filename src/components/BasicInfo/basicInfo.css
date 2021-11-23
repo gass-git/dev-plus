@@ -5,7 +5,7 @@
   margin: 0 auto;
   border: 19px solid transparent;
   border-image: url("../../assets/images/border-60px.png") 19 round;
-  min-width: 571px;
+  width: 571px;
   height: 132px;
 }
 .basic-info .inner-container {
@@ -35,7 +35,6 @@
   height: 160px;
   width: 160px;
 }
-
 /* 
 -- USERNAME CONTAINER
 */

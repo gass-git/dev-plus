@@ -41,15 +41,15 @@ const App = () => {
   var scrollInterval = 25; // Seconds it takes for the scroll animation
 
   useEffect(() => {
-    showLoading({setLoading});
+   showLoading({setLoading});
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
-    getReputation({setReputation});
+   getReputation({setReputation});
     getRepos({setRepos});
     getAnswers({setAnswers, setLastAnswer});
     getGitEvents({setGitEvents, setLastCommit});
-    getSkillScores({setScores});
+   getSkillScores({setScores});
   }, []);
 
   useEffect(() => {
@@ -122,7 +122,8 @@ const App = () => {
             </div>
           </div>
         </section>
-      </div>        
+      
+        </div>        
     </Fragment>
   ]
 }
