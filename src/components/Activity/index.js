@@ -8,6 +8,7 @@ const Activity = ({answers, gitEvents, posts}) => {
   var [current, setCurrent] = useState('stackoverflow');
   var [posNumber, setPosNumber] = useState(3);
   const [playSound] = useSound(selectionSound, {volume: 1});
+  const space = <Fragment>&nbsp; &nbsp; &nbsp;</Fragment>
 
   function select(entry){
     setCurrent(entry);
@@ -38,7 +39,7 @@ const Activity = ({answers, gitEvents, posts}) => {
               <a key={post.id} href={postURL} className="block" target="_blank" rel="noreferrer">
                <div className="date">
                 {date}
-               </div> 
+               </div>
                <div className="post-title">
                 {post.title}
                </div>
@@ -56,7 +57,7 @@ const Activity = ({answers, gitEvents, posts}) => {
       <Fragment key={1}>
         <div className="sub-title">
             LATEST EDITS & ANSWERS
-          </div>
+        </div>
         <div className="container">
           {
             answers.map((data) => {
@@ -100,10 +101,11 @@ const Activity = ({answers, gitEvents, posts}) => {
               date = date.slice(0,10);
               return [
                 <a key={push_id} href={repoURL} className='block' target="_blank" rel="noreferrer">
-                  <div className="date">
+                  <div className="events-date">
                     {date}
                   </div>
                   <div className="commit">{commit}</div>
+                  {space}
                   <div>{repoName}</div>
                 </a>
               ]

@@ -89,6 +89,9 @@
   .third-row .activity .right-side {
     width: 100px !important;
   }
+  .third-row .activity .events-date {
+    display: none !important;
+  }
 }
 @media screen and (max-width: 749px) {
   .show-page {
@@ -164,11 +167,20 @@
   .activity .question {
     width: 100% !important;
   }
+  .activity .post-title {
+    width: 100% !important;
+  }
   .activity .right-side {
     display: none !important;
   }
   .activity .media-top-selector {
     display: flex !important;
+  }
+  .activity .date {
+    display: none !important;
+  }
+  .activity .events-date {
+    display: none !important;
   }
   .projects .content {
     display: inline-block !important;

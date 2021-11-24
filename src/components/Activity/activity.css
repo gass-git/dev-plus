@@ -97,6 +97,10 @@
   width: 120px;
   /* border: 1px solid orange; */
 }
+.activity .events-date {
+  width: 120px;
+  /* border: 1px solid orange; */
+}
 .activity .commit {
   width: 62%;
   overflow: hidden;
