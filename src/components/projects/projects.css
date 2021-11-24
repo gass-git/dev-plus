@@ -139,3 +139,33 @@
   opacity: 0.5 !important;
   cursor: default !important;
 }
+/*
+-- FOR @MEDIA - Smaller screens
+*/
+.projects .switcher-box {
+  display: none;
+  width: 100%;
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* border: 1px solid white; */
+}
+.projects .switcher-box .arrow-left {
+  width: 20%;
+  text-align: center;
+  font-size: 35px;
+  /* border: 1px solid white;*/
+}
+.projects .switcher-box .project-name {
+  width: 50%;
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+  /* border: 1px solid white; */
+}
+.projects .switcher-box .arrow-right {
+  width: 20%;
+  text-align: center;
+  font-size: 35px;
+  /* border: 1px solid white; */
+}

@@ -57,15 +57,13 @@ const Projects = ({repos}) => {
       </div>
     </Fragment>];
   }
-
   function select(repo){
     setCurrent(repo);
 
     // Sound effect
     playSelectionSound();
   }
-
-  function showPreviews(){
+  function showPreviewsSection(){
     var firstIndex = indexes[0] - 3,
     secondIndex = indexes[0] - 2,
     thirdIndex = indexes[0] - 1,
@@ -74,8 +72,7 @@ const Projects = ({repos}) => {
     setCurrentSection(currentSection - 1);
     setCurrent(firstIndex);
   }
-
-  function showNext(){
+  function showNextSection(){
     var firstIndex = indexes[2] + 1,
     secondIndex = indexes[2] + 2,
     thirdIndex = indexes[2] + 3,
@@ -84,22 +81,61 @@ const Projects = ({repos}) => {
     setCurrentSection(currentSection + 1);
     setCurrent(firstIndex);
   }
-
+  function previewsProject(){
+    if(current > 0) setCurrent(current - 1);
+  }
+  function nextProject(){
+    // (totalRepos - 1) is the maximum index of the repos array
+    if(current < totalRepos - 1) setCurrent(current + 1);
+  }
   function handleUpClick(){
     // Sound effect
     playTickSound();
-    if(currentSection > 1){showPreviews()} 
+    if(currentSection > 1){showPreviewsSection()} 
   }
-
   function handleDownClick(){
     // Sound effect
     playTickSound();
-    if(currentSection !== totalSections){showNext()}
+    if(currentSection !== totalSections){showNextSection()}
   }
-
+  function handleLeftArrowOpacity(){
+    if(current === 0){
+      return "fas fa-caret-left opacity-05"
+    }
+    else{
+      return "fas fa-caret-left"
+    }
+  }
+  function handleRightArrowOpacity(){
+    if(current === totalRepos - 1){
+      return "fas fa-caret-right opacity-05";
+    }
+    else{
+      return "fas fa-caret-right";
+    }              
+  }
   return (
       <section key={17} className="projects">
         <div className="content">
+
+          {/* @MEDIA - small screens */}
+          <div className="switcher-box">
+            <div className="arrow-left">
+              <i 
+                className={handleLeftArrowOpacity()} 
+                onClick={() => previewsProject()}
+              />
+            </div>
+            <div className="project-name">
+              {repos[current].name}
+            </div>
+            <div className="arrow-right">
+              <i 
+                className={handleRightArrowOpacity()}
+                onClick={() => nextProject()}
+              />
+            </div>
+          </div>
 
           {/* LEFT SIDE */}
           <div className="left-side">

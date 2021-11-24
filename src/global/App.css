@@ -170,8 +170,13 @@
   .activity .media-top-selector {
     display: flex !important;
   }
-}
-@media (min-width: 400px) and (max-width: 599px) {
-}
-@media screen and (max-width: 399px) {
+  .projects .content {
+    display: inline-block !important;
+  }
+  .projects .switcher-box {
+    display: flex !important;
+  }
+  .projects .right-side {
+    display: none !important;
+  }
 }
