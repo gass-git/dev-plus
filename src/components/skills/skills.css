@@ -5,9 +5,9 @@
   height: 130px;
   margin: 5px auto 5px auto;
   color: white;
-  border: 1px solid white;
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
+  /* border: 1px solid white;*/
 }
 .skills .left-side {
   margin-top: 10px;
