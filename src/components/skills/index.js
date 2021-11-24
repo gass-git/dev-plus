@@ -1,8 +1,18 @@
 import React, {useState} from "react";
+import useSound from "use-sound";
 import './skills.css';
+import tickSound from "../../assets/sounds/tick-sound.wav";
 
 const Skills = ({scores}) => {
   var [arrowClicked, setArrowClicked] = useState(false);
+  const [playTickSound] = useSound(tickSound,{volume: 0.6});
+
+  function handleArrowClick(){
+    setArrowClicked(!arrowClicked)
+
+    // Sound effect
+    playTickSound();
+  }
 
   const Skill = ({lang, label}) => {
     var [over, setOver] = useState(false);
@@ -93,7 +103,7 @@ const Skills = ({scores}) => {
       <div className="down-arrow-box">
         <i 
           className={arrowClicked === true ? "fas fa-caret-up" : "fas fa-caret-down"}
-          onClick={() => setArrowClicked(!arrowClicked)} 
+          onClick={() => handleArrowClick()} 
         />
       </div>
     </section>

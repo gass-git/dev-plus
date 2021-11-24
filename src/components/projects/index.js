@@ -82,11 +82,21 @@ const Projects = ({repos}) => {
     setCurrent(firstIndex);
   }
   function previewsProject(){
-    if(current > 0) setCurrent(current - 1);
+    if(current > 0) {
+      setCurrent(current - 1);
+      
+      // Sound effect
+      playTickSound();
+    }
   }
   function nextProject(){
     // (totalRepos - 1) is the maximum index of the repos array
-    if(current < totalRepos - 1) setCurrent(current + 1);
+    if(current < totalRepos - 1){ 
+      setCurrent(current + 1)
+
+      // Sound effect
+      playTickSound();
+    }
   }
   function handleUpClick(){
     // Sound effect
