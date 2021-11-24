@@ -154,7 +154,6 @@
   width: 20%;
   text-align: center;
   font-size: 35px;
-  cursor: pointer;
   /* border: 1px solid white;*/
 }
 .projects .switcher-box .project-name {
@@ -168,6 +167,8 @@
   width: 20%;
   text-align: center;
   font-size: 35px;
-  cursor: pointer;
   /* border: 1px solid white; */
+}
+.projects .animate {
+  animation: arrow-flicker-2 1300ms infinite;
 }

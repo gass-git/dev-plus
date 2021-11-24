@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import './about.css';
 import useSound from "use-sound";
 import tickSound from '../../assets/sounds/tick-sound.wav';
@@ -6,7 +6,7 @@ import tickSound from '../../assets/sounds/tick-sound.wav';
 const About = () => {
   var [current, setCurrent] = useState(0);
   const [playSound] = useSound(tickSound, {volume: 0.6});
-  var text = [
+  var textArray = [
     <Fragment>
       For me coding is a <span className="highlight">catalyst for creation</span>, to portray 
       an idea into reality and be able to interact with it anywhere on 
@@ -26,29 +26,37 @@ const About = () => {
     </Fragment>
   ];
 
-  const ArrowDown = () => {
-    function handleCurrent(){
-      
-      // Sound effect
-      playSound();
+  function handleCurrent(){
+    if(current === textArray.length - 1){
+      setCurrent(0);
+    }else{
       setCurrent(current + 1);
     }
-
-    return [
-      <div key={current} className="down-arrow-box">
-        <i className="fas fa-caret-down" onClick={() => handleCurrent()} />
-      </div>
-    ];
+    // Sound effect
+    playSound();
+  }
+  function handleArrowClass(){
+    if(current === textArray.length - 1){
+      return "fas fa-angle-double-up";
+    }
+    else{
+      return "fas fa-caret-down"; 
+    }
   }
 
-    return(
-      <section className="about">
-        <div className="content">
-          {text[current]}
-        </div>
-         { current < 2 ?  <ArrowDown /> : null }
-      </section>
-    );
+  return(
+    <section className="about">
+      <div className="content">
+        {textArray[current]}
+      </div>
+      <div className="arrow-box">
+        <i 
+          className={handleArrowClass()}
+          onClick={() => handleCurrent()} 
+        />
+      </div>
+    </section>
+  );
   }
 
   export default About;

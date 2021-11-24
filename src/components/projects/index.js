@@ -108,17 +108,17 @@ const Projects = ({repos}) => {
     playTickSound();
     if(currentSection !== totalSections){showNextSection()}
   }
-  function handleLeftArrowOpacity(){
-    if(current === 0){
-      return "fas fa-caret-left opacity-05"
+  function handleLeftArrowClass(){
+    if(current === totalRepos - 1){
+      return "fas fa-caret-left animate"
     }
     else{
       return "fas fa-caret-left"
     }
   }
-  function handleRightArrowOpacity(){
-    if(current === totalRepos - 1){
-      return "fas fa-caret-right opacity-05";
+  function handleRightArrowClass(){
+    if(current === 0){
+      return "fas fa-caret-right animate";
     }
     else{
       return "fas fa-caret-right";
@@ -132,7 +132,7 @@ const Projects = ({repos}) => {
           <div className="switcher-box">
             <div className="arrow-left">
               <i 
-                className={handleLeftArrowOpacity()} 
+                className={handleLeftArrowClass()} 
                 onClick={() => previewsProject()}
               />
             </div>
@@ -141,7 +141,7 @@ const Projects = ({repos}) => {
             </div>
             <div className="arrow-right">
               <i 
-                className={handleRightArrowOpacity()}
+                className={handleRightArrowClass()}
                 onClick={() => nextProject()}
               />
             </div>
