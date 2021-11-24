@@ -138,6 +138,19 @@
     margin: 25px auto 5px auto;
     /*border: 1px solid white; */
   }
+  .skills .content {
+    height: 220px !important;
+  }
+  .skills .right-side {
+    display: none !important;
+  }
+  .skills .left-side {
+    width: 100% !important;
+    border-right: none !important;
+  }
+  .skills .down-arrow-box {
+    display: block !important;
+  }
 }
 @media (min-width: 400px) and (max-width: 599px) {
 }

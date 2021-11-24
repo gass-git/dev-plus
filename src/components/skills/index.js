@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import './skills.css';
 
 const Skills = ({scores}) => {
+  var [arrowClicked, setArrowClicked] = useState(false);
 
   const Skill = ({lang, label}) => {
     var [over, setOver] = useState(false);
@@ -16,16 +17,13 @@ const Skills = ({scores}) => {
       points = points.length === 0 ?  "NF" : points;
       return points;
     }
-
     function getUrl(tag){
       var url = `https://stackoverflow.com/search?tab=votes&q=user%3a14895985 [${tag}]`;
       return url;
     }
-
     function handleMouseOver(){
       setOver(true);
     }
-    
     function handleMouseLeave(){
       setOver(false);
     }
@@ -53,10 +51,10 @@ const Skills = ({scores}) => {
 
         </a>
       </div>
-    );
+    )
   }
 
-  return(
+  return (
       <section className="skills">
       <div className="content">
         <div className="left-side">
@@ -64,10 +62,20 @@ const Skills = ({scores}) => {
           ✨ CORE TECH
           </div> */}
           <div className="skills-wrapper">
-            <Skill key={1} lang="javascript" label="JavaScript" score="30" /> 
-            <Skill key={2} lang="html5" label="HTML5" score="23" /> 
-            <Skill key={3} lang="css3" label="CSS3" score="12" /> 
-            <Skill key={4} lang="php" label="Hypertext Preprocessor" score="5" /> 
+            <div className={arrowClicked === false ? 'show' : 'hide'}>
+              <Skill key={1} lang="javascript" label="JavaScript" score="30" /> 
+              <Skill key={2} lang="html5" label="HTML5" score="23" /> 
+              <Skill key={3} lang="css3" label="CSS3" score="12" /> 
+              <Skill key={4} lang="php" label="Hypertext Preprocessor" score="5" /> 
+            </div>
+            {/* -- FOR @MEDIA functionality -- */}
+            <div className={arrowClicked === true ? 'show' : 'hide'}>
+              <Skill lang="react" label="React" /> 
+              <Skill lang="jquery" label="jQuery"  /> 
+              <Skill lang="laravel" label="Laravel" /> 
+              <Skill lang="java" label="Java"  /> 
+            </div>
+            {/* ------------------------------ */}
           </div>
         </div>
         <div className="right-side">
@@ -82,8 +90,14 @@ const Skills = ({scores}) => {
           </div>
         </div>
       </div>
+      <div className="down-arrow-box">
+        <i 
+          className={arrowClicked === true ? "fas fa-caret-up" : "fas fa-caret-down"}
+          onClick={() => setArrowClicked(!arrowClicked)} 
+        />
+      </div>
     </section>
-  );
+  )
 }
 
 export default Skills;
