@@ -6,7 +6,7 @@ import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
 const Activity = ({answers, gitEvents, posts}) => {
   var [current, setCurrent] = useState('stackoverflow');
-  var [floorNumber, setFloorNumber] = useState(3);
+  var [posNumber, setPosNumber] = useState(3);
   const [playSound] = useSound(selectionSound, {volume: 1});
 
   function select(entry){
@@ -16,9 +16,9 @@ const Activity = ({answers, gitEvents, posts}) => {
     playSound();
     
     // Elevator floor
-    if(entry === "stackoverflow"){setFloorNumber(3)}
-    else if(entry === "github"){setFloorNumber(2)}
-    else if(entry === "writings"){setFloorNumber(1)}
+    if(entry === "stackoverflow"){setPosNumber(3)}
+    else if(entry === "github"){setPosNumber(2)}
+    else if(entry === "writings"){setPosNumber(1)}
   }
 
   const Writings = () => {
@@ -119,6 +119,33 @@ const Activity = ({answers, gitEvents, posts}) => {
     <section className="activity">
       <div className="content">
         
+        {/* -- FOR @MEDIA -- */}
+        <div className="media-top-selector">
+          <div style={{ marginRight:"7px"  }}
+            className="option"
+            onClick={() => select('stackoverflow')}
+          >
+            <i style={{ margin: "13px auto" }} className="fab fa-stack-overflow" /> 
+          </div>
+          <div style={{ marginRight:"7px" }}
+            className="option"
+            onClick={() => select('github')}
+          >
+            <i className="fab fa-github" />
+          </div>
+          <div style={{   }}
+            className="option"
+            onClick={() => select('writings')}
+          >
+            <i  className="far fa-keyboard" />
+          </div>
+
+          {/* ELEVATOR */}
+          <div className={`wiggle pos-${posNumber}`}>
+          </div>
+        </div>
+        {/* --------------- */}
+
         {/* -- LEFT SIDE -- */}
         <div className="left-side">
           {current === "stackoverflow" ? <Stackoverflow /> : null}
@@ -130,7 +157,7 @@ const Activity = ({answers, gitEvents, posts}) => {
       <div className="right-side">
         
         <div style={{ marginTop:"-1px" }}
-          className="option selected"
+          className="option"
           onClick={() => select('stackoverflow')}
         >
           <i className="fab fa-stack-overflow" /> 
@@ -149,7 +176,7 @@ const Activity = ({answers, gitEvents, posts}) => {
         </div>
 
         {/* ELEVATOR */}
-        <div className={`elevator floor-${floorNumber}`}>
+        <div className={`elevator floor-${posNumber}`}>
         </div>
 
       </div>

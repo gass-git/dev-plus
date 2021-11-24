@@ -13,7 +13,7 @@
   width: 100%;
   margin: 0px auto 0px auto;
   color: white;
-  /* border: 1px solid green; */
+  /*border: 1px solid green;*/
 }
 .activity .right-side {
   position: relative;
@@ -91,7 +91,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  /* border: 1px solid green; */
+  /*border: 1px solid green;*/
 }
 .activity .date {
   width: 120px;
@@ -110,4 +110,49 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   /* border: 1px solid green; */
+}
+/*
+-- FOR @MEDIA --
+*/
+.activity .media-top-selector {
+  display: none;
+  position: relative;
+  height: 65px;
+  width: 100%;
+}
+.activity .media-top-selector .option {
+  position: relative;
+  z-index: 2;
+  margin: 6px 0 6px 5px;
+  width: 120px;
+  height: 68px;
+  cursor: pointer;
+  font-size: 45px;
+  text-align: center;
+  border-radius: 2px;
+  /* border: 1px solid rgba(208, 255, 0, 1); */
+}
+.activity .media-top-selector .option i {
+  margin: 13px 0px 0px 11px;
+}
+.activity .media-top-selector .wiggle {
+  position: absolute;
+  z-index: 1;
+  top: 6px;
+  left: 7px;
+  height: 68px;
+  width: 120px;
+  border-radius: 2px;
+  background: rgb(255, 255, 255, 0.3);
+  transition: 300ms;
+  border: 1px solid rgba(208, 255, 0, 0.1);
+}
+.activity .media-top-selector .pos-3 {
+  transform: translateX(-2px);
+}
+.activity .media-top-selector .pos-2 {
+  transform: translateX(132px);
+}
+.activity .media-top-selector .pos-1 {
+  transform: translateX(266px);
 }

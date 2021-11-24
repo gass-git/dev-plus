@@ -151,6 +151,25 @@
   .skills .down-arrow-box {
     display: block !important;
   }
+  .activity .content {
+    display: inline-block !important;
+  }
+  .activity .left-side {
+    width: 388px !important;
+    margin-left: 6px !important;
+    margin-top: 20px;
+    border-top: 1px solid rgb(255, 255, 255, 0.4) !important;
+    padding-top: 20px;
+  }
+  .activity .question {
+    width: 100% !important;
+  }
+  .activity .right-side {
+    display: none !important;
+  }
+  .activity .media-top-selector {
+    display: flex !important;
+  }
 }
 @media (min-width: 400px) and (max-width: 599px) {
 }
