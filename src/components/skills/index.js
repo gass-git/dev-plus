@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import useSound from "use-sound";
 import './skills.css';
 import tickSound from "../../assets/sounds/tick-sound.wav";
@@ -6,6 +6,22 @@ import tickSound from "../../assets/sounds/tick-sound.wav";
 const Skills = ({scores}) => {
   var [arrowClicked, setArrowClicked] = useState(false);
   const [playTickSound] = useSound(tickSound,{volume: 0.6});
+
+  useEffect(() => {
+    /** @abstract
+     *  The skills component when it gets resized to a smaller screen 
+     *  less than 750px of width it will use the left-side container 
+     *  to show CORE TECH and FRAMEWORKS AND LIBARIES.
+     *  If a use clicks down and then resizes the screen the skills
+     *  component will display the FRAMEWORKS AND LIBRARIES in both
+     *  sides. To avoid this from happening the following function
+     *  has been implemented.
+     */
+    function handleResize() {
+      if(window.innerWidth > 750) setArrowClicked(false);
+    }
+    window.addEventListener('resize', handleResize)
+  })  
 
   function handleArrowClick(){
     setArrowClicked(!arrowClicked)
@@ -89,7 +105,7 @@ const Skills = ({scores}) => {
               <Skill lang="react" label="React" /> 
               <Skill lang="jquery" label="jQuery"  /> 
               <Skill lang="laravel" label="Laravel" /> 
-              <Skill lang="java" label="Java"  /> 
+              <Skill lang="php" label="Java"  /> 
             </div>
             {/* ------------------------------ */}
           </div>
@@ -102,7 +118,7 @@ const Skills = ({scores}) => {
             <Skill key={5} lang="react" label="React" /> 
             <Skill key={6} lang="jquery" label="jQuery"  /> 
             <Skill key={7} lang="laravel" label="Laravel" /> 
-            <Skill key={8} lang="java" label="Java"  /> 
+            <Skill key={8} lang="bootstrap" label="Bootstrap"  /> 
           </div>
         </div>
       </div>
