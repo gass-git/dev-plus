@@ -160,3 +160,6 @@
 .activity .media-top-selector .pos-1 {
   transform: translateX(266px);
 }
+.activity .repo-name {
+  display: block;
+}

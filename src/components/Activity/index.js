@@ -106,7 +106,7 @@ const Activity = ({answers, gitEvents, posts}) => {
                   </div>
                   <div className="commit">{commit}</div>
                   {space}
-                  <div>{repoName}</div>
+                  <div className="repo-name">{repoName}</div>
                 </a>
               ]
             })

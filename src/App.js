@@ -43,10 +43,10 @@ const App = () => {
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
-  //  getReputation({setReputation});
+    getReputation({setReputation});
     getRepos({setRepos});
-  //  getAnswers({setAnswers, setLastAnswer});
-  //  getGitEvents({setGitEvents, setLastCommit});
+    getAnswers({setAnswers, setLastAnswer});
+    getGitEvents({setGitEvents, setLastCommit});
     getSkillScores({setScores});
   }, []);
 

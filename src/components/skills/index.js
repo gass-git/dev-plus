@@ -106,6 +106,8 @@ const Skills = ({scores}) => {
           </div>
         </div>
       </div>
+
+      {/* -- FOR @MEDIA small screens -- */}
       <div className="down-arrow-box">
         <i 
           className={arrowClicked === true ? "fas fa-caret-up" : "fas fa-caret-down"}

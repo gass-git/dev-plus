@@ -153,3 +153,161 @@
     margin-top: 10px;
   }
 }
+@media screen and (max-width: 419px) {
+  .show-page {
+    margin: 10px auto 0px auto;
+    width: 350px !important;
+    /*border: 1px solid white;*/
+  }
+  .scroll-display .border-img {
+    margin: 0 !important;
+    width: 312px !important;
+  }
+  /* 
+  -- Second row --
+  */
+  .second-row .main-menu .border-img {
+    width: 127px;
+  }
+  .second-row .main-menu .menu-wrapper .elevator {
+    width: 143px !important;
+  }
+  .second-row .main-menu .menu-wrapper .option {
+    width: 143px !important;
+  }
+  .second-row .basic-info .border-img {
+    width: 144px !important;
+  }
+  .second-row .basic-info .username-wrapper {
+    display: none !important;
+  }
+  .second-row .basic-info .info {
+    display: none !important;
+  }
+  /*
+  -- Third row --
+  */
+  .third-row .border-img {
+    width: 312px !important;
+    height: 330px;
+  }
+  .third-row .inner-container {
+    height: 359px !important;
+    /*border: 1px solid rgba(14, 16, 98, 0.4);*/
+  }
+  .third-row .about .content {
+    width: 94%;
+    height: 270px !important;
+    margin: 25px auto 5px auto;
+    /*border: 1px solid white; */
+  }
+  .third-row .skills .content {
+    margin-top: 5px;
+    height: 220px !important;
+    width: 94%;
+    /*border: 1px solid white;*/
+  }
+  .skills .skills-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .skills .media-title {
+    margin-top: 10px;
+    margin-bottom: 25px !important;
+    /*border-bottom: 1px solid rgb(255, 255, 255, 0.5);*/
+  }
+  .third-row .skills .right-side {
+    display: none !important;
+  }
+  .third-row .skills .left-side {
+    width: 100% !important;
+    border-right: none !important;
+  }
+  .third-row .skills .down-arrow-box {
+    display: block !important;
+    margin-top: 50px !important;
+  }
+  .third-row .activity .content {
+    display: inline-block !important;
+  }
+  .third-row .activity .left-side {
+    width: 388px !important;
+    margin-left: 6px !important;
+    margin-top: 20px;
+    border-top: 1px solid rgb(255, 255, 255, 0.4) !important;
+    padding-top: 20px;
+  }
+  .third-row .activity .media-top-selector .option {
+    position: relative;
+    z-index: 2;
+    margin: 6px 0 6px 5px;
+    width: 100px !important;
+    height: 68px;
+    cursor: pointer;
+    font-size: 45px;
+    text-align: center;
+    border-radius: 2px;
+    /* border: 1px solid rgba(208, 255, 0, 1); */
+  }
+  .third-row .activity .media-top-selector .wiggle {
+    position: absolute;
+    z-index: 1;
+    top: 6px;
+    left: 7px;
+    height: 68px;
+    width: 99px;
+    border-radius: 2px;
+    background: rgb(255, 255, 255, 0.3);
+    transition: 300ms;
+    border: 1px solid rgba(208, 255, 0, 0.1);
+  }
+  .third-row .activity .media-top-selector .pos-3 {
+    transform: translateX(-2px);
+  }
+  .third-row .activity .media-top-selector .pos-2 {
+    transform: translateX(112px);
+  }
+  .third-row .activity .media-top-selector .pos-1 {
+    transform: translateX(227px);
+  }
+  .third-row .activity .question {
+    width: 310px !important;
+  }
+  .third-row .activity .post-title {
+    width: 310px !important;
+  }
+  .third-row .activity .right-side {
+    display: none !important;
+  }
+  .third-row .activity .media-top-selector {
+    display: flex !important;
+  }
+  .third-row .activity .date {
+    display: none !important;
+  }
+  .third-row .activity .commit {
+    width: 310px !important;
+  }
+  .third-row .activity .events-date {
+    display: none !important;
+  }
+  .third-row .activity .repo-name {
+    display: none !important;
+  }
+  .third-row .projects .content {
+    display: inline-block !important;
+  }
+  .third-row .projects .switcher-box {
+    display: flex !important;
+  }
+  .third-row .projects .right-side {
+    display: none !important;
+  }
+  .third-row .projects .left-side {
+    width: 94%;
+    margin: 0 auto !important;
+  }
+  .third-row .projects .left-side .about {
+    margin-top: 10px;
+  }
+}
