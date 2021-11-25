@@ -94,9 +94,12 @@
     width: 94%;
     /*border: 1px solid white;*/
   }
-  .skills .skills-wrapper {
+  .third-row .skills .skills-wrapper {
     width: 100% !important;
     margin: 0 !important;
+  }
+  .third-row .skills .media-title {
+    display: block !important;
   }
   .third-row .skills .right-side {
     display: none !important;
@@ -212,6 +215,7 @@
     margin: 0 !important;
   }
   .skills .media-title {
+    display: block !important;
     margin-top: 10px;
     margin-bottom: 25px !important;
     /*border-bottom: 1px solid rgb(255, 255, 255, 0.5);*/
