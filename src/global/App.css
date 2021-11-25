@@ -24,7 +24,7 @@
     rgb(25, 52, 152, 1) 2px,
     rgb(25, 52, 152, 1) 3px
   );
-  transition: 1500ms;
+  transition: 1300ms;
 }
 .open-left {
   transform: translateX(-100%);

@@ -49,8 +49,8 @@ const App = () => {
           setShowPage(true);
           setTimeout(() => {
             setRemoveCurtains(true);
-          }, 1500);
-        }, 500);
+          }, 1300);
+        }, 300);
     }, 3000);
 }
 
