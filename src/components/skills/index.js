@@ -73,6 +73,9 @@ const Skills = ({scores}) => {
           </div> */}
           <div className="skills-wrapper">
             <div className={arrowClicked === false ? 'show' : 'hide'}>
+              <div className="media-title">
+                ✨ CORE TECH
+              </div>
               <Skill key={1} lang="javascript" label="JavaScript" score="30" /> 
               <Skill key={2} lang="html5" label="HTML5" score="23" /> 
               <Skill key={3} lang="css3" label="CSS3" score="12" /> 
@@ -80,6 +83,9 @@ const Skills = ({scores}) => {
             </div>
             {/* -- FOR @MEDIA functionality -- */}
             <div className={arrowClicked === true ? 'show' : 'hide'}>
+              <div className="media-title">
+                📚 FRAMEWORKS & LIBRARIES
+              </div>
               <Skill lang="react" label="React" /> 
               <Skill lang="jquery" label="jQuery"  /> 
               <Skill lang="laravel" label="Laravel" /> 

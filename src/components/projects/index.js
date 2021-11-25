@@ -110,7 +110,10 @@ const Projects = ({repos}) => {
   }
   function handleLeftArrowClass(){
     if(current === totalRepos - 1){
-      return "fas fa-caret-left animate"
+      return "fas fa-caret-left pointer animate"
+    }
+    else if(current !== 0){
+      return "fas fa-caret-left pointer"
     }
     else{
       return "fas fa-caret-left"
@@ -118,11 +121,14 @@ const Projects = ({repos}) => {
   }
   function handleRightArrowClass(){
     if(current === 0){
-      return "fas fa-caret-right animate";
+      return "fas fa-caret-right pointer animate";
     }
+    else if(current < totalRepos - 1){
+      return "fas fa-caret-right pointer";
+    }              
     else{
       return "fas fa-caret-right";
-    }              
+    }
   }
   return (
       <section key={17} className="projects">

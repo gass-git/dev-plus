@@ -1,6 +1,4 @@
 import React, {useState, useEffect, Fragment } from 'react';
-import './global/App.css';
-import './global/loader.css';
 import ScrollDisplay from './components/scrollDisplay/index';
 import MainMenu from './components/mainMenu/index';
 import BasicInfo from './components/basicInfo/index';
@@ -46,10 +44,10 @@ const App = () => {
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
   //  getReputation({setReputation});
-  //  getRepos({setRepos});
+    getRepos({setRepos});
   //  getAnswers({setAnswers, setLastAnswer});
   //  getGitEvents({setGitEvents, setLastCommit});
-  //  getSkillScores({setScores});
+    getSkillScores({setScores});
   }, []);
 
   useEffect(() => {
