@@ -17,6 +17,7 @@
   top: 45%;
   margin-left: -1em;
   position: absolute;
+  z-index: 99;
   font-size: 11px;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);

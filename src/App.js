@@ -8,7 +8,6 @@ import About from './components/about/index';
 import Activity from './components/activity/index';
 import processVisit from './api/processVisit';
 import getUniqueVisits from './api/getUniqueVisits';
-import showLoading from './functions/showLoading';
 import getSkillScores from './api/getSkillScores';
 import getWritings from './api/getWritings';
 import getReputation from './api/getReputation';
@@ -18,6 +17,10 @@ import getAnswers from './api/getAnswers';
 
 const App = () => {
   var [loading, setLoading] = useState(true);
+  var [openCurtains, setOpenCurtains] = useState(false);
+  var [showPage, setShowPage] = useState(false);
+  var [removeCurtains, setRemoveCurtains] = useState(false);
+
   var [selected, setSelected] = useState('about');
   var [avatarGlitch, setAvatarGlitch] = useState(false);
   var [uniqueVisits, setUniqueVisits] = useState();
@@ -38,8 +41,21 @@ const App = () => {
   var maxIndex = 3; 
   var scrollInterval = 25; // Seconds it takes for the scroll animation
 
+  function loadProcess() {
+    setTimeout(() => {
+        setLoading(false);
+        setTimeout(() => {
+          setOpenCurtains(true);
+          setShowPage(true);
+          setTimeout(() => {
+            setRemoveCurtains(true);
+          }, 1500);
+        }, 500);
+    }, 3000);
+}
+
   useEffect(() => {
-   showLoading({setLoading});
+    loadProcess();
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
@@ -81,8 +97,14 @@ const App = () => {
       <div className={loading ? "loader" : "no-loader"}>
           Loading...
       </div>
+      <div className={ removeCurtains ? "no-curtains" : "curtain"}>
+        <div className="flex-wrapper">
+          <div className={openCurtains ? "left open-left" : "left"}></div>
+          <div className={openCurtains ? "right open-right" : "right"}></div>
+        </div>
+      </div>
 
-      <div className={loading ? "hide-page" : "show-page"}>
+      <div className={showPage ? "show-page" : "hide-page"}>
         {/* -- FIRST ROW -- */} 
         <section className="first-row">
           <ScrollDisplay 
