@@ -1,4 +1,5 @@
 import React, {useState, useEffect, Fragment } from 'react';
+import {useTransition, animated} from 'react-spring';
 import ScrollDisplay from './components/scrollDisplay/index';
 import MainMenu from './components/mainMenu/index';
 import BasicInfo from './components/basicInfo/index';
@@ -14,12 +15,17 @@ import getReputation from './api/getReputation';
 import getRepos from './api/getRepos';
 import getGitEvents from './api/getGitEvents';
 import getAnswers from './api/getAnswers';
+import pixelChar from  "./assets/images/pixel-char-three.gif"
 
 const App = () => {
   var [loading, setLoading] = useState(true);
-  var [openCurtains, setOpenCurtains] = useState(false);
-  var [showPage, setShowPage] = useState(false);
-  var [removeCurtains, setRemoveCurtains] = useState(false);
+  var [showBgImage, setShowBgImage] = useState(false);
+  
+  // For animation effect on page preload
+  var [showComponentOne, setShowComponentOne] = useState(false); 
+  var [showComponentTwo, setShowComponentTwo] = useState(false); 
+  var [showComponentThree, setShowComponentThree] = useState(false); 
+  var [showComponentFour, setShowComponentFour] = useState(false); 
 
   var [selected, setSelected] = useState('about');
   var [avatarGlitch, setAvatarGlitch] = useState(false);
@@ -42,28 +48,44 @@ const App = () => {
   var scrollInterval = 25; // Seconds it takes for the scroll animation
 
   function loadProcess() {
+    document.body.classList.add("animation");
+    
     setTimeout(() => {
-        setLoading(false);
-        setTimeout(() => {
-          setOpenCurtains(true);
-          setShowPage(true);
-          setTimeout(() => {
-            setRemoveCurtains(true);
-          }, 1300);
-        }, 300);
-    }, 3000);
-}
+      setLoading(false);
+    }, 4000);
+
+    setTimeout(() => {
+      setShowComponentOne(true);
+    }, 3300);
+
+    setTimeout(() => {
+      setShowComponentTwo(true);
+    }, 3600);
+
+    setTimeout(() => {
+      setShowComponentThree(true);
+    }, 3800);
+
+    setTimeout(() => {
+      setShowComponentFour(true);
+    }, 4300);
+
+    setTimeout(() => {
+      document.body.classList.remove("animation");
+      setShowBgImage(true);
+    }, 4800);
+  }
 
   useEffect(() => {
     loadProcess();
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
-    getReputation({setReputation});
-    getRepos({setRepos});
-    getAnswers({setAnswers, setLastAnswer});
-    getGitEvents({setGitEvents, setLastCommit});
-    getSkillScores({setScores});
+  //  getReputation({setReputation});
+  //  getRepos({setRepos});
+  //  getAnswers({setAnswers, setLastAnswer});
+  //  getGitEvents({setGitEvents, setLastCommit});
+  //  getSkillScores({setScores});
   }, []);
 
   useEffect(() => {
@@ -91,47 +113,92 @@ const App = () => {
     return () => clearInterval(interval);
   });
 
+  const transitionOne = useTransition(showComponentOne, {
+    from: { x: 0, y: -100, opacity: 0},
+    enter: { x:0, y:0, opacity:1}
+  });
+
+  const transitionTwo = useTransition(showComponentTwo, {
+    from: { x: -200, y: 800, opacity: 0},
+    enter: item => async(next) => {
+      await next({ x:-200, y:0, opacity:1});
+      await next({ x:0 });
+    }
+  });
+
+  const transitionThree = useTransition(showComponentThree, {
+    from: { x: 800, y: 0, opacity: 0},
+    enter: { x:0, y:0, opacity:1}
+  });
+
+  const transitionFour = useTransition(showComponentFour, {
+    from: { x: 0, y: 600, opacity: 0},
+    enter: { x:0, y:0, opacity:1}
+  });
+
   return [
     <Fragment>
       {/* -- SPINNER -- */}
-      <div className={loading ? "loader" : "no-loader"}>
-          Loading...
-      </div>
-      <div className={ removeCurtains ? "no-curtains" : "curtain"}>
-        <div className="flex-wrapper">
-          <div className={openCurtains ? "left open-left" : "left"}></div>
-          <div className={openCurtains ? "right open-right" : "right"}></div>
+      <div className={loading ? "loader-2" : "no-loader"}>
+        <img src={pixelChar} />
+        <div>
+          Casting spells to retrieve data..
         </div>
       </div>
 
-      <div className={showPage ? "show-page" : "hide-page"}>
+      <div className={showBgImage ? "bg-mask opacity-0" : "bg-mask"}>
+      </div>
+
+      <div className={loading ? "hide-page" : "show-page"}>
         {/* -- FIRST ROW -- */} 
-        <section className="first-row">
-          <ScrollDisplay 
-            lastCommit={lastCommit}
-            lastAnswer={lastAnswer}
-            lastPost={lastPost}
-            msgIndex={msgIndex}
-            uniqueVisits={uniqueVisits}
-          />
-        </section>
+        {transitionOne((style, item) => 
+            item ? 
+            <animated.div style={style} className="first-row">
+              <ScrollDisplay 
+                lastCommit={lastCommit}
+                lastAnswer={lastAnswer}
+                lastPost={lastPost}
+                msgIndex={msgIndex}
+                uniqueVisits={uniqueVisits}
+              />
+            </animated.div>
+            :
+            ""
+          )}
+        {/*
 
         {/* -- SECOND ROW -- */}
         <section className="second-row">
-          <div className="left-side">
-            <MainMenu 
-              selected={selected} 
-              setSelected={setSelected}
-            />
-          </div>
-          <div className="right-side">
-            <BasicInfo reputation={reputation} avatarGlitch={avatarGlitch}/>
-          </div>
+          
+          {transitionTwo((style, item) => 
+            item ? 
+            <animated.div style={style} className="left-side">
+              <MainMenu 
+                selected={selected} 
+                setSelected={setSelected}
+              />
+            </animated.div>
+            : 
+            ""
+          )}
+
+          {transitionThree((style, item) => 
+            item ? 
+            <animated.div style={style} className="right-side">
+              <BasicInfo reputation={reputation} avatarGlitch={avatarGlitch}/>
+            </animated.div>
+            : 
+            ""
+          )}
+
         </section>
 
         {/* -- THIRD ROW --  */}
         <section className="third-row">
-          <div className="content-display">
+              
+        {transitionFour((style, item) => 
+          item ? 
+          <animated.div style={style} className="content-display">
             <div className="border-img">
               <div className="inner-container">
                 {selected === "about" ? <About /> : null}
@@ -140,7 +207,11 @@ const App = () => {
                 {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} posts={posts} /> : null}
               </div>
             </div>
-          </div>
+          </animated.div>
+            : 
+            ""
+          )}
+
         </section>
       
         </div>        
