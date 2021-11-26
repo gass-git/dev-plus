@@ -1,19 +1,12 @@
 .loader-2 {
   display: block;
 }
-.loader-2 img {
-  position: absolute;
-  left: 50%;
-  top: 30%;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 99;
+.no-loader-2 {
+  display: none;
 }
 .loader-2 div {
   color: rgb(255, 255, 255, 0.8);
-  position: absolute;
+  position: relative;
   font-size: 13px;
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
@@ -22,6 +15,32 @@
   top: 65%;
   text-align: center;
   z-index: 99;
+}
+.loader-2 .gif-wrapper {
+  width: 320px;
+  height: 320px;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 99;
+  /*border: 1px solid white;*/
+}
+.loader-2 .text {
+  width: 320px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 99;
+  /*border: 1px solid white;*/
 }
 .animation {
   overflow: hidden;
@@ -35,7 +54,7 @@
   width: 100%;
   height: 100vh;
   background: #043247;
-  transition: 500ms;
+  transition: 900ms;
 }
 .opacity-0 {
   opacity: 0 !important;

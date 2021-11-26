@@ -15,11 +15,13 @@ import getReputation from './api/getReputation';
 import getRepos from './api/getRepos';
 import getGitEvents from './api/getGitEvents';
 import getAnswers from './api/getAnswers';
-import pixelChar from  "./assets/images/pixel-char-three.gif"
+import pixelChar from  "./assets/images/pixel-char-one-x.gif"
 
 const App = () => {
   var [loading, setLoading] = useState(true);
   var [showBgImage, setShowBgImage] = useState(false);
+  var [showGif, setShowGif] = useState(true);
+  var [castCompleted, setCastCompleted] = useState(false);
   
   // For animation effect on page preload
   var [showComponentOne, setShowComponentOne] = useState(false); 
@@ -51,29 +53,34 @@ const App = () => {
     document.body.classList.add("animation");
     
     setTimeout(() => {
+      setCastCompleted(true);
+    }, 2600);
+
+    setTimeout(() => {
+      setShowGif(false);
       setLoading(false);
-    }, 4000);
+    }, 5000);
 
     setTimeout(() => {
       setShowComponentOne(true);
-    }, 3300);
+    }, 5300);
 
     setTimeout(() => {
       setShowComponentTwo(true);
-    }, 3600);
+    }, 5600);
 
     setTimeout(() => {
       setShowComponentThree(true);
-    }, 3800);
+    }, 5800);
 
     setTimeout(() => {
       setShowComponentFour(true);
-    }, 4300);
+    }, 6300);
 
     setTimeout(() => {
       document.body.classList.remove("animation");
       setShowBgImage(true);
-    }, 4800);
+    }, 6800);
   }
 
   useEffect(() => {
@@ -139,11 +146,19 @@ const App = () => {
   return [
     <Fragment>
       {/* -- SPINNER -- */}
-      <div className={loading ? "loader-2" : "no-loader"}>
-        <img src={pixelChar} />
-        <div>
-          Casting spells to retrieve data..
-        </div>
+      <div className={loading ? "loader-2" : "no-loader-2"}>
+          <div className="gif-wrapper">
+            {showGif ? <img src={pixelChar} /> : null}
+          </div>
+          
+          <div className="text">
+            {
+              castCompleted ? 
+              "Done deal! See ya!"
+              :
+              "Casting spells to retrieve data.." 
+            }
+          </div>
       </div>
 
       <div className={showBgImage ? "bg-mask opacity-0" : "bg-mask"}>
