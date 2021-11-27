@@ -1,0 +1,60 @@
+.hide-page {
+  display: none;
+}
+.opacity-0 {
+  opacity: 0 !important;
+}
+.show-page {
+  position: absolute;
+  z-index: 5;
+  top: 7%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  transition: 300ms;
+  /*border: 3px solid purple;*/
+}
+/*
+.first-row {
+  border: 1px solid yellow;
+}
+*/
+.second-row {
+  display: flex;
+  margin-top: 3px;
+  /*border: 1px solid white;*/
+}
+/*
+.second-row .left-side {
+}
+*/
+.second-row .right-side {
+  padding-left: 3px;
+}
+.third-row {
+  display: flex;
+  /*border: 1px solid white;*/
+}
+.third-row .border-img {
+  margin: 3px auto;
+  border: 19px solid transparent;
+  border-image: url("../assets/images/border-60px.png") 19 round;
+  width: 770px;
+  height: 180px;
+}
+.third-row .inner-container {
+  height: 208px;
+  margin: -14px -14px 0 -14px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    0deg,
+    rgb(17, 60, 252, 0.6),
+    rgb(17, 60, 252, 0.6) 1px,
+    rgb(25, 52, 152, 0.7) 2px,
+    rgb(25, 52, 152, 0.7) 3px
+  );
+  overflow: hidden;
+  /*border: 1px solid rgba(14, 16, 98, 0.4);*/
+}

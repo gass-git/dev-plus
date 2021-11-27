@@ -1,11 +1,7 @@
 import React, {useState, useEffect, Fragment } from 'react';
 import {useTransition, animated} from 'react-spring';
-import ScrollDisplay from './components/scrollDisplay/index';
-import MainMenu from './components/mainMenu/index';
-import BasicInfo from './components/basicInfo/index';
-import Projects from './components/projects/index';
-import Skills from './components/skills/index';
-import About from './components/about/index';
+
+// API fetching
 import Activity from './components/activity/index';
 import processVisit from './api/processVisit';
 import getUniqueVisits from './api/getUniqueVisits';
@@ -15,7 +11,20 @@ import getReputation from './api/getReputation';
 import getRepos from './api/getRepos';
 import getGitEvents from './api/getGitEvents';
 import getAnswers from './api/getAnswers';
-import pixelChar from  "./assets/images/wizard.gif"
+
+// Components
+import ScrollDisplay from './components/scrollDisplay/index';
+import MainMenu from './components/mainMenu/index';
+import BasicInfo from './components/basicInfo/index';
+import Projects from './components/projects/index';
+import Skills from './components/skills/index';
+import About from './components/about/index';
+
+// Global functions
+import preload from './functions/preload';
+
+// Assets
+import wizard from  "./assets/images/wizard.gif"
 
 const App = () => {
   var [loading, setLoading] = useState(true);
@@ -50,55 +59,39 @@ const App = () => {
   var maxIndex = 3; 
   var scrollInterval = 25; // Seconds it takes for the scroll animation
 
-  function loadProcess() {
-    document.body.classList.add("animation");
-    
-    setTimeout(() => {
-      setShowGif(true);
-    }, 500);
-
-    setTimeout(() => {
-      setCastingSpells(true);
-    }, 1500);
-
-    setTimeout(() => {
-      setCastingSpells(false);
-      setCastCompleted(true);
-    }, 6500);
-
-    setTimeout(() => {
-      setShowGif(false);
-    }, 9000);
-
-    setTimeout(() => {
-      setCastCompleted(false);
-      setLoading(false);
-    }, 10300);
-
-    setTimeout(() => {
-      setShowComponentOne(true);
-    }, 11300);
-
-    setTimeout(() => {
-      setShowComponentTwo(true);
-    }, 12600);
-
-    setTimeout(() => {
-      setShowComponentThree(true);
-    }, 12800);
-
-    setTimeout(() => {
-      setShowComponentFour(true);
-    }, 13300);
-
-    setTimeout(() => {
-      document.body.classList.remove("animation");
-      setShowBgImage(true);
-    }, 14000);
-  }
+  // Transitions
+  const transitionOne = useTransition(showComponentOne, {
+    from: { x: 0, y: -100, opacity: 0},
+    enter: { x:0, y:0, opacity:1}
+  });
+  const transitionTwo = useTransition(showComponentTwo, {
+    from: { x: -100, y: 800, opacity: 0},
+    enter: item => async(next) => {
+      await next({ x:-100, y:0, opacity:1});
+      await next({ x:0 });
+    }
+  });
+  const transitionThree = useTransition(showComponentThree, {
+    from: { x: 800, y: 0, opacity: 0},
+    enter: { x:0, y:0, opacity:1}
+  });
+  const transitionFour = useTransition(showComponentFour, {
+    from: { x: 0, y: 600, opacity: 0},
+    enter: { x:0, y:0, opacity:1}
+  });
 
   useEffect(() => {
-    loadProcess();
+    preload({
+      setShowGif, 
+      setCastingSpells, 
+      setCastCompleted, 
+      setLoading,
+      setShowComponentOne,
+      setShowComponentTwo,
+      setShowComponentThree,
+      setShowComponentFour,
+      setShowBgImage
+      });
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
@@ -134,60 +127,40 @@ const App = () => {
     return () => clearInterval(interval);
   });
 
-  const transitionOne = useTransition(showComponentOne, {
-    from: { x: 0, y: -100, opacity: 0},
-    enter: { x:0, y:0, opacity:1}
-  });
-
-  const transitionTwo = useTransition(showComponentTwo, {
-    from: { x: -200, y: 800, opacity: 0},
-    enter: item => async(next) => {
-      await next({ x:-200, y:0, opacity:1});
-      await next({ x:0 });
+  function handlePreloadMessages(){
+    if(castingSpells) {
+      return [
+        <div className="text-wrapper">   
+          <div className="typing effect-one">
+            Casting spells to retrieve data...
+          </div> 
+        </div>
+      ]
     }
-  });
-
-  const transitionThree = useTransition(showComponentThree, {
-    from: { x: 800, y: 0, opacity: 0},
-    enter: { x:0, y:0, opacity:1}
-  });
-
-  const transitionFour = useTransition(showComponentFour, {
-    from: { x: 0, y: 600, opacity: 0},
-    enter: { x:0, y:0, opacity:1}
-  });
+    else if(castCompleted){
+      return [
+        <div className="text-wrapper">
+          <div className="typing effect-two">
+            Data retrieve completed...
+          </div>
+        </div>
+      ]
+    }
+  }
 
   return [
     <Fragment>
-      {/* -- SPINNER -- */}
-      <div className={loading ? "loader-2" : "no-loader-2"}>
-        <div className="center-action-wrapper">
-          <div className="gif-wrapper">
-            {showGif ? <img src={pixelChar} /> : null}
+
+      {/* -- PRELOADER -- */}
+      <div className={loading ? "loader" : "no-loader"}>
+        <div className="center-wrapper">
+          <div className="gif-frame">
+            {showGif ? <img src={wizard} /> : null}
           </div>
-          
-          {
-            castingSpells ? 
-              <div className="text-wrapper">   
-                <div className="typing-effect width-one speed-one">
-                  Casting spells to retrieve data...
-                </div> 
-              </div>
-              :
-              ""
-          }
-          {
-            castCompleted ? 
-              <div className="text-wrapper">
-                <div className="typing-effect width-two speed-two">
-                  Data retrieve completed...
-                </div>
-              </div>
-              :
-              ""
-            }
+          {handlePreloadMessages()}
         </div>    
       </div>
+      {/* -- END OF PRELOADER -- */}      
 
       <div className={showBgImage ? "bg-mask opacity-0" : "bg-mask"}>
       </div>
@@ -206,13 +179,13 @@ const App = () => {
               />
             </animated.div>
             :
-            ""
-          )}
-        {/*
+            null
+        )}
+        {/* -- END OF FIRST ROW -- */} 
 
         {/* -- SECOND ROW -- */}
         <section className="second-row">
-          
+
           {transitionTwo((style, item) => 
             item ? 
             <animated.div style={style} className="left-side">
@@ -222,7 +195,7 @@ const App = () => {
               />
             </animated.div>
             : 
-            ""
+            null
           )}
 
           {transitionThree((style, item) => 
@@ -231,10 +204,10 @@ const App = () => {
               <BasicInfo reputation={reputation} avatarGlitch={avatarGlitch}/>
             </animated.div>
             : 
-            ""
+            null
           )}
-
         </section>
+        {/* -- END OF SECOND ROW -- */}
 
         {/* -- THIRD ROW --  */}
         <section className="third-row">
@@ -252,12 +225,12 @@ const App = () => {
             </div>
           </animated.div>
             : 
-            ""
+            null
           )}
-
         </section>
-      
-        </div>        
+        {/* -- END OF THIRD ROW --  */}
+
+      </div>        
     </Fragment>
   ]
 }

@@ -1,0 +1,72 @@
+.loader {
+  display: block;
+}
+.no-loader {
+  display: none;
+}
+.loader .center-wrapper {
+  position: absolute;
+  width: 310px;
+  height: 350px;
+  top: -5%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 99;
+  /*border: 1px solid white;*/
+}
+.loader .gif-frame {
+  margin: 0 auto;
+  width: 240px;
+  height: 240px;
+}
+.loader .text-wrapper {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  height: 30px;
+  position: relative;
+  width: 100%;
+  /* border: 1px solid white;*/
+}
+.loader .typing {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 15px;
+  color: white;
+  /*border: 1px solid white;*/
+}
+.loader .effect-one {
+  margin-left: 20px;
+  width: 36ch;
+  animation: typing 1600ms steps(22), blink 0.5s step-end infinite alternate;
+}
+.loader .effect-two {
+  animation: typing 1200ms steps(22), blink 0.5s step-end infinite alternate;
+  margin-left: 60px;
+  width: 28ch;
+}
+.bg-mask {
+  position: absolute;
+  opacity: 1;
+  width: 100%;
+  height: 100vh;
+  background: #043247;
+  transition: 900ms;
+}
+.animation {
+  overflow: hidden;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
