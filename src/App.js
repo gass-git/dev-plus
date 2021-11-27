@@ -15,14 +15,15 @@ import getReputation from './api/getReputation';
 import getRepos from './api/getRepos';
 import getGitEvents from './api/getGitEvents';
 import getAnswers from './api/getAnswers';
-import pixelChar from  "./assets/images/pixel-char-one-x.gif"
+import pixelChar from  "./assets/images/wizard.gif"
 
 const App = () => {
   var [loading, setLoading] = useState(true);
   var [showBgImage, setShowBgImage] = useState(false);
-  var [showGif, setShowGif] = useState(true);
+  var [showGif, setShowGif] = useState(false);
+  var [castingSpells, setCastingSpells] = useState(false);
   var [castCompleted, setCastCompleted] = useState(false);
-  
+
   // For animation effect on page preload
   var [showComponentOne, setShowComponentOne] = useState(false); 
   var [showComponentTwo, setShowComponentTwo] = useState(false); 
@@ -53,34 +54,47 @@ const App = () => {
     document.body.classList.add("animation");
     
     setTimeout(() => {
+      setShowGif(true);
+    }, 500);
+
+    setTimeout(() => {
+      setCastingSpells(true);
+    }, 1500);
+
+    setTimeout(() => {
+      setCastingSpells(false);
       setCastCompleted(true);
-    }, 2600);
+    }, 6500);
 
     setTimeout(() => {
       setShowGif(false);
+    }, 9000);
+
+    setTimeout(() => {
+      setCastCompleted(false);
       setLoading(false);
-    }, 5000);
+    }, 10300);
 
     setTimeout(() => {
       setShowComponentOne(true);
-    }, 5300);
+    }, 11300);
 
     setTimeout(() => {
       setShowComponentTwo(true);
-    }, 5600);
+    }, 12600);
 
     setTimeout(() => {
       setShowComponentThree(true);
-    }, 5800);
+    }, 12800);
 
     setTimeout(() => {
       setShowComponentFour(true);
-    }, 6300);
+    }, 13300);
 
     setTimeout(() => {
       document.body.classList.remove("animation");
       setShowBgImage(true);
-    }, 6800);
+    }, 14000);
   }
 
   useEffect(() => {
@@ -151,14 +165,26 @@ const App = () => {
             {showGif ? <img src={pixelChar} /> : null}
           </div>
           
-          <div className="text">
-            {
-              castCompleted ? 
-              "Done deal! See ya!"
+          {
+            castingSpells ? 
+              <div className="text-wrapper width-one">   
+                <div className="typing-effect speed-one">
+                  Casting spells to retrieve data...
+                </div> 
+              </div>
               :
-              "Casting spells to retrieve data.." 
+              ""
+          }
+          {
+            castCompleted ? 
+              <div className="text-wrapper width-two">
+                <div className="typing-effect speed-two">
+                  Data retrieve completed...
+                </div>
+              </div>
+              :
+              ""
             }
-          </div>
       </div>
 
       <div className={showBgImage ? "bg-mask opacity-0" : "bg-mask"}>

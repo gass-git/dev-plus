@@ -1,5 +1,4 @@
 .loader-2 {
-  display: block;
 }
 .no-loader-2 {
   display: none;
@@ -7,21 +6,19 @@
 .loader-2 div {
   color: rgb(255, 255, 255, 0.8);
   position: relative;
-  font-size: 13px;
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
-  font-family: "press start 2p", sans-serif;
   width: 100%;
   top: 65%;
   text-align: center;
   z-index: 99;
 }
 .loader-2 .gif-wrapper {
-  width: 320px;
-  height: 320px;
+  width: 240px;
+  height: 240px;
   position: absolute;
   left: 50%;
-  top: 30%;
+  top: 33%;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -29,18 +26,50 @@
   z-index: 99;
   /*border: 1px solid white;*/
 }
-.loader-2 .text {
-  width: 320px;
+.loader-2 .text-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 50px;
   position: absolute;
-  left: 50%;
-  top: 60%;
+  top: 55%;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
   z-index: 99;
-  /*border: 1px solid white;*/
+}
+.width-one {
+  width: 300px !important;
+}
+.width-two {
+  width: 220px !important;
+}
+.typing-effect {
+  width: 22ch;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 15px;
+}
+.speed-one {
+  animation: typing 1600ms steps(22), blink 0.5s step-end infinite alternate;
+}
+.speed-two {
+  animation: typing 1200ms steps(22), blink 0.5s step-end infinite alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 .animation {
   overflow: hidden;
