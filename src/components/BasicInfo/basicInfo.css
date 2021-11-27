@@ -3,10 +3,12 @@
 */
 .basic-info .border-img {
   margin: 0 auto;
+  border-radius: 8px;
   border: 19px solid transparent;
   border-image: url("../../assets/images/border-60px.png") 19 round;
   width: 571px;
   height: 132px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 .basic-info .inner-container {
   display: flex;

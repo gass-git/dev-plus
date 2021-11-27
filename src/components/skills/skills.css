@@ -2,18 +2,21 @@
   display: flex;
   font-family: "play", sans-serif;
   width: 92%;
-  height: 130px;
-  margin: 5px auto 5px auto;
+  height: 240px;
+  margin: 15px auto 5px auto;
   color: white;
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   /* border: 1px solid white;*/
 }
+.skills .sub-title {
+  margin-bottom: 20px;
+}
 .skills .left-side {
   margin-top: 10px;
   padding-right: 10px;
   width: 50%;
-  height: 178px;
+  height: 228px;
   border-right: 1px solid rgb(255, 255, 255, 0.2);
   /* border: 1px solid green; */
 }

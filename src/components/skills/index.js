@@ -84,9 +84,9 @@ const Skills = ({scores}) => {
       <section className="skills">
       <div className="content">
         <div className="left-side">
-          {/*<div className="sub-title">
+          <div className="sub-title">
           ✨ CORE TECH
-          </div> */}
+          </div>
           <div className="skills-wrapper">
             <div className={arrowClicked === false ? 'show' : 'hide'}>
               <div className="media-title">
@@ -111,9 +111,9 @@ const Skills = ({scores}) => {
           </div>
         </div>
         <div className="right-side">
-          {/*<div className="sub-title">
+          <div div className="sub-title">
            📚 FRAMEWORKS & LIBRARIES
-          </div>*/}
+          </div>
           <div className="skills-wrapper">
             <Skill key={5} lang="react" label="React" /> 
             <Skill key={6} lang="jquery" label="jQuery"  /> 
