@@ -3,55 +3,47 @@
 .no-loader-2 {
   display: none;
 }
-.loader-2 div {
-  color: rgb(255, 255, 255, 0.8);
-  position: relative;
-  text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
-    1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
-  width: 100%;
-  top: 65%;
-  text-align: center;
-  z-index: 99;
-}
-.loader-2 .gif-wrapper {
-  width: 240px;
-  height: 240px;
+.loader-2 .center-action-wrapper {
   position: absolute;
-  left: 50%;
-  top: 33%;
+  width: 310px;
+  height: 350px;
+  top: -5%;
+  bottom: 0;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   z-index: 99;
   /*border: 1px solid white;*/
 }
+.loader-2 .gif-wrapper {
+  margin: 0 auto;
+  width: 240px;
+  height: 240px;
+}
 .loader-2 .text-wrapper {
   display: flex;
+  margin: 0 auto;
   align-items: center;
   justify-content: center;
-  height: 50px;
-  position: absolute;
-  top: 55%;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 99;
-}
-.width-one {
-  width: 300px !important;
-}
-.width-two {
-  width: 220px !important;
+  height: 30px;
+  position: relative;
+  width: 100%;
+  /* border: 1px solid white;*/
 }
 .typing-effect {
-  width: 22ch;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
   font-family: monospace;
   font-size: 15px;
+  color: white;
+  /* border: 1px solid white;*/
+}
+.width-one {
+  width: 34ch;
+}
+.width-two {
+  width: 26ch;
 }
 .speed-one {
   animation: typing 1600ms steps(22), blink 0.5s step-end infinite alternate;

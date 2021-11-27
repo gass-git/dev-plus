@@ -161,14 +161,15 @@ const App = () => {
     <Fragment>
       {/* -- SPINNER -- */}
       <div className={loading ? "loader-2" : "no-loader-2"}>
+        <div className="center-action-wrapper">
           <div className="gif-wrapper">
             {showGif ? <img src={pixelChar} /> : null}
           </div>
           
           {
             castingSpells ? 
-              <div className="text-wrapper width-one">   
-                <div className="typing-effect speed-one">
+              <div className="text-wrapper">   
+                <div className="typing-effect width-one speed-one">
                   Casting spells to retrieve data...
                 </div> 
               </div>
@@ -177,14 +178,15 @@ const App = () => {
           }
           {
             castCompleted ? 
-              <div className="text-wrapper width-two">
-                <div className="typing-effect speed-two">
+              <div className="text-wrapper">
+                <div className="typing-effect width-two speed-two">
                   Data retrieve completed...
                 </div>
               </div>
               :
               ""
             }
+        </div>    
       </div>
 
       <div className={showBgImage ? "bg-mask opacity-0" : "bg-mask"}>
