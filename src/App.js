@@ -22,6 +22,7 @@ import About from './components/about/index';
 
 // Global functions
 import preload from './functions/preload';
+import handlePreloadMessages from './functions/preloadMessages';
 
 // Assets
 import wizard from  "./assets/images/wizard.gif"
@@ -95,11 +96,11 @@ const App = () => {
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
-  //  getReputation({setReputation});
-  //  getRepos({setRepos});
-  //  getAnswers({setAnswers, setLastAnswer});
-  //  getGitEvents({setGitEvents, setLastCommit});
-  //  getSkillScores({setScores});
+    getReputation({setReputation});
+    getRepos({setRepos});
+    getAnswers({setAnswers, setLastAnswer});
+    getGitEvents({setGitEvents, setLastCommit});
+    getSkillScores({setScores});
   }, []);
 
   useEffect(() => {
@@ -127,27 +128,6 @@ const App = () => {
     return () => clearInterval(interval);
   });
 
-  function handlePreloadMessages(){
-    if(castingSpells) {
-      return [
-        <div className="text-wrapper">   
-          <div className="typing effect-one">
-            Casting spells to retrieve data...
-          </div> 
-        </div>
-      ]
-    }
-    else if(castCompleted){
-      return [
-        <div className="text-wrapper">
-          <div className="typing effect-two">
-            Data retrieve completed...
-          </div>
-        </div>
-      ]
-    }
-  }
-
   return [
     <Fragment>
 
@@ -157,7 +137,7 @@ const App = () => {
           <div className="gif-frame">
             {showGif ? <img src={wizard} /> : null}
           </div>
-          {handlePreloadMessages()}
+          { handlePreloadMessages({castingSpells, castCompleted})}
         </div>    
       </div>
       {/* -- END OF PRELOADER -- */}      

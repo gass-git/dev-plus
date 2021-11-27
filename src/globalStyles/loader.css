@@ -33,21 +33,21 @@
 .loader .typing {
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid;
+  border-right: 2px solid;
   font-family: monospace;
   font-size: 15px;
   color: white;
   /*border: 1px solid white;*/
 }
 .loader .effect-one {
-  margin-left: 20px;
+  margin-left: 25px;
   width: 36ch;
-  animation: typing 1600ms steps(22), blink 0.5s step-end infinite alternate;
+  animation: typing 1400ms steps(22), blink 0.5s step-end infinite alternate;
 }
 .loader .effect-two {
   animation: typing 1200ms steps(22), blink 0.5s step-end infinite alternate;
-  margin-left: 60px;
-  width: 28ch;
+  margin-left: 61px;
+  width: 26ch;
 }
 .bg-mask {
   position: absolute;

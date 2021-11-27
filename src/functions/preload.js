@@ -24,7 +24,7 @@ function preload({
   setTimeout(() => {
     setCastingSpells(false);
     setCastCompleted(true);
-  }, 6500);
+  }, 6000);
 
   setTimeout(() => {
     setShowGif(false);
@@ -33,10 +33,14 @@ function preload({
   setTimeout(() => {
     setCastCompleted(false);
     setLoading(false);
-  }, 9500);
+  }, 9000);
 
   setTimeout(() => {
     setShowComponentOne(true);
+  }, 10000);
+
+  setTimeout(() => {
+    setShowBgImage(true);
   }, 10000);
 
   setTimeout(() => {
@@ -50,10 +54,6 @@ function preload({
   setTimeout(() => {
     setShowComponentFour(true);
   }, 11000);
-
-  setTimeout(() => {
-    setShowBgImage(true);
-  }, 10000);
 
   setTimeout(()=>{
     // Re-activate horizontal scrollbar 
