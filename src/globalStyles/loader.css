@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  z-index: 99;
+  z-index: 3;
   /*border: 1px solid white;*/
 }
 .loader .gif-frame {
@@ -48,14 +48,6 @@
   animation: typing 1200ms steps(22), blink 0.5s step-end infinite alternate;
   margin-left: 61px;
   width: 26ch;
-}
-.bg-mask {
-  position: absolute;
-  opacity: 1;
-  width: 100%;
-  height: 100vh;
-  background: #043247;
-  transition: 900ms;
 }
 .animation {
   overflow: hidden;

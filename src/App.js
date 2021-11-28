@@ -29,7 +29,6 @@ import wizard from  "./assets/images/wizard.gif"
 
 const App = () => {
   var [loading, setLoading] = useState(true);
-  var [showBgImage, setShowBgImage] = useState(false);
   var [showGif, setShowGif] = useState(false);
   var [castingSpells, setCastingSpells] = useState(false);
   var [castCompleted, setCastCompleted] = useState(false);
@@ -90,8 +89,7 @@ const App = () => {
       setShowComponentOne,
       setShowComponentTwo,
       setShowComponentThree,
-      setShowComponentFour,
-      setShowBgImage
+      setShowComponentFour
       });
     processVisit();
     getUniqueVisits({setUniqueVisits});
@@ -130,23 +128,23 @@ const App = () => {
 
   return [
     <Fragment>
+      {/* -- Background image -- not wrapper -- */}
+      <div className={showComponentOne ? "bg-image" : null } />
 
-      {/* -- PRELOADER -- */}
-      <div className={loading ? "loader" : "no-loader"}>
-        <div className="center-wrapper">
+      {/* -- Preloader -- */}
+      <main className={loading ? "loader" : "no-loader"}>
+        <section className="center-wrapper">
           <div className="gif-frame">
             {showGif ? <img src={wizard} /> : null}
           </div>
           { handlePreloadMessages({castingSpells, castCompleted})}
-        </div>    
-      </div>
-      {/* -- END OF PRELOADER -- */}      
+        </section>    
+      </main>
 
-      <div className={showBgImage ? "bg-mask opacity-0" : "bg-mask"}>
-      </div>
-
-      <div className={loading ? "hide-page" : "show-page"}>
-        {/* -- FIRST ROW -- */} 
+      {/* -- Main wrapper -- */}
+      <main className={loading ? null : "main-wrapper"}>
+        
+        {/* -- First row -- */} 
         {transitionOne((style, item) => 
             item ? 
             <animated.div style={style} className="first-row">
@@ -161,11 +159,9 @@ const App = () => {
             :
             null
         )}
-        {/* -- END OF FIRST ROW -- */} 
 
-        {/* -- SECOND ROW -- */}
+        {/* -- Second row -- */}
         <section className="second-row">
-
           {transitionTwo((style, item) => 
             item ? 
             <animated.div style={style} className="left-side">
@@ -177,7 +173,6 @@ const App = () => {
             : 
             null
           )}
-
           {transitionThree((style, item) => 
             item ? 
             <animated.div style={style} className="right-side">
@@ -187,30 +182,26 @@ const App = () => {
             null
           )}
         </section>
-        {/* -- END OF SECOND ROW -- */}
 
-        {/* -- THIRD ROW --  */}
+        {/* -- Third row -- */}
         <section className="third-row">
-              
-        {transitionFour((style, item) => 
-          item ? 
-          <animated.div style={style} className="content-display">
-            <div className="border-img">
-              <div className="inner-container">
-                {selected === "about" ? <About /> : null}
-                {selected === "skills" ? <Skills scores={scores}/> : null} 
-                {selected === "projects" ? <Projects repos={repos} /> : null}
-                {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} posts={posts} /> : null}
+          {transitionFour((style, item) => 
+            item ? 
+            <animated.div style={style} className="content-display">
+              <div className="border-img">
+                <div className="inner-container">
+                  {selected === "about" ? <About /> : null}
+                  {selected === "skills" ? <Skills scores={scores}/> : null} 
+                  {selected === "projects" ? <Projects repos={repos} /> : null}
+                  {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} posts={posts} /> : null}
+                </div>
               </div>
-            </div>
-          </animated.div>
-            : 
-            null
+            </animated.div>
+              : 
+              null
           )}
         </section>
-        {/* -- END OF THIRD ROW --  */}
-
-      </div>        
+      </main>      
     </Fragment>
   ]
 }

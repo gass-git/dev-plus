@@ -12,9 +12,7 @@
   --gray: rgb(177, 177, 177);
 }
 body {
-  background-image: url("../assets/images/pixel-bg-3.png");
-  background-attachment: fixed;
-  background-size: cover;
+  background: #043247;
   margin: 0;
   font-family: "play", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,6 +21,17 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.opacity-0 {
+  opacity: 0;
+}
+@keyframes bg-smooth-appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes arrow-flicker {
   0% {

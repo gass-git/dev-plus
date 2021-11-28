@@ -1,5 +1,5 @@
 @media (min-width: 750px) and (max-width: 900px) {
-  .show-page {
+  .main-wrapper {
     width: 700px !important;
   }
   .scroll-display .border-img {
@@ -41,7 +41,7 @@
   }
 }
 @media (min-width: 420px) and (max-width: 749px) {
-  .show-page {
+  .main-wrapper {
     margin: 20px auto 30px auto;
     width: 413px !important;
     /*border: 1px solid white;*/
@@ -160,7 +160,7 @@
   }
 }
 @media screen and (max-width: 419px) {
-  .show-page {
+  .main-wrapper {
     margin: 10px auto 0px auto;
     width: 350px !important;
     /*border: 1px solid white;*/

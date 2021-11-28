@@ -7,8 +7,7 @@ function preload({
   setShowComponentOne,
   setShowComponentTwo,
   setShowComponentThree,
-  setShowComponentFour,
-  setShowBgImage
+  setShowComponentFour
   }) {
   // Remove horizontal scrollbar 
   document.body.classList.add("animation");
@@ -37,10 +36,6 @@ function preload({
 
   setTimeout(() => {
     setShowComponentOne(true);
-  }, 10000);
-
-  setTimeout(() => {
-    setShowBgImage(true);
   }, 10000);
 
   setTimeout(() => {
