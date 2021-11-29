@@ -8,9 +8,9 @@ import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 const Projects = ({repos}) => {
   var [current, setCurrent] = useState(0);
   var totalRepos = repos.length;
-  var totalSections = Math.ceil(totalRepos/3);
+  var totalSections = Math.ceil(totalRepos/4);
   var [currentSection, setCurrentSection] = useState(1);
-  var [indexes, setIndexes] = useState([0,1,2]);
+  var [indexes, setIndexes] = useState([0,1,2,3]);
   var space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
   const [playTickSound] = useSound(tickSound,{volume: 0.6});
   const [playSelectionSound] = useSound(selectionSound, {volume:1});
@@ -64,18 +64,20 @@ const Projects = ({repos}) => {
     playSelectionSound();
   }
   function showPreviewsSection(){
-    var firstIndex = indexes[0] - 3,
-    secondIndex = indexes[0] - 2,
-    thirdIndex = indexes[0] - 1,
-    newIndexes = [firstIndex, secondIndex, thirdIndex];
+    var firstIndex = indexes[0] - 4,
+    secondIndex = indexes[0] - 3,
+    thirdIndex = indexes[0] - 2,
+    fourthIndex = indexes[0] - 1,
+    newIndexes = [firstIndex, secondIndex, thirdIndex, fourthIndex];
     setIndexes(newIndexes);
     setCurrentSection(currentSection - 1);
     setCurrent(firstIndex);
   }
   function showNextSection(){
-    var firstIndex = indexes[2] + 1,
-    secondIndex = indexes[2] + 2,
-    thirdIndex = indexes[2] + 3,
+    var firstIndex = indexes[3] + 1,
+    secondIndex = indexes[3] + 2,
+    thirdIndex = indexes[3] + 3,
+    fourthIndex = indexes[3] + 4,
     newIndexes = [firstIndex, secondIndex, thirdIndex];
     setIndexes(newIndexes);
     setCurrentSection(currentSection + 1);
