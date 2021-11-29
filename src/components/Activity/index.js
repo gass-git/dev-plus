@@ -81,8 +81,6 @@ const Activity = ({answers, gitEvents, posts}) => {
   }
 
   const GithubEvents = () => {
-    
-    
     return [
       <Fragment key={2}>
         <div className="sub-title">
@@ -164,13 +162,13 @@ const Activity = ({answers, gitEvents, posts}) => {
         >
           <i className="fab fa-stack-overflow" /> 
         </div>
-        <div style={{ marginTop:"7px" }}
+        <div style={{ marginTop:"11px" }}
           className="option"
           onClick={() => select('github')}
         >
           <i className="fab fa-github" />
         </div>
-        <div style={{ marginTop:"6px" }}
+        <div style={{ marginTop:"12px" }}
           className="option"
           onClick={() => select('writings')}
         >

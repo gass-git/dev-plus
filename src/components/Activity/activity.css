@@ -11,6 +11,7 @@
   padding: 0px;
   font-family: "play", sans-serif;
   width: 100%;
+  height: 265px;
   margin: 0px auto 0px auto;
   color: white;
   /*border: 1px solid green;*/
@@ -21,14 +22,14 @@
   margin-top: 7px;
   margin-bottom: 3px;
   border-left: 1px solid rgb(255, 255, 255, 0.2);
-  /* border-right: 1px solid green; */
+  /*border: 1px solid green;*/
 }
 .activity .right-side .elevator {
   position: absolute;
   z-index: 1;
   top: 1px;
   left: 6px;
-  height: 58px;
+  height: 75px;
   width: 90px;
   border-radius: 2px;
   background: rgb(255, 255, 255, 0.3);
@@ -39,15 +40,15 @@
   transform: translateY(-2px);
 }
 .activity .right-side .floor-2 {
-  transform: translateY(66px);
+  transform: translateY(86px);
 }
 .activity .right-side .floor-1 {
-  transform: translateY(132px);
+  transform: translateY(175px);
 }
 .activity .right-side .option {
   position: relative;
   z-index: 2;
-  height: 58px;
+  height: 75px;
   margin-left: 6px;
   margin-right: 2px;
   cursor: pointer;
@@ -57,7 +58,7 @@
   border: 1px solid rgba(208, 255, 0, 0);
 }
 .activity .right-side .option i {
-  margin: 8px auto;
+  margin: 17px auto;
 }
 .activity .right-side .option:hover {
   background: rgb(255, 255, 255, 0.1);
@@ -65,11 +66,12 @@
 .activity .left-side {
   width: 85%;
   margin-left: 15px;
-  margin-top: 20px;
+  margin-top: 25px;
   /*border: 1px solid white;*/
 }
 .activity .content .container {
-  width: 100%;
+  margin-top: 10px;
+  width: 95%;
   /* border: 1px solid orange; */
 }
 .activity .block {

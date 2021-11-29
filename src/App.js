@@ -95,9 +95,9 @@ const App = () => {
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
   //  getReputation({setReputation});
-    getRepos({setRepos});
-  //  getAnswers({setAnswers, setLastAnswer});
- //   getGitEvents({setGitEvents, setLastCommit});
+  //  getRepos({setRepos});
+    getAnswers({setAnswers, setLastAnswer});
+    getGitEvents({setGitEvents, setLastCommit});
  //   getSkillScores({setScores});
   }, []);
 
