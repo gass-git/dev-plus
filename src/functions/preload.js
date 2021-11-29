@@ -7,7 +7,8 @@ function preload({
   setShowComponentOne,
   setShowComponentTwo,
   setShowComponentThree,
-  setShowComponentFour
+  setShowComponentFour,
+  setMenuActivated
   }) {
   // Remove horizontal scrollbar 
   document.body.classList.add("animation");
@@ -27,33 +28,37 @@ function preload({
 
   setTimeout(() => {
     setShowGif(false);
-  }, 9000);
+  }, 8500);
 
   setTimeout(() => {
     setCastCompleted(false);
     setLoading(false);
-  }, 9000);
+  }, 8500);
 
   setTimeout(() => {
     setShowComponentOne(true);
-  }, 10000);
+  }, 9500);
 
   setTimeout(() => {
     setShowComponentTwo(true);
-  }, 10600);
+  }, 10000);
 
   setTimeout(() => {
     setShowComponentThree(true);
-  }, 10800);
+  }, 10200);
 
   setTimeout(() => {
     setShowComponentFour(true);
-  }, 11000);
+  }, 10500);
+
+  setTimeout(() => {
+    setMenuActivated(true);
+  }, 11400);
 
   setTimeout(()=>{
     // Re-activate horizontal scrollbar 
     document.body.classList.remove("animation");
-  }, 14000)
+  }, 13000)
 }
 
 export default preload;

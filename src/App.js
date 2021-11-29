@@ -32,6 +32,7 @@ const App = () => {
   var [showGif, setShowGif] = useState(false);
   var [castingSpells, setCastingSpells] = useState(false);
   var [castCompleted, setCastCompleted] = useState(false);
+  var [menuActivated, setMenuActivated] = useState(false);
 
   // For animation effect on page preload
   var [showComponentOne, setShowComponentOne] = useState(false); 
@@ -89,16 +90,17 @@ const App = () => {
       setShowComponentOne,
       setShowComponentTwo,
       setShowComponentThree,
-      setShowComponentFour
+      setShowComponentFour,
+      setMenuActivated
       });
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
-  //  getReputation({setReputation});
-  //  getRepos({setRepos});
+    getReputation({setReputation});
+    getRepos({setRepos});
     getAnswers({setAnswers, setLastAnswer});
     getGitEvents({setGitEvents, setLastCommit});
- //   getSkillScores({setScores});
+    getSkillScores({setScores});
   }, []);
 
   useEffect(() => {
@@ -166,8 +168,8 @@ const App = () => {
             item ? 
             <animated.div style={style} className="left-side">
               <MainMenu 
-                selected={selected} 
                 setSelected={setSelected}
+                menuActivated={menuActivated}
               />
             </animated.div>
             : 
