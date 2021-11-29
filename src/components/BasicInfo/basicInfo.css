@@ -8,7 +8,7 @@
   border-image: url("../../assets/images/border-60px.png") 19 round;
   width: 571px;
   height: 132px;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
 .basic-info .inner-container {
   display: flex;

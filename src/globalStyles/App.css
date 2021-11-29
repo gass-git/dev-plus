@@ -7,6 +7,7 @@
   background-image: url("../assets/images/pixel-bg-100.png");
   background-attachment: fixed;
   background-size: cover;
+  /* background: white;*/
   animation: appear 800ms;
   animation-iteration-count: 1;
 }
@@ -49,7 +50,7 @@
   width: 770px;
   height: 240px;
   z-index: 2;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
 .third-row .inner-container {
   height: 268px;
