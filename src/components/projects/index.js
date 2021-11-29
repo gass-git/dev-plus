@@ -100,15 +100,21 @@ const Projects = ({repos}) => {
       playTickSound();
     }
   }
-  function handleUpClick(){
-    // Sound effect
-    playTickSound();
-    if(currentSection > 1){showPreviewsSection()} 
+  function handleUpClick(){ 
+    if(currentSection > 1){
+      showPreviewsSection();
+
+      // Sound effect
+      playTickSound();
+    } 
   }
   function handleDownClick(){
-    // Sound effect
-    playTickSound();
-    if(currentSection !== totalSections){showNextSection()}
+    if(currentSection !== totalSections){
+      showNextSection();
+
+      // Sound effect
+      playTickSound();
+    }
   }
   function handleLeftArrowClass(){
     if(current === totalRepos - 1){
