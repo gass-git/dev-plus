@@ -46,51 +46,25 @@
 }
 .msg-display .text-container .scroll-text {
   text-align: left;
-  /* animation properties */
-  -moz-transform: translateX(-100%);
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-
-  -moz-animation: my-animation 25s linear infinite;
-  -webkit-animation: my-animation 25s linear infinite;
-  animation: my-animation 25s linear infinite;
-  width: 1800px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transform: translateX(-100%);
+  animation-name: move-left;
+  animation-iteration-count: 1;
+  animation-duration: 20000ms;
+  animation-timing-function: linear;
+  width: 1800px;
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
-  /* border: 1px solid orange;*/
-}
-/* for Firefox */
-@-moz-keyframes my-animation {
-  from {
-    -moz-transform: translateX(-100%);
-  }
-  to {
-    -moz-transform: translateX(100%);
-  }
+  /*border: 1px solid orange;*/
 }
 
-/* for Chrome */
-@-webkit-keyframes my-animation {
+@keyframes move-left {
   from {
-    -webkit-transform: translateX(100%);
-  }
-  to {
-    -webkit-transform: translateX(-100%);
-  }
-}
-
-@keyframes my-animation {
-  from {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
     transform: translateX(100%);
   }
   to {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
   }
 }

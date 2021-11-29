@@ -54,11 +54,11 @@ const App = () => {
   var [scores, setScores] = useState([]);
 
   // ScrollDisplay variables
+  var [scrollerSwitch, setScrollerSwitch] = useState('on');
   var [lastCommit, setLastCommit] = useState([]);
   var [lastAnswer, setLastAnswer] = useState(); 
   var [msgIndex, setMsgIndex] = useState(0);
   var maxIndex = 3; 
-  var scrollInterval = 25; // Seconds it takes for the scroll animation
 
   // Transitions
   const transitionOne = useTransition(showComponentOne, {
@@ -105,26 +105,32 @@ const App = () => {
 
   useEffect(() => {
     var interval = setInterval(() => {
-      // Variables for ScrollDisplay
-      msgIndex < maxIndex ? setMsgIndex(msgIndex + 1) : setMsgIndex(0);
 
+      setScrollerSwitch('off'); 
+      
       // --- Avatar glitch effect ---
-      // msRange: miliseconds range to generate in random
-      var msRange = (scrollInterval - 7) * 1000;
-      var glitchDuration = 5000; // miliseconds
-      var random = Math.random() * msRange;
-     
-      // Turn effect on
-      setTimeout(() => {
-        setAvatarGlitch(true);
-      }, random)
+      var random = Math.random();
+      if(random > 0.49){
+        // Turn effect on
+        setAvatarGlitch(true)
 
-      // Turn effect off
+        // Turn effect off
+        setTimeout(() => {
+          setAvatarGlitch(false);
+        }, 5000)
+      }
+      
+      /* @abstract 
+      * Turn on ScrollDisplay after possible glitch effect
+      * Note: when glitch effect and scrolldisplay function at the same time, 
+      * animations don't work properly. 
+      */
       setTimeout(() => {
-        setAvatarGlitch(false);
-      }, random + glitchDuration)
+        setScrollerSwitch('on'); 
+        msgIndex < maxIndex ? setMsgIndex(msgIndex + 1) : setMsgIndex(0);
+      }, 5100)
 
-    }, scrollInterval * 1000);
+    }, 25100);
     return () => clearInterval(interval);
   });
 
@@ -151,6 +157,7 @@ const App = () => {
             item ? 
             <animated.div style={style} className="first-row">
               <ScrollDisplay 
+                scrollerSwitch={scrollerSwitch}
                 lastCommit={lastCommit}
                 lastAnswer={lastAnswer}
                 lastPost={lastPost}
