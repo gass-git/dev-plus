@@ -41,12 +41,15 @@ const App = () => {
   var [showComponentFour, setShowComponentFour] = useState(false); 
 
   var [selected, setSelected] = useState('about');
-  var [avatarGlitch, setAvatarGlitch] = useState(true);
   var [uniqueVisits, setUniqueVisits] = useState();
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
   var [posts, setPosts] = useState([]);
   var [lastPost, setLastPost] = useState([]);
+
+  // Avatar glitch effect
+  var [avatarGlitch, setAvatarGlitch] = useState(true);
+  var glitchDuration = 5; // Duration in seconds 
 
   // Stack Overflow variables
   var [reputation, setReputation] = useState([]);
@@ -59,6 +62,7 @@ const App = () => {
   var [lastAnswer, setLastAnswer] = useState(); 
   var [msgIndex, setMsgIndex] = useState(0);
   var maxIndex = 3; 
+  var scrollerDelay = 18; // Duration in seconds 
 
   // Transitions
   const transitionOne = useTransition(showComponentOne, {
@@ -105,30 +109,35 @@ const App = () => {
 
   useEffect(() => {
     var interval = setInterval(() => {
-      // Variables for ScrollDisplay
+      
+      // Turn off scroller to make changes
       setScrollerSwitch('off')
+      
+      // This changes the message to be displayed
       msgIndex < maxIndex ? setMsgIndex(msgIndex + 1) : setMsgIndex(0);
+      
+      // Once changes have been made turn scroller back on
       setTimeout(()=>{
         setScrollerSwitch('on');
-      },1000)
+      }, 1000)
       
       // --- Avatar glitch effect ---
-      // msRange: miliseconds range to generate in random
-      var msRange = (19 - 7) * 1000;
-      var glitchDuration = 5000; // miliseconds
-      var random = Math.random() * msRange;
+      // msRange: generate random number inside this range
+      var msRange = (scrollerDelay - 7) * 1000,
+        random = Math.random() * msRange;
      
-      // Turn effect on
+      // Turn glitch effect on
       setTimeout(() => {
         setAvatarGlitch(true);
       }, random)
 
-      // Turn effect off
+      // Turn glitch effect off after glitch duration
       setTimeout(() => {
         setAvatarGlitch(false);
-      }, random + glitchDuration)
+      }, random + glitchDuration * 1000)
 
-    }, 19000);
+    }, scrollerDelay * 1000 + 1000);
+
     return () => clearInterval(interval);
   });
 
