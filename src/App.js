@@ -41,7 +41,7 @@ const App = () => {
   var [showComponentFour, setShowComponentFour] = useState(false); 
 
   var [selected, setSelected] = useState('about');
-  var [avatarGlitch, setAvatarGlitch] = useState(false);
+  var [avatarGlitch, setAvatarGlitch] = useState(true);
   var [uniqueVisits, setUniqueVisits] = useState();
   var [gitEvents, setGitEvents] = useState([]);
   var [repos, setRepos] = useState([]);
@@ -96,41 +96,39 @@ const App = () => {
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
-  //  getReputation({setReputation});
-  //  getRepos({setRepos});
-  //  getAnswers({setAnswers, setLastAnswer});
-  //  getGitEvents({setGitEvents, setLastCommit});
-  //  getSkillScores({setScores});
+    getReputation({setReputation});
+    getRepos({setRepos});
+    getAnswers({setAnswers, setLastAnswer});
+    getGitEvents({setGitEvents, setLastCommit});
+    getSkillScores({setScores});
   }, []);
 
   useEffect(() => {
     var interval = setInterval(() => {
-
-      setScrollerSwitch('off'); 
+      // Variables for ScrollDisplay
+      setScrollerSwitch('off')
+      msgIndex < maxIndex ? setMsgIndex(msgIndex + 1) : setMsgIndex(0);
+      setTimeout(()=>{
+        setScrollerSwitch('on');
+      },1000)
       
       // --- Avatar glitch effect ---
-      var random = Math.random();
-      if(random > 0.49){
-        // Turn effect on
-        setAvatarGlitch(true)
-
-        // Turn effect off
-        setTimeout(() => {
-          setAvatarGlitch(false);
-        }, 5000)
-      }
-      
-      /* @abstract 
-      * Turn on ScrollDisplay after possible glitch effect
-      * Note: when glitch effect and scrolldisplay function at the same time, 
-      * animations don't work properly. 
-      */
+      // msRange: miliseconds range to generate in random
+      var msRange = (17 - 7) * 1000;
+      var glitchDuration = 5000; // miliseconds
+      var random = Math.random() * msRange;
+     
+      // Turn effect on
       setTimeout(() => {
-        setScrollerSwitch('on'); 
-        msgIndex < maxIndex ? setMsgIndex(msgIndex + 1) : setMsgIndex(0);
-      }, 5100)
+        setAvatarGlitch(true);
+      }, random)
 
-    }, 25100);
+      // Turn effect off
+      setTimeout(() => {
+        setAvatarGlitch(false);
+      }, random + glitchDuration)
+
+    }, 17000);
     return () => clearInterval(interval);
   });
 

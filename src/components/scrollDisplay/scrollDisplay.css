@@ -18,13 +18,9 @@
     rgb(25, 52, 152, 0.7) 2px,
     rgb(25, 52, 152, 0.7) 3px
   );
-
-  /* background: rgb(0, 0, 0, 0.6);*/
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), var(--bg1));*/
   overflow: hidden;
   border: 1px solid rgba(14, 16, 98, 0.4);
 }
-
 .msg-display {
   width: 98%;
   height: 38px;
@@ -46,43 +42,18 @@
 }
 .msg-display .text-container .scroll-text {
   text-align: left;
-  /* animation properties */
-  -moz-transform: translateX(-100%);
-  -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
-
-  -moz-animation: my-animation 20s linear infinite;
-  -webkit-animation: my-animation 20s linear infinite;
-  animation: my-animation 20s linear infinite;
-  width: 1800px;
+  animation: move-left 15s linear;
+  animation-iteration-count: 1;
+  width: 1600px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
-  /* border: 1px solid orange;*/
+  /*border: 1px solid orange;*/
 }
-/* for Firefox */
-@-moz-keyframes my-animation {
-  from {
-    -moz-transform: translateX(-100%);
-  }
-  to {
-    -moz-transform: translateX(100%);
-  }
-}
-
-/* for Chrome */
-@-webkit-keyframes my-animation {
-  from {
-    -webkit-transform: translateX(100%);
-  }
-  to {
-    -webkit-transform: translateX(-100%);
-  }
-}
-
-@keyframes my-animation {
+@keyframes move-left {
   from {
     -moz-transform: translateX(100%);
     -webkit-transform: translateX(100%);

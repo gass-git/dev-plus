@@ -23,21 +23,19 @@ const ScrollDisplay = ({scrollerSwitch, lastCommit, lastAnswer, lastPost, msgInd
 
     }, [msgIndex])
 */
-    const Scroller = () => {
-        return [
-            <div className="scroll-text">
-                {messages[msgIndex]}
-            </div>
-        ]  
-    }
-
     return (
     <section className="scroll-display">
         <div className="border-img">
             <div className="inner-container">
                 <div className="msg-display">
                     <div className="text-container">
-                       { scrollerSwitch === 'on' ? <Scroller/> : null }
+                        {scrollerSwitch === 'on' ?    
+                        <div className="scroll-text">
+                            {messages[msgIndex]}
+                        </div>
+                        : 
+                        null
+                        }
                     </div>    
                 </div>
             </div>
