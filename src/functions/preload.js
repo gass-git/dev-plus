@@ -24,36 +24,39 @@ function preload({
   setTimeout(() => {
     setCastingSpells(false);
     setCastCompleted(true);
-  }, 6000);
-
-  setTimeout(() => {
-    setShowGif(false);
-  }, 8500);
+  }, 5300);
 
   setTimeout(() => {
     setCastCompleted(false);
+  }, 7300);
+  
+  setTimeout(() => {
+    setShowGif(false);
+  }, 7500);
+
+  setTimeout(() => {
     setLoading(false);
-  }, 8500);
+  }, 8000);
 
   setTimeout(() => {
     setShowComponentOne(true);
-  }, 9500);
+  }, 8500);
 
   setTimeout(() => {
     setShowComponentTwo(true);
-  }, 10000);
+  }, 9000);
 
   setTimeout(() => {
     setShowComponentThree(true);
-  }, 10200);
+  }, 9200);
 
   setTimeout(() => {
     setShowComponentFour(true);
-  }, 10500);
+  }, 9500);
 
   setTimeout(() => {
     setMenuActivated(true);
-  }, 11400);
+  }, 10800);
 
   setTimeout(()=>{
     // Re-activate horizontal scrollbar 

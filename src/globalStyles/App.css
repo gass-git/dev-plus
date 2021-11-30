@@ -8,7 +8,7 @@
   background-attachment: fixed;
   background-size: cover;
   /* background: white;*/
-  animation: appear 800ms;
+  animation: appear 1200ms;
   animation-iteration-count: 1;
 }
 .main-wrapper {

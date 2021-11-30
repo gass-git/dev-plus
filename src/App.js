@@ -25,7 +25,7 @@ import preload from './functions/preload';
 import handlePreloadMessages from './functions/preloadMessages';
 
 // Assets
-import wizard from  "./assets/images/wizard-v2.gif"
+import wizard from  "./assets/images/wizard-v6.gif"
 
 const App = () => {
   var [loading, setLoading] = useState(true);
@@ -100,11 +100,11 @@ const App = () => {
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
-    getReputation({setReputation});
-    getRepos({setRepos});
-    getAnswers({setAnswers, setLastAnswer});
-    getGitEvents({setGitEvents, setLastCommit});
-    getSkillScores({setScores});
+  //  getReputation({setReputation});
+  //  getRepos({setRepos});
+  //  getAnswers({setAnswers, setLastAnswer});
+  //  getGitEvents({setGitEvents, setLastCommit});
+  //  getSkillScores({setScores});
   }, []);
 
   useEffect(() => {
@@ -144,7 +144,7 @@ const App = () => {
   return [
     <Fragment>
       {/* -- Background image -- not wrapper -- */}
-      <div className={showComponentOne ? "bg-image" : null } />
+      <div className={showComponentFour ? "bg-image" : null } />
 
       {/* -- Preloader -- */}
       <main className={loading ? "loader" : "no-loader"}>
