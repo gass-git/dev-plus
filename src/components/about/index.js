@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React, {Fragment, useState} from "react";
 import './about.css';
 import useSound from "use-sound";
 import tickSound from '../../assets/sounds/tick-sound.wav';
@@ -25,9 +25,9 @@ const About = () => {
         pushing myself to go beyond, for the pure joy of it.
         <p>
         Feel free to check my online profiles: 
-        <a href="https://stackoverflow.com/users/14895985/gass?tab=profile" target="_blank"> Stack Overflow </a>, 
-        <a href="https://github.com/gass-git" target="_blank">Github </a> & 
-        <a href="https://codesandbox.io/u/g.szada" target="_blank"> Code Sandbox </a> or 
+        <a href="https://stackoverflow.com/users/14895985/gass?tab=profile" target="_blank" rel="noreferrer"> Stack Overflow </a>, 
+        <a href="https://github.com/gass-git" target="_blank" rel="noreferrer">Github </a> & 
+        <a href="https://codesandbox.io/u/g.szada" target="_blank" rel="noreferrer"> Code Sandbox </a> or 
         send me a pm to: <span className="highlight">gabriel.salinas@protonmail.com</span>
         </p>
     </Fragment> 

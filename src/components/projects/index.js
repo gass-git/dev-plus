@@ -78,7 +78,7 @@ const Projects = ({repos}) => {
     secondIndex = indexes[3] + 2,
     thirdIndex = indexes[3] + 3,
     fourthIndex = indexes[3] + 4,
-    newIndexes = [firstIndex, secondIndex, thirdIndex];
+    newIndexes = [firstIndex, secondIndex, thirdIndex, fourthIndex];
     setIndexes(newIndexes);
     setCurrentSection(currentSection + 1);
     setCurrent(firstIndex);

@@ -155,7 +155,7 @@ const App = () => {
       <main className={loading ? "loader" : "no-loader"}>
         <section className="center-wrapper">
           <div className="gif-frame">
-            {showGif ? <img src={wizard} /> : null}
+            {showGif ? <img src={wizard} alt="Wizard gif"/> : null}
           </div>
           { handlePreloadMessages({castingSpells, castCompleted})}
         </section>    
