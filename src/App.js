@@ -2,28 +2,28 @@ import React, {useState, useEffect, Fragment } from 'react';
 import {useTransition, animated} from 'react-spring';
 
 // API fetching
-import Activity from './components/activity/index';
-import processVisit from './api/processVisit';
-import getUniqueVisits from './api/getUniqueVisits';
-import getUserLocation from './api/getUserLocation';
-import getSkillScores from './api/getSkillScores';
-import getWritings from './api/getWritings';
-import getReputation from './api/getReputation';
-import getRepos from './api/getRepos';
-import getGitEvents from './api/getGitEvents';
-import getAnswers from './api/getAnswers';
+import Activity from './components/activity/index.js';
+import processVisit from './api/processVisit.js';
+import getUniqueVisits from './api/getUniqueVisits.js';
+import getUserLocation from './api/getUserLocation.js';
+import getSkillScores from './api/getSkillScores.js';
+import getWritings from './api/getWritings.js';
+import getReputation from './api/getReputation.js';
+import getRepos from './api/getRepos.js';
+import getGitEvents from './api/getGitEvents.js';
+import getAnswers from './api/getAnswers.js';
 
 // Components
-import ScrollDisplay from './components/scrollDisplay/index';
-import MainMenu from './components/mainMenu/index';
-import BasicInfo from './components/basicInfo/index';
-import Projects from './components/projects/index';
-import Skills from './components/skills/index';
-import About from './components/about/index';
+import ScrollDisplay from './components/scrollDisplay/index.js';
+import MainMenu from './components/mainMenu/index.js';
+import BasicInfo from './components/basicInfo/index.js';
+import Projects from './components/projects/index.js';
+import Skills from './components/skills/index.js';
+import About from './components/about/index.js';
 
 // Global functions
-import preload from './functions/preload';
-import handlePreloadMessages from './functions/preloadMessages';
+import preload from './functions/preload.js';
+import handlePreloadMessages from './functions/preloadMessages.js';
 
 // Assets
 import wizard from  "./assets/images/wizard-v6.gif"
