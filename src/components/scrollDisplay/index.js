@@ -1,9 +1,15 @@
-import React, { useEffect } from "react";
-import "./scrollDisplay.css";
 import { Fragment } from "react";
+import "./scrollDisplay.css";
 
-const ScrollDisplay = ({scrollerSwitch, lastCommit, lastAnswer, lastPost, msgIndex, uniqueVisits}) => {
-    var messages = [
+const ScrollDisplay = ({
+    scrollerSwitch, 
+    lastCommit, 
+    lastAnswer, 
+    lastPost, 
+    msgIndex, 
+    uniqueVisits
+}) => {
+    let messages = [
        <Fragment> 
             Last Github commit - {lastCommit.message} (repo: {lastCommit.repo}) 
             &nbsp; {lastCommit.date} {lastCommit.time}
@@ -18,30 +24,24 @@ const ScrollDisplay = ({scrollerSwitch, lastCommit, lastAnswer, lastPost, msgInd
         Unique visitors to date - {uniqueVisits} and counting..
     </Fragment>,
     ];
-/*
-    useEffect(() => {
 
-    }, [msgIndex])
-*/
-    return (
+    return [
     <section className="scroll-display">
         <div className="border-img">
             <div className="inner-container">
                 <div className="msg-display">
-                    <div className="text-container">
-                        {scrollerSwitch === 'on' ?    
+                    {scrollerSwitch === 'on' ?    
                         <div className="scroll-text">
                             {messages[msgIndex]}
                         </div>
                         : 
                         null
-                        }
-                    </div>    
+                    }
                 </div>
             </div>
         </div>
     </section>
-    );
+    ];
 }
 
 export default ScrollDisplay;

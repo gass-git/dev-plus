@@ -114,7 +114,7 @@ const App = () => {
       
       // --- Avatar glitch effect ---
       // msRange: miliseconds range to generate in random
-      var msRange = (17 - 7) * 1000;
+      var msRange = (19 - 7) * 1000;
       var glitchDuration = 5000; // miliseconds
       var random = Math.random() * msRange;
      
@@ -128,7 +128,7 @@ const App = () => {
         setAvatarGlitch(false);
       }, random + glitchDuration)
 
-    }, 17000);
+    }, 19000);
     return () => clearInterval(interval);
   });
 
