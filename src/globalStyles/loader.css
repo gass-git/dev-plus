@@ -6,7 +6,7 @@
 }
 .loader .center-wrapper {
   position: absolute;
-  width: 310px;
+  width: 300px;
   height: 350px;
   top: -5%;
   bottom: 0;
@@ -37,17 +37,17 @@
   font-family: monospace;
   font-size: 15px;
   color: white;
-  /*border: 1px solid white;*/
+  /* border: 1px solid white; */
 }
 .loader .effect-one {
-  margin-left: 25px;
-  width: 36ch;
-  animation: typing 1200ms steps(22), blink 0.5s step-end infinite alternate;
+  margin-left: 20px;
+  width: 30ch;
+  animation: typing 2000ms steps(30), blink 0.5s step-end infinite alternate;
 }
 .loader .effect-two {
-  animation: typing 1100ms steps(22), blink 0.5s step-end infinite alternate;
-  margin-left: 61px;
-  width: 27ch;
+  animation: typing 1100ms steps(16), blink 0.5s step-end infinite alternate;
+  margin-left: 83px;
+  width: 16ch;
 }
 .animation {
   overflow: hidden;

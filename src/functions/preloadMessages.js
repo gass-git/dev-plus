@@ -3,7 +3,7 @@ function handlePreloadMessages({castingSpells, castCompleted}){
     return [
       <div className="text-wrapper">   
         <div className="typing effect-one">
-          Casting spells to retrieve data...
+          Casting spells to collect data
         </div> 
       </div>
     ]
@@ -12,7 +12,7 @@ function handlePreloadMessages({castingSpells, castCompleted}){
     return [
       <div className="text-wrapper">
         <div className="typing effect-two">
-          Data retrieve completed...
+          Fetch completed
         </div>
       </div>
     ]
