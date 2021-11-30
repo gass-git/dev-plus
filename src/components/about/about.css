@@ -16,6 +16,15 @@
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   /* border: 1px solid white;*/
 }
+.about .content a {
+  text-decoration: none !important;
+  color: var(--yellow2);
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
+    1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
+}
+.about .content a:hover {
+  color: var(--yellow1);
+}
 .about .arrow-box {
   width: 92%;
   text-align: center;

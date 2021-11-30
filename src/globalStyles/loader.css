@@ -14,7 +14,7 @@
   right: 0;
   margin: auto;
   z-index: 3;
-  /*border: 1px solid white;*/
+  /* border: 1px solid white;*/
 }
 .loader .gif-frame {
   margin: 0 auto;
@@ -37,17 +37,17 @@
   font-family: monospace;
   font-size: 15px;
   color: white;
-  /* border: 1px solid white; */
+  /*border: 1px solid white;*/
 }
 .loader .effect-one {
-  margin-left: 20px;
+  margin: 0 auto;
   width: 30ch;
   animation: typing 2000ms steps(30), blink 0.5s step-end infinite alternate;
 }
 .loader .effect-two {
-  animation: typing 1100ms steps(16), blink 0.5s step-end infinite alternate;
-  margin-left: 83px;
-  width: 16ch;
+  animation: typing 1000ms steps(15), blink 0.5s step-end infinite alternate;
+  margin: 0 auto;
+  width: 15ch;
 }
 .animation {
   overflow: hidden;

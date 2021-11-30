@@ -7,9 +7,13 @@ const ScrollDisplay = ({
     lastAnswer, 
     lastPost, 
     msgIndex, 
-    uniqueVisits
+    uniqueVisits,
+    userLocation
 }) => {
     let messages = [
+        <Fragment> 
+            Welcome visitor #{uniqueVisits} from {userLocation}! I'm glad to see you here! Feel free to take a look arround...
+        </Fragment>,
        <Fragment> 
             Last Github commit - {lastCommit.message} (repo: {lastCommit.repo}) 
             &nbsp; {lastCommit.date} {lastCommit.time}
@@ -19,10 +23,7 @@ const ScrollDisplay = ({
         </Fragment>,
         <Fragment>
             Last on Stack Overflow - {lastAnswer} 
-        </Fragment>,
-        <Fragment>
-        Unique visitors to date - {uniqueVisits} and counting..
-    </Fragment>,
+        </Fragment>
     ];
 
     return [

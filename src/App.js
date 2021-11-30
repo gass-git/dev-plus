@@ -5,6 +5,7 @@ import {useTransition, animated} from 'react-spring';
 import Activity from './components/activity/index';
 import processVisit from './api/processVisit';
 import getUniqueVisits from './api/getUniqueVisits';
+import getUserLocation from './api/getUserLocation';
 import getSkillScores from './api/getSkillScores';
 import getWritings from './api/getWritings';
 import getReputation from './api/getReputation';
@@ -33,6 +34,7 @@ const App = () => {
   var [castingSpells, setCastingSpells] = useState(false);
   var [castCompleted, setCastCompleted] = useState(false);
   var [menuActivated, setMenuActivated] = useState(false);
+  var [userLocation, setUserLocation] = useState();
 
   // For animation effect on page preload
   var [showComponentOne, setShowComponentOne] = useState(false); 
@@ -99,6 +101,7 @@ const App = () => {
       });
     processVisit();
     getUniqueVisits({setUniqueVisits});
+    getUserLocation({setUserLocation});
     getWritings({setPosts, setLastPost});
       
     // API'S with request restrictions 
@@ -172,6 +175,7 @@ const App = () => {
                 lastPost={lastPost}
                 msgIndex={msgIndex}
                 uniqueVisits={uniqueVisits}
+                userLocation={userLocation}
               />
             </animated.div>
             :
