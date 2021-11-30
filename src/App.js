@@ -100,11 +100,13 @@ const App = () => {
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getWritings({setPosts, setLastPost});
-  //  getReputation({setReputation});
-  //  getRepos({setRepos});
-  //  getAnswers({setAnswers, setLastAnswer});
-  //  getGitEvents({setGitEvents, setLastCommit});
-  //  getSkillScores({setScores});
+      
+    // API'S with request restrictions 
+    getReputation({setReputation});
+    getRepos({setRepos});
+    getAnswers({setAnswers, setLastAnswer});
+    getGitEvents({setGitEvents, setLastCommit});
+    getSkillScores({setScores});
   }, []);
 
   useEffect(() => {
