@@ -2,7 +2,6 @@ import React, {useState, useEffect, Fragment } from 'react';
 import {useTransition, animated} from 'react-spring';
 
 // API fetching
-import Activity from './components/activity/index.js';
 import processVisit from './api/processVisit.js';
 import getUniqueVisits from './api/getUniqueVisits.js';
 import getUserLocation from './api/getUserLocation.js';
@@ -14,6 +13,7 @@ import getGitEvents from './api/getGitEvents.js';
 import getAnswers from './api/getAnswers.js';
 
 // Components
+import Activity from './components/activity/index.js';
 import ScrollDisplay from './components/scrollDisplay/index.js';
 import MainMenu from './components/mainMenu/index.js';
 import BasicInfo from './components/basicInfo/index.js';

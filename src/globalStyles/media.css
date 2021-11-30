@@ -233,6 +233,9 @@
     margin-bottom: 25px !important;
     /*border-bottom: 1px solid rgb(255, 255, 255, 0.5);*/
   }
+  .third-row .skills .sub-title {
+    display: none !important;
+  }
   .third-row .skills .right-side {
     display: none !important;
   }
