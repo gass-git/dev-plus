@@ -64,7 +64,7 @@ const App = () => {
   var [lastAnswer, setLastAnswer] = useState(); 
   var [msgIndex, setMsgIndex] = useState(0);
   var maxIndex = 3; 
-  var scrollerDelay = 18; // Duration in seconds 
+  var scrollerDelay = 20; // Duration in seconds 
 
   // Transitions
   const transitionOne = useTransition(showComponentOne, {

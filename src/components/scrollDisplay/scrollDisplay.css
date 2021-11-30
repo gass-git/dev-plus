@@ -42,7 +42,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   transform: translateX(-100%);
-  animation: move-left 18s linear;
+  animation: move-left 20s linear;
   animation-iteration-count: 1;
   color: rgb(241, 190, 50, 0.8);
   /*border: 1px solid orange;*/
