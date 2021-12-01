@@ -1,7 +1,8 @@
 .main-menu .border-img {
   margin: 0 auto;
   border-radius: 8px;
-  border: 19px solid transparent;
+  border-style: solid;
+  border-width: 19px;
   border-image: url("../../assets/images/border-60px.png") 19 round;
   width: 157px;
   height: 132px;
