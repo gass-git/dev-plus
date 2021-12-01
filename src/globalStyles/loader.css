@@ -25,17 +25,20 @@
   display: flex;
   margin: 0 auto;
   align-items: center;
-  height: 30px;
+  height: 21px;
   position: relative;
   width: 100%;
-  /* border: 1px solid white;*/
+  border: 1px solid white;
 }
 .loader .typing {
   white-space: nowrap;
   overflow: hidden;
   border-right: 2px solid;
-  font-family: monospace;
-  font-size: 15px;
+  padding-top: 3px;
+  padding-bottom: 0px;
+  padding-right: 1px;
+  font-family: "Courier Prime", monospace;
+  font-size: 14px;
   color: white;
   /*border: 1px solid white;*/
 }
