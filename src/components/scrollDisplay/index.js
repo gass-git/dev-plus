@@ -12,7 +12,8 @@ const ScrollDisplay = ({
 }) => {
     let messages = [
         <Fragment> 
-            Welcome visitor #{uniqueVisits} from {userLocation}! I'm glad that you came by! Feel free to take a look around...
+            Welcome visitor #{uniqueVisits} from {userLocation ? userLocation : "Planet Earth"}!
+            I'm glad that you came by! Feel free to take a look around...
         </Fragment>,
        <Fragment> 
             Last Github commit - {lastCommit.message} (repo: {lastCommit.repo}) 

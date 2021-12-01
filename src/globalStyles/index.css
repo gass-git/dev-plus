@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+* {
+  -webkit-tap-highlight-color: transparent; /* Removes ugly highlight onclick (touch screens) */
+}
 :root {
   --bg1: rgba(0, 0, 0, 0.5);
   --yellow1: rgb(245, 214, 112);
