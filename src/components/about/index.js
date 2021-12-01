@@ -1,4 +1,5 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment, useEffect, useState} from "react";
+import ReactTooltip from "react-tooltip";
 import './about.css';
 import useSound from "use-sound";
 import tickSound from '../../assets/sounds/tick-sound.wav';
@@ -6,6 +7,7 @@ import tickSound from '../../assets/sounds/tick-sound.wav';
 const About = () => {
   var [current, setCurrent] = useState(0);
   const [playSound] = useSound(tickSound, {volume: 0.6});
+  let [copied, setCopied] = useState(false);
   var textArray = [
     <Fragment>
       For me coding is a <span className="highlight">catalyst for creation</span>, to portray 
@@ -33,13 +35,22 @@ const About = () => {
                             onClick={() => copyText('gabriel.salinas@protonmail.com')} 
                             style={{cursor:"pointer"}}
                             className="highlight"
-                            >gabriel.salinas@protonmail.com
+                            title="Click to copy"
+                          >
+                            gabriel.salinas@protonmail.com
                           </span>
+                          &nbsp; 
+                          { copied ? <i class="fas fa-clipboard-check"/> : <i class="far fa-clipboard"/> }
+                          
     </Fragment> 
   ];
 
   function copyText(entryText){
     navigator.clipboard.writeText(entryText);
+    setCopied(true);
+    setTimeout(()=>{
+      setCopied(false);
+    }, 500);
   }
 
   function handleCurrent(){

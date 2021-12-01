@@ -1,4 +1,5 @@
 import React from "react";
+import ReactTooltip from "react-tooltip";
 import './basicInfo.css';
 import Glitch from './glitch';
 
@@ -13,7 +14,8 @@ const BasicInfo = ({reputation, avatarGlitch}) => {
           <Glitch avatarGlitch={avatarGlitch}/>
         </div>
           
-        
+        <ReactTooltip/>
+
         {/* -- AVATAR AND NAME -- */}
         <div className="username-wrapper">
           <div className="username">
@@ -39,11 +41,14 @@ const BasicInfo = ({reputation, avatarGlitch}) => {
             <data>2020</data>
           </div>
           <div>
-            <label>SO Points</label>
+            <label data-tip="Stack Overflow reputation">SO Points</label>
             <data>
-              {reputation.total} &nbsp;&nbsp;
-              <i className="fas fa-arrow-up" />&nbsp;
-              <span>{reputation.monthChange}</span>
+              <label data-tip="Total">{reputation.total} &nbsp;&nbsp;</label>
+              
+              <span style={{cursor:"default"}} data-tip="Month change">
+                <i className="fas fa-arrow-up" />&nbsp;&nbsp;
+                {reputation.monthChange}
+              </span>
             </data>
           </div>
         </div>
