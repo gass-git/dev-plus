@@ -28,10 +28,19 @@ const About = () => {
       Feel free to check my online profiles: 
       <a href="https://stackoverflow.com/users/14895985/gass?tab=profile" target="_blank" rel="noreferrer"> Stack Overflow </a>, 
       <a href="https://github.com/gass-git" target="_blank" rel="noreferrer">Github </a> & 
-      <a href="https://codesandbox.io/u/g.szada" target="_blank" rel="noreferrer"> Code Sandbox </a> or 
-      send me a pm to: <span className="highlight">gabriel.salinas@protonmail.com</span>
-  </Fragment> 
+      <a href="https://codesandbox.io/u/g.szada" target="_blank" rel="noreferrer"> Code Sandbox </a> 
+      or send me a pm to  <span 
+                            onClick={() => copyText('gabriel.salinas@protonmail.com')} 
+                            style={{cursor:"pointer"}}
+                            className="highlight"
+                            >gabriel.salinas@protonmail.com
+                          </span>
+    </Fragment> 
   ];
+
+  function copyText(entryText){
+    navigator.clipboard.writeText(entryText);
+  }
 
   function handleCurrent(){
     if(current === textArray.length - 1){
