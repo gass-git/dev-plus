@@ -3,6 +3,17 @@ import useSound from "use-sound";
 import './skills.css';
 import tickSound from "../../assets/sounds/tick-sound.wav";
 
+// SVG icon components
+import HTML_icon from "../../iconComponents/html_icon";
+import Bootstrap_icon from "../../iconComponents/bootstrap_icon";
+import Javascript_icon from "../../iconComponents/javascript_icon";
+import CSS_icon from "../../iconComponents/css_icon";
+import Jquery_icon from "../../iconComponents/jquery_icon";
+import React_icon from "../../iconComponents/react_icon";
+import PHP_icon  from "../../iconComponents/php_icon";
+import Laravel_icon from "../../iconComponents/laravel_icon";
+// import  from "../../iconComponents/";
+
 const Skills = ({scores}) => {
   var [arrowClicked, setArrowClicked] = useState(false);
   const [playTickSound] = useSound(tickSound,{volume: 0.6});
@@ -33,6 +44,26 @@ const Skills = ({scores}) => {
   const Skill = ({lang, label}) => {
     var [over, setOver] = useState(false);
 
+    function handleIcon(lang){
+      switch(lang){
+       case "html": return <HTML_icon/>;
+       break;
+       case "bootstrap": return <Bootstrap_icon/>;
+       break;
+       case "javascript": return <Javascript_icon/>;
+       break;
+       case "css": return <CSS_icon/>;
+       break;
+       case "jquery": return <Jquery_icon/>;
+       break;
+       case "react": return <React_icon/>;
+       break;
+       case "php": return <PHP_icon/>;
+       break;
+       case "laravel": return <Laravel_icon/>;
+       break;
+      }
+    }
     function getScore(tag){
       if(tag === 'html5') { tag = 'html' }
       else if(tag === 'css3') {tag = 'css'}
@@ -63,8 +94,8 @@ const Skills = ({scores}) => {
           onMouseLeave={() => handleMouseLeave()}
         rel="noreferrer"
         >
-          <div className={over ? `badge-wrapper ${lang}-hover` : `badge-wrapper`} >
-            <i className={`devicon-${lang}-plain`}></i>
+          <div className="badge-wrapper">
+            {handleIcon(lang)}
           </div>
         
           <div className={`name`}>
@@ -92,10 +123,10 @@ const Skills = ({scores}) => {
               <div className="media-title">
                  CORE TECH
               </div>
-              <Skill key={1} lang="javascript" label="JavaScript" score="30" /> 
-              <Skill key={2} lang="html5" label="HTML5" score="23" /> 
-              <Skill key={3} lang="css3" label="CSS3" score="12" /> 
-              <Skill key={4} lang="php" label="Hypertext Preprocessor" score="5" /> 
+              <Skill key={1} lang="javascript" label="JavaScript" /> 
+              <Skill key={2} lang="html" label="HTML5" /> 
+              <Skill key={3} lang="css" label="CSS3" /> 
+              <Skill key={4} lang="php" label="Hypertext Preprocessor" /> 
             </div>
             {/* -- FOR @MEDIA functionality -- */}
             <div className={arrowClicked === true ? 'show' : 'hide'}>

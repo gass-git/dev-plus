@@ -34,7 +34,8 @@
 .skills .block {
   margin-top: 5px;
   border-radius: 2px;
-  padding: 3px 15px 3px 10px;
+  height: 35px;
+  padding: 1px 15px 2px 10px;
   display: flex;
   width: calc(100% - 30px);
   border: 1px solid transparent;
@@ -46,11 +47,7 @@
   border: 1px dashed white;
 }
 .skills .badge-wrapper {
-  font-size: 26px;
-  height: 25px;
   padding: 3px 3px 2px 3px;
-  border-radius: 2px;
-  color: white;
 }
 .skills .opacity-08 {
   opacity: 0.8;
@@ -67,36 +64,6 @@
   display: inline-block;
   font-size: 17px;
   width: 8%;
-}
-/* 
--- Tech colors
-*/
-.skills .javascript-hover {
-  color: rgb(240, 219, 79);
-}
-.skills .html5-hover {
-  color: rgb(255, 160, 136);
-}
-.skills .css3-hover {
-  color: rgb(124, 150, 255);
-}
-.skills .php-hover {
-  color: rgb(180, 191, 240);
-}
-.skills .react-hover {
-  color: rgb(124, 197, 217);
-}
-.skills .laravel-hover {
-  color: rgb(255, 160, 123);
-}
-.skills .jquery-hover {
-  color: rgb(95, 184, 248);
-}
-.skills .bootstrap-hover {
-  color: rgb(193, 167, 233);
-}
-.skills .java-hover {
-  color: rgb(146, 197, 255);
 }
 /*
 -- For @media --
