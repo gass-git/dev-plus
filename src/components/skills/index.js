@@ -4,14 +4,14 @@ import './skills.css';
 import tickSound from "../../assets/sounds/tick-sound.wav";
 
 // SVG icon components
-import HTML_ICON from "../../iconComponents/html_icon";
-import BOOTSTRAP_ICON from "../../iconComponents/bootstrap_icon";
-import JAVASCRIPT_ICON from "../../iconComponents/javascript_icon";
-import CSS_ICON from "../../iconComponents/css_icon";
-import JQUERY_ICON from "../../iconComponents/jquery_icon";
-import REACT_ICON from "../../iconComponents/react_icon";
-import PHP_ICON  from "../../iconComponents/php_icon";
-import LARAVEL_ICON from "../../iconComponents/laravel_icon";
+import HTML_ICON from "../icons/html_icon";
+import BOOTSTRAP_ICON from "../icons/bootstrap_icon";
+import JAVASCRIPT_ICON from "../icons/javascript_icon";
+import CSS_ICON from "../icons/css_icon";
+import JQUERY_ICON from "../icons/jquery_icon";
+import REACT_ICON from "../icons/react_icon";
+import PHP_ICON  from "../icons/php_icon";
+import LARAVEL_ICON from "../icons/laravel_icon";
 
 const Skills = ({scores}) => {
   var [arrowClicked, setArrowClicked] = useState(false);
@@ -99,19 +99,22 @@ const Skills = ({scores}) => {
       <div className="content">
         <div className="left-side">
           <div className="sub-title">
-           CORE TECH
+           CORE TECH {/* Disappears in smaller viewports */}
           </div>
+
+          {/* -- Left side -- */}
           <div className="skills-wrapper">
             <div className={arrowClicked === false ? 'show' : 'hide'}>
               <div className="media-title">
-                 CORE TECH
+                 CORE TECH {/* Appears in smaller viewports */}
               </div>
               <Skill key={1} lang="javascript" label="JavaScript" /> 
               <Skill key={2} lang="html" label="HTML5" /> 
               <Skill key={3} lang="css" label="CSS3" /> 
               <Skill key={4} lang="php" label="Hypertext Preprocessor" /> 
             </div>
-            {/* -- FOR @MEDIA functionality -- */}
+
+            {/* -- For @media functionality -- */}
             <div className={arrowClicked === true ? 'show' : 'hide'}>
               <div className="media-title">
                  FRAMEWORKS & LIBRARIES
@@ -122,8 +125,11 @@ const Skills = ({scores}) => {
               <Skill lang="php" label="Java"  /> 
             </div>
             {/* ------------------------------ */}
+          
           </div>
         </div>
+
+        {/* -- Right side -- */}
         <div className="right-side">
           <div div className="sub-title">
             FRAMEWORKS & LIBRARIES
