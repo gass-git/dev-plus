@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import { Fragment } from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPaperclip} from "@fortawesome/free-solid-svg-icons";
+import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
 import './projects.css';
 import useSound from "use-sound";
 import tickSound from "../../assets/sounds/tick-sound.wav";
@@ -22,14 +25,14 @@ const Projects = ({repos}) => {
       if(link){
         return [
           <a key={5} href={link} target="_blank" rel="noreferrer">
-            <i className="fas fa-paperclip" />
+            <FontAwesomeIcon icon={faPaperclip} className="icon"/>
              {space} {repos[current].url}
           </a>
         ];
       }else{
         return [
           <div key={6} className="not-available">
-            <i className="far fa-times-circle" />
+            <FontAwesomeIcon icon={faTimesCircle} className="icon"/>
               {space} No link available
           </div>
         ];

@@ -31,7 +31,7 @@
   margin: 20px auto 5px auto;
   /* border: 1px solid white; */
 }
-.about .arrow-box i {
+.about .arrow-box .icon {
   cursor: pointer;
   font-size: 35px;
   color: rgb(255, 255, 255, 0.9);
@@ -39,6 +39,6 @@
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   animation: arrow-flicker 1300ms infinite;
 }
-.about .arrow-box i:hover {
+.about .arrow-box .icon:hover {
   animation: none;
 }

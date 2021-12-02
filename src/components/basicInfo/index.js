@@ -1,6 +1,8 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
 import './basicInfo.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Glitch from './glitch';
 
 const BasicInfo = ({reputation, avatarGlitch}) => {
@@ -46,7 +48,8 @@ const BasicInfo = ({reputation, avatarGlitch}) => {
               <label data-tip="Total">{reputation.total} &nbsp;&nbsp;</label>
               
               <span style={{cursor:"default"}} data-tip="Month change">
-                <i className="fas fa-arrow-up" />&nbsp;&nbsp;
+                <FontAwesomeIcon icon={faArrowUp} className="icon"/>
+                &nbsp;&nbsp;
                 {reputation.monthChange}
               </span>
             </data>

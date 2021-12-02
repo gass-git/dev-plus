@@ -51,14 +51,14 @@
 .projects .left-side .link a:hover {
   color: var(--yellow1);
 }
-.projects .left-side .link i {
+.projects .left-side .link .icon {
   text-decoration: none !important;
   color: var(--gray);
 }
 .projects .left-side .not-available {
   color: var(--yellow2);
 }
-.projects .left-side .not-available i {
+.projects .left-side .not-available .icon {
   color: var(--light-red);
 }
 .projects .right-side {

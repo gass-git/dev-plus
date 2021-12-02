@@ -1,4 +1,7 @@
 import React, {Fragment, useState} from "react";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleDoubleUp, faCaretDown, faClipboardCheck} from '@fortawesome/free-solid-svg-icons';
+import {faClipboard} from '@fortawesome/free-regular-svg-icons';
 import './about.css';
 import useSound from "use-sound";
 import tickSound from '../../assets/sounds/tick-sound.wav';
@@ -38,8 +41,8 @@ const About = () => {
                           >
                             gabriel.salinas@protonmail.com
                           </span>
-                          &nbsp; 
-                          { copied ? <i class="fas fa-clipboard-check"/> : <i class="far fa-clipboard"/> }
+                          &nbsp;&nbsp; 
+                          { copied ? <FontAwesomeIcon icon={faClipboardCheck}/> : <FontAwesomeIcon icon={faClipboard}/> }
                           
     </Fragment> 
   ];
@@ -61,12 +64,12 @@ const About = () => {
     // Sound effect
     playSound();
   }
-  function handleArrowClass(){
+  function down(){
     if(current === textArray.length - 1){
-      return "fas fa-angle-double-up";
+      return false;
     }
     else{
-      return "fas fa-caret-down"; 
+      return true; 
     }
   }
 
@@ -76,9 +79,10 @@ const About = () => {
         {textArray[current]}
       </div>
       <div className="arrow-box">
-        <i 
-          className={handleArrowClass()}
+        <FontAwesomeIcon 
+          icon={down() ? faCaretDown : faAngleDoubleUp}
           onClick={() => handleCurrent()} 
+          className="icon"
         />
       </div>
     </section>

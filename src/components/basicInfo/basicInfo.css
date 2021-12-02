@@ -102,7 +102,7 @@
   color: white;
   /* border: 1px solid white; */
 }
-.basic-info .info data i {
+.basic-info .info data .icon {
   font-size: 15px;
   color: var(--green1);
 }

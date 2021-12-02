@@ -1,4 +1,7 @@
 import React, {Fragment, useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faStackOverflow, faGithub} from "@fortawesome/free-brands-svg-icons";
+import {faKeyboard} from "@fortawesome/free-solid-svg-icons";
 import './activity.css';
 import Date from './childrens/date';
 import useSound from "use-sound";
@@ -125,7 +128,7 @@ const Activity = ({answers, gitEvents, posts}) => {
             className="option"
             onClick={() => select('stackoverflow')}
           >
-            <i style={{ margin: "13px auto" }} className="fab fa-stack-overflow" /> 
+            <i style={{ margin: "13px auto" }} className="fab fa-stack-overflow" />
           </div>
           <div style={{ marginRight:"7px" }}
             className="option"
@@ -160,19 +163,19 @@ const Activity = ({answers, gitEvents, posts}) => {
           className="option"
           onClick={() => select('stackoverflow')}
         >
-          <i className="fab fa-stack-overflow" /> 
+          <FontAwesomeIcon icon={faStackOverflow} className='icon'/>
         </div>
         <div style={{ marginTop:"11px" }}
           className="option"
           onClick={() => select('github')}
         >
-          <i className="fab fa-github" />
+          <FontAwesomeIcon icon={faGithub} className='icon'/>
         </div>
         <div style={{ marginTop:"12px" }}
           className="option"
           onClick={() => select('writings')}
         >
-          <i className="far fa-keyboard" />
+          <FontAwesomeIcon icon={faKeyboard} className='icon'/>
         </div>
 
         {/* ELEVATOR */}
