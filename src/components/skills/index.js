@@ -4,15 +4,14 @@ import './skills.css';
 import tickSound from "../../assets/sounds/tick-sound.wav";
 
 // SVG icon components
-import HTML_icon from "../../iconComponents/html_icon";
-import Bootstrap_icon from "../../iconComponents/bootstrap_icon";
-import Javascript_icon from "../../iconComponents/javascript_icon";
-import CSS_icon from "../../iconComponents/css_icon";
-import Jquery_icon from "../../iconComponents/jquery_icon";
-import React_icon from "../../iconComponents/react_icon";
-import PHP_icon  from "../../iconComponents/php_icon";
-import Laravel_icon from "../../iconComponents/laravel_icon";
-// import  from "../../iconComponents/";
+import HTML_ICON from "../../iconComponents/html_icon";
+import BOOTSTRAP_ICON from "../../iconComponents/bootstrap_icon";
+import JAVASCRIPT_ICON from "../../iconComponents/javascript_icon";
+import CSS_ICON from "../../iconComponents/css_icon";
+import JQUERY_ICON from "../../iconComponents/jquery_icon";
+import REACT_ICON from "../../iconComponents/react_icon";
+import PHP_ICON  from "../../iconComponents/php_icon";
+import LARAVEL_ICON from "../../iconComponents/laravel_icon";
 
 const Skills = ({scores}) => {
   var [arrowClicked, setArrowClicked] = useState(false);
@@ -42,26 +41,18 @@ const Skills = ({scores}) => {
   }
 
   const Skill = ({lang, label}) => {
-    var [over, setOver] = useState(false);
 
     function handleIcon(lang){
       switch(lang){
-       case "html": return <HTML_icon/>;
-       break;
-       case "bootstrap": return <Bootstrap_icon/>;
-       break;
-       case "javascript": return <Javascript_icon/>;
-       break;
-       case "css": return <CSS_icon/>;
-       break;
-       case "jquery": return <Jquery_icon/>;
-       break;
-       case "react": return <React_icon/>;
-       break;
-       case "php": return <PHP_icon/>;
-       break;
-       case "laravel": return <Laravel_icon/>;
-       break;
+       case "html": return <HTML_ICON/>;
+       case "bootstrap": return <BOOTSTRAP_ICON/>;
+       case "javascript": return <JAVASCRIPT_ICON/>;
+       case "css": return <CSS_ICON/>;
+       case "jquery": return <JQUERY_ICON/>;
+       case "react": return <REACT_ICON/>;
+       case "php": return <PHP_ICON/>;
+       case "laravel": return <LARAVEL_ICON/>;
+       default: return null;
       }
     }
     function getScore(tag){
@@ -78,20 +69,12 @@ const Skills = ({scores}) => {
       var url = `https://stackoverflow.com/search?tab=votes&q=user%3a14895985 [${tag}]`;
       return url;
     }
-    function handleMouseOver(){
-      setOver(true);
-    }
-    function handleMouseLeave(){
-      setOver(false);
-    }
 
     return (
       <div>
         <a href={getUrl(lang)} 
         className="block" 
         target="_blank"
-          onMouseOver={() => handleMouseOver()}
-          onMouseLeave={() => handleMouseLeave()}
         rel="noreferrer"
         >
           <div className="badge-wrapper">

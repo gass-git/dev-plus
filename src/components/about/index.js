@@ -1,5 +1,4 @@
-import React, {Fragment, useEffect, useState} from "react";
-import ReactTooltip from "react-tooltip";
+import React, {Fragment, useState} from "react";
 import './about.css';
 import useSound from "use-sound";
 import tickSound from '../../assets/sounds/tick-sound.wav';
