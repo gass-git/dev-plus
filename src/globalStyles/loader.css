@@ -25,32 +25,36 @@
   display: flex;
   margin: 0 auto;
   align-items: center;
-  height: 21px;
+  height: 18px;
   position: relative;
   width: 100%;
   /*border: 1px solid white;*/
 }
 .loader .typing {
   white-space: nowrap;
+  opacity: 0.8;
   overflow: hidden;
-  border-right: 2px solid;
+  border-right: 2px solid white;
   padding-top: 3px;
   padding-bottom: 0px;
   padding-right: 2px;
   font-family: "Courier Prime", monospace;
   font-size: 14px;
+  font-weight: 600;
   color: white;
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.5), 0 1px rgb(0, 0, 0, 0.5),
+    1px 0 rgb(0, 0, 0, 0.5), 0 -1px rgb(0, 0, 0, 0.5);
   /*border: 1px solid white;*/
 }
 .loader .effect-one {
   margin: 0 auto;
-  width: 30ch;
-  animation: typing 2000ms steps(30), blink 0.5s step-end infinite alternate;
+  width: 255px;
+  animation: typing 2000ms steps(29), blink 0.5s step-end infinite alternate;
 }
 .loader .effect-two {
   animation: typing 1000ms steps(15), blink 0.5s step-end infinite alternate;
   margin: 0 auto;
-  width: 15ch;
+  width: 127px;
 }
 .animation {
   overflow: hidden;
