@@ -82,7 +82,7 @@ const About = () => {
         <FontAwesomeIcon 
           icon={down() ? faCaretDown : faAngleDoubleUp}
           onClick={() => handleCurrent()} 
-          className="icon"
+          className="icon shadow-08"
         />
       </div>
     </section>

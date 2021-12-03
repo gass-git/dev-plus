@@ -52,7 +52,6 @@
   color: var(--yellow1);
 }
 .projects .left-side .link .icon {
-  text-decoration: none !important;
   color: var(--gray);
 }
 .projects .left-side .not-available {
@@ -93,6 +92,9 @@
   min-width: 25px;
   /* border: 1px solid white; */
 }
+.projects .right-side .option .folder .icon {
+  color: white;
+}
 .projects .right-side .option .project-name {
   margin-left: 5px;
   overflow: hidden;
@@ -113,7 +115,7 @@
   text-align: center;
   border: 1px solid transparent;
 }
-.projects .top-arrow-box i {
+.projects .top-arrow-box .icon {
   font-size: 25px;
   margin-top: 4px;
   cursor: pointer;
@@ -124,7 +126,7 @@
   text-align: center;
   border: 1px solid transparent;
 }
-.projects .bottom-arrow-box i {
+.projects .bottom-arrow-box .icon {
   font-size: 25px;
   margin-top: 0px;
   cursor: pointer;

@@ -48,7 +48,7 @@ const BasicInfo = ({reputation, avatarGlitch}) => {
               <label data-tip="Total">{reputation.total} &nbsp;&nbsp;</label>
               
               <span style={{cursor:"default"}} data-tip="Month change">
-                <FontAwesomeIcon icon={faArrowUp} className="icon"/>
+                <FontAwesomeIcon icon={faArrowUp} className="icon shadow-04"/>
                 &nbsp;&nbsp;
                 {reputation.monthChange}
               </span>

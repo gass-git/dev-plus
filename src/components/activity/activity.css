@@ -138,7 +138,7 @@
   border-radius: 2px;
   /* border: 1px solid rgba(208, 255, 0, 1); */
 }
-.activity .media-top-selector .option i {
+.activity .media-top-selector .option .icon {
   margin: 13px 0px 0px 11px;
 }
 .activity .media-top-selector .wiggle {

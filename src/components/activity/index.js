@@ -11,7 +11,7 @@ const Activity = ({answers, gitEvents, posts}) => {
   var [current, setCurrent] = useState('stackoverflow');
   var [posNumber, setPosNumber] = useState(3);
   const [playSound] = useSound(selectionSound, {volume: 1});
-  const space = <Fragment>&nbsp; &nbsp; &nbsp;</Fragment>
+  const space = <Fragment>&nbsp; &nbsp; &nbsp;</Fragment>;
 
   function select(entry){
     setCurrent(entry);
@@ -32,24 +32,22 @@ const Activity = ({answers, gitEvents, posts}) => {
             LATEST WRITINGS
           </div>
         <div className="container">
-          {
-            posts.map((post) => {
-              let postURL = `https://blog.gass.dev/post=${post.id}+no_scroll`;
-              let date = post.created_at;
-              date = date.slice(0,10);
+          {posts.map((post) => {
+            let postURL = `https://blog.gass.dev/post=${post.id}+no_scroll`;
+            let date = post.created_at;
+            date = date.slice(0,10);
 
-              return [
-              <a key={post.id} href={postURL} className="block" target="_blank" rel="noreferrer">
-               <div className="date">
-                {date}
-               </div>
-               <div className="post-title">
-                {post.title}
-               </div>
-              </a>
-              ]
-            })
-          }
+            return [
+            <a key={post.id} href={postURL} className="block" target="_blank" rel="noreferrer">
+              <div className="date">
+              {date}
+              </div>
+              <div className="post-title">
+              {post.title}
+              </div>
+            </a>
+            ]
+          })}
         </div> 
       </Fragment>
     ]
@@ -62,22 +60,20 @@ const Activity = ({answers, gitEvents, posts}) => {
             LATEST EDITS & ANSWERS
         </div>
         <div className="container">
-          {
-            answers.map((data) => {
-              let answerURL = "https://stackoverflow.com/a/" + data.answer_id;
+          {answers.map((data) => {
+            let answerURL = "https://stackoverflow.com/a/" + data.answer_id;
 
-              return [
-                <a key={23} href={answerURL} className="block" target="_blank" rel="noreferrer">
-                  <div className="date">
-                    <Date entry={data.creation_date} />
-                  </div>
-                  <div className="question">
-                    {data.title}
-                  </div>
-                </a>
-              ]
-            })
-          }
+            return [
+              <a key={23} href={answerURL} className="block" target="_blank" rel="noreferrer">
+                <div className="date">
+                  <Date entry={data.creation_date} />
+                </div>
+                <div className="question">
+                  {data.title}
+                </div>
+              </a>
+            ]
+            })}
         </div> 
       </Fragment>
     ];
@@ -90,28 +86,26 @@ const Activity = ({answers, gitEvents, posts}) => {
             LATEST COMMITS
         </div>
         <div className="container">
-          {
-            gitEvents.map((data) => {
-              let repoName = data.repo.name;
-              let repoURL = "https://github.com/" + repoName + "/commits/master";
-              repoName = repoName.slice(9);
-              let date = data.created_at;
-              let commit = data.payload.commits[0].message;
-              let push_id = data.payload.push_id;
+          {gitEvents.map((data) => {
+            let repoName = data.repo.name;
+            let repoURL = "https://github.com/" + repoName + "/commits/master";
+            repoName = repoName.slice(9);
+            let date = data.created_at;
+            let commit = data.payload.commits[0].message;
+            let push_id = data.payload.push_id;
 
-              date = date.slice(0,10);
-              return [
-                <a key={push_id} href={repoURL} className='block' target="_blank" rel="noreferrer">
-                  <div className="events-date">
-                    {date}
-                  </div>
-                  <div className="commit">{commit}</div>
-                  {space}
-                  <div className="repo-name">{repoName}</div>
-                </a>
-              ]
-            })
-          }
+            date = date.slice(0,10);
+            return [
+              <a key={push_id} href={repoURL} className='block' target="_blank" rel="noreferrer">
+                <div className="events-date">
+                  {date}
+                </div>
+                <div className="commit">{commit}</div>
+                {space}
+                <div className="repo-name">{repoName}</div>
+              </a>
+            ]
+          })}
         </div>
       </Fragment>
     ];
@@ -124,23 +118,29 @@ const Activity = ({answers, gitEvents, posts}) => {
         
         {/* -- FOR @MEDIA -- */}
         <div className="media-top-selector">
-          <div style={{ marginRight:"7px"  }}
+          <div 
+            style={{ marginRight:"7px"  }}
             className="option"
             onClick={() => select('stackoverflow')}
           >
-            <i style={{ margin: "13px auto" }} className="fab fa-stack-overflow" />
+            <FontAwesomeIcon 
+              icon={faStackOverflow} 
+              style={{ margin: "13px auto" }} 
+              className="icon shadow-04" 
+            />
           </div>
-          <div style={{ marginRight:"7px" }}
+          <div 
+            style={{ marginRight:"7px" }}
             className="option"
             onClick={() => select('github')}
           >
-            <i className="fab fa-github" />
+            <FontAwesomeIcon icon={faGithub} className="icon shadow-04"/>
           </div>
-          <div style={{   }}
+          <div 
             className="option"
             onClick={() => select('writings')}
           >
-            <i  className="far fa-keyboard" />
+            <FontAwesomeIcon icon={faKeyboard} className="icon shadow-04" />
           </div>
 
           {/* ELEVATOR */}
@@ -159,23 +159,26 @@ const Activity = ({answers, gitEvents, posts}) => {
       {/* -- RIGHT SIDE -- */}
       <div className="right-side">
         
-        <div style={{ marginTop:"-1px" }}
+        <div 
+          style={{ marginTop:"-1px" }}
           className="option"
           onClick={() => select('stackoverflow')}
         >
-          <FontAwesomeIcon icon={faStackOverflow} className='icon'/>
+          <FontAwesomeIcon icon={faStackOverflow} className='icon shadow-04'/>
         </div>
-        <div style={{ marginTop:"11px" }}
+        <div 
+          style={{ marginTop:"11px" }}
           className="option"
           onClick={() => select('github')}
         >
-          <FontAwesomeIcon icon={faGithub} className='icon'/>
+          <FontAwesomeIcon icon={faGithub} className='icon shadow-04'/>
         </div>
-        <div style={{ marginTop:"12px" }}
+        <div 
+          style={{ marginTop:"12px" }}
           className="option"
           onClick={() => select('writings')}
         >
-          <FontAwesomeIcon icon={faKeyboard} className='icon'/>
+          <FontAwesomeIcon icon={faKeyboard} className='icon shadow-04'/>
         </div>
 
         {/* ELEVATOR */}

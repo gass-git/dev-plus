@@ -26,6 +26,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.shadow-08 {
+  filter: drop-shadow(0px 0px 1px rgb(0, 0, 0, 0.8));
+}
+.shadow-04 {
+  filter: drop-shadow(0px 0px 1px rgb(0, 0, 0, 0.4));
+}
 .opacity-0 {
   opacity: 0;
 }

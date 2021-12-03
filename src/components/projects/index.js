@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import { Fragment } from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPaperclip} from "@fortawesome/free-solid-svg-icons";
-import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
+import {faPaperclip, faCaretLeft, faCaretRight, faSortUp, faSortDown} from "@fortawesome/free-solid-svg-icons";
+import {faTimesCircle, faFolder, faFolderOpen} from "@fortawesome/free-regular-svg-icons";
 import './projects.css';
 import useSound from "use-sound";
 import tickSound from "../../assets/sounds/tick-sound.wav";
@@ -25,14 +25,14 @@ const Projects = ({repos}) => {
       if(link){
         return [
           <a key={5} href={link} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faPaperclip} className="icon"/>
+            <FontAwesomeIcon icon={faPaperclip} className="icon shadow-04"/>
              {space} {repos[current].url}
           </a>
         ];
       }else{
         return [
           <div key={6} className="not-available">
-            <FontAwesomeIcon icon={faTimesCircle} className="icon"/>
+            <FontAwesomeIcon icon={faTimesCircle} className="icon shadow-04"/>
               {space} No link available
           </div>
         ];
@@ -62,83 +62,75 @@ const Projects = ({repos}) => {
   }
   function select(repo){
     setCurrent(repo);
-
-    // Sound effect
     playSelectionSound();
   }
   function showPreviewsSection(){
-    var firstIndex = indexes[0] - 4,
-    secondIndex = indexes[0] - 3,
-    thirdIndex = indexes[0] - 2,
-    fourthIndex = indexes[0] - 1,
-    newIndexes = [firstIndex, secondIndex, thirdIndex, fourthIndex];
+    var newIndexes = [
+      indexes[0] - 4, 
+      indexes[0] - 3, 
+      indexes[0] - 2, 
+      indexes[0] - 1
+    ];
     setIndexes(newIndexes);
     setCurrentSection(currentSection - 1);
-    setCurrent(firstIndex);
+    setCurrent(indexes[0] - 4);
   }
   function showNextSection(){
-    var firstIndex = indexes[3] + 1,
-    secondIndex = indexes[3] + 2,
-    thirdIndex = indexes[3] + 3,
-    fourthIndex = indexes[3] + 4,
-    newIndexes = [firstIndex, secondIndex, thirdIndex, fourthIndex];
+    var newIndexes = [
+      indexes[3] + 1, 
+      indexes[3] + 2, 
+      indexes[3] + 3, 
+      indexes[3] + 4
+    ];
     setIndexes(newIndexes);
     setCurrentSection(currentSection + 1);
-    setCurrent(firstIndex);
+    setCurrent(indexes[3] + 1);
   }
   function previewsProject(){
     if(current > 0) {
       setCurrent(current - 1);
-      
-      // Sound effect
       playTickSound();
     }
   }
   function nextProject(){
     // (totalRepos - 1) is the maximum index of the repos array
     if(current < totalRepos - 1){ 
-      setCurrent(current + 1)
-
-      // Sound effect
+      setCurrent(current + 1);
       playTickSound();
     }
   }
   function handleUpClick(){ 
     if(currentSection > 1){
       showPreviewsSection();
-
-      // Sound effect
       playTickSound();
     } 
   }
   function handleDownClick(){
     if(currentSection !== totalSections){
       showNextSection();
-
-      // Sound effect
       playTickSound();
     }
   }
   function handleLeftArrowClass(){
     if(current === totalRepos - 1){
-      return "fas fa-caret-left pointer animate"
+      return "icon shadow-08 pointer animate"
     }
     else if(current !== 0){
-      return "fas fa-caret-left pointer"
+      return "icon shadow-08 pointer"
     }
     else{
-      return "fas fa-caret-left"
+      return "icon shadow-08"
     }
   }
   function handleRightArrowClass(){
     if(current === 0){
-      return "fas fa-caret-right pointer animate";
+      return "icon shadow-08 pointer animate";
     }
     else if(current < totalRepos - 1){
-      return "fas fa-caret-right pointer";
+      return "icon shadow-08 pointer";
     }              
     else{
-      return "fas fa-caret-right";
+      return "icon shadow-08";
     }
   }
   return (
@@ -148,8 +140,9 @@ const Projects = ({repos}) => {
           {/* @MEDIA - small screens */}
           <div className="switcher-box">
             <div className="arrow-left">
-              <i 
-                className={handleLeftArrowClass()} 
+              <FontAwesomeIcon 
+                icon={faCaretLeft} 
+                className={handleLeftArrowClass()}
                 onClick={() => previewsProject()}
               />
             </div>
@@ -157,7 +150,8 @@ const Projects = ({repos}) => {
               {repos[current].name}
             </div>
             <div className="arrow-right">
-              <i 
+              <FontAwesomeIcon 
+                icon={faCaretRight} 
                 className={handleRightArrowClass()}
                 onClick={() => nextProject()}
               />
@@ -172,40 +166,41 @@ const Projects = ({repos}) => {
           {/* RIGHT SIDE */}
           <div className="right-side">
             <div className="top-arrow-box">
-              <i 
-                className={currentSection > 1 ? "fas fa-sort-up" : "fas fa-sort-up opacity-05"}
+              <FontAwesomeIcon 
+                icon={faSortUp}
+                className={currentSection > 1 ? "icon shadow-08" : "icon shadow-08 opacity-05"}
                 onClick={handleUpClick}
               />
             </div>
             <div className="options-wrapper">
-              {
-                indexes.map((i) => {
-                  let iconClass = current === i ? "far fa-folder-open" : "far fa-folder";
-
-                  if(parseInt(i) < totalRepos){
-                    return[
-                      <div
-                        key={20}
-                        className={current === i ? "option selected" : "option not-selected"}
-                        onClick={() => select(i)}
-                      >
-                        <div className="folder">
-                          <i className={iconClass}></i>
-                        </div>
-                        <div className="project-name">
-                          {repos[i] ?repos[i].name : null}
-                        </div>
-                      
+              {indexes.map((i) => {
+                if(parseInt(i) < totalRepos){
+                  return[
+                    <div
+                      key={20}
+                      className={current === i ? "option selected" : "option not-selected"}
+                      onClick={() => select(i)}
+                    >
+                      <div className="folder">
+                        <FontAwesomeIcon
+                          icon={current === i ? faFolderOpen : faFolder}
+                          className="icon shadow-08"
+                        />
                       </div>
-                    ]
-                  }
-                  else { return null; }
-                })
-              }
+                      <div className="project-name">
+                        {repos[i] ?repos[i].name : null}
+                      </div>
+                    
+                    </div>
+                  ]
+                }
+                else { return null }
+              })}
             </div>  
           <div className="bottom-arrow-box">
-              <i 
-              className={currentSection !== totalSections ? "fas fa-sort-down" : "fas fa-sort-down opacity-05"}
+            <FontAwesomeIcon 
+              icon={faSortDown}
+              className={currentSection !== totalSections ? "icon shadow-08" : "icon shadow-08 opacity-05"}
               onClick={handleDownClick}
             />
           </div>
