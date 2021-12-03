@@ -32,29 +32,25 @@
 }
 .loader .typing {
   white-space: nowrap;
-  opacity: 0.8;
   overflow: hidden;
-  border-right: 2px solid white;
+  border-right: 2px solid rgb(255, 255, 255, 0.9);
   padding-top: 3px;
   padding-bottom: 0px;
   padding-right: 2px;
   font-family: "Courier Prime", monospace;
-  font-size: 14px;
-  font-weight: 600;
-  color: white;
-  text-shadow: -1px 0 rgb(0, 0, 0, 0.5), 0 1px rgb(0, 0, 0, 0.5),
-    1px 0 rgb(0, 0, 0, 0.5), 0 -1px rgb(0, 0, 0, 0.5);
+  font-size: 15px;
+  color: rgb(255, 255, 255, 0.7);
   /*border: 1px solid white;*/
 }
 .loader .effect-one {
   margin: 0 auto;
-  width: 255px;
-  animation: typing 2000ms steps(29), blink 0.5s step-end infinite alternate;
+  width: 30ch;
+  animation: typing 2000ms steps(30), blink 0.5s step-end infinite alternate;
 }
 .loader .effect-two {
   animation: typing 1000ms steps(15), blink 0.5s step-end infinite alternate;
   margin: 0 auto;
-  width: 127px;
+  width: 15ch;
 }
 .animation {
   overflow: hidden;
