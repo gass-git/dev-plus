@@ -15,8 +15,6 @@ const Activity = ({answers, gitEvents, posts}) => {
 
   function select(entry){
     setCurrent(entry);
-
-    // Sound effect
     playSound();
     
     // Elevator floor
@@ -26,16 +24,23 @@ const Activity = ({answers, gitEvents, posts}) => {
   }
   const Stackoverflow = () => {
     return [
-      <Fragment>
+      <Fragment key={"SO-identifier"}>
         <div className="sub-title">
             LATEST EDITS & ANSWERS
         </div>
         <div className="container">
           {answers.map((data) => {
-            let answerURL = "https://stackoverflow.com/a/" + data.answer_id;
-
+            let answer_id = data.answer_id,
+              answerURL = "https://stackoverflow.com/a/" + answer_id;
+            
             return [
-              <a key={23} href={answerURL} className="block" target="_blank" rel="noreferrer">
+              <a 
+                key={answer_id} 
+                href={answerURL} 
+                className="block" 
+                target="_blank" 
+                rel="noreferrer"
+              >
                 <div className="date">
                   <Date entry={data.creation_date} />
                 </div>
@@ -51,22 +56,22 @@ const Activity = ({answers, gitEvents, posts}) => {
   }
   const GithubEvents = () => {
     return [
-      <Fragment key={2}>
+      <Fragment key="git-identifier">
         <div className="sub-title">
             LATEST COMMITS
         </div>
         <div className="container">
           {gitEvents.map((data) => {
+            var event_id = data.id;
             let repoName = data.repo.name;
             let repoURL = "https://github.com/" + repoName + "/commits/master";
             repoName = repoName.slice(9);
             let date = data.created_at;
             let commit = data.payload.commits[0].message;
-            let push_id = data.payload.push_id;
 
             date = date.slice(0,10);
             return [
-              <a key={push_id} href={repoURL} className='block' target="_blank" rel="noreferrer">
+              <a key={event_id} href={repoURL} className='block' target="_blank" rel="noreferrer">
                 <div className="events-date">
                   {date}
                 </div>
@@ -83,7 +88,7 @@ const Activity = ({answers, gitEvents, posts}) => {
   }
   const Writings = () => {
     return [
-      <Fragment key={0}>
+      <Fragment key="writings-identifier">
         <div className="sub-title">
             LATEST WRITINGS
           </div>
