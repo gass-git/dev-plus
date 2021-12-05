@@ -24,38 +24,9 @@ const Activity = ({answers, gitEvents, posts}) => {
     else if(entry === "github"){setPosNumber(2)}
     else if(entry === "writings"){setPosNumber(1)}
   }
-
-  const Writings = () => {
-    return [
-      <Fragment key={0}>
-        <div className="sub-title">
-            LATEST WRITINGS
-          </div>
-        <div className="container">
-          {posts.map((post) => {
-            let postURL = `https://blog.gass.dev/post=${post.id}+no_scroll`;
-            let date = post.created_at;
-            date = date.slice(0,10);
-
-            return [
-            <a key={post.id} href={postURL} className="block" target="_blank" rel="noreferrer">
-              <div className="date">
-              {date}
-              </div>
-              <div className="post-title">
-              {post.title}
-              </div>
-            </a>
-            ]
-          })}
-        </div> 
-      </Fragment>
-    ]
-  }
-
   const Stackoverflow = () => {
     return [
-      <Fragment key={1}>
+      <Fragment>
         <div className="sub-title">
             LATEST EDITS & ANSWERS
         </div>
@@ -78,7 +49,6 @@ const Activity = ({answers, gitEvents, posts}) => {
       </Fragment>
     ];
   }
-
   const GithubEvents = () => {
     return [
       <Fragment key={2}>
@@ -111,12 +81,39 @@ const Activity = ({answers, gitEvents, posts}) => {
     ];
     
   }
+  const Writings = () => {
+    return [
+      <Fragment key={0}>
+        <div className="sub-title">
+            LATEST WRITINGS
+          </div>
+        <div className="container">
+          {posts.map((post) => {
+            let postURL = `https://blog.gass.dev/post=${post.id}+no_scroll`;
+            let date = post.created_at;
+            date = date.slice(0,10);
+
+            return [
+            <a key={post.id} href={postURL} className="block" target="_blank" rel="noreferrer">
+              <div className="date">
+              {date}
+              </div>
+              <div className="post-title">
+              {post.title}
+              </div>
+            </a>
+            ]
+          })}
+        </div> 
+      </Fragment>
+    ]
+  }
 
   return (
     <section className="activity">
       <div className="content">
         
-        {/* -- FOR @MEDIA -- */}
+        {/* -- For @media -- */}
         <div className="media-top-selector">
           <div 
             style={{ marginRight:"7px"  }}
@@ -143,20 +140,22 @@ const Activity = ({answers, gitEvents, posts}) => {
             <FontAwesomeIcon icon={faKeyboard} className="icon shadow-04" />
           </div>
 
-          {/* ELEVATOR */}
+          {/* -- Elevator -- */}
           <div className={`wiggle pos-${posNumber}`}>
           </div>
-        </div>
-        {/* --------------- */}
+          {/* -------------- */}
 
-        {/* -- LEFT SIDE -- */}
+        </div>
+        {/* -- End of @media section -- */}
+
+        {/* -- Left side -- */}
         <div className="left-side">
           {current === "stackoverflow" ? <Stackoverflow /> : null}
           {current === "github" ? <GithubEvents /> : null}
           {current === "writings" ? <Writings /> : null}
         </div>
 
-      {/* -- RIGHT SIDE -- */}
+      {/* -- Right side -- */}
       <div className="right-side">
         
         <div 
@@ -181,11 +180,13 @@ const Activity = ({answers, gitEvents, posts}) => {
           <FontAwesomeIcon icon={faKeyboard} className='icon shadow-04'/>
         </div>
 
-        {/* ELEVATOR */}
+        {/* -- Elevator -- */}
         <div className={`elevator floor-${posNumber}`}>
         </div>
+        {/* -------------- */}
 
       </div>
+      {/* -- End of right side -- */}
 
       </div>
     </section>

@@ -1,19 +1,19 @@
 import axios from "axios";
 
-let answers_api = "https://api.stackexchange.com/2.3/users/14895985/answers?order=desc&sort=activity&site=stackoverflow";
+let answers_api = "https://api.stackexchange.com/2.3/users/14895985/answers?order=desc&sort=activity&site=stackoverflow&key=op*AZFz8o6Pqr3596Yc)Lw((";
 
 function getAnswers({setAnswers, setLastAnswer}){
     var mergedArrays = [];
     
     axios.get(answers_api)
     .then((resp) => {
-      // Last 4 asnswers data
+      // Last 4 answers data
       let answersArray = resp.data.items.slice(0,4);
       
       // Get questions titles associated to the answers
       answersArray.forEach((answer, index) => {
           let id = answer.question_id;
-          let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow`
+          let questions_api = `https://api.stackexchange.com/2.3/questions/${id}?order=desc&sort=activity&site=stackoverflow&key=op*AZFz8o6Pqr3596Yc)Lw((`
           
           axios.get(questions_api)
           .then((resp) => {

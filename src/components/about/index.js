@@ -54,7 +54,6 @@ const About = () => {
       setCopied(false);
     }, 500);
   }
-
   function handleCurrent(){
     if(current === textArray.length - 1){
       setCurrent(0);
