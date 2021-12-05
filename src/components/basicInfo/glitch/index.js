@@ -1,6 +1,6 @@
 import React from 'react';
 import './glitch.css';
-import avatar from  "../../../assets/images/avatar6.png"
+import avatar from  "../../../assets/images/avatar7.png"
 
 const Glitch = ({avatarGlitch}) => {
 
