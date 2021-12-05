@@ -77,13 +77,16 @@
   height: 50px;
   /*border: 1px solid white;*/
 }
-.skills .down-arrow-box i {
+.skills .down-arrow-box .icon {
   font-size: 35px;
   cursor: pointer;
   color: white;
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   animation: arrow-flicker 1300ms infinite;
+}
+.skills .down-arrow-box .icon:hover {
+  animation: none !important;
 }
 .skills .show {
   display: block;

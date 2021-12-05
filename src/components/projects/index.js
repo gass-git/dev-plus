@@ -24,14 +24,14 @@ const Projects = ({repos}) => {
     const LinkField = () => {
       if(link){
         return [
-          <a key={5} href={link} target="_blank" rel="noreferrer">
+          <a key={link} href={link} target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={faPaperclip} className="icon shadow-04"/>
              {space} {repos[current].url}
           </a>
         ];
       }else{
         return [
-          <div key={6} className="not-available">
+          <div key={link} className="not-available">
             <FontAwesomeIcon icon={faTimesCircle} className="icon shadow-04"/>
               {space} No link available
           </div>
@@ -40,23 +40,24 @@ const Projects = ({repos}) => {
     }
 
     return [
-    <Fragment key={7}>
-      <div key={12} className="about">
-              {repos[current].about}
-      </div>
-      <div key={13} className="link">
-        <LinkField />
-      </div>
-      <div key={14} className="tags-wrapper">
-        {repos[current].topics.map((topic)=>{
-          return [
-            <div key={8} className="tag">
-              {topic}
-            </div>
-          ];
-        })}
-      </div>
-    </Fragment>];
+      <Fragment key={repos[current].created_at}>
+        <div className="about">
+                {repos[current].about}
+        </div>
+        <div className="link">
+          <LinkField />
+        </div>
+        <div className="tags-wrapper">
+          {repos[current].topics.map((topic)=>{
+            return [
+              <div key={topic} className="tag">
+                {topic}
+              </div>
+            ];
+          })}
+        </div>
+      </Fragment>
+    ]
   }
   function select(repo){
     setCurrent(repo);
@@ -132,7 +133,7 @@ const Projects = ({repos}) => {
     }
   }
   return (
-      <section key={17} className="projects">
+      <section key="projects-identifier" className="projects">
         <div className="content">
 
           {/* @MEDIA - small screens */}
@@ -175,7 +176,7 @@ const Projects = ({repos}) => {
                 if(parseInt(i) < totalRepos){
                   return[
                     <div
-                      key={20}
+                      key={i}
                       className={current === i ? "option selected" : "option not-selected"}
                       onClick={() => select(i)}
                     >

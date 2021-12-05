@@ -20,8 +20,8 @@ const MainMenu = ({setSelected, menuActivated}) => {
     else if(entry === 'activity') {setFloorNumber(1)}
   }
   
-  return (
-  <section className="main-menu">
+  return [
+  <section key="main-menu-identifier" className="main-menu">
     <div className="border-img">
       <div className="inner-container">
         <div className="menu-wrapper">
@@ -71,7 +71,7 @@ const MainMenu = ({setSelected, menuActivated}) => {
       </div>
     </div>
   </section>  
-  );
+  ]
 }
 
 export default MainMenu;

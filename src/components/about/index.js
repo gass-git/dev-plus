@@ -73,7 +73,7 @@ const About = () => {
   }
 
   return(
-    <section className="about">
+    <section key="about-identifier" className="about">
       <div className="content">
         {textArray[current]}
       </div>

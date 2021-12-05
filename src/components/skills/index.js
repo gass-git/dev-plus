@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import useSound from "use-sound";
 import ReactTooltip from "react-tooltip";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCaretDown, faCaretUp} from "@fortawesome/free-solid-svg-icons"; 
 import './skills.css';
 import tickSound from "../../assets/sounds/tick-sound.wav";
 
@@ -15,11 +17,11 @@ import PHP_ICON  from "../icons/php_icon";
 import LARAVEL_ICON from "../icons/laravel_icon";
 
 const Skills = ({scores}) => {
-  var [arrowClicked, setArrowClicked] = useState(false);
+  var [section, setSection] = useState(1);
   const [playTickSound] = useSound(tickSound,{volume: 0.6});
 
   function handleArrowClick(){
-    setArrowClicked(!arrowClicked)
+    section === 1 ? setSection(2) : setSection(1);
     playTickSound();
   }
   useEffect(() => {
@@ -33,7 +35,7 @@ const Skills = ({scores}) => {
      *  has been implemented.
      */
     function handleResize() {
-      if(window.innerWidth > 750) setArrowClicked(false);
+      if(window.innerWidth > 750) setSection(1);
     }
     window.addEventListener('resize', handleResize)
   })  
@@ -93,7 +95,6 @@ const Skills = ({scores}) => {
           <div className="score" data-tip="Stack Overflow score">
             {getScore(lang)}
           </div>
-
         </a>
       </div>
     ]
@@ -109,7 +110,7 @@ const Skills = ({scores}) => {
 
           {/* -- Left side -- */}
           <div className="skills-wrapper">
-            <div className={arrowClicked === false ? 'show' : 'hide'}>
+            <div className={section === 1 ? 'show' : 'hide'}>
               <div className="media-title">
                 CORE TECH {/* Appears in smaller viewports */}
               </div>
@@ -120,15 +121,15 @@ const Skills = ({scores}) => {
             </div>
 
             {/* -- For @media functionality -- */}
-            <div className={arrowClicked === true ? 'show' : 'hide'}>
+            <div className={section === 2 ? 'show' : 'hide'}>
               <div className="media-title">
                 FRAMEWORKS & LIBRARIES
               </div>
-              <Skill key="javascript-@media" lang="javascript" label="JavaScript" /> 
-              <Skill key="html-@media" lang="html" label="HTML5" /> 
-              <Skill key="css-@media" lang="css" label="CSS3" /> 
-              <Skill key="php-@media" lang="php" label="Hypertext Preprocessor" /> 
-            </div>
+                <Skill key="react-@media" lang="react" label="React" /> 
+                <Skill key="jquery-@media" lang="jquery" label="jQuery"  /> 
+                <Skill key="laravel-@media" lang="laravel" label="Laravel" /> 
+                <Skill key="bootstrap-@media" lang="bootstrap" label="Bootstrap" />  
+              </div>
             {/* ------------------------------ */}
           
           </div>
@@ -143,17 +144,18 @@ const Skills = ({scores}) => {
             <Skill key="react" lang="react" label="React" /> 
             <Skill key="jquery" lang="jquery" label="jQuery"  /> 
             <Skill key="laravel" lang="laravel" label="Laravel" /> 
-            <Skill key="bootstrap" lang="bootstrap" label="Bootstrap"  /> 
+            <Skill key="bootstrap" lang="bootstrap" label="Bootstrap" /> 
           </div>
         </div>
       </div>
 
       {/* -- FOR @MEDIA small screens -- */}
       <div className="down-arrow-box">
-        <i 
-          className={arrowClicked === true ? "fas fa-caret-up" : "fas fa-caret-down"}
-          onClick={() => handleArrowClick()} 
-        />
+       <FontAwesomeIcon 
+        icon={section === 1 ? faCaretDown : faCaretUp} 
+        className="icon"
+        onClick={() => handleArrowClick()}
+      />
       </div>
     </section>
   ]

@@ -24,7 +24,7 @@ const Activity = ({answers, gitEvents, posts}) => {
   }
   const Stackoverflow = () => {
     return [
-      <Fragment key={"SO-identifier"}>
+      <Fragment key="SO-identifier">
         <div className="sub-title">
             LATEST EDITS & ANSWERS
         </div>
@@ -115,7 +115,7 @@ const Activity = ({answers, gitEvents, posts}) => {
   }
 
   return (
-    <section className="activity">
+    <section key="activity-identifier" className="activity">
       <div className="content">
         
         {/* -- For @media -- */}

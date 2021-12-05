@@ -6,8 +6,8 @@ import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Glitch from './glitch';
 
 const BasicInfo = ({reputation, avatarGlitch}) => {
-  return (
-  <section className="basic-info">
+  return [
+  <section key="basic-info-identifier" className="basic-info">
     <div className="border-img">
       
       <div className="inner-container">
@@ -59,7 +59,7 @@ const BasicInfo = ({reputation, avatarGlitch}) => {
       </div>
     </div>
   </section>
-  );
+  ]
 }
 
 export default BasicInfo;
