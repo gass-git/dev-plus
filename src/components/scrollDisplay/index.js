@@ -28,21 +28,21 @@ const ScrollDisplay = ({
     ];
 
     return [
-    <section className="scroll-display">
-        <div className="border-img">
-            <div className="inner-container">
-                <div className="msg-display">
-                    {scrollerSwitch === 'on' ?    
-                        <div className="scroll-text">
-                            {messages[msgIndex]}
-                        </div>
-                        : 
-                        null
-                    }
+        <section key="SD-identifier" className="scroll-display">
+            <div className="border-img">
+                <div className="inner-container">
+                    <div className="msg-display">
+                        {scrollerSwitch === 'on' ?    
+                            <div className="scroll-text">
+                                {messages[msgIndex]}
+                            </div>
+                            : 
+                            null
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     ];
 }
 

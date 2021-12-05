@@ -18,6 +18,10 @@ const Skills = ({scores}) => {
   var [arrowClicked, setArrowClicked] = useState(false);
   const [playTickSound] = useSound(tickSound,{volume: 0.6});
 
+  function handleArrowClick(){
+    setArrowClicked(!arrowClicked)
+    playTickSound();
+  }
   useEffect(() => {
     /** @abstract
      *  The skills component when it gets resized to a smaller screen 
@@ -34,15 +38,7 @@ const Skills = ({scores}) => {
     window.addEventListener('resize', handleResize)
   })  
 
-  function handleArrowClick(){
-    setArrowClicked(!arrowClicked)
-
-    // Sound effect
-    playTickSound();
-  }
-
   const Skill = ({lang, label}) => {
-
     function handleIcon(lang){
       switch(lang){
        case "html": return <HTML_ICON/>;
@@ -57,12 +53,17 @@ const Skills = ({scores}) => {
       }
     }
     function getScore(tag){
-      if(tag === 'html5') { tag = 'html' }
-      else if(tag === 'css3') {tag = 'css'}
+      let tagModified = null, filteredData = null;
+      if(tag === 'html5') { tagModified = 'html' }
+      else if(tag === 'css3') {tagModified = 'css'}
 
-      var filteredData = scores.filter((data) => {return data.tag_name === tag});
+      if(tagModified){
+        filteredData = scores.filter((data) => {return data.tag_name === tagModified});
+      }else{
+        filteredData = scores.filter((data) => {return data.tag_name === tag});
+      }
+
       var points = filteredData.map((lang) => { return lang.answer_score});
-  
       points = points.length === 0 ?  "NF" : points;
       return points;
     }
@@ -71,20 +72,21 @@ const Skills = ({scores}) => {
       return url;
     }
 
-    return (
-      <div>
-        <ReactTooltip/>
-        <a href={getUrl(lang)} 
-        className="block" 
-        target="_blank"
-        rel="noreferrer"
-        title="go to answers"
+    return [
+      <div key={lang}>
+        <ReactTooltip />
+        <a 
+          href={getUrl(lang)} 
+          className="block" 
+          target="_blank"
+          rel="noreferrer"
+          title="go to answers"
         >
           <div className="badge-wrapper">
             {handleIcon(lang)}
           </div>
         
-          <div className={`name`}>
+          <div className="name">
             {label}
           </div>  
 
@@ -94,38 +96,38 @@ const Skills = ({scores}) => {
 
         </a>
       </div>
-    )
+    ]
   }
 
-  return (
-      <section className="skills">
+  return [
+    <section className="skills" key="skills-identifier">
       <div className="content">
         <div className="left-side">
           <div className="sub-title">
-           CORE TECH {/* Disappears in smaller viewports */}
+            CORE TECH {/* Disappears in smaller viewports */}
           </div>
 
           {/* -- Left side -- */}
           <div className="skills-wrapper">
             <div className={arrowClicked === false ? 'show' : 'hide'}>
               <div className="media-title">
-                 CORE TECH {/* Appears in smaller viewports */}
+                CORE TECH {/* Appears in smaller viewports */}
               </div>
-              <Skill key={1} lang="javascript" label="JavaScript" /> 
-              <Skill key={2} lang="html" label="HTML5" /> 
-              <Skill key={3} lang="css" label="CSS3" /> 
-              <Skill key={4} lang="php" label="Hypertext Preprocessor" /> 
+              <Skill key="javascript" lang="javascript" label="JavaScript" /> 
+              <Skill key="html" lang="html" label="HTML5" /> 
+              <Skill key="css" lang="css" label="CSS3" /> 
+              <Skill key="php" lang="php" label="Hypertext Preprocessor" /> 
             </div>
 
             {/* -- For @media functionality -- */}
             <div className={arrowClicked === true ? 'show' : 'hide'}>
               <div className="media-title">
-                 FRAMEWORKS & LIBRARIES
+                FRAMEWORKS & LIBRARIES
               </div>
-              <Skill lang="react" label="React" /> 
-              <Skill lang="jquery" label="jQuery"  /> 
-              <Skill lang="laravel" label="Laravel" /> 
-              <Skill lang="php" label="Java"  /> 
+              <Skill key="javascript-@media" lang="javascript" label="JavaScript" /> 
+              <Skill key="html-@media" lang="html" label="HTML5" /> 
+              <Skill key="css-@media" lang="css" label="CSS3" /> 
+              <Skill key="php-@media" lang="php" label="Hypertext Preprocessor" /> 
             </div>
             {/* ------------------------------ */}
           
@@ -138,10 +140,10 @@ const Skills = ({scores}) => {
             FRAMEWORKS & LIBRARIES
           </div>
           <div className="skills-wrapper">
-            <Skill key={5} lang="react" label="React" /> 
-            <Skill key={6} lang="jquery" label="jQuery"  /> 
-            <Skill key={7} lang="laravel" label="Laravel" /> 
-            <Skill key={8} lang="bootstrap" label="Bootstrap"  /> 
+            <Skill key="react" lang="react" label="React" /> 
+            <Skill key="jquery" lang="jquery" label="jQuery"  /> 
+            <Skill key="laravel" lang="laravel" label="Laravel" /> 
+            <Skill key="bootstrap" lang="bootstrap" label="Bootstrap"  /> 
           </div>
         </div>
       </div>
@@ -154,7 +156,7 @@ const Skills = ({scores}) => {
         />
       </div>
     </section>
-  )
+  ]
 }
 
 export default Skills;

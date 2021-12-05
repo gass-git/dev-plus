@@ -147,7 +147,7 @@ const App = () => {
   });
 
   return [
-    <Fragment>
+    <Fragment key="main-component-identifier">
       {/* -- Background image -- not wrapper -- */}
       <div className={showComponentFour ? "bg-image" : null } />
 
@@ -167,7 +167,7 @@ const App = () => {
         {/* -- First row -- */} 
         {transitionOne((style, item) => 
             item ? 
-            <animated.div style={style} className="first-row">
+            <animated.div key="animation-one" style={style} className="first-row">
               <ScrollDisplay 
                 scrollerSwitch={scrollerSwitch}
                 lastCommit={lastCommit}
@@ -186,7 +186,7 @@ const App = () => {
         <section className="second-row">
           {transitionTwo((style, item) => 
             item ? 
-            <animated.div style={style} className="left-side">
+            <animated.div key="animation-two" style={style} className="left-side">
               <MainMenu 
                 setSelected={setSelected}
                 menuActivated={menuActivated}
@@ -197,7 +197,7 @@ const App = () => {
           )}
           {transitionThree((style, item) => 
             item ? 
-            <animated.div style={style} className="right-side">
+            <animated.div key="animation-three" style={style} className="right-side">
               <BasicInfo reputation={reputation} avatarGlitch={avatarGlitch}/>
             </animated.div>
             : 
@@ -209,7 +209,7 @@ const App = () => {
         <section className="third-row">
           {transitionFour((style, item) => 
             item ? 
-            <animated.div style={style} className="content-display">
+            <animated.div key="animation-four" style={style} className="content-display">
               <div className="border-img">
                 <div className="inner-container">
                   {selected === "about" ? <About /> : null}
