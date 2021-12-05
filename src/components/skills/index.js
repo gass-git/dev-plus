@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import useSound from "use-sound";
+import ReactTooltip from "react-tooltip";
 import './skills.css';
 import tickSound from "../../assets/sounds/tick-sound.wav";
 
@@ -72,10 +73,12 @@ const Skills = ({scores}) => {
 
     return (
       <div>
+        <ReactTooltip/>
         <a href={getUrl(lang)} 
         className="block" 
         target="_blank"
         rel="noreferrer"
+        title="go to answers"
         >
           <div className="badge-wrapper">
             {handleIcon(lang)}
@@ -85,7 +88,7 @@ const Skills = ({scores}) => {
             {label}
           </div>  
 
-          <div className="score">
+          <div className="score" data-tip="Stack Overflow score">
             {getScore(lang)}
           </div>
 
