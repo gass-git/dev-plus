@@ -48,15 +48,13 @@ const Projects = ({repos}) => {
         <LinkField />
       </div>
       <div key={14} className="tags-wrapper">
-        {
-          repos[current].topics.map((topic)=>{
-            return [
-              <div key={8} className="tag">
-                {topic}
-              </div>
-            ];
-          })
-        }
+        {repos[current].topics.map((topic)=>{
+          return [
+            <div key={8} className="tag">
+              {topic}
+            </div>
+          ];
+        })}
       </div>
     </Fragment>];
   }
