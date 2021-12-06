@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Fragment } from 'react';
+import React, {useState, useEffect, useReducer, Fragment } from 'react';
 import {useTransition, animated} from 'react-spring';
 
 // APIs
@@ -6,6 +6,9 @@ import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
 import {getRepos, getGitEvents} from './api/github';
 import {processVisit, getUniqueVisits, getUserLocation} from './api/visits';
 import getWritings from './api/getWritings';
+
+// Global functions
+import {preload, preloadMessages} from './globalFunctions';
 
 // Components
 import Activity from './components/activity/index';
@@ -16,47 +19,75 @@ import Projects from './components/projects/index';
 import Skills from './components/skills/index';
 import About from './components/about/index';
 
-// Global functions
-import {preload, preloadMessages} from './globalFunctions';
-
 // Assets
 import wizard from  "./assets/images/wizard-v6.gif"
 
-const App = () => {
-  var [loading, setLoading] = useState(true);
-  var [showGif, setShowGif] = useState(false);
-  var [castingSpells, setCastingSpells] = useState(false);
-  var [castCompleted, setCastCompleted] = useState(false);
-  var [menuActivated, setMenuActivated] = useState(false);
-  var [userLocation, setUserLocation] = useState();
+function reducer(state, action){
+  switch(action){
+    case 'turnOffLoading':{
+      return {
+        ...state,
+        isLoading: false
+      }
+    }
+    case 'mountGif':{
+      return {
+        ...state,
+        showGif: true
+      }
+    }
+    case 'removeGif':{
+      return {
+        ...state,
+        showGif: false
+      }
+    }
+    default: break;
+  }
+  return true;
+};
+
+const initialState = {
+  isLoading: true,
+  showGif: false
+};
+
+function App(){
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const {isLoading, showGif} = state;
+  const [castingSpells, setCastingSpells] = useState(false);
+  const [castCompleted, setCastCompleted] = useState(false);
+  const [menuActivated, setMenuActivated] = useState(false);
+  const [userLocation, setUserLocation] = useState();
 
   // For animation effect on page preload
-  var [showComponentOne, setShowComponentOne] = useState(false); 
-  var [showComponentTwo, setShowComponentTwo] = useState(false); 
-  var [showComponentThree, setShowComponentThree] = useState(false); 
-  var [showComponentFour, setShowComponentFour] = useState(false); 
+  const [showComponentOne, setShowComponentOne] = useState(false); 
+  const [showComponentTwo, setShowComponentTwo] = useState(false); 
+  const [showComponentThree, setShowComponentThree] = useState(false); 
+  const [showComponentFour, setShowComponentFour] = useState(false); 
 
-  var [selected, setSelected] = useState('about');
-  var [uniqueVisits, setUniqueVisits] = useState();
-  var [gitEvents, setGitEvents] = useState([]);
-  var [repos, setRepos] = useState([]);
-  var [posts, setPosts] = useState([]);
-  var [lastPost, setLastPost] = useState([]);
+  const [selected, setSelected] = useState('about');
+  const [uniqueVisits, setUniqueVisits] = useState();
+  const [gitEvents, setGitEvents] = useState([]);
+  const [repos, setRepos] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [lastPost, setLastPost] = useState([]);
 
   // Avatar glitch effect
-  var [avatarGlitch, setAvatarGlitch] = useState(true);
+  const [avatarGlitch, setAvatarGlitch] = useState(true);
   var glitchDuration = 5; // Duration in seconds 
 
   // Stack Overflow variables
-  var [reputation, setReputation] = useState([]);
-  var [answers, setAnswers] = useState([]);
-  var [scores, setScores] = useState([]);
+  const [reputation, setReputation] = useState([]);
+  const [answers, setAnswers] = useState([]);
+  const [scores, setScores] = useState([]);
 
   // ScrollDisplay variables
-  var [scrollerSwitch, setScrollerSwitch] = useState('on');
-  var [lastCommit, setLastCommit] = useState([]);
-  var [lastAnswer, setLastAnswer] = useState(); 
-  var [msgIndex, setMsgIndex] = useState(0);
+  const [scrollerSwitch, setScrollerSwitch] = useState('on');
+  const [lastCommit, setLastCommit] = useState([]);
+  const [lastAnswer, setLastAnswer] = useState(); 
+  const [msgIndex, setMsgIndex] = useState(0);
   var maxIndex = 3; 
   var scrollerDelay = 20; // Duration in seconds 
 
@@ -83,10 +114,9 @@ const App = () => {
 
   useEffect(() => {
     preload({
-      setShowGif, 
       setCastingSpells, 
       setCastCompleted, 
-      setLoading,
+      dispatch,
       setShowComponentOne,
       setShowComponentTwo,
       setShowComponentThree,
@@ -146,7 +176,7 @@ const App = () => {
       <div className={showComponentFour ? "bg-image" : null } />
 
       {/* -- Preloader -- */}
-      <main className={loading ? "loader" : "no-loader"}>
+      <main className={isLoading ? "loader" : "no-loader"}>
         <section className="center-wrapper">
           <div className="gif-frame">
             {showGif ? <img src={wizard} alt="Wizard gif"/> : null}
@@ -156,7 +186,7 @@ const App = () => {
       </main>
 
       {/* -- Main wrapper -- */}
-      <main className={loading ? null : "main-wrapper"}>
+      <main className={isLoading ? null : "main-wrapper"}>
         
         {/* -- First row -- */} 
         {transitionOne((style, item) => 

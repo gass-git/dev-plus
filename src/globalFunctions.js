@@ -1,8 +1,7 @@
 function preload({
-  setShowGif, 
   setCastingSpells, 
   setCastCompleted, 
-  setLoading,
+  dispatch,
   setShowComponentOne,
   setShowComponentTwo,
   setShowComponentThree,
@@ -13,7 +12,7 @@ function preload({
   document.body.classList.add("animation");
   
   setTimeout(() => {
-    setShowGif(true);
+    dispatch('mountGif');
   }, 500);
 
   setTimeout(() => {
@@ -30,11 +29,11 @@ function preload({
   }, 7300);
   
   setTimeout(() => {
-    setShowGif(false);
+    dispatch('removeGif');
   }, 7500);
 
   setTimeout(() => {
-    setLoading(false);
+    dispatch('turnOffLoading');
   }, 8000);
 
   setTimeout(() => {
