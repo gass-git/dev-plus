@@ -1,29 +1,23 @@
 import React, {useState, useEffect, Fragment } from 'react';
 import {useTransition, animated} from 'react-spring';
 
-// API fetching
-import processVisit from './api/processVisit.js';
-import getUniqueVisits from './api/getUniqueVisits.js';
-import getUserLocation from './api/getUserLocation.js';
-import getSkillScores from './api/getSkillScores.js';
-import getWritings from './api/getWritings.js';
-import getReputation from './api/getReputation.js';
-import getRepos from './api/getRepos.js';
-import getGitEvents from './api/getGitEvents.js';
-import getAnswers from './api/getAnswers.js';
+// APIs
+import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
+import {getRepos, getGitEvents} from './api/github';
+import {processVisit, getUniqueVisits, getUserLocation} from './api/visits';
+import getWritings from './api/getWritings';
 
 // Components
-import Activity from './components/activity/index.js';
-import ScrollDisplay from './components/scrollDisplay/index.js';
-import MainMenu from './components/mainMenu/index.js';
-import BasicInfo from './components/basicInfo/index.js';
-import Projects from './components/projects/index.js';
-import Skills from './components/skills/index.js';
-import About from './components/about/index.js';
+import Activity from './components/activity/index';
+import ScrollDisplay from './components/scrollDisplay/index';
+import MainMenu from './components/mainMenu/index';
+import BasicInfo from './components/basicInfo/index';
+import Projects from './components/projects/index';
+import Skills from './components/skills/index';
+import About from './components/about/index';
 
 // Global functions
-import preload from './functions/preload.js';
-import handlePreloadMessages from './functions/preloadMessages.js';
+import {preload, preloadMessages} from './globalFunctions';
 
 // Assets
 import wizard from  "./assets/images/wizard-v6.gif"
@@ -157,7 +151,7 @@ const App = () => {
           <div className="gif-frame">
             {showGif ? <img src={wizard} alt="Wizard gif"/> : null}
           </div>
-          { handlePreloadMessages({castingSpells, castCompleted})}
+          { preloadMessages({castingSpells, castCompleted})}
         </section>    
       </main>
 
