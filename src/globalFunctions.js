@@ -1,85 +1,73 @@
 function preload({
-  setCastingSpells, 
-  setCastCompleted, 
-  dispatch,
-  setShowComponentOne,
-  setShowComponentTwo,
-  setShowComponentThree,
-  setShowComponentFour,
-  setMenuActivated
+  dispatchOne
   }) {
   // Remove horizontal scrollbar 
   document.body.classList.add("animation");
   
   setTimeout(() => {
-    dispatch('mountGif');
+    dispatchOne('show gif');
   }, 500);
 
   setTimeout(() => {
-    setCastingSpells(true);
+    dispatchOne('show msg one');
   }, 1000);
 
   setTimeout(() => {
-    setCastingSpells(false);
-    setCastCompleted(true);
+    dispatchOne('remove message');
+  }, 5200);
+
+  setTimeout(() => {
+    dispatchOne('show msg two');
   }, 5300);
 
   setTimeout(() => {
-    setCastCompleted(false);
+    dispatchOne('remove message');
   }, 7300);
   
   setTimeout(() => {
-    dispatch('removeGif');
+    dispatchOne('remove gif');
   }, 7500);
 
   setTimeout(() => {
-    dispatch('turnOffLoading');
+    dispatchOne('turn off loading');
   }, 8000);
 
   setTimeout(() => {
-    setShowComponentOne(true);
+    dispatchOne('show component one');
   }, 8500);
 
   setTimeout(() => {
-    setShowComponentTwo(true);
+    dispatchOne('show component two');
   }, 9000);
 
   setTimeout(() => {
-    setShowComponentThree(true);
+    dispatchOne('show component three');
   }, 9200);
 
   setTimeout(() => {
-    setShowComponentFour(true);
+    dispatchOne('show component four');
   }, 9500);
 
   setTimeout(() => {
-    setMenuActivated(true);
-  }, 10800);
+    dispatchOne('activate menu');
+  }, 10500);
 
   setTimeout(()=>{
     // Re-activate horizontal scrollbar 
     document.body.classList.remove("animation");
   }, 13000)
 }
-function preloadMessages({castingSpells, castCompleted}){
-  if(castingSpells) {
+function preloadMessages({message, msgNumber}){
+  if(message) {
     return [
       <div className="text-wrapper">   
-        <div className="typing effect-one">
-          Casting spells to collect data
+        <div className={`typing effect-${msgNumber}`}>
+          {message}
         </div> 
       </div>
     ]
   }
-  else if(castCompleted){
-    return [
-      <div className="text-wrapper">
-        <div className="typing effect-two">
-          Fetch completed
-        </div>
-      </div>
-    ]
-  }
+  else return null;
 }
 
 export {preloadMessages, preload};

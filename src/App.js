@@ -22,50 +22,103 @@ import About from './components/about/index';
 // Assets
 import wizard from  "./assets/images/wizard-v6.gif"
 
-function reducer(state, action){
+// Reducer one is in charge of the preload states
+function reducerOne(state, action){
   switch(action){
-    case 'turnOffLoading':{
+    case 'turn off loading':{
       return {
         ...state,
         isLoading: false
       }
     }
-    case 'mountGif':{
+    case 'show gif':{
       return {
         ...state,
         showGif: true
       }
     }
-    case 'removeGif':{
+    case 'remove gif':{
       return {
         ...state,
         showGif: false
+      }
+    }
+    case 'show msg one':{
+      return {
+        ...state,
+        message: 'Casting spells to collect data',
+        msgNumber: 'one'
+      }
+    }
+    case 'show msg two':{
+      return {
+        ...state,
+        message: 'Fetch completed',
+        msgNumber: 'two'
+      }
+    }
+    case 'remove message':{
+      return {
+        ...state,
+        message: null,
+        msgNumber: null
+      }
+    }
+    case 'show component one':{
+      return {
+        ...state,
+        showCompOne: true
+      }
+    }
+    case 'show component two':{
+      return {
+        ...state,
+        showCompTwo: true
+      }
+    }
+    case 'show component three':{
+      return {
+        ...state,
+        showCompThree: true
+      }
+    }
+    case 'show component four':{
+      return {
+        ...state,
+        showCompFour: true
+      }
+    }
+    case 'activate menu':{
+      return {
+        ...state,
+        isMenuActive: true
       }
     }
     default: break;
   }
   return true;
 };
-
-const initialState = {
+const initStateOne = {
   isLoading: true,
-  showGif: false
+  isMenuActive: false,
+  showGif: false,
+  message: null,
+  msgNumber: null,
+  showCompOne: false,
+  showCompTwo: false,
+  showCompThree: false,
+  showCompFour: false
 };
 
 function App(){
 
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const {isLoading, showGif} = state;
-  const [castingSpells, setCastingSpells] = useState(false);
-  const [castCompleted, setCastCompleted] = useState(false);
-  const [menuActivated, setMenuActivated] = useState(false);
+  const [stateOne, dispatchOne] = useReducer(reducerOne, initStateOne);
+  const {isLoading, showGif, message, msgNumber, showCompOne,
+    showCompTwo, showCompThree, showCompFour, isMenuActive} = stateOne;
+
+  // const [menuActivated, setMenuActivated] = useState(false);
   const [userLocation, setUserLocation] = useState();
 
-  // For animation effect on page preload
-  const [showComponentOne, setShowComponentOne] = useState(false); 
-  const [showComponentTwo, setShowComponentTwo] = useState(false); 
-  const [showComponentThree, setShowComponentThree] = useState(false); 
-  const [showComponentFour, setShowComponentFour] = useState(false); 
 
   const [selected, setSelected] = useState('about');
   const [uniqueVisits, setUniqueVisits] = useState();
@@ -92,37 +145,28 @@ function App(){
   var scrollerDelay = 20; // Duration in seconds 
 
   // Transitions
-  const transitionOne = useTransition(showComponentOne, {
+  const transitionOne = useTransition(showCompOne, {
     from: { x: 0, y: -100, opacity: 0},
     enter: { x:0, y:0, opacity:1}
   });
-  const transitionTwo = useTransition(showComponentTwo, {
+  const transitionTwo = useTransition(showCompTwo, {
     from: { x: -100, y: 800, opacity: 0},
     enter: item => async(next) => {
       await next({ x:-100, y:0, opacity:1});
       await next({ x:0 });
     }
   });
-  const transitionThree = useTransition(showComponentThree, {
+  const transitionThree = useTransition(showCompThree, {
     from: { x: 800, y: 0, opacity: 0},
     enter: { x:0, y:0, opacity:1}
   });
-  const transitionFour = useTransition(showComponentFour, {
+  const transitionFour = useTransition(showCompFour, {
     from: { x: 0, y: 600, opacity: 0},
     enter: { x:0, y:0, opacity:1}
   });
 
   useEffect(() => {
-    preload({
-      setCastingSpells, 
-      setCastCompleted, 
-      dispatch,
-      setShowComponentOne,
-      setShowComponentTwo,
-      setShowComponentThree,
-      setShowComponentFour,
-      setMenuActivated
-      });
+    preload({dispatchOne});
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getUserLocation({setUserLocation});
@@ -173,7 +217,7 @@ function App(){
   return [
     <Fragment key="main-component-identifier">
       {/* -- Background image -- not wrapper -- */}
-      <div className={showComponentFour ? "bg-image" : null } />
+      <div className={showCompFour ? "bg-image" : null } />
 
       {/* -- Preloader -- */}
       <main className={isLoading ? "loader" : "no-loader"}>
@@ -181,7 +225,7 @@ function App(){
           <div className="gif-frame">
             {showGif ? <img src={wizard} alt="Wizard gif"/> : null}
           </div>
-          { preloadMessages({castingSpells, castCompleted})}
+          { preloadMessages({message, msgNumber})}
         </section>    
       </main>
 
@@ -213,7 +257,7 @@ function App(){
             <animated.div key="animation-two" style={style} className="left-side">
               <MainMenu 
                 setSelected={setSelected}
-                menuActivated={menuActivated}
+                isMenuActive={isMenuActive}
               />
             </animated.div>
             : 
