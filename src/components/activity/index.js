@@ -7,11 +7,12 @@ import Date from './childrens/date';
 import useSound from "use-sound";
 import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
-const Activity = ({answers, gitEvents, posts}) => {
-  var [current, setCurrent] = useState('stackoverflow');
-  var [posNumber, setPosNumber] = useState(3);
-  const [playSound] = useSound(selectionSound, {volume: 1});
-  const space = <Fragment>&nbsp; &nbsp; &nbsp;</Fragment>;
+export default function Activity ({answers, gitEvents, posts}){
+  const [current, setCurrent] = useState('stackoverflow'),
+    [posNumber, setPosNumber] = useState(3),
+    [playSound] = useSound(selectionSound, {volume: 1});
+    
+  let space = <Fragment>&nbsp; &nbsp; &nbsp;</Fragment>;
 
   function select(entry){
     setCurrent(entry);
@@ -114,7 +115,7 @@ const Activity = ({answers, gitEvents, posts}) => {
     ]
   }
 
-  return (
+  return [
     <section key="activity-identifier" className="activity">
       <div className="content">
         
@@ -195,7 +196,5 @@ const Activity = ({answers, gitEvents, posts}) => {
 
       </div>
     </section>
-  );
+  ]
 }
-
-export default Activity;

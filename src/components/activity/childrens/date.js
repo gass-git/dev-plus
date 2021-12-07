@@ -1,10 +1,9 @@
-import React from "react";
-import { Fragment } from "react";
+import React, {Fragment} from "react";
 
-const Date = ({ entry }) => {
+export default function Date ({ entry }){
   var x = new window.Date(entry * 1000),
-  year = x.getFullYear(), month = x.getMonth() + 1, 
-  day = x.getDate();
+    year = x.getFullYear(), month = x.getMonth() + 1, 
+    day = x.getDate();
   
   if(day < 10) { day = "0" + day }
   if(month < 10) { month = "0" + month }
@@ -13,4 +12,3 @@ const Date = ({ entry }) => {
   return <Fragment>{convertedDate}</Fragment>;
 };
 
-export default Date;
