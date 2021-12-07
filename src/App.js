@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useReducer, Fragment } from 'react';
 import {useTransition, animated} from 'react-spring';
 import wizard from  "./assets/images/wizard-v6.gif"
-import {preload, preloadMessages} from './globalFunctions';
+import {preload, preloadMessages} from './preloadFunctions';
 
 // APIs
 import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
