@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import "./scrollDisplay.css";
 
-const ScrollDisplay = ({
+export default function ScrollDisplay ({
     scrollerSwitch, 
     lastCommit, 
     lastAnswer, 
@@ -9,7 +9,7 @@ const ScrollDisplay = ({
     msgIndex, 
     uniqueVisits,
     userLocation
-}) => {
+}) {
     let messages = [
         <Fragment> 
             Welcome visitor #{uniqueVisits} from {userLocation ? userLocation : "Planet Earth"}!
@@ -43,7 +43,5 @@ const ScrollDisplay = ({
                 </div>
             </div>
         </section>
-    ];
+    ]
 }
-
-export default ScrollDisplay;

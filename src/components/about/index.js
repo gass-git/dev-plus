@@ -8,8 +8,8 @@ import tickSound from '../../assets/sounds/tick-sound.wav';
 
 export default function About(){
   const [current, setCurrent] = useState(0), 
-    [playSound] = useSound(tickSound, {volume: 0.6}),
-    [copied, setCopied] = useState(false);
+        [playSound] = useSound(tickSound, {volume: 0.6}),
+        [copied, setCopied] = useState(false);
   
   let textArray = [
     <Fragment>

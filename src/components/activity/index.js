@@ -9,8 +9,8 @@ import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
 export default function Activity ({answers, gitEvents, posts}){
   const [current, setCurrent] = useState('stackoverflow'),
-    [posNumber, setPosNumber] = useState(3),
-    [playSound] = useSound(selectionSound, {volume: 1});
+        [posNumber, setPosNumber] = useState(3),
+        [playSound] = useSound(selectionSound, {volume: 1});
     
   let space = <Fragment>&nbsp; &nbsp; &nbsp;</Fragment>;
 

@@ -16,8 +16,8 @@ export default function Projects ({repos}) {
   
   let space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
   var totalRepos = repos.length,
-    totalSections = Math.ceil(totalRepos/4);
-  
+      totalSections = Math.ceil(totalRepos/4);
+    
   const RepoDetails = () => {
     let link = repos[current].url;
     
