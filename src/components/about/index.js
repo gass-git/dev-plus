@@ -6,11 +6,12 @@ import './about.css';
 import useSound from "use-sound";
 import tickSound from '../../assets/sounds/tick-sound.wav';
 
-const About = () => {
-  var [current, setCurrent] = useState(0);
-  const [playSound] = useSound(tickSound, {volume: 0.6});
-  let [copied, setCopied] = useState(false);
-  var textArray = [
+export default function About(){
+  const [current, setCurrent] = useState(0), 
+    [playSound] = useSound(tickSound, {volume: 0.6}),
+    [copied, setCopied] = useState(false);
+  
+  let textArray = [
     <Fragment>
       For me coding is a <span className="highlight">catalyst for creation</span>, to portray 
       an idea into reality and be able to interact with it anywhere on 
@@ -72,7 +73,7 @@ const About = () => {
     }
   }
 
-  return(
+  return [
     <section key="about-identifier" className="about">
       <div className="content">
         {textArray[current]}
@@ -85,7 +86,5 @@ const About = () => {
         />
       </div>
     </section>
-  );
-  }
-
-  export default About;
+  ]
+}

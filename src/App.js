@@ -59,7 +59,7 @@ const initState = {
   showCompFour: false
 };
 
-function App(){
+export default function App(){
   const [state, dispatch] = useReducer(reducer, initState);
   const {isLoading, showGif, message, msgNumber, isMenuActive} = state;
   const {showCompOne, showCompTwo,showCompThree,showCompFour} = state;
@@ -87,8 +87,7 @@ function App(){
   const [lastCommit, setLastCommit] = useState([]);
   const [lastAnswer, setLastAnswer] = useState(); 
   const [msgIndex, setMsgIndex] = useState(0);
-  var maxIndex = 3; 
-  var scrollerDelay = 20; // Duration in seconds 
+  var maxIndex = 3, scrollerDelay = 20; // Duration in seconds 
 
   // Transitions
   const transitionOne = useTransition(showCompOne, {
@@ -117,8 +116,6 @@ function App(){
     getUniqueVisits({setUniqueVisits});
     getUserLocation({setUserLocation});
     getWritings({setPosts, setLastPost});
-      
-    // API'S with request restrictions 
     getReputation({setReputation});
     getRepos({setRepos});
     getAnswers({setAnswers, setLastAnswer});
@@ -241,5 +238,3 @@ function App(){
     </Fragment>
   ]
 }
-
-export default App;
