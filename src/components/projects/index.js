@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import { Fragment } from "react";
+import React, {useState, Fragment} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPaperclip, faCaretLeft, faCaretRight, faSortUp, faSortDown} from "@fortawesome/free-solid-svg-icons";
 import {faTimesCircle, faFolder, faFolderOpen} from "@fortawesome/free-regular-svg-icons";
@@ -8,16 +7,17 @@ import useSound from "use-sound";
 import tickSound from "../../assets/sounds/tick-sound.wav";
 import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
-const Projects = ({repos}) => {
-  var [current, setCurrent] = useState(0);
-  var totalRepos = repos.length;
-  var totalSections = Math.ceil(totalRepos/4);
-  var [currentSection, setCurrentSection] = useState(1);
-  var [indexes, setIndexes] = useState([0,1,2,3]);
-  var space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
-  const [playTickSound] = useSound(tickSound,{volume: 0.6});
-  const [playSelectionSound] = useSound(selectionSound, {volume:1});
-
+export default function Projects ({repos}) {
+  const [current, setCurrent] = useState(0),
+        [currentSection, setCurrentSection] = useState(1),
+        [indexes, setIndexes] = useState([0,1,2,3]),
+        [playTickSound] = useSound(tickSound,{volume: 0.6}),
+        [playSelectionSound] = useSound(selectionSound, {volume:1});
+  
+  let space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
+  var totalRepos = repos.length,
+    totalSections = Math.ceil(totalRepos/4);
+  
   const RepoDetails = () => {
     let link = repos[current].url;
     
@@ -28,14 +28,14 @@ const Projects = ({repos}) => {
             <FontAwesomeIcon icon={faPaperclip} className="icon shadow-04"/>
              {space} {repos[current].url}
           </a>
-        ];
+        ]
       }else{
         return [
           <div key={link} className="not-available">
             <FontAwesomeIcon icon={faTimesCircle} className="icon shadow-04"/>
               {space} No link available
           </div>
-        ];
+        ]
       }
     }
 
@@ -132,8 +132,8 @@ const Projects = ({repos}) => {
       return "icon shadow-08";
     }
   }
-  return (
-      <section key="projects-identifier" className="projects">
+  return [
+    <section key="projects-identifier" className="projects">
         <div className="content">
 
           {/* @MEDIA - small screens */}
@@ -207,7 +207,5 @@ const Projects = ({repos}) => {
          
         </div>
     </section>
-  );
+  ]
 }
-
-export default Projects;
