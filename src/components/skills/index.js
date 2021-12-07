@@ -16,9 +16,9 @@ import REACT_ICON from "../icons/react_icon";
 import PHP_ICON  from "../icons/php_icon";
 import LARAVEL_ICON from "../icons/laravel_icon";
 
-const Skills = ({scores}) => {
-  var [section, setSection] = useState(1);
-  const [playTickSound] = useSound(tickSound,{volume: 0.6});
+export default function Skills({scores}) {
+  const [section, setSection] = useState(1),
+        [playTickSound] = useSound(tickSound,{volume: 0.6});
 
   function handleArrowClick(){
     section === 1 ? setSection(2) : setSection(1);
@@ -160,5 +160,3 @@ const Skills = ({scores}) => {
     </section>
   ]
 }
-
-export default Skills;
