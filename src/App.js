@@ -1,14 +1,13 @@
 import React, {useState, useEffect, useReducer, Fragment } from 'react';
 import {useTransition, animated} from 'react-spring';
+import wizard from  "./assets/images/wizard-v6.gif"
+import {preload, preloadMessages} from './globalFunctions';
 
 // APIs
 import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
 import {getRepos, getGitEvents} from './api/github';
 import {processVisit, getUniqueVisits, getUserLocation} from './api/visits';
 import getWritings from './api/getWritings';
-
-// Global functions
-import {preload, preloadMessages} from './globalFunctions';
 
 // Components
 import Activity from './components/activity/index';
@@ -19,86 +18,36 @@ import Projects from './components/projects/index';
 import Skills from './components/skills/index';
 import About from './components/about/index';
 
-// Assets
-import wizard from  "./assets/images/wizard-v6.gif"
-
-// Reducer one is in charge of the preload states
-function reducerOne(state, action){
+// Reducer is in charge of the preload states
+function reducer(state, action){
   switch(action){
-    case 'turn off loading':{
-      return {
-        ...state,
-        isLoading: false
-      }
-    }
-    case 'show gif':{
-      return {
-        ...state,
-        showGif: true
-      }
-    }
-    case 'remove gif':{
-      return {
-        ...state,
-        showGif: false
-      }
-    }
-    case 'show msg one':{
-      return {
-        ...state,
-        message: 'Casting spells to collect data',
-        msgNumber: 'one'
-      }
-    }
-    case 'show msg two':{
-      return {
-        ...state,
-        message: 'Fetch completed',
-        msgNumber: 'two'
-      }
-    }
-    case 'remove message':{
-      return {
-        ...state,
-        message: null,
-        msgNumber: null
-      }
-    }
-    case 'show component one':{
-      return {
-        ...state,
-        showCompOne: true
-      }
-    }
-    case 'show component two':{
-      return {
-        ...state,
-        showCompTwo: true
-      }
-    }
-    case 'show component three':{
-      return {
-        ...state,
-        showCompThree: true
-      }
-    }
-    case 'show component four':{
-      return {
-        ...state,
-        showCompFour: true
-      }
-    }
-    case 'activate menu':{
-      return {
-        ...state,
-        isMenuActive: true
-      }
-    }
-    default: break;
+    case 'turn off loading':  return {...state, isLoading: false};
+    case 'show gif': return {...state, showGif: true};
+    case 'remove gif':return {...state, showGif: false};
+    case 'show msg one':return {
+                          ...state,
+                          message: 'Casting spells to collect data',
+                          msgNumber: 'one'
+                        };
+    case 'show msg two':return {
+                          ...state,
+                          message: 'Fetch completed',
+                          msgNumber: 'two'
+                        };
+    case 'remove message':return {
+                          ...state,
+                          message: null,
+                          msgNumber: null
+                          };
+    case 'show component one': return {...state, showCompOne: true};
+    case 'show component two': return {...state, showCompTwo: true};
+    case 'show component three': return {...state, showCompThree: true};
+    case 'show component four': return {...state,showCompFour: true};
+    case 'activate menu': return {...state, isMenuActive: true};
+    default: return state;
   }
-  return true;
 };
-const initStateOne = {
+const initState = {
   isLoading: true,
   isMenuActive: false,
   showGif: false,
@@ -111,15 +60,12 @@ const initStateOne = {
 };
 
 function App(){
+  const [state, dispatch] = useReducer(reducer, initState);
+  const {isLoading, showGif, message, msgNumber, isMenuActive} = state;
+  const {showCompOne, showCompTwo,showCompThree,showCompFour} = state;
 
-  const [stateOne, dispatchOne] = useReducer(reducerOne, initStateOne);
-  const {isLoading, showGif, message, msgNumber, showCompOne,
-    showCompTwo, showCompThree, showCompFour, isMenuActive} = stateOne;
-
-  // const [menuActivated, setMenuActivated] = useState(false);
+  // API 
   const [userLocation, setUserLocation] = useState();
-
-
   const [selected, setSelected] = useState('about');
   const [uniqueVisits, setUniqueVisits] = useState();
   const [gitEvents, setGitEvents] = useState([]);
@@ -166,7 +112,7 @@ function App(){
   });
 
   useEffect(() => {
-    preload({dispatchOne});
+    preload({dispatch});
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getUserLocation({setUserLocation});
