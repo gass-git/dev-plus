@@ -164,7 +164,11 @@
     display: none !important;
   }
   .third-row .activity .left-side {
-    width: 90% !important;
+    width: 97% !important;
+    margin-left: 6px !important;
+    margin-top: 20px;
+    border-top: 1px solid rgb(255, 255, 255, 0.4) !important;
+    padding-top: 20px;
   }
   .third-row .activity .right-side {
     display: none;
