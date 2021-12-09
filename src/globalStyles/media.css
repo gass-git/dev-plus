@@ -263,7 +263,7 @@
   }
   .third-row .border-img {
     width: calc(100% - 38px) !important;
-    height: calc(100vh - 302px) !important;
+    height: calc(100vh - 340px) !important;
   }
   .third-row .inner-container {
     height: calc(100% + 29px) !important;
