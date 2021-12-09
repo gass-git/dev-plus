@@ -71,47 +71,80 @@
 }
 .activity .content .container {
   margin-top: 10px;
-  width: 95%;
-  /* border: 1px solid orange; */
+  margin-left: 7px;
+  width: 96%;
+  /*border: 1px solid orange;*/
 }
 .activity .block {
   text-decoration: none !important;
+  height: 30px;
   color: white !important;
   display: flex;
-  padding: 5px 5px 5px 10px;
   cursor: pointer;
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   border-bottom: 1px solid transparent;
-  /* border: 1px solid green; */
+  /*border: 1px solid green;*/
 }
 .activity .block:hover {
   border-bottom: 1px solid rgb(255, 255, 255, 0.4);
 }
+/*
+-- Latest on Stack Overflow --
+*/
 .activity .question {
   width: 75%;
+  height: 20px;
+  margin-top: 7px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   /*border: 1px solid green;*/
 }
 .activity .date {
-  width: 120px;
+  width: 110px;
+  height: 20px;
+  margin-top: 7px;
+  margin-left: 3px;
   /* border: 1px solid orange; */
 }
+/*
+-- Latest commits section --
+*/
 .activity .events-date {
-  width: 120px;
-  /* border: 1px solid orange; */
+  width: 110px;
+  height: 20px;
+  margin-top: 7px;
+  margin-left: 3px;
+  /*border: 1px solid orange;*/
 }
 .activity .commit {
-  width: 62%;
+  width: calc(75% - 110px);
+  height: 20px;
+  margin-top: 7px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  /* border: 1px solid green; */
+  /*border: 1px solid green;*/
 }
+.activity .repo-name {
+  width: 25%;
+  height: 20px;
+  margin-top: 7px;
+  text-transform: capitalize;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /*border: 1px solid green;*/
+}
+/*
+-- Writings section --
+*/
 .activity .post-title {
   width: 75%;
+  height: 20px;
+  margin-top: 7px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -123,13 +156,13 @@
 .activity .media-top-selector {
   display: none;
   position: relative;
-  height: 65px;
+  top: 8px;
+  height: 70px;
   width: 100%;
 }
 .activity .media-top-selector .option {
   position: relative;
   z-index: 2;
-  margin: 6px 0 6px 5px;
   width: 120px;
   height: 68px;
   cursor: pointer;
@@ -147,7 +180,7 @@
   top: 6px;
   left: 7px;
   height: 68px;
-  width: 120px;
+  width: 20%;
   border-radius: 2px;
   background: rgb(255, 255, 255, 0.3);
   transition: 300ms;
@@ -161,7 +194,4 @@
 }
 .activity .media-top-selector .pos-1 {
   transform: translateX(266px);
-}
-.activity .repo-name {
-  display: block;
 }

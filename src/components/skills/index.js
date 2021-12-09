@@ -29,7 +29,7 @@ export default function Skills({scores}) {
      *  The skills component when it gets resized to a smaller screen 
      *  less than 750px of width it will use the left-side container 
      *  to show CORE TECH and FRAMEWORKS AND LIBARIES.
-     *  If a use clicks down and then resizes the screen the skills
+     *  If a user clicks down and then resizes the screen the skills
      *  component will display the FRAMEWORKS AND LIBRARIES in both
      *  sides. To avoid this from happening the following function
      *  has been implemented.

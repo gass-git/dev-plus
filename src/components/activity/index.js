@@ -32,7 +32,7 @@ export default function Activity ({answers, gitEvents, posts}){
         <div className="container">
           {answers.map((data) => {
             let answer_id = data.answer_id,
-              answerURL = "https://stackoverflow.com/a/" + answer_id;
+                answerURL = "https://stackoverflow.com/a/" + answer_id;
             
             return [
               <a 
@@ -41,6 +41,7 @@ export default function Activity ({answers, gitEvents, posts}){
                 className="block" 
                 target="_blank" 
                 rel="noreferrer"
+                title="See on Stack Overflow"
               >
                 <div className="date">
                   <Date entry={data.creation_date} />
@@ -72,13 +73,20 @@ export default function Activity ({answers, gitEvents, posts}){
 
             date = date.slice(0,10);
             return [
-              <a key={event_id} href={repoURL} className='block' target="_blank" rel="noreferrer">
+              <a 
+                key={event_id} 
+                href={repoURL} 
+                className='block' 
+                target="_blank" 
+                rel="noreferrer" 
+                title="See details on GitHub"
+              >
                 <div className="events-date">
                   {date}
                 </div>
                 <div className="commit">{commit}</div>
                 {space}
-                <div className="repo-name">{repoName}</div>
+                <div className="repo-name" title="Repository name" >{repoName}</div>
               </a>
             ]
           })}

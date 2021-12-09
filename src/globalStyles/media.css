@@ -41,34 +41,23 @@
   .third-row .activity .right-side {
     width: 100px !important;
   }
-  .third-row .activity .events-date {
-    display: none !important;
-  }
 }
-@media (min-width: 420px) and (max-width: 749px) {
+@media (min-width: 500px) and (max-width: 750px) {
   .main-wrapper {
-    margin: 20px auto 30px auto;
-    width: 413px !important;
-    /*border: 1px solid white;*/
+    width: 450px !important;
   }
   .scroll-display .border-img {
     margin: 0 !important;
-    width: 375px !important;
+    width: 408px !important;
   }
   /* 
   -- Second row --
   */
   .second-row .main-menu .border-img {
-    width: 190px;
-  }
-  .second-row .main-menu .menu-wrapper .elevator {
-    width: 206px !important;
-  }
-  .second-row .main-menu .menu-wrapper .option {
-    width: 206px !important;
+    width: 222px;
   }
   .second-row .basic-info .border-img {
-    width: 144px !important;
+    width: 145px !important;
   }
   .second-row .basic-info .username-wrapper {
     display: none !important;
@@ -76,35 +65,259 @@
   .second-row .basic-info .info {
     display: none !important;
   }
-  /*
+  .second-row .main-menu .menu-wrapper .elevator {
+    width: 236px !important;
+  }
+  .second-row .main-menu .menu-wrapper .option {
+    width: 146px !important;
+  }
+  .second-row .main-menu .menu-wrapper .option {
+    width: 235px !important;
+    margin: 3px 6px 0px 5px !important;
+  }
+  /* 
   -- Third row --
   */
   .third-row .border-img {
-    width: 375px !important;
-    height: 270px;
+    width: 408px !important;
+    height: 330px !important;
   }
   .third-row .inner-container {
-    height: 299px !important;
-    /*border: 1px solid rgba(14, 16, 98, 0.4);*/
+    height: 358px;
   }
   .third-row .about .content {
-    width: 94%;
-    height: 210px !important;
-    margin: 25px auto 5px auto;
-    /*border: 1px solid white; */
+    height: 230px !important;
   }
-  .third-row .skills .content {
-    margin-top: 5px;
-    height: 220px !important;
-    width: 94%;
-    /*border: 1px solid white;*/
+  .third-row .skills .right-side {
+    display: none !important;
+  }
+  .third-row .skills .left-side {
+    width: 100%;
+    border-right: none !important;
   }
   .third-row .skills .sub-title {
     display: none !important;
   }
+  .third-row .skills .down-arrow-box {
+    display: block !important;
+  }
+  .third-row .skills .media-title {
+    display: block !important;
+  }
+  .third-row .projects .content {
+    display: inline-block !important;
+    width: 90% !important;
+    margin: 10px 5% 0 5% !important;
+    /*border: 1px solid white;*/
+  }
+  .third-row .projects .right-side {
+    display: none !important;
+  }
+  .third-row .projects .switcher-box {
+    display: flex !important;
+    width: 95% !important;
+    /*border: 1px solid white;*/
+  }
+  .third-row .projects .left-side .about {
+    letter-spacing: 1px !important;
+    line-height: 20px !important;
+    margin: 20px 0 !important;
+    /* border: 1px solid green; */
+  }
+  .third-row .projects .left-side .link {
+    margin-left: 0;
+    /*border: 1px solid white;*/
+  }
+  .third-row .projects .left-side .tags-wrapper {
+    margin-left: -5px;
+    margin-top: 20px;
+  }
+  .third-row .activity .content {
+    display: inline-block;
+  }
+  .third-row .activity .media-top-selector {
+    display: flex;
+    width: 97%;
+    margin: 0 auto;
+    justify-content: space-between;
+    /*border: 1px solid white;*/
+  }
+  .third-row .activity .media-top-selector .option {
+    /*border: 1px solid orange;*/
+  }
+  .third-row .activity .media-top-selector .wiggle {
+    top: 0;
+    width: 120px;
+  }
+  .third-row .activity .media-top-selector .pos-3 {
+    transform: translateX(-7px);
+  }
+  .third-row .activity .media-top-selector .pos-2 {
+    transform: translateX(142px);
+  }
+  .third-row .activity .media-top-selector .pos-1 {
+    transform: translateX(294px);
+  }
+  .third-row .activity .commit {
+    width: calc(100% - 110px);
+  }
+  .third-row .activity .repo-name {
+    display: none !important;
+  }
+  .third-row .activity .left-side {
+    width: 90% !important;
+  }
+  .third-row .activity .right-side {
+    display: none;
+  }
+}
+@media screen and (max-width: 499px) {
+  .main-wrapper {
+    top: 5px;
+    width: 98% !important;
+    /*border: 1px solid white;*/
+  }
+  .scroll-display .border-img {
+    margin: 0 !important;
+    width: calc(100% - 38px) !important;
+  }
+  /* 
+  -- Second row --
+  */
+  .second-row {
+    /*border: 1px solid white;*/
+  }
+  .second-row .left-side {
+    width: calc(100% - 190px) !important;
+    /*border: 1px solid pink;*/
+  }
+  .second-row .main-menu .border-img {
+    height: 142px !important;
+  }
+  .second-row .main-menu .inner-container {
+    height: 167px !important;
+  }
+  .second-row .main-menu .menu-wrapper {
+    margin: 3px 5px 3px 5px;
+    height: 95% !important;
+    width: 95% !important;
+    font-size: 20px !important;
+    /*border: 1px solid white;*/
+  }
+  .second-row .main-menu .menu-wrapper .elevator {
+    min-width: 98% !important;
+    left: 1% !important;
+    height: 35px !important;
+  }
+  .second-row .main-menu .menu-wrapper .option {
+    min-width: 98% !important;
+    margin: 3px 1% 0 1% !important;
+    padding: 3px 0 6px 0 !important;
+  }
+  .second-row .right-side {
+    width: 190px !important;
+    /*border: 1px solid yellow;*/
+  }
+  .second-row .basic-info .border-img {
+    width: calc(100% - 38px) !important;
+    height: 142px !important;
+  }
+  .basic-info .inner-container {
+    height: 170px !important;
+  }
+  .basic-info .avatar-wrapper {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    min-width: 166px !important;
+    height: 160px !important;
+  }
+  .second-row .basic-info .avatar-wrapper img {
+    opacity: 1;
+    height: 180px !important;
+    width: 180px !important;
+  }
+  .second-row .main-menu .border-img {
+    width: calc(100% - 38px) !important;
+  }
+  .second-row .basic-info .username-wrapper {
+    display: none !important;
+  }
+  .second-row .basic-info .info {
+    display: none !important;
+  }
+  .second-row .main-menu .menu-wrapper .elevator {
+    width: 146px !important;
+  }
+  .second-row .main-menu .menu-wrapper .option {
+    width: 146px !important;
+  }
+  /*
+  -- Third row --
+  */
+  .third-row {
+    width: 100% !important;
+    height: calc(100vh - 280px) !important;
+    display: block !important;
+    /*border: 1px solid yellow;*/
+  }
+  .third-row .border-img {
+    width: calc(100% - 38px) !important;
+    height: calc(100vh - 302px) !important;
+  }
+  .third-row .inner-container {
+    height: calc(100% + 29px) !important;
+  }
+  .third-row .about .content {
+    width: 90%;
+    height: calc(100vh - 400px) !important;
+    min-height: 280px;
+    line-height: 30px !important;
+    margin: 25px auto 5px auto;
+    font-size: 17px !important;
+    /*border: 1px solid white;*/
+  }
+  .third-row .skills .content {
+    margin-top: 15px;
+    height: calc(100vh - 400px) !important;
+    min-height: 300px !important;
+    width: 94%;
+    /* border: 1px solid white;*/
+  }
+  .third-row .skills .sub-title {
+    display: none !important;
+  }
+  .third-row .skills .media-title {
+    display: none !important;
+    margin-bottom: 20px !important;
+    font-size: 19px !important;
+  }
   .third-row .skills .skills-wrapper {
     width: 100% !important;
     margin: 0 !important;
+    /*border: 1px solid white;*/
+  }
+  .third-row .skills .block {
+    margin-top: 5px;
+    border-radius: 2px;
+    height: 45px;
+    padding: 1px 15px 2px 7px;
+    color: white;
+    text-decoration: none transparent;
+    border: 1px solid transparent;
+  }
+  .third-row .skills .name {
+    font-size: 18px !important;
+    margin: 7px 0 0 15px;
+    display: inline-block;
+    width: 80%;
+  }
+  .third-row .skills .score {
+    text-align: right;
+    margin-top: 6px;
+    display: inline-block;
+    font-size: 18px;
+    width: 8%;
   }
   .third-row .skills .media-title {
     display: block !important;
@@ -123,217 +336,154 @@
     display: inline-block !important;
   }
   .third-row .activity .left-side {
-    width: 388px !important;
+    width: 97% !important;
+    height: 250px;
     margin-left: 6px !important;
     margin-top: 20px;
     border-top: 1px solid rgb(255, 255, 255, 0.4) !important;
     padding-top: 20px;
+    /*border: 1px solid white;*/
+  }
+  .third-row .activity .sub-title {
+    padding: 4px 0 7px 8px !important;
+  }
+  .activity .block {
+    height: 37px !important;
   }
   .third-row .activity .question {
     width: 100% !important;
+    height: 30px;
+    padding-top: 8px;
+    padding-left: 2px;
+    padding-right: 2px;
+    /*border: 1px solid white;*/
+  }
+  .third-row .activity .commit {
+    width: 70%;
+    height: 30px;
+    padding-top: 8px;
+  }
+  .third-row .activity .repo-name {
+    width: 30%;
+    height: 30px;
+    padding-top: 8px;
   }
   .third-row .activity .post-title {
     width: 100% !important;
+    height: 30px;
+    padding-top: 8px;
   }
   .third-row .activity .right-side {
     display: none !important;
   }
   .third-row .activity .media-top-selector {
     display: flex !important;
-  }
-  .third-row .activity .date {
-    display: none !important;
-  }
-  .third-row .activity .events-date {
-    display: none !important;
-  }
-  .third-row .projects .content {
-    display: inline-block !important;
-  }
-  .third-row .projects .switcher-box {
-    display: flex !important;
-  }
-  .third-row .projects .right-side {
-    display: none !important;
-  }
-  .third-row .projects .left-side .about {
-    letter-spacing: 0px !important;
-    line-height: 20px !important;
-    /* border: 1px solid green; */
-  }
-  .third-row .projects .left-side {
-    width: 94%;
-    margin: 0 auto !important;
-  }
-  .third-row .projects .left-side .about {
-    margin-top: 10px;
-  }
-}
-@media screen and (max-width: 419px) {
-  .main-wrapper {
-    margin: 10px auto 0px auto;
-    width: 350px !important;
+    left: 10px !important;
+    width: 95%;
+    justify-content: space-between;
     /*border: 1px solid white;*/
-  }
-  .scroll-display .border-img {
-    margin: 0 !important;
-    width: 312px !important;
-  }
-  /* 
-  -- Second row --
-  */
-  .second-row .main-menu .border-img {
-    width: 127px;
-  }
-  .second-row .main-menu .menu-wrapper .elevator {
-    width: 143px !important;
-  }
-  .second-row .main-menu .menu-wrapper .option {
-    width: 143px !important;
-  }
-  .second-row .basic-info .border-img {
-    width: 144px !important;
-  }
-  .second-row .basic-info .username-wrapper {
-    display: none !important;
-  }
-  .second-row .basic-info .info {
-    display: none !important;
-  }
-  /*
-  -- Third row --
-  */
-  .third-row .border-img {
-    width: 312px !important;
-    height: 330px;
-  }
-  .third-row .inner-container {
-    height: 359px !important;
-    /*border: 1px solid rgba(14, 16, 98, 0.4);*/
-  }
-  .third-row .about .content {
-    width: 94%;
-    height: 270px !important;
-    margin: 25px auto 5px auto;
-    /*border: 1px solid white; */
-  }
-  .third-row .skills .content {
-    margin-top: 5px;
-    height: 220px !important;
-    width: 94%;
-    /*border: 1px solid white;*/
-  }
-  .skills .skills-wrapper {
-    width: 100% !important;
-    margin: 0 !important;
-  }
-  .skills .media-title {
-    display: block !important;
-    margin-top: 10px;
-    margin-bottom: 25px !important;
-    /*border-bottom: 1px solid rgb(255, 255, 255, 0.5);*/
-  }
-  .third-row .skills .sub-title {
-    display: none !important;
-  }
-  .third-row .skills .right-side {
-    display: none !important;
-  }
-  .third-row .skills .left-side {
-    width: 100% !important;
-    border-right: none !important;
-  }
-  .third-row .skills .down-arrow-box {
-    display: block !important;
-    margin-top: 50px !important;
-    /*border: 1px solid white !important;*/
-  }
-  .third-row .activity .content {
-    display: inline-block !important;
-  }
-  .third-row .activity .left-side {
-    width: 388px !important;
-    margin-left: 6px !important;
-    margin-top: 20px;
-    border-top: 1px solid rgb(255, 255, 255, 0.4) !important;
-    padding-top: 20px;
   }
   .third-row .activity .media-top-selector .option {
-    position: relative;
-    z-index: 2;
-    margin: 6px 0 6px 5px;
-    width: 100px !important;
-    height: 68px;
-    cursor: pointer;
+    width: 28% !important;
+    margin: 0 !important;
     font-size: 45px;
     text-align: center;
     border-radius: 2px;
-    /* border: 1px solid rgba(208, 255, 0, 1); */
+    /*border: 1px solid rgba(208, 255, 0, 1);*/
   }
-  .third-row .activity .media-top-selector .wiggle {
-    position: absolute;
-    z-index: 1;
-    top: 6px;
-    left: 7px;
-    height: 68px;
-    width: 99px;
-    border-radius: 2px;
-    background: rgb(255, 255, 255, 0.3);
-    transition: 300ms;
-    border: 1px solid rgba(208, 255, 0, 0.1);
+  .activity .media-top-selector .wiggle {
+    width: 28% !important;
+    top: 0px !important;
   }
-  .third-row .activity .media-top-selector .pos-3 {
-    transform: translateX(-2px);
+  .activity .media-top-selector .pos-3 {
+    transform: translateX(-5%) !important;
   }
-  .third-row .activity .media-top-selector .pos-2 {
-    transform: translateX(112px);
+  .activity .media-top-selector .pos-2 {
+    transform: translateX(120%) !important;
   }
-  .third-row .activity .media-top-selector .pos-1 {
-    transform: translateX(227px);
-  }
-  .third-row .activity .question {
-    width: 310px !important;
-  }
-  .third-row .activity .post-title {
-    width: 310px !important;
-  }
-  .third-row .activity .right-side {
-    display: none !important;
-  }
-  .third-row .activity .media-top-selector {
-    display: flex !important;
+  .activity .media-top-selector .pos-1 {
+    transform: translateX(245%) !important;
   }
   .third-row .activity .date {
     display: none !important;
   }
-  .third-row .activity .commit {
-    width: 310px !important;
-  }
   .third-row .activity .events-date {
-    display: none !important;
-  }
-  .third-row .activity .repo-name {
     display: none !important;
   }
   .third-row .projects .content {
     display: inline-block !important;
+    width: 90%;
+    margin: 20px 5% 0 5% !important;
+    /*border: 1px solid white;*/
   }
   .third-row .projects .switcher-box {
+    padding-top: 5px;
     display: flex !important;
+    width: 100% !important;
+    margin: 0 !important;
+    text-transform: capitalize;
+    /*border: 1px solid white;*/
   }
   .third-row .projects .right-side {
     display: none !important;
   }
   .third-row .projects .left-side {
-    width: 94%;
-    margin: 0 auto !important;
+    width: 100%;
+    margin: 0 !important;
+    /*border: 1px solid orange;*/
   }
   .third-row .projects .left-side .about {
-    letter-spacing: 0px !important;
-    line-height: 20px !important;
-    /* border: 1px solid green; */
+    width: 100% !important;
+    margin: 20px 0 !important;
+    letter-spacing: 1px !important;
+    line-height: 22px !important;
+    /*border: 1px solid green;*/
   }
   .third-row .projects .left-side .about {
     margin-top: 10px;
+    /*border: 1px solid white;*/
+  }
+  .third-row .projects .left-side .link {
+    margin-left: 0px;
+    margin-top: 30px !important;
+    /*border: 1px solid white;*/
+  }
+  .third-row .projects .left-side .tags-wrapper {
+    margin-top: 25px !important;
+    margin-left: -5px !important;
+    /*border: 1px solid white;*/
+  }
+  .projects .left-side .tag {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 385px) {
+  .third-row .activity .media-top-selector {
+    display: flex !important;
+    left: 10px !important;
+    width: 94%;
+    justify-content: space-between;
+    /*border: 1px solid white;*/
+  }
+  .third-row .activity .media-top-selector .option {
+    width: 28% !important;
+    margin: 0 !important;
+    font-size: 45px;
+    text-align: center;
+    border-radius: 2px;
+    /*border: 1px solid rgba(208, 255, 0, 1);*/
+  }
+  .activity .media-top-selector .wiggle {
+    width: 28% !important;
+    top: 0px !important;
+  }
+  .activity .media-top-selector .pos-3 {
+    transform: translateX(-6%) !important;
+  }
+  .activity .media-top-selector .pos-2 {
+    transform: translateX(119%) !important;
+  }
+  .activity .media-top-selector .pos-1 {
+    transform: translateX(244%) !important;
   }
 }
