@@ -270,7 +270,7 @@
   }
   .third-row .about .content {
     width: 90%;
-    height: calc(100vh - 400px) !important;
+    height: calc(100vh - 430px) !important;
     min-height: 280px;
     line-height: 30px !important;
     margin: 25px auto 5px auto;
