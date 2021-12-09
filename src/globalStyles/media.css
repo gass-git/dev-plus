@@ -204,9 +204,9 @@
     /*border: 1px solid white;*/
   }
   .second-row .main-menu .menu-wrapper .elevator {
-    min-width: 98% !important;
-    left: 1% !important;
-    right: 1%;
+    min-width: 99.5% !important;
+    left: 0px !important;
+    right: 0px;
     height: 35px !important;
   }
   .second-row .main-menu .menu-wrapper .floor-4 {
@@ -474,9 +474,9 @@
 }
 @media screen and (max-width: 411px) {
   .second-row .main-menu .menu-wrapper .elevator {
-    min-width: 96% !important;
-    left: 1% !important;
-    right: 1%;
+    min-width: 98% !important;
+    left: 0px !important;
+    right: 0px;
     height: 35px !important;
   }
   .third-row .activity .media-top-selector {
