@@ -67,7 +67,7 @@
   text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   margin: 3px auto 0px auto;
-  width: 175px;
+  width: 173px;
   padding: 5px 0 5px 0;
   text-align: center;
   cursor: pointer;
@@ -75,7 +75,6 @@
 }
 .main-menu .menu-wrapper .option:hover {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(208, 255, 0, 0);
 }
 .main-menu .label {
   width: 100%;

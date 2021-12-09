@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/coffee-favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta id="vp" name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
@@ -14,4 +14,12 @@
   <body>
     <div id="root"/>
   </body>
+  <script>
+    window.onload = function() {
+        if (screen.width < 443) {
+            var mvp = document.getElementById('vp');
+            mvp.setAttribute('content','user-scalable=no,width=370');
+        }
+    }
+    </script> 
 </html>

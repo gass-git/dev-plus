@@ -66,14 +66,13 @@
     display: none !important;
   }
   .second-row .main-menu .menu-wrapper .elevator {
-    width: 236px !important;
+    width: 237px !important;
   }
   .second-row .main-menu .menu-wrapper .option {
     width: 146px !important;
   }
-  .second-row .main-menu .menu-wrapper .option {
-    width: 235px !important;
-    margin: 3px 6px 0px 5px !important;
+  .second-row .main-menu .menu-wrapper .option:hover {
+    background: transparent;
   }
   /* 
   -- Third row --
@@ -207,12 +206,28 @@
   .second-row .main-menu .menu-wrapper .elevator {
     min-width: 98% !important;
     left: 1% !important;
+    right: 1%;
     height: 35px !important;
+  }
+  .second-row .main-menu .menu-wrapper .floor-4 {
+    transform: translateY(-1px) !important;
+  }
+  .second-row .menu-wrapper .floor-3 {
+    transform: translateY(38px) !important;
+  }
+  .second-row .menu-wrapper .floor-2 {
+    transform: translateY(78px) !important;
+  }
+  .second-row .menu-wrapper .floor-1 {
+    transform: translateY(116px) !important;
   }
   .second-row .main-menu .menu-wrapper .option {
     min-width: 98% !important;
     margin: 3px 1% 0 1% !important;
     padding: 3px 0 6px 0 !important;
+  }
+  .second-row .main-menu .menu-wrapper .option:hover {
+    background: transparent;
   }
   .second-row .right-side {
     width: 190px !important;
@@ -457,7 +472,13 @@
     font-size: 15px;
   }
 }
-@media screen and (max-width: 385px) {
+@media screen and (max-width: 411px) {
+  .second-row .main-menu .menu-wrapper .elevator {
+    min-width: 96% !important;
+    left: 1% !important;
+    right: 1%;
+    height: 35px !important;
+  }
   .third-row .activity .media-top-selector {
     display: flex !important;
     left: 10px !important;
