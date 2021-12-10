@@ -450,7 +450,7 @@
     width: 100% !important;
     margin: 0 !important;
     text-transform: capitalize;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
   }
   .third-row .projects .right-side {
     display: none !important;
