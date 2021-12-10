@@ -13,7 +13,7 @@ export default function ScrollDisplay ({
     let messages = [
         <Fragment> 
             Welcome internet surfer from {userLocation ? userLocation : "Planet Earth"}!
-            I'm glad that you came by.. Feel free to take a look around...
+            I'm glad that you came by, feel free to take a look around...
         </Fragment>,
        <Fragment> 
             Last Github commit - {lastCommit.message} (repo: {lastCommit.repo}) 
