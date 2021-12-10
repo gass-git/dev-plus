@@ -1,3 +1,6 @@
+/*
+-- Width @media
+*/
 @media (min-width: 750px) and (max-width: 900px) {
   .main-wrapper {
     width: 700px !important;
@@ -515,5 +518,72 @@
   }
   .activity .media-top-selector .pos-1 {
     transform: translateX(244%) !important;
+  }
+}
+/*
+-- Height @media
+*/
+@media screen and (max-height: 667px) {
+  .third-row .about .content {
+    width: 90%;
+    height: calc(100vh - 430px) !important;
+    min-height: 230px;
+    line-height: 25px !important;
+    margin: 25px auto 5px auto;
+    font-size: 16px !important;
+    /*border: 1px solid white;*/
+  }
+  .third-row .skills .content {
+    margin-top: 10px;
+    min-height: 140px !important;
+    width: 94%;
+    /*border: 1px solid white;*/
+  }
+  .third-row .skills .media-title {
+    margin-bottom: 10px !important;
+    font-size: 18px !important;
+  }
+  .third-row .skills .block {
+    margin-top: 5px;
+    border-radius: 2px;
+    height: 35px;
+    padding: 1px 15px 2px 7px;
+    color: white;
+    text-decoration: none transparent;
+    border: 1px solid transparent;
+  }
+  .third-row .skills .name {
+    font-size: 17px !important;
+    margin: 7px 0 0 15px;
+    display: inline-block;
+    width: 80%;
+  }
+  .third-row .skills .score {
+    text-align: right;
+    margin-top: 6px;
+    display: inline-block;
+    font-size: 18px;
+    width: 8%;
+  }
+  .third-row .projects .content {
+    display: inline-block !important;
+    width: 90%;
+    margin: 15px 5% 0 5% !important;
+    /*border: 1px solid white;*/
+  }
+  .third-row .projects .left-side .about {
+    width: 100% !important;
+    margin: 12px 0 !important;
+    letter-spacing: 1px !important;
+    line-height: 22px !important;
+    /*border: 1px solid green;*/
+  }
+  .third-row .projects .left-side .link {
+    margin-left: 0px;
+    margin-top: 20px !important;
+    /*border: 1px solid white;*/
+  }
+  .third-row .projects .left-side .tags-wrapper {
+    display: none !important;
   }
 }
