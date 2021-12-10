@@ -149,6 +149,7 @@
   margin-top: 5px;
   margin-left: 10px;
   margin-right: 10px;
+  justify-content: space-between;
   /*border: 1px solid white;*/
 }
 .projects .switcher-box .arrow-left {
@@ -162,7 +163,7 @@
   margin-top: 10px;
   font-size: 18px;
   text-align: center;
-
+  text-transform: capitalize;
   /* border: 1px solid white; */
 }
 .projects .switcher-box .arrow-right {
