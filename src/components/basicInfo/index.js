@@ -3,7 +3,7 @@ import ReactTooltip from "react-tooltip";
 import './basicInfo.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
-import Glitch from './glitch';
+import avatar from  "../../assets/images/avatar7.png"
 
 export default function BasicInfo ({reputation, avatarGlitch}) {
   return [
@@ -13,7 +13,7 @@ export default function BasicInfo ({reputation, avatarGlitch}) {
         <div className="inner-container">
         
           <div className="avatar-wrapper">
-            <Glitch avatarGlitch={avatarGlitch}/>
+            <img src={avatar} alt="" />
           </div>
             
           <ReactTooltip/>

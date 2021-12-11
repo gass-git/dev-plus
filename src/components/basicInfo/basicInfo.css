@@ -34,7 +34,8 @@
   background: rgb(255, 255, 255, 0.2);
 }
 .basic-info .avatar-wrapper img {
-  opacity: 1;
+  margin-top: -10px;
+  opacity: 0.9;
   height: 160px;
   width: 160px;
 }
