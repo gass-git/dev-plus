@@ -9,6 +9,9 @@ import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
 import {getRepos, getGitEvents} from './api/github';
 import {processVisit, getUniqueVisits, getUserLocation} from './api/visits';
 import getWritings from './api/getWritings';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 // Components
 import Activity from './components/activity/index';
@@ -18,11 +21,11 @@ import BasicInfo from './components/basicInfo/index';
 import Projects from './components/projects/index';
 import Skills from './components/skills/index';
 import About from './components/about/index';
+import aos from 'aos';
 
 export default function App(){
   const [state, dispatch] = useReducer(reducer, initState);
-  const {isLoading, showGif, message, msgNumber, isMenuActive} = state;
-  const {showCompOne, showCompTwo,showCompThree,showCompFour} = state;
+  const {isLoading, showBackground, isMenuActive} = state;
 
   // API 
   const [userLocation, setUserLocation] = useState();
@@ -49,28 +52,8 @@ export default function App(){
   const [msgIndex, setMsgIndex] = useState(0);
   var maxIndex = 4, scrollerDelay = 20; // Duration in seconds 
 
-  // Transitions
-  const transitionOne = useTransition(showCompOne, {
-    from: { x: 0, y: -100, opacity: 0},
-    enter: { x:0, y:0, opacity:1}
-  });
-  const transitionTwo = useTransition(showCompTwo, {
-    from: { x: -100, y: 800, opacity: 0},
-    enter: item => async(next) => {
-      await next({ x:-100, y:0, opacity:1});
-      await next({ x:0 });
-    }
-  });
-  const transitionThree = useTransition(showCompThree, {
-    from: { x: 800, y: 0, opacity: 0},
-    enter: { x:0, y:0, opacity:1}
-  });
-  const transitionFour = useTransition(showCompFour, {
-    from: { x: 0, y: 600, opacity: 0},
-    enter: { x:0, y:0, opacity:1}
-  });
-
   useEffect(() => {
+    AOS.init();
     preload({dispatch});
     processVisit();
     getUniqueVisits({setUniqueVisits});
@@ -120,25 +103,14 @@ export default function App(){
   return [
     <Fragment key="main-component-identifier">
       {/* -- Background image -- not wrapper -- */}
-      <div className={showCompFour ? "bg-image" : null } />
-
-      {/* -- Preloader -- */}
-      <main className={isLoading ? "loader" : "no-loader"}>
-        <section className="center-wrapper">
-          <div className="gif-frame">
-            {showGif ? <img src={wizard} alt="Wizard gif"/> : null}
-          </div>
-          { preloadMessages({message, msgNumber})}
-        </section>    
-      </main>
+      <div className={showBackground ? "bg-image" : null}/>
 
       {/* -- Main wrapper -- */}
-      <main className={isLoading ? null : "main-wrapper"}>
+      <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="700">
         
         {/* -- First row -- */} 
-        {transitionOne((style, item) => 
-            item ? 
-            <animated.div key="animation-one" style={style} className="first-row">
+  
+            <div className="first-row">
               <ScrollDisplay 
                 scrollerSwitch={scrollerSwitch}
                 lastCommit={lastCommit}
@@ -148,39 +120,30 @@ export default function App(){
                 uniqueVisits={uniqueVisits}
                 userLocation={userLocation}
               />
-            </animated.div>
-            :
-            null
-        )}
+            </div>
+            
 
         {/* -- Second row -- */}
         <section className="second-row">
-          {transitionTwo((style, item) => 
-            item ? 
-            <animated.div key="animation-two" style={style} className="left-side">
+          
+            <div  className="left-side">
               <MainMenu 
                 setSelected={setSelected}
                 isMenuActive={isMenuActive}
               />
-            </animated.div>
-            : 
-            null
-          )}
-          {transitionThree((style, item) => 
-            item ? 
-            <animated.div key="animation-three" style={style} className="right-side">
+            </div>
+            
+          
+            <div  className="right-side">
               <BasicInfo reputation={reputation} avatarGlitch={avatarGlitch}/>
-            </animated.div>
-            : 
-            null
-          )}
+            </div>
+            
         </section>
 
         {/* -- Third row -- */}
         <section className="third-row">
-          {transitionFour((style, item) => 
-            item ? 
-            <animated.div key="animation-four" style={style} className="content-display">
+          
+            <div  className="content-display">
               <div className="border-img">
                 <div className="inner-container">
                   {selected === "about" ? <About /> : null}
@@ -189,10 +152,8 @@ export default function App(){
                   {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} posts={posts} /> : null}
                 </div>
               </div>
-            </animated.div>
-              : 
-              null
-          )}
+            </div>
+              
         </section>
       </main>      
     </Fragment>

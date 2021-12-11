@@ -12,8 +12,8 @@ export default function ScrollDisplay ({
 }) {
     let messages = [
         <Fragment> 
-            Welcome internet surfer from {userLocation ? userLocation : "Planet Earth"}!
-            I'm glad that you came by, feel free to take a look around...
+            Welcome visitor from {userLocation ? userLocation : "Planet Earth"}!
+            I'm glad you came by, feel free to take a look around...
         </Fragment>,
        <Fragment> 
             Last Github commit - {lastCommit.message} (repo: {lastCommit.repo}) 
@@ -26,7 +26,7 @@ export default function ScrollDisplay ({
             Last on Stack Overflow - {lastAnswer} 
         </Fragment>,
         <Fragment>
-            Unique visitors to date: {uniqueVisits} 
+            Unique visitors to date: {uniqueVisits} and counting... 
         </Fragment>
     ];
 
