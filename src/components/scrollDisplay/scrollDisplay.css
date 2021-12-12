@@ -14,10 +14,10 @@
   border-radius: 2px;
   background: repeating-linear-gradient(
     0deg,
-    rgb(17, 60, 252, 0.6),
-    rgb(17, 60, 252, 0.6) 1px,
-    rgb(25, 52, 152, 0.7) 2px,
-    rgb(25, 52, 152, 0.7) 3px
+    rgb(17, 60, 252, 0.8),
+    rgb(17, 60, 252, 0.8) 1px,
+    rgb(25, 52, 152, 0.9) 2px,
+    rgb(25, 52, 152, 0.9) 3px
   );
   border: 1px solid rgba(14, 16, 98, 0.4);
 }

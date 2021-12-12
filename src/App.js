@@ -1,5 +1,6 @@
 import React, {useState, useEffect, Fragment } from 'react';
 import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // APIs
 import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
@@ -17,8 +18,6 @@ import Skills from './components/skills/index';
 import About from './components/about/index';
 
 export default function App(){
-  const [showBg, setShowBg] = useState(false);
-
   // API 
   const [userLocation, setUserLocation] = useState(),
         [selected, setSelected] = useState('about'),
@@ -52,7 +51,6 @@ export default function App(){
     getAnswers({setAnswers, setLastAnswer});
     getGitEvents({setGitEvents, setLastCommit});
     getSkillScores({setScores});
-    setTimeout(() => {setShowBg(true)}, 500);
   }, []);
 
   useEffect(() => {
@@ -72,10 +70,10 @@ export default function App(){
   return [
     <Fragment key="main-component-identifier">
       {/* -- Background image -- not wrapper -- */}
-      <div className={showBg ? "bg-image" : null}/>
+      {/*<div className={showBg ? "bg-image" : null}/>*/}
 
       {/* -- Main wrapper -- */}
-      <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="500">
+      <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="900">
         
         {/* -- First row -- */} 
         <div className="first-row">

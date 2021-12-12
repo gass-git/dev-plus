@@ -17,10 +17,10 @@
   margin: -14px -13px 0 -13px;
   background: repeating-linear-gradient(
     0deg,
-    rgb(17, 60, 252, 0.6),
-    rgb(17, 60, 252, 0.6) 1px,
-    rgb(25, 52, 152, 0.7) 2px,
-    rgb(25, 52, 152, 0.7) 3px
+    rgb(17, 60, 252, 0.8),
+    rgb(17, 60, 252, 0.8) 1px,
+    rgb(25, 52, 152, 0.9) 2px,
+    rgb(25, 52, 152, 0.9) 3px
   );
   overflow: hidden;
 }
