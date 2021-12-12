@@ -262,8 +262,8 @@
   }
   .second-row .basic-info .avatar-wrapper img {
     opacity: 1;
-    height: 180px !important;
-    width: 180px !important;
+    height: 170px !important;
+    width: 170px !important;
   }
   .second-row .main-menu .border-img {
     width: calc(100% - 38px) !important;
