@@ -73,7 +73,7 @@ export default function App(){
       {/*<div className={showBg ? "bg-image" : null}/>*/}
 
       {/* -- Main wrapper -- */}
-      <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="900">
+      <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="500">
         
         {/* -- First row -- */} 
         <div className="first-row">
