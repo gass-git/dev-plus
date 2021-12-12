@@ -3,7 +3,7 @@ import './mainMenu.css';
 import useSound from "use-sound";
 import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
-export default function MainMenu ({setSelected, isMenuActive}) {
+export default function MainMenu ({setSelected}) {
   const [floorNumber, setFloorNumber] = useState(4),
         [playSwitchSound] = useSound(selectionSound, {volume: 1});
 
@@ -46,7 +46,7 @@ export default function MainMenu ({setSelected, isMenuActive}) {
             </div>
 
             {/* -- Elevator -- */}
-            <div className={isMenuActive ? `elevator floor-${floorNumber}` : null}>
+            <div className={`elevator floor-${floorNumber}`}>
             </div>
             {/* -------------- */}
 

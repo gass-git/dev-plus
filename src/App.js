@@ -1,17 +1,11 @@
-import React, {useState, useEffect, useReducer, Fragment } from 'react';
-import {useTransition, animated} from 'react-spring';
-import wizard from  "./assets/images/wizard-v6.gif"
-import {preload, preloadMessages} from './preload';
-import {reducer, initState} from './reducer';
+import React, {useState, useEffect, Fragment } from 'react';
+import AOS from 'aos';
 
 // APIs
 import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
 import {getRepos, getGitEvents} from './api/github';
 import {processVisit, getUniqueVisits, getUserLocation} from './api/visits';
 import getWritings from './api/getWritings';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
 
 // Components
 import Activity from './components/activity/index';
@@ -21,40 +15,34 @@ import BasicInfo from './components/basicInfo/index';
 import Projects from './components/projects/index';
 import Skills from './components/skills/index';
 import About from './components/about/index';
-import aos from 'aos';
 
 export default function App(){
-  const [state, dispatch] = useReducer(reducer, initState);
-  const {isLoading, showBackground, isMenuActive} = state;
+  const [showBg, setShowBg] = useState(false);
 
   // API 
-  const [userLocation, setUserLocation] = useState();
-  const [selected, setSelected] = useState('about');
-  const [uniqueVisits, setUniqueVisits] = useState();
-  const [gitEvents, setGitEvents] = useState([]);
-  const [repos, setRepos] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [lastPost, setLastPost] = useState([]);
-
-  // Avatar glitch effect
-  const [avatarGlitch, setAvatarGlitch] = useState(true);
-  var glitchDuration = 5; // Duration in seconds 
+  const [userLocation, setUserLocation] = useState(),
+        [selected, setSelected] = useState('about'),
+        [uniqueVisits, setUniqueVisits] = useState(),
+        [gitEvents, setGitEvents] = useState([]),
+        [repos, setRepos] = useState([]),
+        [posts, setPosts] = useState([]),
+        [lastPost, setLastPost] = useState([]);
 
   // Stack Overflow variables
-  const [reputation, setReputation] = useState([]);
-  const [answers, setAnswers] = useState([]);
-  const [scores, setScores] = useState([]);
+  const [reputation, setReputation] = useState([]),
+        [answers, setAnswers] = useState([]),
+        [scores, setScores] = useState([]);
 
   // ScrollDisplay variables
-  const [scrollerSwitch, setScrollerSwitch] = useState('on');
-  const [lastCommit, setLastCommit] = useState([]);
-  const [lastAnswer, setLastAnswer] = useState(); 
-  const [msgIndex, setMsgIndex] = useState(0);
-  var maxIndex = 4, scrollerDelay = 20; // Duration in seconds 
+  var scrollerDelay = 20; // Duration in seconds 
+  const [scrollerSwitch, setScrollerSwitch] = useState('on'),
+        [lastCommit, setLastCommit] = useState([]),
+        [lastAnswer, setLastAnswer] = useState(),
+        [msgIndex, setMsgIndex] = useState(0),
+        maxIndex = 4;
 
   useEffect(() => {
     AOS.init();
-    preload({dispatch});
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getUserLocation({setUserLocation});
@@ -64,85 +52,59 @@ export default function App(){
     getAnswers({setAnswers, setLastAnswer});
     getGitEvents({setGitEvents, setLastCommit});
     getSkillScores({setScores});
+    setTimeout(() => {setShowBg(true)}, 500);
   }, []);
 
   useEffect(() => {
     var interval = setInterval(() => {
-      
-      // Turn off scroller to make changes
-      setScrollerSwitch('off')
-      
-      // This changes the message to be displayed
+      setScrollerSwitch('off'); 
+
+      // Switch to the next message
       msgIndex < maxIndex ? setMsgIndex(msgIndex + 1) : setMsgIndex(0);
       
       // Once changes have been made turn scroller back on
-      setTimeout(()=>{
-        setScrollerSwitch('on');
-      }, 1000)
-      
-      // --- Avatar glitch effect ---
-      // msRange: generate random number inside this range
-      var msRange = (scrollerDelay - 7) * 1000,
-        random = Math.random() * msRange;
-     
-      // Turn glitch effect on
-      setTimeout(() => {
-        setAvatarGlitch(true);
-      }, random)
-
-      // Turn glitch effect off after glitch duration
-      setTimeout(() => {
-        setAvatarGlitch(false);
-      }, random + glitchDuration * 1000)
-
-    }, scrollerDelay * 1000 + 1000);
-
+      setTimeout(()=>{setScrollerSwitch('on')}, 500);
+    }, scrollerDelay * 1000 + 500);
+    
     return () => clearInterval(interval);
   });
 
   return [
     <Fragment key="main-component-identifier">
       {/* -- Background image -- not wrapper -- */}
-      <div className={showBackground ? "bg-image" : null}/>
+      <div className={showBg ? "bg-image" : null}/>
 
       {/* -- Main wrapper -- */}
-      <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="700">
+      <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="500">
         
         {/* -- First row -- */} 
-  
-            <div className="first-row">
-              <ScrollDisplay 
-                scrollerSwitch={scrollerSwitch}
-                lastCommit={lastCommit}
-                lastAnswer={lastAnswer}
-                lastPost={lastPost}
-                msgIndex={msgIndex}
-                uniqueVisits={uniqueVisits}
-                userLocation={userLocation}
-              />
-            </div>
+        <div className="first-row">
+          <ScrollDisplay 
+            scrollerSwitch={scrollerSwitch}
+            lastCommit={lastCommit}
+            lastAnswer={lastAnswer}
+            lastPost={lastPost}
+            msgIndex={msgIndex}
+            uniqueVisits={uniqueVisits}
+            userLocation={userLocation}
+          />
+        </div>
             
-
         {/* -- Second row -- */}
         <section className="second-row">
           
-            <div  className="left-side">
-              <MainMenu 
-                setSelected={setSelected}
-                isMenuActive={isMenuActive}
-              />
-            </div>
+          <div  className="left-side">
+            <MainMenu setSelected={setSelected}/>
+          </div>
             
-          
-            <div  className="right-side">
-              <BasicInfo reputation={reputation} avatarGlitch={avatarGlitch}/>
-            </div>
+          <div  className="right-side">
+            <BasicInfo reputation={reputation} />
+          </div>
             
         </section>
 
         {/* -- Third row -- */}
         <section className="third-row">
-          
             <div  className="content-display">
               <div className="border-img">
                 <div className="inner-container">
@@ -153,7 +115,6 @@ export default function App(){
                 </div>
               </div>
             </div>
-              
         </section>
       </main>      
     </Fragment>
