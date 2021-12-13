@@ -235,9 +235,9 @@
     transform: translateY(117px) !important;
   }
   .second-row .main-menu .menu-wrapper .option {
-    min-width: 98% !important;
-    margin: 3px 1% 0 1% !important;
-    padding: 3px 0 6px 0 !important;
+    min-width: 98%;
+    margin: 3px 1% 0 1%;
+    padding: 3px 0 6px 0;
   }
   .second-row .main-menu .menu-wrapper .option:hover {
     background: transparent;
@@ -506,18 +506,144 @@
     border-radius: 2px;
     /*border: 1px solid rgba(208, 255, 0, 1);*/
   }
-  .activity .media-top-selector .wiggle {
+  .third-row .activity .media-top-selector .wiggle {
     width: 28% !important;
     top: 0px !important;
   }
-  .activity .media-top-selector .pos-3 {
+  .third-row .activity .media-top-selector .pos-3 {
     transform: translateX(-6%) !important;
   }
-  .activity .media-top-selector .pos-2 {
+  .third-row .activity .media-top-selector .pos-2 {
     transform: translateX(119%) !important;
   }
-  .activity .media-top-selector .pos-1 {
+  .third-row .activity .media-top-selector .pos-1 {
     transform: translateX(244%) !important;
+  }
+  .third-row .activity .repo-name {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 378px) {
+  .second-row .main-menu .menu-wrapper {
+    height: 94% !important;
+    width: 93% !important;
+    font-size: 20px !important;
+    /*border: 1px solid white;*/
+  }
+  .second-row .main-menu .menu-wrapper .option {
+    width: 80% !important;
+    margin: 3px 1% 0 1%;
+    padding: 3px 0 6px 0;
+    /*border: 1px solid rgba(208, 255, 0, 1) !important;*/
+  }
+  .second-row .main-menu .menu-wrapper .elevator {
+    width: 95.5% !important;
+    left: 0px !important;
+    right: 0px;
+    height: 35px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .scroll-display {
+    display: none !important;
+  }
+  .second-row .basic-info {
+    display: none !important;
+  }
+  .second-row .left-side {
+    margin-top: -5px !important;
+    width: 100% !important;
+    /*border: 1px solid yellow;*/
+  }
+  .second-row .right-side {
+    display: none !important;
+  }
+  .second-row .main-menu .menu-wrapper {
+    height: 94% !important;
+    width: 95.5% !important;
+    font-size: 20px !important;
+    /*border: 1px solid white;*/
+  }
+  .second-row .main-menu .menu-wrapper .elevator {
+    width: 100% !important;
+    left: 0px !important;
+    right: 0px;
+    height: 35px !important;
+  }
+  .second-row .main-menu .border-img {
+    width: 88% !important;
+  }
+  .third-row {
+    width: 100% !important;
+    height: calc(100vh - 100px) !important;
+    display: block !important;
+    /*border: 1px solid yellow;*/
+  }
+  .third-row .border-img {
+    width: calc(100% - 38px) !important;
+    height: calc(100vh - 260px) !important;
+  }
+  .third-row .inner-container {
+    height: calc(100% + 29px) !important;
+  }
+  .third-row .skills .content {
+    height: calc(100vh - 300px) !important;
+    /*border: 1px solid white;*/
+  }
+}
+@media screen and (max-width: 290px) {
+  .scroll-display {
+    display: none !important;
+  }
+  .second-row .basic-info {
+    display: none !important;
+  }
+  .second-row .left-side {
+    margin-top: -5px !important;
+    width: 100% !important;
+    /*border: 1px solid yellow;*/
+  }
+  .second-row .right-side {
+    display: none !important;
+  }
+  .second-row .main-menu .menu-wrapper {
+    height: 94% !important;
+    width: 95.5% !important;
+    font-size: 20px !important;
+    /*border: 1px solid white;*/
+  }
+  .second-row .main-menu .menu-wrapper .elevator {
+    width: 100% !important;
+    left: 0px !important;
+    right: 0px;
+    height: 35px !important;
+  }
+  .second-row .main-menu .border-img {
+    width: 86% !important;
+  }
+  .third-row {
+    width: 100% !important;
+    height: calc(100vh - 100px) !important;
+    display: block !important;
+    /*border: 1px solid yellow;*/
+  }
+  .third-row .border-img {
+    width: calc(100% - 38px) !important;
+    height: calc(100vh - 260px) !important;
+  }
+  .third-row .inner-container {
+    height: calc(100% + 29px) !important;
+  }
+  .third-row .skills .content {
+    height: calc(100vh - 300px) !important;
+    /*border: 1px solid white;*/
+  }
+  .third-row .about .content {
+    height: calc(100vh - 330px) !important;
+    min-height: 320px !important;
+  }
+  .activity .media-top-selector .wiggle {
+    width: 27.6% !important;
   }
 }
 /*
