@@ -621,6 +621,14 @@
   .second-row .right-side {
     display: none !important;
   }
+  .second-row .main-menu .border-img {
+    margin: 0 auto;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 19px;
+    width: calc(90% - 38px) !important;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  }
   .second-row .main-menu .menu-wrapper {
     height: 94% !important;
     width: 95.5% !important;
@@ -726,5 +734,11 @@
   }
   .third-row .projects .left-side .tags-wrapper {
     display: none !important;
+  }
+}
+@media screen and (max-height: 600px) {
+  .third-row .about .arrow-box {
+    margin: 20px auto 5px auto !important;
+    /*border: 1px solid white;*/
   }
 }

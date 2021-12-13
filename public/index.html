@@ -14,4 +14,12 @@
   <body>
     <div id="root"/>
   </body>
+  <script>
+    window.onload = function() {
+      if (screen.width < 280) {
+          var mvp = document.getElementById('vp');
+          mvp.setAttribute('content','user-scalable=no,width=280');
+      }
+    }
+  </script>
 </html>
