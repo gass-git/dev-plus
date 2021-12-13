@@ -127,8 +127,8 @@ export default function App(){
             </a> - inspired by <a className="rpg-maker"
               href="https://www.rpgmakerweb.com/" 
               target="_blank"
-              >rpg maker
-              </a> design
+              >rpg maker 
+              </a> designs
         </section>
       </footer> 
     </Fragment>
