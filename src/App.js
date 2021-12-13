@@ -69,8 +69,6 @@ export default function App(){
 
   return [
     <Fragment key="main-component-identifier">
-      {/* -- Background image -- not wrapper -- */}
-      {/*<div className={showBg ? "bg-image" : null}/>*/}
 
       {/* -- Main wrapper -- */}
       <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="500">
