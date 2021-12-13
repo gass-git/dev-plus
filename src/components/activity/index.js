@@ -3,7 +3,9 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStackOverflow, faGithub} from "@fortawesome/free-brands-svg-icons";
 import {faKeyboard} from "@fortawesome/free-solid-svg-icons";
 import './activity.css';
-import Date from './childrens/date';
+import Stackoverflow from "./childrens/stackoverflow";
+import GithubEvents from "./childrens/githubEvents";
+import Writings from "./childrens/writings";
 import useSound from "use-sound";
 import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
@@ -11,9 +13,8 @@ export default function Activity ({answers, gitEvents, posts}){
   const [current, setCurrent] = useState('stackoverflow'),
         [posNumber, setPosNumber] = useState(3),
         [playSound] = useSound(selectionSound, {volume: 1});
-    
+  
   let space = <Fragment>&nbsp; &nbsp; &nbsp;</Fragment>;
-
   function select(entry){
     setCurrent(entry);
     playSound();
@@ -22,105 +23,6 @@ export default function Activity ({answers, gitEvents, posts}){
     if(entry === "stackoverflow"){setPosNumber(3)}
     else if(entry === "github"){setPosNumber(2)}
     else if(entry === "writings"){setPosNumber(1)}
-  }
-  const Stackoverflow = () => {
-    return [
-      <Fragment key="SO-identifier">
-        <div className="sub-title">
-            LATEST EDITS & ANSWERS
-        </div>
-        <div className="container">
-          {answers.map((data) => {
-            let answer_id = data.answer_id,
-                answerURL = "https://stackoverflow.com/a/" + answer_id;
-            
-            return [
-              <a 
-                key={answer_id} 
-                href={answerURL} 
-                className="block" 
-                target="_blank" 
-                rel="noreferrer"
-                title="See on Stack Overflow"
-              >
-                <div className="date">
-                  <Date entry={data.creation_date} />
-                </div>
-                <div className="question">
-                  {data.title}
-                </div>
-              </a>
-            ]
-            })}
-        </div> 
-      </Fragment>
-    ];
-  }
-  const GithubEvents = () => {
-    return [
-      <Fragment key="git-identifier">
-        <div className="sub-title">
-            LATEST COMMITS
-        </div>
-        <div className="container">
-          {gitEvents.map((data) => {
-            var event_id = data.id;
-            let repoName = data.repo.name;
-            let repoURL = "https://github.com/" + repoName + "/commits/master";
-            repoName = repoName.slice(9);
-            let date = data.created_at;
-            let commit = data.payload.commits[0].message;
-
-            date = date.slice(0,10);
-            return [
-              <a 
-                key={event_id} 
-                href={repoURL} 
-                className='block' 
-                target="_blank" 
-                rel="noreferrer" 
-                title="See details on GitHub"
-              >
-                <div className="events-date">
-                  {date}
-                </div>
-                <div className="commit">{commit}</div>
-                {space}
-                <div className="repo-name" title="Repository name" >{repoName}</div>
-              </a>
-            ]
-          })}
-        </div>
-      </Fragment>
-    ];
-    
-  }
-  const Writings = () => {
-    return [
-      <Fragment key="writings-identifier">
-        <div className="sub-title">
-            LATEST WRITINGS
-          </div>
-        <div className="container">
-          {posts.map((post) => {
-            let postURL = `https://blog.gass.dev/post=${post.id}+no_scroll`;
-            let date = post.created_at;
-            date = date.slice(0,10);
-
-            return [
-            <a key={post.id} href={postURL} className="block" target="_blank" rel="noreferrer">
-              <div className="date">
-              {date}
-              </div>
-              <div className="post-title">
-              {post.title}
-              </div>
-            </a>
-            ]
-          })}
-        </div> 
-      </Fragment>
-    ]
   }
 
   return [
@@ -164,9 +66,9 @@ export default function Activity ({answers, gitEvents, posts}){
 
         {/* -- Left side -- */}
         <div className="left-side">
-          {current === "stackoverflow" ? <Stackoverflow /> : null}
-          {current === "github" ? <GithubEvents /> : null}
-          {current === "writings" ? <Writings /> : null}
+          {current === "stackoverflow" ? <Stackoverflow answers={answers} /> : null}
+          {current === "github" ? <GithubEvents gitEvents={gitEvents} space={space}/> : null}
+          {current === "writings" ? <Writings posts={posts}/> : null}
         </div>
 
       {/* -- Right side -- */}

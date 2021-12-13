@@ -51,9 +51,7 @@ export default function About(){
   function copyText(entryText){
     navigator.clipboard.writeText(entryText);
     setCopied(true);
-    setTimeout(()=>{
-      setCopied(false);
-    }, 500);
+    setTimeout(()=>{setCopied(false)}, 500);
   }
   function handleCurrent(){
     if(current === textArray.length - 1){
@@ -61,7 +59,6 @@ export default function About(){
     }else{
       setCurrent(current + 1);
     }
-    // Sound effect
     playSound();
   }
   function down(){
