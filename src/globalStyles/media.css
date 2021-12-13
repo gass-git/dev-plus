@@ -672,7 +672,7 @@
 /*
 -- Height @media
 */
-@media screen and (max-height: 667px) {
+@media screen and (max-height: 667px) and (max-width: 499px) {
   .third-row .about .content {
     width: 90%;
     height: calc(100vh - 430px) !important;
@@ -736,7 +736,7 @@
     display: none !important;
   }
 }
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 600px) and (max-width: 399px) {
   .third-row .about .arrow-box {
     margin: 20px auto 5px auto !important;
     /*border: 1px solid white;*/
