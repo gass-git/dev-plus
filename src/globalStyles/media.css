@@ -184,6 +184,9 @@
   }
 }
 @media screen and (max-width: 499px) {
+  .inner-container {
+    background: rgb(17, 60, 252, 0.6) !important;
+  }
   .main-wrapper {
     top: 5px;
     width: 98% !important;
