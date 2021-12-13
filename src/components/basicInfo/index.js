@@ -1,9 +1,10 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
 import './basicInfo.css';
+import avatar from  "../../assets/images/avatar7.png"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
-import avatar from  "../../assets/images/avatar7.png"
+
 
 export default function BasicInfo ({reputation}) {
   return [
