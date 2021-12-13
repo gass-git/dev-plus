@@ -2,6 +2,9 @@
 -- Width @media
 */
 @media (min-width: 750px) and (max-width: 900px) {
+  footer {
+    display: none !important;
+  }
   .main-wrapper {
     width: 700px !important;
   }
@@ -46,6 +49,9 @@
   }
 }
 @media (min-width: 500px) and (max-width: 750px) {
+  footer {
+    display: none !important;
+  }
   .main-wrapper {
     width: 450px !important;
   }
@@ -672,6 +678,11 @@
 /*
 -- Height @media
 */
+@media screen and (max-height: 700px) {
+  footer {
+    display: none !important;
+  }
+}
 @media screen and (max-height: 667px) and (max-width: 499px) {
   .third-row .about .content {
     width: 90%;

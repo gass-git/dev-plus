@@ -1,6 +1,9 @@
 import React, {useState, useEffect, Fragment } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faStackOverflow, faGithub, faLinkedinIn} from "@fortawesome/free-brands-svg-icons";
+import {faSearch, faKeyboard} from "@fortawesome/free-solid-svg-icons";
 
 // APIs
 import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
@@ -112,7 +115,22 @@ export default function App(){
               </div>
             </div>
         </section>
-      </main>      
+      </main>     
+
+      <footer>
+        <section className="first-row">
+             <a 
+              href="https://github.com/gass-git/dev-plus" 
+              target="_blank"
+              >
+              © DevPlus 1.x rendered in <span id="render-time"></span> ms
+            </a> - inspired by <a className="rpg-maker"
+              href="https://www.rpgmakerweb.com/" 
+              target="_blank"
+              >rpg maker
+              </a> design
+        </section>
+      </footer> 
     </Fragment>
   ]
 }
