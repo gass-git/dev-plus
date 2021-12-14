@@ -148,11 +148,11 @@ export default function App(){
               © DevPlus
             </a>
             {space1}        
-              rendered in <span id="render-time" style={{fontWeight: "bold"}}></span> MS
-              {space1} - {space1}
+              rendered in <span id="render-time"></span> MS
+               - 
             Inspired by 
             <a  className="color-two" href="https://www.rpgmakerweb.com/" target="_blank" rel="noreferrer">
-              {space1} rpg maker 
+              {space1}RPG maker 
             </a> 
             {space1}
             designs
