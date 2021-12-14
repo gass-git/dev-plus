@@ -145,7 +145,7 @@ export default function App(){
 
         <section className="center-area">
             <a href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
-              <span style={{color:'white', fontSize:'14px'}}>©</span> DevPlus
+              © DevPlus
             </a>
             {space1}        
               rendered in <span id="render-time" style={{color:"rgb(6, 255, 0)"}}></span> MS
@@ -155,7 +155,7 @@ export default function App(){
               {space1} rpg maker 
             </a> 
             {space1}
-            designs.
+            designs
         </section>
           
         <section className="right-area">

@@ -77,11 +77,11 @@ footer .left-area a {
 }
 footer .left-area .fa-icon {
   transition: 300ms;
-  color: rgba(39, 39, 39, 0.8);
+  color: rgba(39, 39, 39, 1);
   cursor: pointer;
 }
 footer .left-area .fa-icon:hover {
-  color: rgba(51, 51, 51, 0.6);
+  color: rgb(65, 64, 64);
 }
 footer .center-area {
   margin-top: 18px;
@@ -89,14 +89,14 @@ footer .center-area {
   width: 30%;
   min-width: 350px !important;
   text-align: center;
-  font-size: 12px;
-  text-shadow: -1px 0 rgb(0, 0, 0, 0.2), 0 1px rgb(0, 0, 0, 0.2),
-    1px 0 rgb(0, 0, 0, 0.2), 0 -1px rgb(0, 0, 0, 0.2);
-  color: white;
+  font-weight: 200;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  color: rgb(255, 255, 255);
   /*border: 1px solid red;*/
 }
 footer .center-area a {
-  color: yellow;
+  color: white !important;
   text-decoration: none !important;
 }
 footer .right-area {
@@ -108,8 +108,4 @@ footer .right-area {
 }
 footer .right-area a {
   margin-left: 10px;
-  opacity: 0.9;
-}
-footer .right-area a:hover {
-  opacity: 1;
 }
