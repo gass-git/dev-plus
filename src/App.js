@@ -148,9 +148,9 @@ export default function App(){
               © DevPlus
             </a>
             {space1}        
-              rendered in <span id="render-time"></span> MS
+              rendered in <span id="render-time"></span> ms
                - 
-            Inspired by 
+            inspired by 
             <a  className="color-two" href="https://www.rpgmakerweb.com/" target="_blank" rel="noreferrer">
               {space1}RPG maker 
             </a> 
