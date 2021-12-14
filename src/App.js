@@ -3,9 +3,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStackOverflow, faGithub, faLinkedin, faCodepen} from "@fortawesome/free-brands-svg-icons";
-import {faSearch, faCode} from "@fortawesome/free-solid-svg-icons";
-import {faKeyboard} from "@fortawesome/free-regular-svg-icons";
-
 
 // APIs
 import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
@@ -24,7 +21,6 @@ import About from './components/about/index';
 
 export default function App(){
   let space1 = <Fragment>&nbsp;</Fragment>,
-      space2 = <Fragment>&nbsp;&nbsp;</Fragment>,
       space3 = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
 
   // API 
@@ -133,36 +129,44 @@ export default function App(){
       <footer>
        
         <section className="left-area">
-          <FontAwesomeIcon icon={faGithub} style={{ fontSize:"25px", margin:"0 40px 0 35px" }}  className="fa-icon" />
+          <a href="https://github.com/gass-git" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faGithub} style={{ fontSize:"25px", margin:"0 40px 0 35px" }} className="fa-icon"/>
+          </a>
+          <a href="https://stackoverflow.com/users/14895985/gass?tab=profile" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faStackOverflow} style={{ fontSize:"26px", margin:"0 40px 0 0" }} className="fa-icon"/>
+          </a>
+          <a href="https://www.linkedin.com/in/gabriel-salinas-szada-7a188196" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faLinkedin} style={{ fontSize:"26px", margin:"0 40px 0 0" }}  className="fa-icon" />
+          </a>
+          <a href="https://codesandbox.io/u/g.szada" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faCodepen} style={{ fontSize:"22px", margin:"3px 40px 0 0" }} className="fa-icon" />
+          </a>
         </section>
 
         <section className="center-area">
-            <a href="https://github.com/gass-git/dev-plus" target="_blank">
-              © DevPlus
+            <a href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
+              <span style={{color:'white', fontSize:'14px'}}>©</span> DevPlus
             </a>
             {space1}        
-              rendered in <span id="render-time"></span> MS
+              rendered in <span id="render-time" style={{color:"rgb(6, 255, 0)"}}></span> MS
               -
             Inspired by 
-            <a  className="color-two" href="https://www.rpgmakerweb.com/" target="_blank">
+            <a  className="color-two" href="https://www.rpgmakerweb.com/" target="_blank" rel="noreferrer">
               {space1} rpg maker 
             </a> 
             {space1}
-            designs 
+            designs.
         </section>
           
         <section className="right-area">
           <a style={{ marginLeft:"0px" }} href="https://gass.dev">
-            <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=flat-square&logo=appveyor&color=orange"/>
+            <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=flat-square&logo=appveyor&color=orange" alt="DevPlus version"/>
           </a>
-          <a id="repo-size-badge" href="https://github.com/gass-git/dev-plus" target="_blank">
-            <img src="https://img.shields.io/github/repo-size/gass-git/dev-plus?style=flat-square"/>
+          <a id="repo-size-badge" href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
+            <img src="https://img.shields.io/github/repo-size/gass-git/dev-plus?style=flat-square" alt="Repository size"/>
           </a>
-          <a style={{marginRight:"20px"}} href="https://github.com/gass-git/dev-plus" target="_blank">
-            <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=flat-square"/>
+          <a style={{marginRight:"20px"}} href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
+            <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=flat-square" alt="License name"/>
           </a>
         </section>
 

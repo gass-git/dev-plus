@@ -71,12 +71,17 @@ footer .left-area {
   color: rgb(255, 255, 255, 0.5);
   /*border: 1px solid red;*/
 }
+footer .left-area a {
+  text-decoration: none !important;
+  cursor: default;
+}
 footer .left-area .fa-icon {
-  transition: 500ms;
+  transition: 300ms;
+  color: rgba(39, 39, 39, 0.8);
   cursor: pointer;
 }
 footer .left-area .fa-icon:hover {
-  color: rgb(253, 255, 143, 0.9);
+  color: rgba(51, 51, 51, 0.6);
 }
 footer .center-area {
   margin-top: 18px;
