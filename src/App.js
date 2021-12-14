@@ -2,8 +2,10 @@ import React, {useState, useEffect, Fragment } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faStackOverflow, faGithub, faLinkedinIn} from "@fortawesome/free-brands-svg-icons";
-import {faSearch, faKeyboard} from "@fortawesome/free-solid-svg-icons";
+import {faStackOverflow, faGithub, faLinkedin, faCodepen} from "@fortawesome/free-brands-svg-icons";
+import {faSearch, faCode} from "@fortawesome/free-solid-svg-icons";
+import {faKeyboard} from "@fortawesome/free-regular-svg-icons";
+
 
 // APIs
 import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
@@ -21,6 +23,10 @@ import Skills from './components/skills/index';
 import About from './components/about/index';
 
 export default function App(){
+  let space1 = <Fragment>&nbsp;</Fragment>,
+      space2 = <Fragment>&nbsp;&nbsp;</Fragment>,
+      space3 = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
+
   // API 
   const [userLocation, setUserLocation] = useState(),
         [selected, setSelected] = useState('about'),
@@ -45,6 +51,7 @@ export default function App(){
 
   useEffect(() => {
     AOS.init();
+    preload();
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getUserLocation({setUserLocation});
@@ -69,6 +76,12 @@ export default function App(){
     
     return () => clearInterval(interval);
   });
+
+  function preload(){
+    // Remove horizontal scrollbar 
+   document.body.classList.add("animation");
+    
+  }
 
   return [
     <Fragment key="main-component-identifier">
@@ -109,7 +122,7 @@ export default function App(){
                 <div className="inner-container">
                   {selected === "about" ? <About /> : null}
                   {selected === "skills" ? <Skills scores={scores}/> : null} 
-                  {selected === "projects" ? <Projects repos={repos} /> : null}
+                  {selected === "projects" ? <Projects repos={repos} space3={space3} /> : null}
                   {selected === "activity" ? <Activity answers={answers} gitEvents={gitEvents} posts={posts} /> : null}
                 </div>
               </div>
@@ -118,19 +131,47 @@ export default function App(){
       </main>     
 
       <footer>
-        <section className="first-row">
-             <a 
-              href="https://github.com/gass-git/dev-plus" 
-              target="_blank"
-              >
-              © DevPlus 1.x rendered in <span id="render-time"></span> ms
-            </a> - inspired by <a className="rpg-maker"
-              href="https://www.rpgmakerweb.com/" 
-              target="_blank"
-              >rpg maker 
-              </a> designs
+       
+        <section className="left-area">
+          <FontAwesomeIcon icon={faGithub} style={{ fontSize:"25px", margin:"0 40px 0 35px" }}  className="fa-icon" />
+          <FontAwesomeIcon icon={faStackOverflow} style={{ fontSize:"26px", margin:"0 40px 0 0" }} className="fa-icon"/>
+          <FontAwesomeIcon icon={faLinkedin} style={{ fontSize:"26px", margin:"0 40px 0 0" }}  className="fa-icon" />
+          <FontAwesomeIcon icon={faCodepen} style={{ fontSize:"22px", margin:"3px 40px 0 0" }} className="fa-icon" />
         </section>
-      </footer> 
+
+        <section className="center-area">
+            <a href="https://github.com/gass-git/dev-plus" target="_blank">
+              © DevPlus
+            </a>
+            {space1}        
+              rendered in <span id="render-time"></span> MS
+              -
+            Inspired by 
+            <a  className="color-two" href="https://www.rpgmakerweb.com/" target="_blank">
+              {space1} rpg maker 
+            </a> 
+            {space1}
+            designs 
+        </section>
+          
+        <section className="right-area">
+          <a style={{ marginLeft:"0px" }} href="https://gass.dev">
+            <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=flat-square&logo=appveyor&color=orange"/>
+          </a>
+          <a id="repo-size-badge" href="https://github.com/gass-git/dev-plus" target="_blank">
+            <img src="https://img.shields.io/github/repo-size/gass-git/dev-plus?style=flat-square"/>
+          </a>
+          <a style={{marginRight:"20px"}} href="https://github.com/gass-git/dev-plus" target="_blank">
+            <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=flat-square"/>
+          </a>
+        </section>
+
+        
+        </footer> 
+          
+        
+
+
     </Fragment>
   ]
 }

@@ -7,14 +7,13 @@ import useSound from "use-sound";
 import tickSound from "../../assets/sounds/tick-sound.wav";
 import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 
-export default function Projects ({repos}) {
+export default function Projects ({repos, space3}) {
   const [current, setCurrent] = useState(0),
         [currentSection, setCurrentSection] = useState(1),
         [indexes, setIndexes] = useState([0,1,2,3]),
         [playTickSound] = useSound(tickSound,{volume: 0.6}),
         [playSelectionSound] = useSound(selectionSound, {volume:1});
   
-  let space = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
   var totalRepos = repos.length,
       totalSections = Math.ceil(totalRepos/4);
     
@@ -26,14 +25,14 @@ export default function Projects ({repos}) {
         return [
           <a key={link} href={link} target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={faPaperclip} className="icon shadow-04"/>
-             {space} {repos[current].url}
+             {space3} {repos[current].url}
           </a>
         ]
       }else{
         return [
           <div key={link} className="not-available">
             <FontAwesomeIcon icon={faTimesCircle} className="icon shadow-04"/>
-              {space} No link available
+              {space3} No link available
           </div>
         ]
       }

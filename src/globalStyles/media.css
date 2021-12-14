@@ -1,6 +1,11 @@
 /*
 -- Width @media
 */
+@media screen and (max-width: 1150px) {
+  #repo-size-badge {
+    display: none !important;
+  }
+}
 @media (min-width: 750px) and (max-width: 900px) {
   footer {
     display: none !important;
