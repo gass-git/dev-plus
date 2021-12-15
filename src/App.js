@@ -193,7 +193,7 @@ export default function App(){
        
 
       <div className="credits">
-          <a href="#" className="credit-link">
+          <a href="https://gass.dev" className="credit-link">
             <span>@</span> gass.dev  {space2}   
           </a>
           <a style={{marginLeft:"0px"}} href="https://gass.dev">
