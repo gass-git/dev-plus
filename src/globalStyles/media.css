@@ -1,18 +1,11 @@
 /*
 -- Width @media
 */
-@media screen and (max-width: 1250px) {
-  #repo-size-badge {
-    display: none !important;
-  }
-}
-@media screen and (max-width: 1050px) {
-  footer {
-    display: none !important;
-  }
-}
 @media (min-width: 750px) and (max-width: 900px) {
   footer {
+    display: none !important;
+  }
+  .fourth-row {
     display: none !important;
   }
   .main-wrapper {
@@ -60,6 +53,9 @@
 }
 @media (min-width: 500px) and (max-width: 750px) {
   footer {
+    display: none !important;
+  }
+  .fourth-row {
     display: none !important;
   }
   .main-wrapper {
@@ -200,6 +196,9 @@
   }
 }
 @media screen and (max-width: 499px) {
+  .fourth-row {
+    display: none !important;
+  }
   .inner-container {
     background: rgba(9, 48, 224, 0.7) !important;
   }
@@ -688,7 +687,7 @@
 /*
 -- Height @media
 */
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 800px) {
   footer {
     display: none !important;
   }

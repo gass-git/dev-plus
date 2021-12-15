@@ -6,7 +6,7 @@
   border-image: url("../../assets/images/border-60px.png") 19 round;
   width: 157px;
   height: 132px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  /*box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;*/
 }
 .main-menu .inner-container {
   height: 157px;

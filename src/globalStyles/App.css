@@ -6,12 +6,14 @@
   right: 0;
   margin-left: auto;
   margin-right: auto;
+  display: inline-block;
   width: 800px;
   /*border: 3px solid yellow;*/
 }
 .first-row {
   display: block;
   position: relative;
+  /*border: 1px solid white;*/
 }
 .second-row {
   display: flex;
@@ -38,7 +40,7 @@
   width: 770px;
   height: 240px;
   z-index: 2;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  /*box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;*/
 }
 .third-row .inner-container {
   height: 268px;
@@ -54,58 +56,79 @@
   overflow: hidden;
   /*border: 1px solid rgba(14, 16, 98, 0.4);*/
 }
-footer {
-  position: fixed;
-  display: flex;
-  bottom: 0px;
-  height: 50px;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  /*border-top: 1px solid rgb(255, 255, 255, 0.2);*/
+.fourth-row .border-img {
+  margin: 0px auto;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 19px;
+  border-image: url("../assets/images/border-60px.png") 19 round;
+  width: 770px;
+  height: 30px;
+  z-index: 2;
+  /*box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;*/
 }
-footer .left-area {
-  display: flex;
-  height: 25px;
-  width: 35%;
-  margin-top: 12px;
-  color: rgba(187, 187, 187, 0.5);
-  /*border: 1px solid red;*/
+.fourth-row .inner-container {
+  height: 58px;
+  margin: -14px -14px 0 -14px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    0deg,
+    rgb(17, 60, 252, 0.8),
+    rgb(17, 60, 252, 0.8) 1px,
+    rgb(25, 52, 152, 0.9) 2px,
+    rgb(25, 52, 152, 0.9) 3px
+  );
+  overflow: hidden;
+  /*border: 1px solid rgba(14, 16, 98, 0.4);*/
 }
-footer .left-area a {
+.fourth-row .icons-wrapper {
+  margin: 10px 30px 0 30px;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  /*border: 1px solid yellow;*/
+}
+.fourth-row .icons-wrapper a {
   text-decoration: none !important;
   cursor: default;
 }
-footer .left-area .fa-icon {
-  transition: 300ms;
-  color: rgba(39, 39, 39, 1);
+.fourth-row .icons-wrapper .fa-icon {
   cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);
+  transition: 500ms;
 }
-footer .left-area .fa-icon:hover {
-  color: rgb(65, 64, 64);
+.fourth-row .icons-wrapper .fa-icon:hover {
+  color: rgb(255, 255, 255, 0.8);
 }
-footer .center-area {
-  margin-top: 18px;
-  height: 20px;
-  width: 30%;
-  min-width: 450px !important;
-  text-align: center;
-  font-weight: 100;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+footer {
+  position: fixed;
+  display: flex;
+  bottom: 3px;
+  width: 100%;
+  font-weight: 400;
+  height: 30px;
   font-size: 13px;
-  color: rgb(255, 255, 255);
-  /*border: 1px solid red;*/
+  font-family: "play", sans-serif;
+  color: rgb(255, 255, 255, 0.9);
+  /*border-top: 1px solid rgb(255, 255, 255, 0.3);*/
 }
-footer .center-area a {
-  color: white !important;
+footer .credits {
+  display: flex;
+  width: 600px;
+  height: 25px;
+  margin: 0 auto;
+  /*border: 1px solid white;*/
+}
+footer .credits .txt {
+  margin-top: 2px;
+  display: inline-block;
+  /*border: 1px solid white;*/
+}
+footer a {
   text-decoration: none !important;
+  color: white;
 }
-footer .right-area {
-  height: 20px;
-  width: 35%;
-  margin-top: 15px;
-  text-align: right;
-  /*border: 1px solid red;*/
-}
-footer .right-area a {
-  margin-left: 10px;
+footer .credit-link {
+  margin-top: 3px;
+  color: rgb(255, 248, 157);
 }

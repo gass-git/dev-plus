@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStackOverflow, faGithub, faLinkedin, faCodepen} from "@fortawesome/free-brands-svg-icons";
+import {faEnvelope, faSearch} from "@fortawesome/free-solid-svg-icons";
 
 // APIs
 import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
@@ -21,6 +22,7 @@ import About from './components/about/index';
 
 export default function App(){
   let space1 = <Fragment>&nbsp;</Fragment>,
+      space2 = <Fragment>&nbsp;&nbsp;</Fragment>,
       space3 = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
 
   // API 
@@ -85,8 +87,31 @@ export default function App(){
       {/* -- Main wrapper -- */}
       <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="500">
         
+        {/* 
+        <section className="fifth-row">
+            <div className="shields-container">
+                <a style={{marginLeft:"5px"}} href="https://gass.dev">
+                <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=plastic&logo=appveyor&color=orange" alt="DevPlus version"/>
+                </a>
+                
+              <a href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
+                <img src="https://img.shields.io/github/repo-size/gass-git/dev-plus?style=plastic" alt="Repository size"/>
+              </a>
+                
+              <a  href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
+                <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=plastic" alt="License name"/>
+              </a>
+
+              <a  href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
+              <img src="https://img.shields.io/w3c-validation/html?style=plastic&targetUrl=https%3A%2F%2Fgass.dev%2F" alt="w3c"/>
+              </a>
+              
+            </div>
+        </section>
+         */}
+
         {/* -- First row -- */} 
-        <div className="first-row">
+        <section className="first-row">
           <ScrollDisplay 
             scrollerSwitch={scrollerSwitch}
             lastCommit={lastCommit}
@@ -96,7 +121,7 @@ export default function App(){
             uniqueVisits={uniqueVisits}
             userLocation={userLocation}
           />
-        </div>
+        </section>
             
         {/* -- Second row -- */}
         <section className="second-row">
@@ -124,56 +149,89 @@ export default function App(){
               </div>
             </div>
         </section>
-      </main>     
 
-      <footer>
-       
-        <section className="left-area">
-          <a href="https://github.com/gass-git" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faGithub} style={{ fontSize:"25px", margin:"0 40px 0 35px" }} className="fa-icon"/>
+        {/* -- Fourth row -- */}
+        <section className="fourth-row">
+
+              <div className="border-img">
+                <div className="inner-container">
+                  <div className="icons-wrapper">
+                  <a href="https://github.com/gass-git" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faGithub} style={{ fontSize:"35px",marginTop:"1px" }} className="fa-icon"/>
           </a>
           <a href="https://stackoverflow.com/users/14895985/gass?tab=profile" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faStackOverflow} style={{ fontSize:"26px", margin:"0 40px 0 0" }} className="fa-icon"/>
+          <FontAwesomeIcon icon={faStackOverflow} style={{ fontSize:"36px" }} className="fa-icon"/>
           </a>
           <a href="https://www.linkedin.com/in/gabriel-salinas-szada-7a188196" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faLinkedin} style={{ fontSize:"26px", margin:"0 40px 0 0" }}  className="fa-icon" />
+          <FontAwesomeIcon icon={faLinkedin} style={{ fontSize:"36px", marginLeft:"6px" }}  className="fa-icon" />
           </a>
           <a href="https://codesandbox.io/u/g.szada" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faCodepen} style={{ fontSize:"22px", margin:"3px 40px 0 0" }} className="fa-icon" />
+          <FontAwesomeIcon icon={faCodepen} style={{ fontSize:"33px",marginTop:"2px" }} className="fa-icon" />
           </a>
+          <a href="https://codereview.stackexchange.com/users/239120/gass?tab=profile" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faSearch} style={{ fontSize:"31px",marginTop:"2px" }} className="fa-icon" />
+          </a>
+                  </div>
+                </div>
+              </div>
+            
         </section>
 
-        <section className="center-area">
-            <a href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
-              © DevPlus
-            </a>
-            {space1}        
+        
+
+      </main>     
+
+
+
+      
+      <footer>
+
+         
+
+         
+
+       
+
+      <div className="credits">
+          <a href="#" className="credit-link">
+            <span>@</span> gass.dev  {space2}   
+          </a>
+          <a style={{marginLeft:"0px"}} href="https://gass.dev">
+            <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=flat-square&color=orange" alt="DevPlus version"/>
+          </a>
+          {space2}
+          
+              <div className='txt'>  
               rendered in <span id="render-time"></span> ms
-               - 
+              {space2} 
+              </div>
+              <a  href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
+                <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=flat-square" alt="License name"/>
+              </a>
+              {space3}
+              <div  className='txt'>
+                
+               -
+              {space2}
             inspired by 
-            <a  className="color-two" href="https://www.rpgmakerweb.com/" target="_blank" rel="noreferrer">
+            </div>
+            <a className="credit-link" href="https://www.rpgmakerweb.com/" target="_blank" rel="noreferrer">
               {space1}RPG maker 
             </a> 
+            <div className="txt">
             {space1}
             designs
-        </section>
-          
-        <section className="right-area">
-          <a style={{ marginLeft:"0px" }} href="https://gass.dev">
-            <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=flat-square&logo=appveyor&color=orange" alt="DevPlus version"/>
-          </a>
-          <a id="repo-size-badge" href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
-            <img src="https://img.shields.io/github/repo-size/gass-git/dev-plus?style=flat-square" alt="Repository size"/>
-          </a>
-          <a style={{marginRight:"20px"}} href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
-            <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=flat-square" alt="License name"/>
-          </a>
-        </section>
+            {space1}
+            
+            </div>
+            
+            
+        
+        </div>
 
-        
-        </footer> 
-          
-        
+      </footer> 
+      
+      
 
 
     </Fragment>
