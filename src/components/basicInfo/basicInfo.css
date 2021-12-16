@@ -9,7 +9,7 @@
   border-image: url("../../assets/images/border-60px.png") 19 round;
   width: 571px;
   height: 132px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 .basic-info .inner-container {
   display: flex;

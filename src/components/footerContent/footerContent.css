@@ -4,7 +4,7 @@ footer {
   bottom: 0px;
   width: 100%;
   font-weight: 400;
-  height: 33px;
+  height: 34px;
   font-size: 13px;
   font-family: "play", sans-serif;
   color: rgb(255, 255, 255, 0.8);
@@ -15,7 +15,7 @@ footer {
 footer .credits {
   display: flex;
   height: 20px;
-  margin: 9px auto;
+  margin: 10px auto;
   text-shadow: -1px 0 rgb(0, 0, 0, 0.9), 0 1px rgb(0, 0, 0, 0.9),
     1px 0 rgb(0, 0, 0, 0.9), 0 -1px rgb(0, 0, 0, 0.9);
   /*border: 1px solid white;*/
