@@ -86,29 +86,6 @@ export default function App(){
 
       {/* -- Main wrapper -- */}
       <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="500">
-        
-        {/* 
-        <section className="fifth-row">
-            <div className="shields-container">
-                <a style={{marginLeft:"5px"}} href="https://gass.dev">
-                <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=plastic&logo=appveyor&color=orange" alt="DevPlus version"/>
-                </a>
-                
-              <a href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
-                <img src="https://img.shields.io/github/repo-size/gass-git/dev-plus?style=plastic" alt="Repository size"/>
-              </a>
-                
-              <a  href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
-                <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=plastic" alt="License name"/>
-              </a>
-
-              <a  href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
-              <img src="https://img.shields.io/w3c-validation/html?style=plastic&targetUrl=https%3A%2F%2Fgass.dev%2F" alt="w3c"/>
-              </a>
-              
-            </div>
-        </section>
-         */}
 
         {/* -- First row -- */} 
         <section className="first-row">
@@ -189,8 +166,9 @@ export default function App(){
          
 
          
-
+      <div className=""></div>
        
+      
 
       <div className="credits">
           <a href="https://gass.dev" className="credit-link">
