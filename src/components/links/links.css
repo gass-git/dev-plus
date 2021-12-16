@@ -42,5 +42,25 @@
   transition: 500ms;
 }
 .links .icons-wrapper .fa-icon:hover {
-  color: rgb(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+}
+.links .icons-wrapper .copied-animation {
+  position: absolute;
+  z-index: 5;
+  right: 18px;
+  font-size: 14px;
+  color: var(--yellow1);
+  animation-name: fade-up;
+  animation-duration: 1500ms;
+  animation-iteration-count: 1;
+}
+@keyframes fade-up {
+  0% {
+    opacity: 1;
+    top: 25px;
+  }
+  100% {
+    opacity: 0;
+    top: -50px;
+  }
 }

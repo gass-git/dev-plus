@@ -1,15 +1,36 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import "./links.css";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStackOverflow, faGithub, faLinkedin, faCodepen} from "@fortawesome/free-brands-svg-icons";
-import {faEnvelope, faSearch} from "@fortawesome/free-solid-svg-icons";
+import {faAt, faSearch} from "@fortawesome/free-solid-svg-icons";
 import useSound from 'use-sound';
 import clickSound from '../../assets/sounds/link-click.mp3';
+import copySound from '../../assets/sounds/copy-email.mp3';
 
 export default function Links(){
-  const [playClickSound] = useSound(clickSound, {volume:0.8});
+  const [playClickSound] = useSound(clickSound, {volume:0.8}),
+        [playCopySound] = useSound(copySound, {volume: 0.4}),
+        [copied, setCopied] = useState(false),
+        [showEffect, setShowEffect] = useState(false);
   
-  return[
+
+  function copyText(entryText){
+    navigator.clipboard.writeText(entryText);
+    setCopied(true);
+    setTimeout(()=>{setCopied(false)}, 500);
+
+    // Show "Email copied!" effect
+    setShowEffect(true);
+    
+    // Make the effect disapper
+    setTimeout(() => {
+      setShowEffect(false);
+    }, 1000)
+
+    playCopySound();
+  }
+
+  return[ 
     <main className="links">
       <div className="border-img">
         <div className="inner-container">
@@ -26,9 +47,14 @@ export default function Links(){
             <a onClick={() => playClickSound()} href="https://codesandbox.io/u/g.szada" target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faCodepen} style={{ fontSize:"33px",marginTop:"2px" }} className="fa-icon" />
             </a>
-            <a onClick={() => playClickSound()} href="https://codereview.stackexchange.com/users/239120/gass?tab=profile" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faSearch} style={{ fontSize:"31px",marginTop:"2px" }} className="fa-icon" />
-            </a>
+            <div 
+            onClick={()=>copyText('gabriel.salinas@protonmail.com')}
+            title="Copy email"
+            >
+              {showEffect ? <div className="copied-animation">Copied !</div> : null}
+
+              <FontAwesomeIcon icon={faAt} style={{ fontSize:"33px",marginTop:"2px" }} className="fa-icon" />
+            </div>
           </div>
         </div>
       </div>

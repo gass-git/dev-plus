@@ -28,24 +28,7 @@ export default function About(){
       This is mainly where I want to be, in the <span className="highlight">world of ideas</span>
       , logic and <span className="highlight">mental labyrinth</span>.  The hunger for challenge is never satisfied, so I'm always
         pushing myself to go beyond, for the pure joy of it.
-    </Fragment>,
-    <Fragment>
-      Feel free to check my online profiles: 
-      <a href="https://stackoverflow.com/users/14895985/gass?tab=profile" target="_blank" rel="noreferrer"> Stack Overflow </a>, 
-      <a href="https://github.com/gass-git" target="_blank" rel="noreferrer">Github </a> & 
-      <a href="https://codesandbox.io/u/g.szada" target="_blank" rel="noreferrer"> Code Sandbox </a> 
-      or send me a pm to  <span 
-                            onClick={() => copyText('gabriel.salinas@protonmail.com')} 
-                            style={{cursor:"pointer"}}
-                            className="highlight"
-                            title="Click to copy"
-                          >
-                            gabriel.salinas@protonmail.com
-                          </span>
-                          &nbsp;&nbsp; 
-                          { copied ? <FontAwesomeIcon icon={faClipboardCheck}/> : <FontAwesomeIcon icon={faClipboard}/> }
-                          
-    </Fragment> 
+    </Fragment>
   ];
 
   function copyText(entryText){
