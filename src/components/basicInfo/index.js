@@ -14,7 +14,7 @@ export default function BasicInfo ({reputation}) {
         <div className="inner-container">
         
           <div className="avatar-wrapper">
-            <img src={avatar} alt="" />
+            <img src={avatar} alt="Stardew Valley pixel avatar" title="Pixel art made by Eric Barone"/>
           </div>
             
           <ReactTooltip/>

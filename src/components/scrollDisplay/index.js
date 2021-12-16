@@ -27,6 +27,9 @@ export default function ScrollDisplay ({
         </Fragment>,
         <Fragment>
             Unique visitors to date: {uniqueVisits} and counting... 
+        </Fragment>,
+        <Fragment>
+            Web app using: Reactjs, FontAwesome, AOS, SVG Backgrounds, Axios & Use Sound...
         </Fragment>
     ];
 

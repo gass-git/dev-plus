@@ -44,7 +44,7 @@ export default function App(){
         [lastCommit, setLastCommit] = useState([]),
         [lastAnswer, setLastAnswer] = useState(),
         [msgIndex, setMsgIndex] = useState(0),
-        maxIndex = 4;
+        maxIndex = 5;
 
   useEffect(() => {
     AOS.init();

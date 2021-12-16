@@ -6,21 +6,20 @@ import "./footerContent.css";
 export default function FooterContent({space1, space2, space3}){
   return [
     <div className="credits">
-        <a href="https://gass.dev" className="credit-link">
-          <span style={{color:"white", fontSize:"13px"}}>
-            @
-          </span> 
-          {space1}
+        <a  href="https://gass.dev" className="credit-link">
+          <span style={{color:"rgb(255,255,255,0.9)", fontSize:"13px"}}>
+            ©
+          {space2}
           gass.dev
+          </span> 
         </a>
-        {space2} 
+        {space3} 
         <a style={{marginLeft:"0px"}} href="https://gass.dev">
           <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=plastic&color=orange" alt="version"/>
         </a>
         {space2}
         <div className='txt'>  
-          -
-          {space2}
+          {space1}
           rendered in <span style={{color:"rgb(144,238,144)"}} id="render-time"></span> MS
           {space2}
           -
