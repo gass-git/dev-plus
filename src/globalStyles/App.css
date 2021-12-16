@@ -103,7 +103,7 @@
 footer {
   position: fixed;
   display: flex;
-  bottom: 3px;
+  bottom: 1px;
   width: 100%;
   font-weight: 400;
   height: 30px;
@@ -114,13 +114,14 @@ footer {
 }
 footer .credits {
   display: flex;
-  width: 572px;
-  height: 25px;
+  height: 20px;
   margin: 0 auto;
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.3), 0 1px rgb(0, 0, 0, 0.3),
+    1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   /*border: 1px solid white;*/
 }
 footer .credits .txt {
-  margin-top: 2px;
+  margin-top: 1px;
   display: inline-block;
   /*border: 1px solid white;*/
 }
@@ -129,6 +130,7 @@ footer a {
   color: white;
 }
 footer .credit-link {
-  margin-top: 3px;
+  margin-top: 1px;
   color: rgb(255, 248, 157);
+  /*border: 1px solid white;*/
 }

@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStackOverflow, faGithub, faLinkedin, faCodepen} from "@fortawesome/free-brands-svg-icons";
-import {faEnvelope, faSearch} from "@fortawesome/free-solid-svg-icons";
+import {faEnvelope, faSearch, faGamepad} from "@fortawesome/free-solid-svg-icons";
 
 // APIs
 import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
@@ -194,27 +194,33 @@ export default function App(){
 
       <div className="credits">
           <a href="https://gass.dev" className="credit-link">
-            <span>@</span> gass.dev  {space2}   
+            <span style={{color:"white", fontSize:"14px"}}>@</span> Gass.dev
           </a>
+          {space2}   
           <a style={{marginLeft:"0px"}} href="https://gass.dev">
-            <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=flat-square&color=orange" alt="DevPlus version"/>
+            <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=plastic&color=orange" alt="version"/>
           </a>
           {space2}
           
               <div className='txt'>  
-              rendered in <span id="render-time"></span> ms
-              {space2} 
-              </div>
-              <a  href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
-                <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=flat-square" alt="License name"/>
-              </a>
-              {space3}
-              <div  className='txt'>
-                
-               -
+              -
               {space2}
-            inspired by 
+              rendered in <span style={{color:"rgb(144,238,144)"}} id="render-time"></span> MS
+              {space2}
+              -
+              </div>
+              {space2} 
+              <a  href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
+                <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=plastic" alt="License name"/>
+              </a>
+              {space2}
+              
+              <div className='txt'>
+                -
+              {space2}
+            Inspired by 
             </div>
+            <FontAwesomeIcon style={{ margin:"-1px 2px 0 4px",fontSize:"20px" }} icon={faGamepad}/>
             <a className="credit-link" href="https://www.rpgmakerweb.com/" target="_blank" rel="noreferrer">
               {space1}RPG maker 
             </a> 
