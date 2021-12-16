@@ -1,0 +1,36 @@
+footer {
+  position: fixed;
+  display: flex;
+  bottom: 0px;
+  width: 100%;
+  font-weight: 400;
+  height: 33px;
+  font-size: 13px;
+  font-family: "play", sans-serif;
+  color: rgb(255, 255, 255, 0.8);
+  background: rgb(0, 0, 0, 0.4);
+  border-top: 1px solid rgb(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgb(255, 255, 255, 0.15);
+}
+footer .credits {
+  display: flex;
+  height: 20px;
+  margin: 9px auto;
+  text-shadow: -1px 0 rgb(0, 0, 0, 0.9), 0 1px rgb(0, 0, 0, 0.9),
+    1px 0 rgb(0, 0, 0, 0.9), 0 -1px rgb(0, 0, 0, 0.9);
+  /*border: 1px solid white;*/
+}
+footer .credits .txt {
+  margin-top: 1px;
+  display: inline-block;
+  /*border: 1px solid white;*/
+}
+footer a {
+  text-decoration: none !important;
+  color: white;
+}
+footer .credit-link {
+  margin-top: 1px;
+  color: rgb(255, 248, 157, 0.9);
+  /*border: 1px solid white;*/
+}

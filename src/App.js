@@ -1,9 +1,6 @@
 import React, {useState, useEffect, Fragment } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faStackOverflow, faGithub, faLinkedin, faCodepen} from "@fortawesome/free-brands-svg-icons";
-import {faEnvelope, faSearch, faGamepad} from "@fortawesome/free-solid-svg-icons";
 
 // APIs
 import {getAnswers, getReputation, getSkillScores} from './api/stackOverflow';
@@ -19,6 +16,8 @@ import BasicInfo from './components/basicInfo/index';
 import Projects from './components/projects/index';
 import Skills from './components/skills/index';
 import About from './components/about/index';
+import FooterContent from './components/footerContent/index';
+import Links from './components/links/index';
 
 export default function App(){
   let space1 = <Fragment>&nbsp;</Fragment>,
@@ -49,7 +48,6 @@ export default function App(){
 
   useEffect(() => {
     AOS.init();
-    preload();
     processVisit();
     getUniqueVisits({setUniqueVisits});
     getUserLocation({setUserLocation});
@@ -74,12 +72,6 @@ export default function App(){
     
     return () => clearInterval(interval);
   });
-
-  function preload(){
-    // Remove horizontal scrollbar 
-   document.body.classList.add("animation");
-    
-  }
 
   return [
     <Fragment key="main-component-identifier">
@@ -129,94 +121,15 @@ export default function App(){
 
         {/* -- Fourth row -- */}
         <section className="fourth-row">
-
-              <div className="border-img">
-                <div className="inner-container">
-                  <div className="icons-wrapper">
-                  <a href="https://github.com/gass-git" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faGithub} style={{ fontSize:"35px",marginTop:"1px" }} className="fa-icon"/>
-          </a>
-          <a href="https://stackoverflow.com/users/14895985/gass?tab=profile" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faStackOverflow} style={{ fontSize:"36px" }} className="fa-icon"/>
-          </a>
-          <a href="https://www.linkedin.com/in/gabriel-salinas-szada-7a188196" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faLinkedin} style={{ fontSize:"36px", marginLeft:"6px" }}  className="fa-icon" />
-          </a>
-          <a href="https://codesandbox.io/u/g.szada" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faCodepen} style={{ fontSize:"33px",marginTop:"2px" }} className="fa-icon" />
-          </a>
-          <a href="https://codereview.stackexchange.com/users/239120/gass?tab=profile" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faSearch} style={{ fontSize:"31px",marginTop:"2px" }} className="fa-icon" />
-          </a>
-                  </div>
-                </div>
-              </div>
-            
+          <Links />
         </section>
-
-        
 
       </main>     
 
-
-
-      
       <footer>
-
-         
-
-         
-       
-      
-
-      <div className="credits">
-          <a href="https://gass.dev" className="credit-link">
-            <span style={{color:"white", fontSize:"14px"}}>@</span> Gass.dev
-          </a>
-          {space2}   
-          <a style={{marginLeft:"0px"}} href="https://gass.dev">
-            <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=plastic&color=orange" alt="version"/>
-          </a>
-          {space2}
-          
-              <div className='txt'>  
-              -
-              {space2}
-              rendered in <span style={{color:"rgb(144,238,144)"}} id="render-time"></span> MS
-              {space2}
-              -
-              </div>
-              {space2} 
-              <a  href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
-                <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=plastic" alt="License name"/>
-              </a>
-              {space2}
-              
-              <div className='txt'>
-                -
-              {space2}
-            Inspired by 
-            </div>
-            <FontAwesomeIcon style={{ margin:"-1px 2px 0 4px",fontSize:"20px" }} icon={faGamepad}/>
-            <a className="credit-link" href="https://www.rpgmakerweb.com/" target="_blank" rel="noreferrer">
-              {space1}RPG maker 
-            </a> 
-            <div className="txt">
-            {space1}
-            designs
-            {space1}
-            
-            </div>
-            
-            
-        
-        </div>
-
+        <FooterContent space1={space1} space2={space2} space3={space3}/>
       </footer> 
       
-      
-
-
     </Fragment>
   ]
 }
