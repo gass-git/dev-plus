@@ -14,7 +14,7 @@ export default function FooterContent({space1, space2, space3}){
           </span> 
         </a>
         {space2} 
-        <a style={{marginLeft:"0px"}} href="https://gass.dev">
+        <a style={{marginLeft:"0px"}} href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
           <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=plastic&color=orange" alt="version"/>
         </a>
         {space2}
