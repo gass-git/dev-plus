@@ -25,7 +25,7 @@ export default function FooterContent({space1, space2, space3}){
           -
         </div>
         {space2} 
-        <a  href="https://github.com/gass-git/dev-plus" target="_blank" rel="noreferrer">
+        <a  href="https://github.com/gass-git/dev-plus/blob/master/LICENSE" target="_blank" rel="noreferrer">
           <img src="https://img.shields.io/github/license/gass-git/dev-plus?style=plastic" alt="License name"/>
         </a>
         {space2}
