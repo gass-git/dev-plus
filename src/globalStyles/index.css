@@ -15,7 +15,8 @@
   --gray: rgb(177, 177, 177);
 }
 body {
-  background-image: url("../assets/images/bg-img-7.jpg");
+  background: #04142d;
+  background-image: url("../assets/images/bg-min-edited.jpg");
   background-attachment: fixed;
   background-size: cover;
   margin: 0;
