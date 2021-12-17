@@ -9,11 +9,11 @@ export default function FooterContent({space1, space2, space3}){
         <a  href="https://gass.dev" className="credit-link">
           <span style={{color:"rgb(255,255,255,0.9)"}}>
             ©
-          {space2}
+          {space1}
           gass.dev
           </span> 
         </a>
-        {space3} 
+        {space2} 
         <a style={{marginLeft:"0px"}} href="https://gass.dev">
           <img src="https://img.shields.io/github/package-json/v/gass-git/dev-plus?style=plastic&color=orange" alt="version"/>
         </a>
@@ -32,7 +32,7 @@ export default function FooterContent({space1, space2, space3}){
         <div className='txt'>
           -
           {space2}
-          Inspired by 
+          inspired by 
         </div>
         <FontAwesomeIcon style={{ margin:"-1px 5px 0 5px",fontSize:"19px", opacity:"0.9" }} icon={faGamepad}/>
         <a className="credit-link" href="https://www.rpgmakerweb.com/" target="_blank" rel="noreferrer">
