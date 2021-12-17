@@ -1,7 +1,7 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
 import './basicInfo.css';
-import avatar from  "../../assets/images/avatar7.png"
+import avatar from  "../../assets/images/avatar.png"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 
@@ -14,7 +14,7 @@ export default function BasicInfo ({reputation}) {
         <div className="inner-container">
         
           <div className="avatar-wrapper">
-            <img src={avatar} alt="Stardew Valley pixel avatar" title="Pixel art made by Eric Barone"/>
+            <img src={avatar} alt="" title="Pixel art made by Eric Barone"/>
           </div>
             
           <ReactTooltip/>
