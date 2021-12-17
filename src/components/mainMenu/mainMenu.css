@@ -16,10 +16,10 @@
   border-radius: 2px;
   background: repeating-linear-gradient(
     0deg,
-    rgb(17, 60, 252, 0.8),
-    rgb(17, 60, 252, 0.8) 1px,
-    rgb(25, 52, 152, 0.9) 2px,
-    rgb(25, 52, 152, 0.9) 3px
+    rgb(17, 60, 252, 0.7),
+    rgb(17, 60, 252, 0.7) 1px,
+    rgb(25, 52, 152, 0.8) 2px,
+    rgb(25, 52, 152, 0.8) 3px
   );
   overflow: hidden;
   /* border: 1px solid white; */
