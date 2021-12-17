@@ -7,7 +7,7 @@ export default function FooterContent({space1, space2, space3}){
   return [
     <div className="credits">
         <a  href="https://gass.dev" className="credit-link">
-          <span style={{color:"rgb(255,255,255,0.9)", fontSize:"13px"}}>
+          <span style={{color:"rgb(255,255,255,0.9)"}}>
             ©
           {space2}
           gass.dev
