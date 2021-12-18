@@ -1,8 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import "./links.css";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStackOverflow, faGithub, faLinkedin, faCodepen} from "@fortawesome/free-brands-svg-icons";
-import {faAt, faSearch} from "@fortawesome/free-solid-svg-icons";
+import {faAt} from "@fortawesome/free-solid-svg-icons";
 import useSound from 'use-sound';
 import clickSound from '../../assets/sounds/link-click.mp3';
 import copySound from '../../assets/sounds/copy-email.mp3';
@@ -10,23 +10,12 @@ import copySound from '../../assets/sounds/copy-email.mp3';
 export default function Links(){
   const [playClickSound] = useSound(clickSound, {volume:0.8}),
         [playCopySound] = useSound(copySound, {volume: 0.4}),
-        [copied, setCopied] = useState(false),
         [showEffect, setShowEffect] = useState(false);
-  
 
   function copyText(entryText){
     navigator.clipboard.writeText(entryText);
-    setCopied(true);
-    setTimeout(()=>{setCopied(false)}, 500);
-
-    // Show "Email copied!" effect
     setShowEffect(true);
-    
-    // Make the effect disapper
-    setTimeout(() => {
-      setShowEffect(false);
-    }, 1000)
-
+    setTimeout(() => {setShowEffect(false)}, 1000);
     playCopySound();
   }
 

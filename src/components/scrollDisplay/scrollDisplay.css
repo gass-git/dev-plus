@@ -15,10 +15,10 @@
   border-radius: 2px;
   background: repeating-linear-gradient(
     0deg,
-    rgb(17, 60, 252, 0.7),
-    rgb(17, 60, 252, 0.7) 1px,
-    rgb(25, 52, 152, 0.8) 2px,
-    rgb(25, 52, 152, 0.8) 3px
+    rgb(17, 60, 252, 0.75),
+    rgb(17, 60, 252, 0.75) 1px,
+    rgb(25, 52, 152, 0.85) 2px,
+    rgb(25, 52, 152, 0.85) 3px
   );
   border: 1px solid rgba(14, 16, 98, 0.4);
 }

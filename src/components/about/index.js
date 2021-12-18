@@ -1,15 +1,13 @@
 import React, {Fragment, useState} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAngleDoubleUp, faCaretDown, faClipboardCheck} from '@fortawesome/free-solid-svg-icons';
-import {faClipboard} from '@fortawesome/free-regular-svg-icons';
+import {faAngleDoubleUp, faCaretDown} from '@fortawesome/free-solid-svg-icons';
 import './about.css';
 import useSound from "use-sound";
 import tickSound from '../../assets/sounds/tick-sound.wav';
 
 export default function About(){
   const [current, setCurrent] = useState(0), 
-        [playSound] = useSound(tickSound, {volume: 0.6}),
-        [copied, setCopied] = useState(false);
+        [playSound] = useSound(tickSound, {volume: 0.6});
   
   let textArray = [
     <Fragment>
@@ -31,11 +29,6 @@ export default function About(){
     </Fragment>
   ];
 
-  function copyText(entryText){
-    navigator.clipboard.writeText(entryText);
-    setCopied(true);
-    setTimeout(()=>{setCopied(false)}, 500);
-  }
   function handleCurrent(){
     if(current === textArray.length - 1){
       setCurrent(0);
