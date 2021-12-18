@@ -23,7 +23,7 @@ export default function ScrollDisplay ({
             Last blog post - {lastPost.title}
         </Fragment>,
         <Fragment>
-            Last on Stack Overflow - {lastAnswer} 
+            Latest on Stack Overflow - {lastAnswer} 
         </Fragment>,
         <Fragment>
             Unique visitors to date: {uniqueVisits} and counting... 
