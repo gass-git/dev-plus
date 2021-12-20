@@ -9,7 +9,7 @@ function getGitEvents({setGitEvents, setLastCommit}) {
       var filteredArray = [];
 
       resp.data.forEach((gitEvent)=>{
-        if(gitEvent.payload.action !== 'started'){
+        if("commits" in gitEvent.payload){
           filteredArray.push(gitEvent);
         }
       });
