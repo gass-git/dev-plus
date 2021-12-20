@@ -1,6 +1,6 @@
 {
   "name": "dev-plus",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

@@ -19,7 +19,6 @@ export default function FooterContent({space1, space2, space3}){
         </a>
         {space2}
         <div className='txt'>  
-          {space1}
           rendered in <span style={{color:"rgb(144,238,144)"}} id="render-time"></span> MS
           {space2}
           -
