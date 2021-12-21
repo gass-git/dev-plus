@@ -56,13 +56,12 @@ export default function Skills({scores}) {
     }
     function getScore(tag){
       let tagModified = null, filteredData = null;
-      if(tag === 'html5') { tagModified = 'html' }
-      else if(tag === 'css3') {tagModified = 'css'}
-
+      if(tag === 'react') {tagModified = 'reactjs'}
+     
       if(tagModified){
-        filteredData = scores.filter((data) => {return data.tag_name === tagModified});
+        filteredData = scores.filter((data) => {return data.tag_name === tagModified})
       }else{
-        filteredData = scores.filter((data) => {return data.tag_name === tag});
+        filteredData = scores.filter((data) => {return data.tag_name === tag})
       }
 
       var points = filteredData.map((lang) => { return lang.answer_score});
