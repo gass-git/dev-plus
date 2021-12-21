@@ -39,6 +39,3 @@
     1px 0 rgb(0, 0, 0, 0.3), 0 -1px rgb(0, 0, 0, 0.3);
   animation: arrow-flicker 1300ms infinite;
 }
-.about .arrow-box .icon:hover {
-  animation: none;
-}
