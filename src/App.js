@@ -20,9 +20,9 @@ import FooterContent from './components/footerContent/index';
 import Links from './components/links/index';
 
 export default function App(){
-  let space1 = <Fragment>&nbsp;</Fragment>,
-      space2 = <Fragment>&nbsp;&nbsp;</Fragment>,
-      space3 = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
+  const space1 = <Fragment>&nbsp;</Fragment>,
+        space2 = <Fragment>&nbsp;&nbsp;</Fragment>,
+        space3 = <Fragment>&nbsp;&nbsp;&nbsp;</Fragment>;
 
   // API 
   const [userLocation, setUserLocation] = useState(),
@@ -39,12 +39,13 @@ export default function App(){
         [scores, setScores] = useState([]);
 
   // ScrollDisplay variables
-  let scrollerDelay = 20; // Duration in seconds 
-  const [scrollerSwitch, setScrollerSwitch] = useState('on'),
+  const scrollerDelay = 20, // Duration in seconds 
+        maxIndex = 5,
+        [scrollerSwitch, setScrollerSwitch] = useState('on'),
         [lastCommit, setLastCommit] = useState([]),
         [lastAnswer, setLastAnswer] = useState(),
-        [msgIndex, setMsgIndex] = useState(0),
-        maxIndex = 5;
+        [msgIndex, setMsgIndex] = useState(0);
+        
 
   useEffect(() => {
     AOS.init();
