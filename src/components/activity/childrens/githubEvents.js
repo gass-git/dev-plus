@@ -9,7 +9,7 @@ export default function GithubEvents({gitEvents, space}){
       </div>
       <div className="container">
         {gitEvents.map((data) => {
-          var event_id = data.id;
+          let event_id = data.id;
           let repoName = data.repo.name;
           let repoURL = "https://github.com/" + repoName + "/commits/master";
           repoName = repoName.slice(9);

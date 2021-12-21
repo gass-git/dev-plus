@@ -39,7 +39,7 @@ export default function App(){
         [scores, setScores] = useState([]);
 
   // ScrollDisplay variables
-  var scrollerDelay = 20; // Duration in seconds 
+  let scrollerDelay = 20; // Duration in seconds 
   const [scrollerSwitch, setScrollerSwitch] = useState('on'),
         [lastCommit, setLastCommit] = useState([]),
         [lastAnswer, setLastAnswer] = useState(),
@@ -60,7 +60,7 @@ export default function App(){
   }, []);
 
   useEffect(() => {
-    var interval = setInterval(() => {
+    let interval = setInterval(() => {
       setScrollerSwitch('off'); 
 
       // Switch to the next message

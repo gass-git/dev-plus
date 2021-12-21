@@ -64,12 +64,12 @@ export default function Skills({scores}) {
         filteredData = scores.filter((data) => {return data.tag_name === tag})
       }
 
-      var points = filteredData.map((lang) => { return lang.answer_score});
+      let points = filteredData.map((lang) => { return lang.answer_score});
       points = points.length === 0 ?  "NF" : points;
       return points;
     }
     function getUrl(tag){
-      var url = `https://stackoverflow.com/search?tab=votes&q=user%3a14895985 [${tag}]`;
+      let url = `https://stackoverflow.com/search?tab=votes&q=user%3a14895985 [${tag}]`;
       return url;
     }
 

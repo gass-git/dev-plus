@@ -14,7 +14,7 @@ export default function Projects ({repos, space3}) {
         [playTickSound] = useSound(tickSound,{volume: 0.6}),
         [playSelectionSound] = useSound(selectionSound, {volume:1});
   
-  var totalRepos = repos.length,
+  let totalRepos = repos.length,
       totalSections = Math.ceil(totalRepos/4);
     
   const RepoDetails = () => {
