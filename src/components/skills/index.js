@@ -91,7 +91,7 @@ export default function Skills({scores}) {
             {label}
           </div>  
 
-          <div className="score" data-tip="Stack Overflow score">
+          <div className="score" data-tip="Score">
             {getScore(lang)}
           </div>
         </a>

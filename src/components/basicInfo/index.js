@@ -48,9 +48,9 @@ export default function BasicInfo ({reputation}) {
               <data>
                 <label data-tip="Total">{reputation.total} &nbsp;&nbsp;</label>
                 
-                <span style={{cursor:"default"}} data-tip="Month change">
                   <FontAwesomeIcon icon={faArrowUp} className="icon shadow-04"/>
                   &nbsp;&nbsp;
+                  <span style={{cursor:"default"}} data-tip="Month change">
                   {reputation.monthChange}
                 </span>
               </data>
