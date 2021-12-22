@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 
 
-export default function BasicInfo ({reputation}) {
+export default function BasicInfo ({reputation,space1}) {
   return [
     <section key="basic-info-identifier" className="basic-info">
       <div className="border-img">
@@ -25,15 +25,17 @@ export default function BasicInfo ({reputation}) {
               GASS
             </div>
             <div className="sub-username">
-            Developer
+              <span style={{textShadow:"none"}}>🛠️</span> 
+              {space1}
+              Developer
             </div>
           </div>
 
           {/* -- Profile summary -- */}
           <div className="info">
             <div>
-              <label>Profession</label>
-              <data>Engineer</data>
+              <label>Studies</label>
+              <data>Engineering</data>
             </div>
             <div>
               <label>Started Coding</label>

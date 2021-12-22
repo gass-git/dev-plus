@@ -101,7 +101,7 @@ export default function App(){
           </div>
             
           <div  className="right-side">
-            <BasicInfo reputation={reputation} />
+            <BasicInfo reputation={reputation} space1={space1}/>
           </div>
             
         </section>
