@@ -12,7 +12,7 @@ export default function ScrollDisplay ({
 }) {
     let messages = [
         <Fragment> 
-            Welcome visitor from {userLocation ? userLocation : "Planet Earth"}!
+            Welcome fellow visitor from {userLocation ? userLocation : "Planet Earth"}!
             I'm glad you came by, feel free to take a look around...
         </Fragment>,
        <Fragment> 
