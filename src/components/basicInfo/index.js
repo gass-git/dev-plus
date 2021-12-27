@@ -7,12 +7,6 @@ import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 
 
 export default function BasicInfo ({reputation,space1}) {
-  
-  function isMac(){
-    if(navigator.userAgent.indexOf("Mac") !== -1) return true;
-    else return false;  
-  }
-  
   return [
     <section key="basic-info-identifier" className="basic-info">
       <div className="border-img">
@@ -31,7 +25,6 @@ export default function BasicInfo ({reputation,space1}) {
               GASS
             </div>
             <div className="sub-username">
-              { isMac() ? null : <span style={{textShadow:"none"}}>🛠️{space1}</span> }
               Developer
             </div>
           </div>
