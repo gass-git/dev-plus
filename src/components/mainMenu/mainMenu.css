@@ -6,7 +6,6 @@
   border-image: url("../../assets/images/border-60px.png") 19 round;
   width: 157px;
   height: 132px;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   /*box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;*/
 }
 .main-menu .inner-container {
@@ -43,7 +42,7 @@
   left: 4px;
   width: 173px;
   height: 33px;
-  background: rgb(255, 255, 255, 0.4);
+  background: rgb(255, 255, 255, 0.3);
   transition: 300ms;
   border: 1px solid rgba(208, 255, 0, 0.1);
   animation: main-menu-waver 1500ms infinite;
@@ -81,15 +80,4 @@
   width: 100%;
   padding-top: 2px;
   text-align: center;
-}
-@keyframes main-menu-waver {
-  0% {
-    background: rgb(255, 255, 255, 0.3);
-  }
-  50% {
-    background: rgb(255, 255, 255, 0.5);
-  }
-  100% {
-    background: rgb(255, 255, 255, 0.3);
-  }
 }

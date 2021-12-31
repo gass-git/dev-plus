@@ -9,7 +9,6 @@
   border-image: url("../../assets/images/border-60px.png") 19 round;
   width: 571px;
   height: 132px;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 .basic-info .inner-container {
   display: flex;
@@ -31,11 +30,11 @@
   min-width: 160px;
   height: 150px;
   overflow: hidden;
-  background: rgb(255, 255, 255, 0.2);
+  background: rgb(255, 255, 255, 0.25);
 }
 .basic-info .avatar-wrapper img {
   margin-top: -10px;
-  opacity: 0.78;
+  opacity: 0.85;
   height: 160px;
   width: 160px;
 }

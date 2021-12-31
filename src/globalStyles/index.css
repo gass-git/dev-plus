@@ -16,7 +16,9 @@
 }
 body {
   background: #04142d;
-  background-image: url("../assets/images/bg.jpg");
+  background-image: url("../assets/images/1.gif");
+  /* Background gif made by Nicolas from Goblinz Studio */
+  /* https://imgur.com/gallery/n57dFt8 */
   background-attachment: fixed;
   background-size: cover;
   margin: 0;
@@ -71,5 +73,16 @@ code {
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes main-menu-waver {
+  0% {
+    background: rgb(255, 255, 255, 0.3);
+  }
+  50% {
+    background: rgb(255, 255, 255, 0.55);
+  }
+  100% {
+    background: rgb(255, 255, 255, 0.3);
   }
 }
