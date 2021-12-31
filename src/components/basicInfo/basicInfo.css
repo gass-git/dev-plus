@@ -16,10 +16,10 @@
   margin: -14px -13px 0 -13px;
   background: repeating-linear-gradient(
     0deg,
-    rgb(17, 60, 252, 0.75),
-    rgb(17, 60, 252, 0.75) 1px,
-    rgb(25, 52, 152, 0.85) 2px,
-    rgb(25, 52, 152, 0.85) 3px
+    rgba(38, 51, 107, 0.75),
+    rgb(38, 51, 107, 0.75) 1px,
+    rgba(35, 41, 63, 0.85) 2px,
+    rgba(32, 39, 66, 0.85) 3px
   );
   overflow: hidden;
 }
@@ -30,11 +30,11 @@
   min-width: 160px;
   height: 150px;
   overflow: hidden;
-  background: rgb(255, 255, 255, 0.25);
+  background: rgb(255, 255, 255, 0.15);
 }
 .basic-info .avatar-wrapper img {
   margin-top: -10px;
-  opacity: 0.85;
+  opacity: 0.75;
   height: 160px;
   width: 160px;
 }

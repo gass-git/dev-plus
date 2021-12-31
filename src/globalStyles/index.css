@@ -16,9 +16,8 @@
 }
 body {
   background: #04142d;
-  background-image: url("../assets/images/1.gif");
-  /* Background gif made by Nicolas from Goblinz Studio */
-  /* https://imgur.com/gallery/n57dFt8 */
+  background-image: url("../assets/images/bg.jpg");
+  /* Image from: https://wallspic.com/image/91628-winter-games-art-metropolis-clothing */
   background-attachment: fixed;
   background-size: cover;
   margin: 0;
