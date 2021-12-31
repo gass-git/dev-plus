@@ -182,7 +182,7 @@ export default function Projects ({repos, space3}) {
                       <div className="folder">
                         <FontAwesomeIcon
                           icon={current === i ? faFolderOpen : faFolder}
-                          className="icon shadow-08"
+                          className={current === i ? "icon-yellow shadow-08" : "icon-white shadow-08"}
                         />
                       </div>
                       <div className="project-name">

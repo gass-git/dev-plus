@@ -95,8 +95,11 @@
   min-width: 25px;
   /* border: 1px solid white; */
 }
-.projects .right-side .option .folder .icon {
+.projects .right-side .option .folder .icon-white {
   color: white;
+}
+.projects .right-side .option .folder .icon-yellow {
+  color: var(--yellow1);
 }
 .projects .right-side .option .project-name {
   margin-left: 5px;

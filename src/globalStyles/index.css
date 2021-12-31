@@ -79,7 +79,7 @@ code {
     background: rgb(255, 255, 255, 0.3);
   }
   50% {
-    background: rgb(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.55);
   }
   100% {
     background: rgb(255, 255, 255, 0.3);

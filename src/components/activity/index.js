@@ -79,21 +79,30 @@ export default function Activity ({answers, gitEvents, posts}){
           className="option"
           onClick={() => select('stackoverflow')}
         >
-          <FontAwesomeIcon icon={faStackOverflow} className='icon shadow-04'/>
+          <FontAwesomeIcon 
+            icon={faStackOverflow} 
+            className={current === "stackoverflow" ? 'icon-yellow shadow-04' : 'icon-white shadow-04'}
+          />
         </div>
         <div 
           style={{ marginTop:"11px" }}
           className="option"
           onClick={() => select('github')}
         >
-          <FontAwesomeIcon icon={faGithub} className='icon shadow-04'/>
+          <FontAwesomeIcon 
+            icon={faGithub} 
+            className={current === "github" ? 'icon-yellow shadow-04' : 'icon-white shadow-04'}
+          />
         </div>
         <div 
           style={{ marginTop:"12px" }}
           className="option"
           onClick={() => select('writings')}
         >
-          <FontAwesomeIcon icon={faKeyboard} className='icon shadow-04'/>
+          <FontAwesomeIcon 
+            icon={faKeyboard} 
+            className={current === "writings" ? 'icon-yellow shadow-04' : 'icon-white shadow-04'}
+          />
         </div>
 
         {/* -- Elevator -- */}

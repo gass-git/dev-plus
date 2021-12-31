@@ -57,8 +57,13 @@
   border-radius: 2px;
   border: 1px solid rgba(208, 255, 0, 0);
 }
-.activity .right-side .option .icon {
+.activity .right-side .option .icon-white {
   margin: 17px auto;
+  color: rgb(255, 255, 255, 0.7);
+}
+.activity .right-side .option .icon-yellow {
+  margin: 17px auto;
+  color: var(--yellow1);
 }
 .activity .right-side .option:hover {
   background: rgb(255, 255, 255, 0.1);

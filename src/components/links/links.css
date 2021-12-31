@@ -42,7 +42,7 @@
   transition: 500ms;
 }
 .links .icons-wrapper .fa-icon:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--yellow1);
 }
 .links .icons-wrapper .copied-animation {
   position: absolute;
