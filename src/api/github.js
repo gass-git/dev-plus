@@ -46,9 +46,13 @@ function getRepos({setRepos}) {
       
       // Filter repos that don't have ABOUT SECTION and URL
       let filteredArray = newArray.filter((repo) => {
-         return repo.about !== null && repo.url !== null ? true : false; 
+        if(repo.about !== null && repo.url !== ""){
+          return true; 
+        }
+        else{
+          return false; // Remove repo
+        }
       });
-
 
 
       // Sort repos from old to new
