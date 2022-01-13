@@ -25,7 +25,7 @@ export default function BasicInfo ({reputation,space1}) {
               GASS
             </div>
             <div className="sub-username">
-              Developer
+              Web Artisan
             </div>
           </div>
 
