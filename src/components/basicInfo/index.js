@@ -7,6 +7,8 @@ import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function BasicInfo({ reputation, space1 }) {
+  const spacer = <span>&nbsp;&nbsp;</span>
+
   return [
     <section key="basic-info-identifier" className="basic-info">
       <div className="border-img">
@@ -46,14 +48,14 @@ export default function BasicInfo({ reputation, space1 }) {
             <div>
               <label data-tip="Stack Overflow reputation">SO Points</label>
               <data>
-                <label data-tip="Total">{reputation.total} &nbsp;&nbsp;</label>
+                <label data-tip="Total">{reputation.total} {spacer}</label>
                 {
                   reputation.total > 0 ?
                     <FontAwesomeIcon icon={faArrowUp} className="icon-green shadow-04" />
                     :
                     <FontAwesomeIcon icon={faArrowDown} className="icon-red shadow-04" />
                 }
-                &nbsp;&nbsp;
+                {spacer}
                 <span style={{ cursor: "default" }} data-tip="Month change">
                   {reputation.monthChange}
                 </span>
