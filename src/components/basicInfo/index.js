@@ -1,23 +1,23 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
 import './basicInfo.css';
-import avatar from  "../../assets/images/avatar.png"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
+import avatar from "../../assets/images/avatar.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function BasicInfo ({reputation,space1}) {
+export default function BasicInfo({ reputation, space1 }) {
   return [
     <section key="basic-info-identifier" className="basic-info">
       <div className="border-img">
-        
+
         <div className="inner-container">
-        
+
           <div className="avatar-wrapper">
-            <img src={avatar} alt="" title="Pixel art made by Eric Barone"/>
+            <img src={avatar} alt="" title="Pixel art made by Eric Barone" />
           </div>
-            
-          <ReactTooltip/>
+
+          <ReactTooltip />
 
           {/* -- Avatar & username -- */}
           <div className="username-wrapper">
@@ -47,16 +47,20 @@ export default function BasicInfo ({reputation,space1}) {
               <label data-tip="Stack Overflow reputation">SO Points</label>
               <data>
                 <label data-tip="Total">{reputation.total} &nbsp;&nbsp;</label>
-                
-                  <FontAwesomeIcon icon={faArrowUp} className="icon shadow-04"/>
-                  &nbsp;&nbsp;
-                  <span style={{cursor:"default"}} data-tip="Month change">
+                {
+                  reputation.total < 0 ?
+                    <FontAwesomeIcon icon={faArrowUp} className="icon-green shadow-04" />
+                    :
+                    <FontAwesomeIcon icon={faArrowDown} className="icon-red shadow-04" />
+                }
+                &nbsp;&nbsp;
+                <span style={{ cursor: "default" }} data-tip="Month change">
                   {reputation.monthChange}
                 </span>
               </data>
             </div>
           </div>
-        
+
         </div>
       </div>
     </section>

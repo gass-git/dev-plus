@@ -102,9 +102,13 @@
   color: white;
   /* border: 1px solid white; */
 }
-.basic-info .info data .icon {
+.basic-info .info data .icon-green {
   font-size: 15px;
   color: var(--green1);
+}
+.basic-info .info data .icon-red {
+  font-size: 15px;
+  color: var(--light-red);
 }
 .basic-info .info data span {
   color: var(--yellow1);
