@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import useSound from "use-sound";
 import ReactTooltip from "react-tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCaretDown, faCaretUp} from "@fortawesome/free-solid-svg-icons"; 
+import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import './skills.css';
 import tickSound from "../../assets/sounds/tick-sound.wav";
 
@@ -13,14 +13,18 @@ import JAVASCRIPT_ICON from "../icons/javascript_icon";
 import CSS_ICON from "../icons/css_icon";
 import JQUERY_ICON from "../icons/jquery_icon";
 import REACT_ICON from "../icons/react_icon";
-import PHP_ICON  from "../icons/php_icon";
+import PHP_ICON from "../icons/php_icon";
 import LARAVEL_ICON from "../icons/laravel_icon";
+import { AppContext } from "../../App";
 
-export default function Skills({scores}) {
+
+export default function Skills() {
+  const { scores } = useContext(AppContext)
+
   const [section, setSection] = useState(1),
-        [playTickSound] = useSound(tickSound,{volume: 0.6});
+    [playTickSound] = useSound(tickSound, { volume: 0.6 });
 
-  function handleArrowClick(){
+  function handleArrowClick() {
     section === 1 ? setSection(2) : setSection(1);
     playTickSound();
   }
@@ -35,40 +39,40 @@ export default function Skills({scores}) {
      *  has been implemented.
      */
     function handleResize() {
-      if(window.innerWidth > 750) setSection(1);
+      if (window.innerWidth > 750) setSection(1);
     }
     window.addEventListener('resize', handleResize)
-  })  
+  })
 
-  const Skill = ({lang, label}) => {
-    function handleIcon(lang){
-      switch(lang){
-       case "html": return <HTML_ICON/>;
-       case "bootstrap": return <BOOTSTRAP_ICON/>;
-       case "javascript": return <JAVASCRIPT_ICON/>;
-       case "css": return <CSS_ICON/>;
-       case "jquery": return <JQUERY_ICON/>;
-       case "react": return <REACT_ICON/>;
-       case "php": return <PHP_ICON/>;
-       case "laravel": return <LARAVEL_ICON/>;
-       default: return null;
+  const Skill = ({ lang, label }) => {
+    function handleIcon(lang) {
+      switch (lang) {
+        case "html": return <HTML_ICON />;
+        case "bootstrap": return <BOOTSTRAP_ICON />;
+        case "javascript": return <JAVASCRIPT_ICON />;
+        case "css": return <CSS_ICON />;
+        case "jquery": return <JQUERY_ICON />;
+        case "react": return <REACT_ICON />;
+        case "php": return <PHP_ICON />;
+        case "laravel": return <LARAVEL_ICON />;
+        default: return null;
       }
     }
-    function getScore(tag){
+    function getScore(tag) {
       let tagModified = null, filteredData = null;
-      if(tag === 'react') {tagModified = 'reactjs'}
-     
-      if(tagModified){
-        filteredData = scores.filter((data) => {return data.tag_name === tagModified})
-      }else{
-        filteredData = scores.filter((data) => {return data.tag_name === tag})
+      if (tag === 'react') { tagModified = 'reactjs' }
+
+      if (tagModified) {
+        filteredData = scores.filter((data) => { return data.tag_name === tagModified })
+      } else {
+        filteredData = scores.filter((data) => { return data.tag_name === tag })
       }
 
-      let points = filteredData.map((lang) => { return lang.answer_score});
-      points = points.length === 0 ?  "NF" : points;
+      let points = filteredData.map((lang) => { return lang.answer_score });
+      points = points.length === 0 ? "NF" : points;
       return points;
     }
-    function getUrl(tag){
+    function getUrl(tag) {
       let url = `https://stackoverflow.com/search?tab=votes&q=user%3a14895985 [${tag}]`;
       return url;
     }
@@ -76,9 +80,9 @@ export default function Skills({scores}) {
     return [
       <div key={lang}>
         <ReactTooltip />
-        <a 
-          href={getUrl(lang)} 
-          className="block" 
+        <a
+          href={getUrl(lang)}
+          className="block"
           target="_blank"
           rel="noreferrer"
           title="go to answers"
@@ -86,10 +90,10 @@ export default function Skills({scores}) {
           <div className="badge-wrapper">
             {handleIcon(lang)}
           </div>
-        
+
           <div className="name">
             {label}
-          </div>  
+          </div>
 
           <div className="score" data-tip="Score">
             {getScore(lang)}
@@ -113,10 +117,10 @@ export default function Skills({scores}) {
               <div className="media-title">
                 CORE TECH {/* Appears in smaller viewports */}
               </div>
-              <Skill key="javascript" lang="javascript" label="JavaScript" /> 
-              <Skill key="html" lang="html" label="HTML5" /> 
-              <Skill key="css" lang="css" label="CSS3" /> 
-              <Skill key="php" lang="php" label="Hypertext Preprocessor" /> 
+              <Skill key="javascript" lang="javascript" label="JavaScript" />
+              <Skill key="html" lang="html" label="HTML5" />
+              <Skill key="css" lang="css" label="CSS3" />
+              <Skill key="php" lang="php" label="Hypertext Preprocessor" />
             </div>
 
             {/* -- For @media functionality -- */}
@@ -124,13 +128,13 @@ export default function Skills({scores}) {
               <div className="media-title">
                 FRAMEWORKS & LIBRARIES
               </div>
-                <Skill key="react-@media" lang="react" label="React" /> 
-                <Skill key="jquery-@media" lang="jquery" label="jQuery"  /> 
-                <Skill key="laravel-@media" lang="laravel" label="Laravel" /> 
-                <Skill key="bootstrap-@media" lang="bootstrap" label="Bootstrap" />  
-              </div>
+              <Skill key="react-@media" lang="react" label="React" />
+              <Skill key="jquery-@media" lang="jquery" label="jQuery" />
+              <Skill key="laravel-@media" lang="laravel" label="Laravel" />
+              <Skill key="bootstrap-@media" lang="bootstrap" label="Bootstrap" />
+            </div>
             {/* ------------------------------ */}
-          
+
           </div>
         </div>
 
@@ -140,21 +144,21 @@ export default function Skills({scores}) {
             FRAMEWORKS & LIBRARIES
           </div>
           <div className="skills-wrapper">
-            <Skill key="react" lang="react" label="React" /> 
-            <Skill key="jquery" lang="jquery" label="jQuery"  /> 
-            <Skill key="laravel" lang="laravel" label="Laravel" /> 
-            <Skill key="bootstrap" lang="bootstrap" label="Bootstrap" /> 
+            <Skill key="react" lang="react" label="React" />
+            <Skill key="jquery" lang="jquery" label="jQuery" />
+            <Skill key="laravel" lang="laravel" label="Laravel" />
+            <Skill key="bootstrap" lang="bootstrap" label="Bootstrap" />
           </div>
         </div>
       </div>
 
       {/* -- FOR @MEDIA small screens -- */}
       <div className="down-arrow-box">
-       <FontAwesomeIcon 
-        icon={section === 1 ? faCaretDown : faCaretUp} 
-        className="icon"
-        onClick={() => handleArrowClick()}
-      />
+        <FontAwesomeIcon
+          icon={section === 1 ? faCaretDown : faCaretUp}
+          className="icon"
+          onClick={() => handleArrowClick()}
+        />
       </div>
     </section>
   ]

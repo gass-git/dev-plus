@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactTooltip from "react-tooltip";
 import './basicInfo.css';
 import avatar from "../../assets/images/avatar.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { AppContext } from "../../App";
 
-
-export default function BasicInfo({ reputation, space1 }) {
-  const spacer = <span>&nbsp;&nbsp;</span>
+export default function BasicInfo() {
+  const { space2, reputation } = useContext(AppContext)
 
   return [
     <section key="basic-info-identifier" className="basic-info">
@@ -48,14 +48,14 @@ export default function BasicInfo({ reputation, space1 }) {
             <div>
               <label data-tip="Stack Overflow reputation">SO Points</label>
               <data>
-                <label data-tip="Total">{reputation.total} {spacer}</label>
+                <label data-tip="Total">{reputation.total}{space2}</label>
                 {
                   reputation.monthChange > 0 ?
                     <FontAwesomeIcon icon={faArrowUp} className="icon-green shadow-04" />
                     :
                     <FontAwesomeIcon icon={faArrowDown} className="icon-red shadow-04" />
                 }
-                {spacer}
+                {space2}
                 <span style={{ cursor: "default" }} data-tip="Month change">
                   {reputation.monthChange}
                 </span>

@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Fragment } from 'react';
+import { AppContext } from "../../../App";
 
-export default function GithubEvents({gitEvents, space}){
+
+export default function GithubEvents({ gitEvents }) {
+  const { space3 } = useContext(AppContext)
+
   return [
     <Fragment key="git-identifier">
       <div className="sub-title">
-          LATEST COMMITS
+        LATEST COMMITS
       </div>
       <div className="container">
         {gitEvents.map((data) => {
@@ -16,21 +20,21 @@ export default function GithubEvents({gitEvents, space}){
           let date = data.created_at;
           let commit = data.payload.commits[0].message;
 
-          date = date.slice(0,10);
+          date = date.slice(0, 10);
           return [
-            <a 
-              key={event_id} 
-              href={repoURL} 
-              className='block' 
-              target="_blank" 
-              rel="noreferrer" 
+            <a
+              key={event_id}
+              href={repoURL}
+              className='block'
+              target="_blank"
+              rel="noreferrer"
               title="See details on GitHub"
             >
               <div className="events-date">
                 {date}
               </div>
               <div className="commit">{commit}</div>
-              {space}
+              {space3}
               <div className="repo-name" title="Repository name" >{repoName}</div>
             </a>
           ]
