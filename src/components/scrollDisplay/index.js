@@ -1,32 +1,35 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
+import { AppContext } from "../../App";
 import "./scrollDisplay.css";
 
-export default function ScrollDisplay ({
-    scrollerSwitch, 
-    lastCommit, 
-    lastAnswer, 
-    lastPost, 
-    msgIndex, 
-    uniqueVisits,
-    userLocation
-}) {
+export default function ScrollDisplay() {
+    const {
+        scrollerSwitch,
+        lastCommit,
+        lastAnswer,
+        lastPost,
+        msgIndex,
+        uniqueVisits,
+        userLocation
+    } = useContext(AppContext)
+
     let messages = [
-        <Fragment> 
+        <Fragment>
             Welcome fellow visitor from {userLocation ? userLocation : "Planet Earth"}!
             I'm glad you came by, feel free to take a look around...
         </Fragment>,
-       <Fragment> 
-            Last Github commit - {lastCommit.message} (repo: {lastCommit.repo}) 
+        <Fragment>
+            Last Github commit - {lastCommit.message} (repo: {lastCommit.repo})
             &nbsp; {lastCommit.date} {lastCommit.time}
         </Fragment>,
         <Fragment>
             Last blog post - {lastPost.title}
         </Fragment>,
         <Fragment>
-            Latest on Stack Overflow - {lastAnswer} 
+            Latest on Stack Overflow - {lastAnswer}
         </Fragment>,
         <Fragment>
-            Unique visitors to date: {uniqueVisits} and counting... 
+            Unique visitors to date: {uniqueVisits} and counting...
         </Fragment>,
         <Fragment>
             Web app using: Reactjs, FontAwesome, AOS, SVG Backgrounds, Axios & Use Sound...
@@ -38,11 +41,11 @@ export default function ScrollDisplay ({
             <div className="border-img">
                 <div className="inner-container">
                     <div className="msg-display">
-                        {scrollerSwitch === 'on' ?    
+                        {scrollerSwitch === 'on' ?
                             <div className="scroll-text">
                                 {messages[msgIndex]}
                             </div>
-                            : 
+                            :
                             null
                         }
                     </div>

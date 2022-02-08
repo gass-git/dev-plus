@@ -19,7 +19,6 @@ import About from './components/about/index'
 import FooterContent from './components/footerContent/index'
 import Links from './components/links/index'
 
-
 export const AppContext = React.createContext(null)
 
 export default function App() {
@@ -28,26 +27,26 @@ export default function App() {
   const space3 = <span>&nbsp;&nbsp;&nbsp;</span>
 
   // API 
-  const [userLocation, setUserLocation] = useState(),
-    [selected, setSelected] = useState('about'),
-    [uniqueVisits, setUniqueVisits] = useState(),
-    [gitEvents, setGitEvents] = useState([]),
-    [repos, setRepos] = useState([]),
-    [posts, setPosts] = useState([]),
-    [lastPost, setLastPost] = useState([]);
+  const [userLocation, setUserLocation] = useState()
+  const [selected, setSelected] = useState('about')
+  const [uniqueVisits, setUniqueVisits] = useState()
+  const [gitEvents, setGitEvents] = useState([])
+  const [repos, setRepos] = useState([])
+  const [posts, setPosts] = useState([])
+  const [lastPost, setLastPost] = useState([])
 
   // Stack Overflow variables
-  const [reputation, setReputation] = useState([]),
-    [answers, setAnswers] = useState([]),
-    [scores, setScores] = useState([]);
+  const [reputation, setReputation] = useState([])
+  const [answers, setAnswers] = useState([])
+  const [scores, setScores] = useState([])
 
   // ScrollDisplay variables
-  const scrollerDelay = 20, // Duration in seconds 
-    maxIndex = 5,
-    [scrollerSwitch, setScrollerSwitch] = useState('on'),
-    [lastCommit, setLastCommit] = useState([]),
-    [lastAnswer, setLastAnswer] = useState(),
-    [msgIndex, setMsgIndex] = useState(0);
+  const scrollerDelay = 20 // Duration in seconds 
+  const maxIndex = 5
+  const [scrollerSwitch, setScrollerSwitch] = useState('on')
+  const [lastCommit, setLastCommit] = useState([])
+  const [lastAnswer, setLastAnswer] = useState()
+  const [msgIndex, setMsgIndex] = useState(0)
 
 
   useEffect(() => {
@@ -88,7 +87,14 @@ export default function App() {
         repos,
         answers,
         gitEvents,
-        posts
+        posts,
+        scrollerSwitch,
+        lastCommit,
+        lastAnswer,
+        lastPost,
+        msgIndex,
+        uniqueVisits,
+        userLocation
       }}
       key={'ctx-key'}
     >
@@ -98,28 +104,17 @@ export default function App() {
 
         {/* -- First row -- */}
         <section className="first-row">
-          <ScrollDisplay
-            scrollerSwitch={scrollerSwitch}
-            lastCommit={lastCommit}
-            lastAnswer={lastAnswer}
-            lastPost={lastPost}
-            msgIndex={msgIndex}
-            uniqueVisits={uniqueVisits}
-            userLocation={userLocation}
-          />
+          <ScrollDisplay />
         </section>
 
         {/* -- Second row -- */}
         <section className="second-row">
-
           <div className="left-side">
             <MainMenu setSelected={setSelected} />
           </div>
-
           <div className="right-side">
             <BasicInfo />
           </div>
-
         </section>
 
         {/* -- Third row -- */}
@@ -146,7 +141,6 @@ export default function App() {
       <footer>
         <FooterContent />
       </footer>
-
     </AppContext.Provider>
   ]
 }
