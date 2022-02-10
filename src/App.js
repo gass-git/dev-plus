@@ -61,6 +61,13 @@ function appReducer(state, action) {
         repos: action.repos
       }
 
+    case 'set latest events and last commit':
+      return {
+        ...state,
+        gitEvents: action.latestFourEvents,
+        lastCommit: action.latestCommit
+      }
+
     default:
       return initialState
   }
@@ -72,7 +79,9 @@ const initialState = {
   posts: [],
   lastPost: {},
   reputation: {},
-  repos: []
+  repos: [],
+  gitEvents: [],
+  lastCommit: {}
 }
 
 export default function App() {
@@ -84,12 +93,14 @@ export default function App() {
     posts,
     lastPost,
     reputation,
-    repos
+    repos,
+    lastCommit,
+    gitEvents
   } = state
 
   // API 
   const [selected, setSelected] = useState('about')
-  const [gitEvents, setGitEvents] = useState([])
+  //const [gitEvents, setGitEvents] = useState([])
 
   // Stack Overflow variables
   const [answers, setAnswers] = useState([])
@@ -98,7 +109,7 @@ export default function App() {
   const scrollerDelay = 20 // Duration in seconds 
   const maxIndex = 5
   const [scrollerSwitch, setScrollerSwitch] = useState('on')
-  const [lastCommit, setLastCommit] = useState([])
+  //const [lastCommit, setLastCommit] = useState([])
   const [lastAnswer, setLastAnswer] = useState()
   const [msgIndex, setMsgIndex] = useState(0)
 
@@ -111,7 +122,7 @@ export default function App() {
     getReputation({ dispatch })
     getRepos({ dispatch })
     getAnswers({ setAnswers, setLastAnswer })
-    getGitEvents({ setGitEvents, setLastCommit })
+    getGitEvents({ dispatch })
     getSkillScores({ dispatch })
   }, [])
 
