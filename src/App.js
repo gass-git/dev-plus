@@ -35,6 +35,12 @@ function appReducer(state, action) {
         userLocation: action.location
       }
 
+    case 'set skill scores':
+      return {
+        ...state,
+        scores: action.scores
+      }
+
     default:
       return initialState
   }
@@ -42,12 +48,13 @@ function appReducer(state, action) {
 
 const initialState = {
   uniqueVisits: '000000',
-  userLocation: 'Planet Earth'
+  userLocation: 'Planet Earth',
+  scores: []
 }
 
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
-  const { uniqueVisits, userLocation } = state
+  const { uniqueVisits, userLocation, scores } = state
 
   // Spaces
   const space1 = <span>&nbsp;</span>
@@ -64,7 +71,7 @@ export default function App() {
   // Stack Overflow variables
   const [reputation, setReputation] = useState([])
   const [answers, setAnswers] = useState([])
-  const [scores, setScores] = useState([])
+  //const [scores, setScores] = useState([])
 
   // ScrollDisplay variables
   const scrollerDelay = 20 // Duration in seconds 
@@ -84,7 +91,7 @@ export default function App() {
     getRepos({ setRepos })
     getAnswers({ setAnswers, setLastAnswer })
     getGitEvents({ setGitEvents, setLastCommit })
-    getSkillScores({ setScores })
+    getSkillScores({ dispatch })
   }, [])
 
   useEffect(() => {
