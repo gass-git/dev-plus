@@ -1,25 +1,32 @@
-import axios from "axios";
+import axios from 'axios'
 
-let posts_api = "https://blog.gass.dev/api/posts";
+let posts_api = 'https://blog.gass.dev/api/posts'
 
-function getWritings({setPosts, setLastPost}){
-    let newArray = [];
+function getWritings({ dispatch }) {
+  let newArray = []
 
-    axios.get(posts_api)
+  axios.get(posts_api)
     .then((resp) => {
-        resp.data.forEach((post) => {
-          newArray.push({
-            'id' : post.id,
-            'title' : post.title,
-            'created_at' : post.created_at,
-            'views' : post.views
-          });
-        });
+      resp.data.forEach((post) => {
+        newArray.push({
+          'id': post.id,
+          'title': post.title,
+          'created_at': post.created_at,
+          'views': post.views
+        })
+      })
 
-        let sortedArr = newArray.sort((a, b) => {return b.id - a.id});
-        setPosts(sortedArr);
-        setLastPost(sortedArr[0]);
-      });
+      let sortedArr = newArray.sort((a, b) => { return b.id - a.id })
+
+      dispatch({
+        type: 'set posts',
+        posts: sortedArr,
+        lastPost: sortedArr[0]
+      })
+
+      //setPosts(sortedArr)
+      //setLastPost(sortedArr[0])
+    })
 }
 
-export default getWritings;
+export default getWritings

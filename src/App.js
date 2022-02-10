@@ -41,6 +41,13 @@ function appReducer(state, action) {
         scores: action.scores
       }
 
+    case 'set posts':
+      return {
+        ...state,
+        posts: action.posts,
+        lastPost: action.lastPost
+      }
+
     default:
       return initialState
   }
@@ -49,12 +56,20 @@ function appReducer(state, action) {
 const initialState = {
   uniqueVisits: '000000',
   userLocation: 'Planet Earth',
-  scores: []
+  scores: [],
+  posts: [],
+  lastPost: {}
 }
 
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
-  const { uniqueVisits, userLocation, scores } = state
+  const {
+    uniqueVisits,
+    userLocation,
+    scores,
+    posts,
+    lastPost
+  } = state
 
   // Spaces
   const space1 = <span>&nbsp;</span>
@@ -65,13 +80,10 @@ export default function App() {
   const [selected, setSelected] = useState('about')
   const [gitEvents, setGitEvents] = useState([])
   const [repos, setRepos] = useState([])
-  const [posts, setPosts] = useState([])
-  const [lastPost, setLastPost] = useState([])
 
   // Stack Overflow variables
   const [reputation, setReputation] = useState([])
   const [answers, setAnswers] = useState([])
-  //const [scores, setScores] = useState([])
 
   // ScrollDisplay variables
   const scrollerDelay = 20 // Duration in seconds 
@@ -86,7 +98,7 @@ export default function App() {
     processVisit()
     getUniqueVisits({ dispatch })
     getUserLocation({ dispatch })
-    getWritings({ setPosts, setLastPost })
+    getWritings({ dispatch })
     getReputation({ setReputation })
     getRepos({ setRepos })
     getAnswers({ setAnswers, setLastAnswer })
