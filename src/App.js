@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -21,15 +21,41 @@ import Links from './components/links/index'
 
 export const AppContext = React.createContext(null)
 
+function appReducer(state, action) {
+  switch (action.type) {
+    case 'set unique visits count':
+      return {
+        ...state,
+        uniqueVisits: action.count
+      }
+
+    case 'set user location':
+      return {
+        ...state,
+        userLocation: action.location
+      }
+
+    default:
+      return initialState
+  }
+}
+
+const initialState = {
+  uniqueVisits: '000000',
+  userLocation: 'Planet Earth'
+}
+
 export default function App() {
+  const [state, dispatch] = useReducer(appReducer, initialState)
+  const { uniqueVisits, userLocation } = state
+
+  // Spaces
   const space1 = <span>&nbsp;</span>
   const space2 = <span>&nbsp;&nbsp;</span>
   const space3 = <span>&nbsp;&nbsp;&nbsp;</span>
 
   // API 
-  const [userLocation, setUserLocation] = useState()
   const [selected, setSelected] = useState('about')
-  const [uniqueVisits, setUniqueVisits] = useState()
   const [gitEvents, setGitEvents] = useState([])
   const [repos, setRepos] = useState([])
   const [posts, setPosts] = useState([])
@@ -48,12 +74,11 @@ export default function App() {
   const [lastAnswer, setLastAnswer] = useState()
   const [msgIndex, setMsgIndex] = useState(0)
 
-
   useEffect(() => {
     AOS.init()
     processVisit()
-    getUniqueVisits({ setUniqueVisits })
-    getUserLocation({ setUserLocation })
+    getUniqueVisits({ dispatch })
+    getUserLocation({ dispatch })
     getWritings({ setPosts, setLastPost })
     getReputation({ setReputation })
     getRepos({ setRepos })
