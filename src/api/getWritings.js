@@ -23,9 +23,6 @@ function getWritings({ dispatch }) {
         posts: sortedArr,
         lastPost: sortedArr[0]
       })
-
-      //setPosts(sortedArr)
-      //setLastPost(sortedArr[0])
     })
 }
 

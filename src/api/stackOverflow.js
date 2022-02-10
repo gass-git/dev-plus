@@ -32,16 +32,20 @@ function getAnswers({ setAnswers, setLastAnswer }) {
       )
     })
 }
-function getReputation({ setReputation }) {
+function getReputation({ dispatch }) {
   axios.get(SO_user_info_api)
     .then((resp) => {
-      var reputation = resp.data.items[0].reputation,
-        reputationChange = resp.data.items[0].reputation_change_month,
-        newElement = {
-          'total': reputation,
-          'monthChange': reputationChange
-        }
-      setReputation(newElement)
+      let reputation = resp.data.items[0].reputation
+      let reputationChange = resp.data.items[0].reputation_change_month
+      let data = {
+        'total': reputation,
+        'monthChange': reputationChange
+      }
+
+      dispatch({
+        type: 'set reputation data',
+        reputation: data
+      })
     })
 }
 function getSkillScores({ dispatch }) {

@@ -48,17 +48,23 @@ function appReducer(state, action) {
         lastPost: action.lastPost
       }
 
+    case 'set reputation data':
+      return {
+        ...state,
+        reputation: action.reputation
+      }
+
     default:
       return initialState
   }
 }
-
 const initialState = {
   uniqueVisits: '000000',
   userLocation: 'Planet Earth',
   scores: [],
   posts: [],
-  lastPost: {}
+  lastPost: {},
+  reputation: {}
 }
 
 export default function App() {
@@ -68,7 +74,8 @@ export default function App() {
     userLocation,
     scores,
     posts,
-    lastPost
+    lastPost,
+    reputation
   } = state
 
   // Spaces
@@ -82,7 +89,6 @@ export default function App() {
   const [repos, setRepos] = useState([])
 
   // Stack Overflow variables
-  const [reputation, setReputation] = useState([])
   const [answers, setAnswers] = useState([])
 
   // ScrollDisplay variables
@@ -99,7 +105,7 @@ export default function App() {
     getUniqueVisits({ dispatch })
     getUserLocation({ dispatch })
     getWritings({ dispatch })
-    getReputation({ setReputation })
+    getReputation({ dispatch })
     getRepos({ setRepos })
     getAnswers({ setAnswers, setLastAnswer })
     getGitEvents({ setGitEvents, setLastCommit })
