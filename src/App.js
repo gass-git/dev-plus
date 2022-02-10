@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useReducer } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { space1, space2, space3 } from './spaces'
 
 // APIs
 import { getAnswers, getReputation, getSkillScores } from './api/stackOverflow'
@@ -77,11 +78,6 @@ export default function App() {
     lastPost,
     reputation
   } = state
-
-  // Spaces
-  const space1 = <span>&nbsp;</span>
-  const space2 = <span>&nbsp;&nbsp;</span>
-  const space3 = <span>&nbsp;&nbsp;&nbsp;</span>
 
   // API 
   const [selected, setSelected] = useState('about')
