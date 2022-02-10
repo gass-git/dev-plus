@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -80,6 +80,26 @@ function appReducer(state, action) {
         selected: action.optionSelected
       }
 
+    case 'turn scroller on':
+      return {
+        ...state,
+        scrollerSwitch: 'on'
+      }
+
+    case 'turn scroller off':
+      return {
+        ...state,
+        scrollerSwitch: 'off'
+      }
+
+    case 'switch to the next message':
+      let nextIndex = state.msgIndex + 1
+
+      return {
+        ...state,
+        msgIndex: state.msgIndex < state.maxIndex ? nextIndex : 0
+      }
+
     default:
       return initialState
   }
@@ -97,17 +117,15 @@ const initialState = {
   answers: [],
   lastAnswer: '',
   scrollerDelay: 20, // Duration in seconds 
+  msgIndex: 0,
   maxIndex: 5,
-  selected: 'about'
+  selected: 'about',
+  scrollerSwitch: 'on'
 }
 
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
-  const { selected, scrollerDelay, maxIndex } = state
-
-  // ScrollDisplay variables
-  const [scrollerSwitch, setScrollerSwitch] = useState('on')
-  const [msgIndex, setMsgIndex] = useState(0)
+  const { selected, scrollerDelay } = state
 
   useEffect(() => {
     AOS.init()
@@ -124,33 +142,26 @@ export default function App() {
 
   useEffect(() => {
     let interval = setInterval(() => {
-      setScrollerSwitch('off')
-
-      // Switch to the next message
-      msgIndex < maxIndex ? setMsgIndex(msgIndex + 1) : setMsgIndex(0)
+      dispatch({ type: 'turn scroller off' })
+      dispatch({ type: 'switch to the next message' })
 
       // Once changes have been made turn scroller back on
-      setTimeout(() => { setScrollerSwitch('on') }, 500)
+      setTimeout(() => {
+        dispatch({ type: 'turn scroller on' })
+      }, 500)
     }, scrollerDelay * 1000 + 500);
 
     return () => clearInterval(interval)
   })
 
   return [
-    <AppContext.Provider
-      value={{ scrollerSwitch, msgIndex, state, dispatch }}
-      key={'ctx-key'}
-    >
-
-      {/* -- Main wrapper -- */}
+    <AppContext.Provider value={{ state, dispatch }} key={'ctx-key'}>
       <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="500">
 
-        {/* -- First row -- */}
         <section className="first-row">
           <ScrollDisplay />
         </section>
 
-        {/* -- Second row -- */}
         <section className="second-row">
           <div className="left-side">
             <MainMenu />
@@ -160,7 +171,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* -- Third row -- */}
         <section className="third-row">
           <div className="content-display">
             <div className="border-img">
@@ -174,11 +184,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* -- Fourth row -- */}
         <section className="fourth-row">
           <Links />
         </section>
-
       </main>
 
       <footer>
