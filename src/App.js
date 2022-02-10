@@ -55,6 +55,12 @@ function appReducer(state, action) {
         reputation: action.reputation
       }
 
+    case 'set repos':
+      return {
+        ...state,
+        repos: action.repos
+      }
+
     default:
       return initialState
   }
@@ -65,7 +71,8 @@ const initialState = {
   scores: [],
   posts: [],
   lastPost: {},
-  reputation: {}
+  reputation: {},
+  repos: []
 }
 
 export default function App() {
@@ -76,13 +83,13 @@ export default function App() {
     scores,
     posts,
     lastPost,
-    reputation
+    reputation,
+    repos
   } = state
 
   // API 
   const [selected, setSelected] = useState('about')
   const [gitEvents, setGitEvents] = useState([])
-  const [repos, setRepos] = useState([])
 
   // Stack Overflow variables
   const [answers, setAnswers] = useState([])
@@ -102,7 +109,7 @@ export default function App() {
     getUserLocation({ dispatch })
     getWritings({ dispatch })
     getReputation({ dispatch })
-    getRepos({ setRepos })
+    getRepos({ dispatch })
     getAnswers({ setAnswers, setLastAnswer })
     getGitEvents({ setGitEvents, setLastCommit })
     getSkillScores({ dispatch })

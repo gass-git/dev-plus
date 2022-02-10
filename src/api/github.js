@@ -28,7 +28,7 @@ function getGitEvents({ setGitEvents, setLastCommit }) {
       });
     });
 }
-function getRepos({ setRepos }) {
+function getRepos({ dispatch }) {
   axios.get(repos_api)
     .then((resp) => {
       let newArray = [];
@@ -47,21 +47,21 @@ function getRepos({ setRepos }) {
       // Filter repos that don't have ABOUT SECTION and URL
       let filteredArray = newArray.filter((repo) => {
         if (repo.about !== null && repo.url !== "") {
-          return true;
+          return true
         }
         else {
-          return false; // Remove repo
+          return false // Remove repo
         }
-      });
+      })
 
 
       // Sort repos from old to new
       let sortedArray = filteredArray.sort((a, b) => {
-        return (new Date(a.created_at) - new Date(b.created_at));
-      });
+        return (new Date(a.created_at) - new Date(b.created_at))
+      })
 
-      setRepos(sortedArray);
-    });
+      dispatch({ type: 'set repos', repos: sortedArray })
+    })
 }
 
 export { getGitEvents, getRepos }
