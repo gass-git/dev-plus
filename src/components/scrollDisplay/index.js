@@ -3,15 +3,14 @@ import { AppContext } from "../../App";
 import "./scrollDisplay.css";
 
 export default function ScrollDisplay() {
+    const { scrollerSwitch, msgIndex, state } = useContext(AppContext)
     const {
-        scrollerSwitch,
         lastCommit,
         lastAnswer,
         lastPost,
-        msgIndex,
         uniqueVisits,
         userLocation
-    } = useContext(AppContext)
+    } = state
 
     let messages = [
         <Fragment>

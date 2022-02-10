@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useReducer } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { space1, space2, space3 } from './spaces'
 
 // APIs
 import { getAnswers, getReputation, getSkillScores } from './api/stackOverflow'
@@ -75,6 +74,12 @@ function appReducer(state, action) {
         lastAnswer: action.lastAnswer
       }
 
+    case 'update selected':
+      return {
+        ...state,
+        selected: action.optionSelected
+      }
+
     default:
       return initialState
   }
@@ -92,29 +97,13 @@ const initialState = {
   answers: [],
   lastAnswer: '',
   scrollerDelay: 20, // Duration in seconds 
-  maxIndex: 5
+  maxIndex: 5,
+  selected: 'about'
 }
 
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
-  const {
-    uniqueVisits,
-    userLocation,
-    scores,
-    posts,
-    lastPost,
-    reputation,
-    repos,
-    lastCommit,
-    gitEvents,
-    lastAnswer,
-    answers,
-    scrollerDelay,
-    maxIndex
-  } = state
-
-  // API 
-  const [selected, setSelected] = useState('about')
+  const { selected, scrollerDelay, maxIndex } = state
 
   // ScrollDisplay variables
   const [scrollerSwitch, setScrollerSwitch] = useState('on')
@@ -149,24 +138,7 @@ export default function App() {
 
   return [
     <AppContext.Provider
-      value={{
-        space1,
-        space2,
-        space3,
-        reputation,
-        scores,
-        repos,
-        answers,
-        gitEvents,
-        posts,
-        scrollerSwitch,
-        lastCommit,
-        lastAnswer,
-        lastPost,
-        msgIndex,
-        uniqueVisits,
-        userLocation
-      }}
+      value={{ scrollerSwitch, msgIndex, state, dispatch }}
       key={'ctx-key'}
     >
 
@@ -181,7 +153,7 @@ export default function App() {
         {/* -- Second row -- */}
         <section className="second-row">
           <div className="left-side">
-            <MainMenu setSelected={setSelected} />
+            <MainMenu />
           </div>
           <div className="right-side">
             <BasicInfo />

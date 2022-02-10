@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import './skills.css';
 import tickSound from "../../assets/sounds/tick-sound.wav";
+import { AppContext } from "../../App";
 
 // SVG icon components
 import HTML_ICON from "../icons/html_icon";
@@ -15,18 +16,18 @@ import JQUERY_ICON from "../icons/jquery_icon";
 import REACT_ICON from "../icons/react_icon";
 import PHP_ICON from "../icons/php_icon";
 import LARAVEL_ICON from "../icons/laravel_icon";
-import { AppContext } from "../../App";
 
 
 export default function Skills() {
-  const { scores } = useContext(AppContext)
+  const { state } = useContext(AppContext)
+  const { scores } = state
 
-  const [section, setSection] = useState(1),
-    [playTickSound] = useSound(tickSound, { volume: 0.6 });
+  const [section, setSection] = useState(1)
+  const [playTickSound] = useSound(tickSound, { volume: 0.6 })
 
   function handleArrowClick() {
-    section === 1 ? setSection(2) : setSection(1);
-    playTickSound();
+    section === 1 ? setSection(2) : setSection(1)
+    playTickSound()
   }
   useEffect(() => {
     /** @abstract
@@ -39,7 +40,7 @@ export default function Skills() {
      *  has been implemented.
      */
     function handleResize() {
-      if (window.innerWidth > 750) setSection(1);
+      if (window.innerWidth > 750) setSection(1)
     }
     window.addEventListener('resize', handleResize)
   })
@@ -47,15 +48,15 @@ export default function Skills() {
   const Skill = ({ lang, label }) => {
     function handleIcon(lang) {
       switch (lang) {
-        case "html": return <HTML_ICON />;
-        case "bootstrap": return <BOOTSTRAP_ICON />;
-        case "javascript": return <JAVASCRIPT_ICON />;
-        case "css": return <CSS_ICON />;
-        case "jquery": return <JQUERY_ICON />;
-        case "react": return <REACT_ICON />;
-        case "php": return <PHP_ICON />;
-        case "laravel": return <LARAVEL_ICON />;
-        default: return null;
+        case "html": return <HTML_ICON />
+        case "bootstrap": return <BOOTSTRAP_ICON />
+        case "javascript": return <JAVASCRIPT_ICON />
+        case "css": return <CSS_ICON />
+        case "jquery": return <JQUERY_ICON />
+        case "react": return <REACT_ICON />
+        case "php": return <PHP_ICON />
+        case "laravel": return <LARAVEL_ICON />
+        default: return null
       }
     }
     function getScore(tag) {

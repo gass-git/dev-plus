@@ -1,12 +1,9 @@
-import React, { useContext } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGamepad } from "@fortawesome/free-solid-svg-icons";
-import "./footerContent.css";
-import { AppContext } from "../../App";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGamepad } from "@fortawesome/free-solid-svg-icons"
+import "./footerContent.css"
+import { space1, space2 } from '../../spaces'
 
 export default function FooterContent() {
-  const { space1, space2 } = useContext(AppContext)
-
   return [
     <div className="credits">
       <a href="https://gass.dev" className="credit-link">

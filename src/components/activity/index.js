@@ -11,11 +11,12 @@ import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 import { AppContext } from "../../App";
 
 export default function Activity() {
-  const { answers, gitEvents, posts } = useContext(AppContext)
+  const { state } = useContext(AppContext)
+  const { answers, gitEvents, posts } = state
 
-  const [current, setCurrent] = useState('stackoverflow'),
-    [posNumber, setPosNumber] = useState(3),
-    [playSound] = useSound(selectionSound, { volume: 1 });
+  const [current, setCurrent] = useState('stackoverflow')
+  const [posNumber, setPosNumber] = useState(3)
+  const [playSound] = useSound(selectionSound, { volume: 1 })
 
   function select(entry) {
     setCurrent(entry);

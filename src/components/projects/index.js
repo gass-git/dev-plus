@@ -1,27 +1,29 @@
-import React, { useState, useContext, Fragment } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperclip, faCaretLeft, faCaretRight, faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons";
-import { faTimesCircle, faFolder, faFolderOpen } from "@fortawesome/free-regular-svg-icons";
-import './projects.css';
-import useSound from "use-sound";
-import tickSound from "../../assets/sounds/tick-sound.wav";
-import selectionSound from '../../assets/sounds/game-selection-sound.wav';
-import { AppContext } from "../../App";
+import React, { useState, useContext, Fragment } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPaperclip, faCaretLeft, faCaretRight, faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons"
+import { faTimesCircle, faFolder, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
+import './projects.css'
+import useSound from "use-sound"
+import tickSound from "../../assets/sounds/tick-sound.wav"
+import selectionSound from '../../assets/sounds/game-selection-sound.wav'
+import { AppContext } from "../../App"
+import { space3 } from "../../spaces"
 
 export default function Projects() {
-  const { space3, repos } = useContext(AppContext)
+  const { state } = useContext(AppContext)
+  const { repos } = state
 
-  const [current, setCurrent] = useState(0),
-    [currentSection, setCurrentSection] = useState(1),
-    [indexes, setIndexes] = useState([0, 1, 2, 3]),
-    [playTickSound] = useSound(tickSound, { volume: 0.6 }),
-    [playSelectionSound] = useSound(selectionSound, { volume: 1 });
+  const [current, setCurrent] = useState(0)
+  const [currentSection, setCurrentSection] = useState(1)
+  const [indexes, setIndexes] = useState([0, 1, 2, 3])
+  const [playTickSound] = useSound(tickSound, { volume: 0.6 })
+  const [playSelectionSound] = useSound(selectionSound, { volume: 1 })
 
-  let totalRepos = repos.length,
-    totalSections = Math.ceil(totalRepos / 4);
+  let totalRepos = repos.length
+  let totalSections = Math.ceil(totalRepos / 4)
 
   const RepoDetails = () => {
-    let link = repos[current].url;
+    let link = repos[current].url
 
     const LinkField = () => {
       if (link) {

@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
-import ReactTooltip from "react-tooltip";
-import './basicInfo.css';
+import React, { useContext } from "react"
+import ReactTooltip from "react-tooltip"
+import './basicInfo.css'
 import avatar from "../../assets/images/avatar.png"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { AppContext } from "../../App";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons"
+import { AppContext } from "../../App"
+import { space2 } from "../../spaces"
 
 export default function BasicInfo() {
-  const { space2, reputation } = useContext(AppContext)
+  const { state } = useContext(AppContext)
+  const { reputation } = state
 
   return [
     <section key="basic-info-identifier" className="basic-info">
