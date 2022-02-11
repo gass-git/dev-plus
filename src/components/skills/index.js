@@ -19,7 +19,7 @@ import LARAVEL_ICON from "../icons/laravel_icon";
 
 
 export default function Skills() {
-  const { state } = useContext(AppContext)
+  const { state, dispatch } = useContext(AppContext)
   const { scores } = state
 
   const [section, setSection] = useState(1)
@@ -44,6 +44,13 @@ export default function Skills() {
     }
     window.addEventListener('resize', handleResize)
   })
+
+  useEffect(() => {
+    dispatch({
+      type: 'update selected',
+      optionSelected: 'skills'
+    })
+  }, [dispatch])
 
   const Skill = ({ lang, label }) => {
     function handleIcon(lang) {

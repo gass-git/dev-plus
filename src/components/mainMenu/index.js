@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import './mainMenu.css'
 import useSound from "use-sound"
 import selectionSound from '../../assets/sounds/game-selection-sound.wav'
@@ -6,10 +6,18 @@ import { AppContext } from "../../App"
 import { useNavigate } from "react-router-dom"
 
 export default function MainMenu() {
-  const { dispatch } = useContext(AppContext)
+  const { state, dispatch } = useContext(AppContext)
+  const { selected } = state
   const [floorNumber, setFloorNumber] = useState(4)
   const [playSwitchSound] = useSound(selectionSound, { volume: 1 })
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (selected === 'about') { setFloorNumber(4) }
+    else if (selected === 'skills') { setFloorNumber(3) }
+    else if (selected === 'projects') { setFloorNumber(2) }
+    else if (selected === 'activity') { setFloorNumber(1) }
+  }, [selected])
 
   function select(entry) {
     dispatch({

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStackOverflow, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faKeyboard } from "@fortawesome/free-solid-svg-icons";
@@ -11,12 +11,19 @@ import selectionSound from '../../assets/sounds/game-selection-sound.wav';
 import { AppContext } from "../../App";
 
 export default function Activity() {
-  const { state } = useContext(AppContext)
+  const { state, dispatch } = useContext(AppContext)
   const { answers, gitEvents, posts } = state
 
   const [current, setCurrent] = useState('stackoverflow')
   const [posNumber, setPosNumber] = useState(3)
   const [playSound] = useSound(selectionSound, { volume: 1 })
+
+  useEffect(() => {
+    dispatch({
+      type: 'update selected',
+      optionSelected: 'activity'
+    })
+  }, [dispatch])
 
   function select(entry) {
     setCurrent(entry);

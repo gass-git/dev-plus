@@ -1,5 +1,6 @@
 import React, { useState, useContext, Fragment } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useEffect } from "react"
 import { faPaperclip, faCaretLeft, faCaretRight, faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons"
 import { faTimesCircle, faFolder, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
 import './projects.css'
@@ -10,7 +11,7 @@ import { AppContext } from "../../App"
 import { space3 } from "../../spaces"
 
 export default function Projects() {
-  const { state } = useContext(AppContext)
+  const { state, dispatch } = useContext(AppContext)
   const { repos } = state
 
   const [current, setCurrent] = useState(0)
@@ -21,6 +22,14 @@ export default function Projects() {
 
   let totalRepos = repos.length
   let totalSections = Math.ceil(totalRepos / 4)
+
+  useEffect(() => {
+    dispatch({
+      type: 'update selected',
+      optionSelected: 'projects'
+    })
+  }, [dispatch])
+
 
   const RepoDetails = () => {
     let link = repos[current].url
