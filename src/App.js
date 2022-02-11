@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 // APIs
 import { getAnswers, getReputation, getSkillScores } from './api/stackOverflow'
@@ -111,7 +112,7 @@ const initialState = {
   posts: [],
   lastPost: {},
   reputation: {},
-  repos: [],
+  repos: [{ url: '', created_at: '', about: '', topics: [], name: '' }],
   gitEvents: [],
   lastCommit: {},
   answers: [],
@@ -125,7 +126,6 @@ const initialState = {
 
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
-  const { selected, scrollerDelay } = state
 
   useEffect(() => {
     AOS.init()
@@ -145,11 +145,11 @@ export default function App() {
       dispatch({ type: 'turn scroller off' })
       dispatch({ type: 'switch to the next message' })
 
-      // Once changes have been made turn scroller back on
+      // Once changes have been made, turn scroller back on
       setTimeout(() => {
         dispatch({ type: 'turn scroller on' })
       }, 500)
-    }, scrollerDelay * 1000 + 500);
+    }, state.scrollerDelay * 1000 + 500);
 
     return () => clearInterval(interval)
   })
@@ -175,10 +175,14 @@ export default function App() {
           <div className="content-display">
             <div className="border-img">
               <div className="inner-container">
-                {selected === "about" ? <About /> : null}
-                {selected === "skills" ? <Skills /> : null}
-                {selected === "projects" ? <Projects /> : null}
-                {selected === "activity" ? <Activity /> : null}
+                <Routes>
+                  <Route path='*' element={<Navigate to='/' />} />
+                  <Route path='/' element={<About />} />
+                  <Route path='about' element={<About />} />
+                  <Route path='skills' element={<Skills />} />
+                  <Route path='projects' element={<Projects />} />
+                  <Route path='activity' element={<Activity />} />
+                </Routes>
               </div>
             </div>
           </div>

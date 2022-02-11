@@ -191,7 +191,7 @@ export default function Projects() {
                       />
                     </div>
                     <div className="project-name">
-                      {repos[i] ? repos[i].name : null}
+                      {repos[i].name}
                     </div>
 
                   </div>
