@@ -14,7 +14,7 @@ export default function About() {
       For me coding is a <span className="highlight">catalyst for creation</span>, to portray
       an idea into reality and be able to interact with it anywhere on
       the world I find it to be fascinating, it is the <span className="highlight">reason</span> I got
-      hooked at age 14 with my first website. This <span className="highlight">feeling</span> is
+      hooked at age 15 with my first website. This <span className="highlight">feeling</span> is
       something I always try to tap into when I'm developing projects...
     </Fragment>,
     <Fragment>
