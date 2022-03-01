@@ -52,7 +52,7 @@ export default function BasicInfo() {
               <data>
                 <label data-tip="Total">{reputation.total}{space2}</label>
                 {
-                  reputation.monthChange > 0 ?
+                  reputation.monthChange >= 0 ?
                     <FontAwesomeIcon icon={faArrowUp} className="icon-green shadow-04" />
                     :
                     <FontAwesomeIcon icon={faArrowDown} className="icon-red shadow-04" />
