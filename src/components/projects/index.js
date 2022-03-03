@@ -9,6 +9,7 @@ import tickSound from "../../assets/sounds/tick-sound.wav"
 import selectionSound from '../../assets/sounds/game-selection-sound.wav'
 import { AppContext } from "../../App"
 import { space3 } from "../../spaces"
+import { ACTIONS } from "../../stateCapsule"
 
 export default function Projects() {
   const { state, dispatch } = useContext(AppContext)
@@ -20,14 +21,13 @@ export default function Projects() {
   const [playTickSound] = useSound(tickSound, { volume: 0.6 })
   const [playSelectionSound] = useSound(selectionSound, { volume: 1 })
 
+  const { UPDATE_SELECTED } = ACTIONS;
+
   let totalRepos = repos.length
   let totalSections = Math.ceil(totalRepos / 4)
 
   useEffect(() => {
-    dispatch({
-      type: 'update selected',
-      optionSelected: 'projects'
-    })
+    dispatch({ type: UPDATE_SELECTED, optionSelected: 'projects' })
   }, [dispatch])
 
 

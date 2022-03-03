@@ -1,6 +1,9 @@
 import axios from 'axios'
+import { ACTIONS } from '../stateCapsule'
 
 let posts_api = 'https://blog.gass.dev/api/posts'
+
+const { SET_POSTS } = ACTIONS;
 
 function getWritings({ dispatch }) {
   let newArray = []
@@ -19,7 +22,7 @@ function getWritings({ dispatch }) {
       let sortedArr = newArray.sort((a, b) => { return b.id - a.id })
 
       dispatch({
-        type: 'set posts',
+        type: SET_POSTS,
         posts: sortedArr,
         lastPost: sortedArr[0]
       })

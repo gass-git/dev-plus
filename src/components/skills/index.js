@@ -16,7 +16,7 @@ import JQUERY_ICON from "../icons/jquery_icon";
 import REACT_ICON from "../icons/react_icon";
 import PHP_ICON from "../icons/php_icon";
 import LARAVEL_ICON from "../icons/laravel_icon";
-
+import { ACTIONS } from "../../stateCapsule";
 
 export default function Skills() {
   const { state, dispatch } = useContext(AppContext)
@@ -24,6 +24,8 @@ export default function Skills() {
 
   const [section, setSection] = useState(1)
   const [playTickSound] = useSound(tickSound, { volume: 0.6 })
+
+  const { UPDATE_SELECTED } = ACTIONS;
 
   function handleArrowClick() {
     section === 1 ? setSection(2) : setSection(1)
@@ -46,10 +48,7 @@ export default function Skills() {
   })
 
   useEffect(() => {
-    dispatch({
-      type: 'update selected',
-      optionSelected: 'skills'
-    })
+    dispatch({ type: UPDATE_SELECTED, optionSelected: 'skills' })
   }, [dispatch])
 
   const Skill = ({ lang, label }) => {

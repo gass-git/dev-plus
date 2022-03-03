@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { appReducer, initialState, ACTIONS } from './stateCapsule'
 
 // APIs
 import { getAnswers, getReputation, getSkillScores } from './api/stackOverflow'
@@ -22,110 +23,9 @@ import Links from './components/links/index'
 
 export const AppContext = React.createContext(null)
 
-function appReducer(state, action) {
-  switch (action.type) {
-    case 'set unique visits count':
-      return {
-        ...state,
-        uniqueVisits: action.count
-      }
-
-    case 'set user location':
-      return {
-        ...state,
-        userLocation: action.location
-      }
-
-    case 'set skill scores':
-      return {
-        ...state,
-        scores: action.scores
-      }
-
-    case 'set posts':
-      return {
-        ...state,
-        posts: action.posts,
-        lastPost: action.lastPost
-      }
-
-    case 'set reputation data':
-      return {
-        ...state,
-        reputation: action.reputation
-      }
-
-    case 'set repos':
-      return {
-        ...state,
-        repos: action.repos
-      }
-
-    case 'set latest events and last commit':
-      return {
-        ...state,
-        gitEvents: action.latestFourEvents,
-        lastCommit: action.latestCommit
-      }
-
-    case 'set latest answers':
-      return {
-        ...state,
-        answers: action.latestAnswers,
-        lastAnswer: action.lastAnswer
-      }
-
-    case 'update selected':
-      return {
-        ...state,
-        selected: action.optionSelected
-      }
-
-    case 'turn scroller on':
-      return {
-        ...state,
-        scrollerSwitch: 'on'
-      }
-
-    case 'turn scroller off':
-      return {
-        ...state,
-        scrollerSwitch: 'off'
-      }
-
-    case 'switch to the next message':
-      let nextIndex = state.msgIndex + 1
-
-      return {
-        ...state,
-        msgIndex: state.msgIndex < state.maxIndex ? nextIndex : 0
-      }
-
-    default:
-      return initialState
-  }
-}
-const initialState = {
-  uniqueVisits: '000000',
-  userLocation: 'Planet Earth',
-  scores: [],
-  posts: [],
-  lastPost: {},
-  reputation: {},
-  repos: [{ url: '', created_at: '', about: '', topics: [], name: '' }],
-  gitEvents: [],
-  lastCommit: {},
-  answers: [],
-  lastAnswer: '',
-  scrollerDelay: 20, // Duration in seconds 
-  msgIndex: 0,
-  maxIndex: 5,
-  selected: 'about',
-  scrollerSwitch: 'on'
-}
-
 export default function App() {
   const [state, dispatch] = useReducer(appReducer, initialState)
+  const { SCROLLER_OFF, SCROLLER_ON, NEXT_MSG } = ACTIONS;
 
   useEffect(() => {
     AOS.init()
@@ -142,12 +42,12 @@ export default function App() {
 
   useEffect(() => {
     let interval = setInterval(() => {
-      dispatch({ type: 'turn scroller off' })
-      dispatch({ type: 'switch to the next message' })
+      dispatch({ type: SCROLLER_OFF })
+      dispatch({ type: NEXT_MSG })
 
       // Once changes have been made, turn scroller back on
       setTimeout(() => {
-        dispatch({ type: 'turn scroller on' })
+        dispatch({ type: SCROLLER_ON })
       }, 500)
     }, state.scrollerDelay * 1000 + 500);
 

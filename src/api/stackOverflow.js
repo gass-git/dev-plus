@@ -1,8 +1,14 @@
 import axios from 'axios'
+import { ACTIONS } from '../stateCapsule'
 
 let answers_api = "https://api.stackexchange.com/2.3/users/14895985/answers?order=desc&sort=activity&site=stackoverflow&key=op*AZFz8o6Pqr3596Yc)Lw(("
 let SO_user_info_api = "https://api.stackexchange.com/2.3/users/14895985?order=desc&sort=reputation&site=stackoverflow&key=op*AZFz8o6Pqr3596Yc)Lw(("
 let scores_api = "https://api.stackexchange.com/2.3/users/14895985/top-tags?site=stackoverflow&key=op*AZFz8o6Pqr3596Yc)Lw(("
+const {
+  SET_LATEST_ANSWERS,
+  SET_REPUTATION,
+  SET_SCORES
+} = ACTIONS;
 
 function getAnswers({ dispatch }) {
   let mergedArrays = []
@@ -26,7 +32,7 @@ function getAnswers({ dispatch }) {
         })
 
         dispatch({
-          type: 'set latest answers',
+          type: SET_LATEST_ANSWERS,
           latestAnswers: mergedArrays,
           lastAnswer: mergedArrays[0].title
         })
@@ -45,19 +51,13 @@ function getReputation({ dispatch }) {
         'monthChange': reputationChange
       }
 
-      dispatch({
-        type: 'set reputation data',
-        reputation: data
-      })
+      dispatch({ type: SET_REPUTATION, reputation: data })
     })
 }
 function getSkillScores({ dispatch }) {
   axios.get(scores_api)
     .then((resp) => {
-      dispatch({
-        type: 'set skill scores',
-        scores: resp.data.items
-      })
+      dispatch({ type: SET_SCORES, scores: resp.data.items })
     })
 }
 

@@ -1,7 +1,13 @@
-import axios from "axios";
+import axios from "axios"
+import { ACTIONS } from '../stateCapsule'
 
 let repos_api = "https://api.github.com/users/gass-git/repos";
 let events_api = "https://api.github.com/users/gass-git/events/public";
+const {
+  SET_LATEST_EVENTS_AND_LAST_COMMIT,
+  SET_REPOS
+} = ACTIONS;
+
 
 function getGitEvents({ dispatch }) {
   axios.get(events_api)
@@ -29,7 +35,7 @@ function getGitEvents({ dispatch }) {
       }
 
       dispatch({
-        type: 'set latest events and last commit',
+        type: SET_LATEST_EVENTS_AND_LAST_COMMIT,
         latestFourEvents: latestFour,
         latestCommit: commitData
       })
@@ -67,7 +73,7 @@ function getRepos({ dispatch }) {
         return (new Date(a.created_at) - new Date(b.created_at))
       })
 
-      dispatch({ type: 'set repos', repos: sortedArray })
+      dispatch({ type: SET_REPOS, repos: sortedArray })
     })
 }
 
