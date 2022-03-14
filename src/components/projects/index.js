@@ -8,7 +8,7 @@ import useSound from "use-sound"
 import tickSound from "../../assets/sounds/tick-sound.wav"
 import selectionSound from '../../assets/sounds/game-selection-sound.wav'
 import { AppContext } from "../../App"
-import { space3 } from "../../spaces"
+import { space3 } from '../../utilities/spaces'
 import { ACTIONS } from "../../stateCapsule"
 
 export default function Projects() {

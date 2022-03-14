@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGamepad } from "@fortawesome/free-solid-svg-icons"
 import "./footerContent.css"
-import { space1, space2 } from '../../spaces'
+import { space1, space2 } from '../../utilities/spaces'
 
 export default function FooterContent() {
   return [

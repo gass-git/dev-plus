@@ -5,7 +5,7 @@ import avatar from "../../assets/images/avatar.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons"
 import { AppContext } from "../../App"
-import { space2 } from "../../spaces"
+import { space2 } from '../../utilities/spaces'
 
 export default function BasicInfo() {
   const { state } = useContext(AppContext)
