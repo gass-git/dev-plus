@@ -47,12 +47,19 @@
   font-size: 14px;
   color: rgb(255, 255, 255, 0.9);
 }
-.projects .left-side .link a {
+.projects .left-side a {
   text-decoration: none !important;
   color: var(--yellow2);
 }
-.projects .left-side .link a:hover {
+.projects .left-side a:hover {
   color: var(--yellow1);
+}
+.projects .left-side #repo-link a {
+  text-decoration: none !important;
+  color: var(--green1);
+}
+.projects .left-side #repo-link a:hover {
+  color: var(--green2);
 }
 .projects .left-side .link .icon {
   color: var(--gray);

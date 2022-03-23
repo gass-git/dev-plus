@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect } from "react"
 import { faPaperclip, faCaretLeft, faCaretRight, faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons"
 import { faTimesCircle, faFolder, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
+import { faGitAlt } from '@fortawesome/free-brands-svg-icons'
 import './projects.css'
 import useSound from "use-sound"
 import tickSound from "../../assets/sounds/tick-sound.wav"
@@ -10,6 +11,7 @@ import selectionSound from '../../assets/sounds/game-selection-sound.wav'
 import { AppContext } from "../../App"
 import { space3 } from '../../utilities/spaces'
 import { ACTIONS } from "../../stateCapsule"
+
 
 export default function Projects() {
   const { state, dispatch } = useContext(AppContext)
@@ -52,6 +54,17 @@ export default function Projects() {
       }
     }
 
+    const GitRepoLink = () => {
+      return (
+        <div id='repo-link' style={{ marginTop: '9px' }}>
+          <a key={repos[current].name} href={`https://github.com/gass-git/${repos[current].name}`} target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faGitAlt} className="icon shadow-04" />
+            {space3} Repository
+          </a>
+        </div>
+      )
+    }
+
     return [
       <Fragment key={repos[current].created_at}>
         <div className="about">
@@ -59,6 +72,7 @@ export default function Projects() {
         </div>
         <div className="link">
           <LinkField />
+          <GitRepoLink />
         </div>
         <div className="tags-wrapper">
           {repos[current].topics.map((topic) => {

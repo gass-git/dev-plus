@@ -50,6 +50,9 @@
     line-height: 20px !important;
     /* border: 1px solid green; */
   }
+  .projects .left-side #repo-link{
+    display: none!important;
+  }
   .third-row .activity .left-side {
     width: 567px !important;
   }
