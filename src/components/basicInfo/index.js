@@ -27,7 +27,7 @@ export default function BasicInfo() {
               GASS
             </div>
             <div className="sub-username">
-              Web Artisan
+              Programmer
             </div>
           </div>
 
