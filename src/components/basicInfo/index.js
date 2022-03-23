@@ -2,10 +2,8 @@ import React, { useContext } from "react"
 import ReactTooltip from "react-tooltip"
 import './basicInfo.css'
 import avatar from "../../assets/images/avatar.png"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons"
 import { AppContext } from "../../App"
-import { space2 } from '../../utilities/spaces'
+import ReputationData from "./ReputationData"
 
 export default function BasicInfo() {
   const { state } = useContext(AppContext)
@@ -50,17 +48,7 @@ export default function BasicInfo() {
             <div>
               <label data-tip="Stack Overflow reputation">SO Points</label>
               <data>
-                <label data-tip="Total">{reputation.total}{space2}</label>
-                {
-                  reputation.monthChange >= 0 ?
-                    <FontAwesomeIcon icon={faArrowUp} className="icon-green shadow-04" />
-                    :
-                    <FontAwesomeIcon icon={faArrowDown} className="icon-red shadow-04" />
-                }
-                {space2}
-                <span style={{ cursor: "default" }} data-tip="Month change">
-                  {reputation.monthChange}
-                </span>
+                <ReputationData reputation={reputation} />
               </data>
             </div>
           </div>

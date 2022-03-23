@@ -51,7 +51,14 @@ function getReputation({ dispatch }) {
         'monthChange': reputationChange
       }
 
-      dispatch({ type: SET_REPUTATION, reputation: data })
+      /**
+      * This time out is to make the reputation loader display for a longer period of time.
+      * Mainly to make the site look cooler. If there is no time out, the loader goes away 
+      * to fast to be seen in all of it glory.
+      */
+      setTimeout(() => {
+        dispatch({ type: SET_REPUTATION, reputation: data })
+      }, 2500)
     })
 }
 function getSkillScores({ dispatch }) {
