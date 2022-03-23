@@ -39,7 +39,7 @@ export default function BasicInfo() {
             </div>
             <div>
               <label>Started Coding</label>
-              <data>2004</data>
+              <data>2006</data>
             </div>
             <div>
               <label>Turned Pro</label>
