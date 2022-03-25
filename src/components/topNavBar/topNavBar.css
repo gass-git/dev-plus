@@ -4,7 +4,8 @@
   border-style: solid;
   border-width: 19px;
   border-image: url("../../assets/images/border-60px.png") 19 round;
-  width: 769px;
+  max-width: 800px;
+  margin: 40px;
   height: 30px;
 }
 .top-nav-bar .border-img .inner-container {
