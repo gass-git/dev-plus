@@ -40,6 +40,7 @@
 .top-nav-bar .rigid-700-container{
   min-width:700px;
   display: flex;
+  transition: 300ms;
 }
 .top-nav-bar .option{
   width: 25%;
