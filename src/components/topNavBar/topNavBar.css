@@ -31,3 +31,24 @@
   color: white;
   font-size: 18px;
 }
+.top-nav-bar .flex-hide-inner-overflow{
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+  border:1px solid yellow;
+}
+.top-nav-bar .rigid-700-container{
+  min-width:700px;
+  display: flex;
+}
+.top-nav-bar .option{
+  width: 25%;
+  text-align: center;
+}
+.top-nav-bar .arrow-box{
+  width:50px;
+  text-align: center;
+  margin-top: -7px;
+  font-size:35px;
+  border:1px solid green;
+}

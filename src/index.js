@@ -11,8 +11,8 @@ import TopNavBar from './components/topNavBar/index'
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
-      {/*<center><TopNavBar /></center>*/}
+      {/*<App />*/}
+      <center><TopNavBar /></center>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './topNavBar.css'
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,58 +6,50 @@ import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 export default function TopNavBar() {
   const { width } = useWindowDimensions()
+  const [isLeftActive, setLeftActive] = useState(false)
+  const [isRightActive, setRightActive] = useState(false)
+  const [distanceX, setDistanceX] = useState(0)
+  const [translate, setTranslate] = useState(false)
+
+  useEffect(() => {
+    console.log(width)
+    if (width < 830) {
+      setRightActive(true)
+      setDistanceX(830 - width)
+    }
+    else setRightActive(false)
+  }, [width])
 
   const LeftArrow = () => {
     if (width >= 800) return (
-      <div
-        style={{
-          width: '10%',
-          textAlign: 'center',
-          marginTop: '-7px',
-          opacity: 0.2
-        }}
-      >
-        <FontAwesomeIcon icon={faCaretLeft} style={{ fontSize: '35px' }} />
+      <div style={{ opacity: 0.2 }} >
+        <FontAwesomeIcon icon={faCaretLeft} />
       </div>
     )
 
     if (width < 800) return (
-      <div
-        style={{
-          width: '10%',
-          textAlign: 'center',
-          marginTop: '-7px',
-          opacity: 0.9,
-          cursor: 'pointer'
-        }}
-      >
-        <FontAwesomeIcon icon={faCaretLeft} style={{ fontSize: '35px' }} />
+      <div style={{ opacity: 0.9, cursor: 'pointer' }}>
+        <FontAwesomeIcon icon={faCaretLeft} />
       </div>
     )
   }
 
   const RightArrow = () => {
-    if (width >= 800) return (
-      <div style={{
-        width: '10%',
-        textAlign: 'center',
-        marginTop: '-7px',
-        opacity: 0.2
-      }}>
-        <FontAwesomeIcon icon={faCaretRight} style={{ fontSize: '35px' }} />
-      </div>
-    )
 
-    if (width < 800) return (
-      <div style={{
-        width: '10%',
-        textAlign: 'center',
-        marginTop: '-7px',
-        opacity: 0.9,
-        cursor: 'pointer'
-      }}>
-        <FontAwesomeIcon icon={faCaretRight} style={{ fontSize: '35px' }} />
-      </div>
+
+    return (
+      <>
+        {
+          isRightActive ?
+            <div style={{ opacity: 0.9, cursor: 'pointer' }} onClick={() => setTranslate(!translate)}>
+              <FontAwesomeIcon icon={faCaretRight} />
+            </div>
+            :
+            <div style={{ opacity: 0 }}>
+              <FontAwesomeIcon icon={faCaretRight} />
+            </div>
+        }
+      </>
     )
   }
 
@@ -67,31 +59,58 @@ export default function TopNavBar() {
         <div className="inner-container">
           <div className='wrapper'>
 
-            {/* Left side container for left arrow */}
-            <LeftArrow />
-
-            {/* Center flex parent container for links */}
-            <div style={{ display: 'flex', width: '80%' }}>
-              <div style={{ width: '25%', textAlign: 'center' }}>
-                ABOUT
-              </div>
-
-              <div style={{ width: '25%', textAlign: 'center' }}>
-                SKILLS
-              </div>
-
-              <div style={{ width: '25%', textAlign: 'center' }}>
-                PROJECTS
-              </div>
-
-              <div style={{ width: '25%', textAlign: 'center' }}>
-                ACTIVITY
-              </div>
-
+            <div className='arrow-box'>
+              <LeftArrow />
             </div>
 
-            {/* Right side container for right arrow */}
-            <RightArrow />
+            <div className='flex-hide-inner-overflow'>
+              {
+                translate ?
+                  <div className='rigid-700-container'>
+
+                    <div className='option'>
+                      ABOUT
+                    </div>
+
+                    <div className='option'>
+                      SKILLS
+                    </div>
+
+                    <div className='option'>
+                      PROJECTS
+                    </div>
+
+                    <div className='option'>
+                      ACTIVITY
+                    </div>
+
+                  </div>
+                  :
+                  <div className='rigid-700-container' style={{ transform: `translateX(-${distanceX}px)` }}>
+
+                    <div className='option'>
+                      ABOUT
+                    </div>
+
+                    <div className='option'>
+                      SKILLS
+                    </div>
+
+                    <div className='option'>
+                      PROJECTS
+                    </div>
+
+                    <div className='option'>
+                      ACTIVITY
+                    </div>
+
+                  </div>
+              }
+            </div>
+
+            <div className='arrow-box'>
+              <RightArrow />
+            </div>
 
           </div>
         </div>
