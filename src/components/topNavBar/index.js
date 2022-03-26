@@ -6,49 +6,126 @@ import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 export default function TopNavBar() {
   const { width } = useWindowDimensions()
-  const [isLeftActive, setLeftActive] = useState(false)
   const [isRightActive, setRightActive] = useState(false)
   const [distanceX, setDistanceX] = useState(0)
   const [translate, setTranslate] = useState(false)
+  const [current, setCurrent] = useState('about')
 
   useEffect(() => {
-    console.log(width)
-    if (width < 830) {
+    if (width < 600 && width > 500) {
       setRightActive(true)
-      setDistanceX(830 - width)
+      setDistanceX(135)
     }
-    else setRightActive(false)
+    else if (width <= 500 && width > 400) {
+      setRightActive(true)
+      setDistanceX(320)
+    }
+    else if (width <= 400 && width > 370) {
+      setRightActive(true)
+      setDistanceX(295)
+    }
+    else if (width <= 370 && width > 340) {
+      setRightActive(true)
+      setDistanceX(255)
+    }
+    else if (width <= 340 && width > 300) {
+      setRightActive(true)
+      setDistanceX(223)
+    }
+    else if (width <= 300) {
+      setRightActive(true)
+      setDistanceX(193)
+    }
+    else {
+      setDistanceX(0)
+      setRightActive(false)
+    }
   }, [width])
 
   const LeftArrow = () => {
-    if (width >= 800) return (
-      <div style={{ opacity: 0.2 }} >
-        <FontAwesomeIcon icon={faCaretLeft} />
-      </div>
-    )
-
-    if (width < 800) return (
-      <div style={{ opacity: 0.9, cursor: 'pointer' }}>
-        <FontAwesomeIcon icon={faCaretLeft} />
-      </div>
-    )
+    if (translate) {
+      return (
+        <div className='enabled-arrow' onClick={() => setTranslate(false)}>
+          <FontAwesomeIcon icon={faCaretLeft} />
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className='disabled-arrow'>
+          <FontAwesomeIcon icon={faCaretLeft} />
+        </div>
+      )
+    }
   }
 
   const RightArrow = () => {
+    if (isRightActive && translate === false) {
+      return (
+        <div className='enabled-arrow' onClick={() => setTranslate(true)}>
+          <FontAwesomeIcon icon={faCaretRight} />
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className='disabled-arrow'>
+          <FontAwesomeIcon icon={faCaretRight} />
+        </div>
+      )
+    }
+  }
 
-
+  const Options = () => {
     return (
       <>
-        {
-          isRightActive ?
-            <div style={{ opacity: 0.9, cursor: 'pointer' }} onClick={() => setTranslate(!translate)}>
-              <FontAwesomeIcon icon={faCaretRight} />
-            </div>
-            :
-            <div style={{ opacity: 0 }}>
-              <FontAwesomeIcon icon={faCaretRight} />
-            </div>
-        }
+        <div
+          className='option'
+          onClick={() => setCurrent('about')}
+        >
+          {
+            current === 'about' ?
+              <span className='selected'>ABOUT</span>
+              :
+              <span>ABOUT</span>
+          }
+        </div>
+
+        <div
+          className='option'
+          onClick={() => setCurrent('skills')}
+        >
+          {
+            current === 'skills' ?
+              <span className='selected'>SKILLS</span>
+              :
+              <span>SKILLS</span>
+          }
+        </div>
+
+        <div
+          className='option'
+          onClick={() => setCurrent('projects')}
+        >
+          {
+            current === 'projects' ?
+              <span className='selected'>PROJECTS</span>
+              :
+              <span>PROJECTS</span>
+          }
+        </div>
+
+        <div
+          className='option'
+          onClick={() => setCurrent('activity')}
+        >
+          {
+            current === 'activity' ?
+              <span className='selected'>ACTIVITY</span>
+              :
+              <span>ACTIVITY</span>
+          }
+        </div>
       </>
     )
   }
@@ -63,47 +140,15 @@ export default function TopNavBar() {
               <LeftArrow />
             </div>
 
-            <div className='flex-hide-inner-overflow'>
+            <div className='flex-overflow'>
               {
                 translate ?
-                  <div className='rigid-700-container'>
-
-                    <div className='option'>
-                      ABOUT
-                    </div>
-
-                    <div className='option'>
-                      SKILLS
-                    </div>
-
-                    <div className='option'>
-                      PROJECTS
-                    </div>
-
-                    <div className='option'>
-                      ACTIVITY
-                    </div>
-
+                  <div className='options-container' style={{ transform: `translateX(-${distanceX}px)` }}>
+                    <Options />
                   </div>
                   :
-                  <div className='rigid-700-container' style={{ transform: `translateX(-${distanceX}px)` }}>
-
-                    <div className='option'>
-                      ABOUT
-                    </div>
-
-                    <div className='option'>
-                      SKILLS
-                    </div>
-
-                    <div className='option'>
-                      PROJECTS
-                    </div>
-
-                    <div className='option'>
-                      ACTIVITY
-                    </div>
-
+                  <div className='options-container'>
+                    <Options />
                   </div>
               }
             </div>

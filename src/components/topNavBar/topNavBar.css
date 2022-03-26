@@ -1,12 +1,19 @@
+/*
+ * RPG container styles
+ */
 .top-nav-bar .border-img {
   margin: 0 auto;
   border-radius: 8px;
   border-style: solid;
   border-width: 19px;
   border-image: url("../../assets/images/border-60px.png") 19 round;
-  max-width: 800px;
-  margin: 40px;
+  min-width: 650px;
+  max-width: 650px;
+  margin-top: 40px;
+  margin-left:auto;
+  margin-right:auto;
   height: 30px;
+  transition: 300ms;
 }
 .top-nav-bar .border-img .inner-container {
   height: 56px;
@@ -21,35 +28,128 @@
   );
   border: 1px solid rgba(14, 16, 98, 0.4);
 }
+/*
+ * ARROW styles
+ */
+.top-nav-bar .arrow-box{
+  width:40px;
+  text-align: center;
+  padding-top: 8px;
+  font-size:35px;
+  display: none;
+  /*border:1px solid green;*/
+}
+.top-nav-bar .disabled-arrow{
+  opacity: 0.2;
+}
+.top-nav-bar .enabled-arrow{
+  opacity:0.9;
+  cursor:pointer;
+}
+/*
+ * CONTAINERS
+ */
 .top-nav-bar .wrapper {
-  margin-top: 18px;
+  margin-top:0px;
   width: 100%;
-  height: auto;
+  height: 100%;
   display:flex;
- /* border:1px solid yellow; */
-  font-family: "Play", sans-serif;
   color: white;
   font-size: 18px;
+  /*border:1px solid yellow;*/
 }
-.top-nav-bar .flex-hide-inner-overflow{
+.top-nav-bar .flex-overflow{
   display: flex;
   width: 100%;
   overflow-x: hidden;
-  border:1px solid yellow;
+  transition: 300ms;
+  /*border:1px solid yellow;*/
 }
-.top-nav-bar .rigid-700-container{
-  min-width:700px;
+.top-nav-bar .options-container{
+  width:700px;
   display: flex;
   transition: 300ms;
 }
+/*
+ * OPTIONS / SECTIONS
+ */
 .top-nav-bar .option{
-  width: 25%;
+  width: 20%;
+  margin-left: 2.5%;
+  margin-right:2.5%; 
+  height: 30px;
   text-align: center;
+  padding-top:18px;
+  cursor:pointer;
+  /*border:1px solid white;*/
 }
-.top-nav-bar .arrow-box{
-  width:50px;
-  text-align: center;
-  margin-top: -7px;
-  font-size:35px;
-  border:1px solid green;
+.top-nav-bar .selected{
+  font-weight: strong;
+  color:var(--yellow1);
+}
+@media screen and (max-width: 700px){
+  .top-nav-bar .border-img {
+    min-width: 550px;
+    max-width: 550px;
+  }
+}
+@media screen and (max-width: 600px){
+  .top-nav-bar .border-img {
+    min-width: 450px;
+    max-width: 450px;
+  }
+  .top-nav-bar .options-container{
+    min-width:535px;
+  }
+  .top-nav-bar .arrow-box{
+    display: block;
+  }
+}
+@media screen and (max-width: 500px){
+  .top-nav-bar .border-img {
+    min-width: 350px;
+    max-width: 350px;
+  }
+  .top-nav-bar .options-container{
+    min-width:640px;
+  }
+}
+@media screen and (max-width: 400px){
+  .top-nav-bar .border-img {
+    min-width: 320px;
+    max-width: 320px;
+  }
+}
+@media screen and (max-width: 370px){
+  .top-nav-bar .border-img {
+    min-width: 290px;
+    max-width: 290px;
+  }
+  .top-nav-bar .options-container{
+    min-width:515px;
+  }
+}
+@media screen and (max-width: 340px){
+  .top-nav-bar .border-img {
+    min-width: 250px;
+    max-width: 250px;
+  }
+  .top-nav-bar .options-container{
+    min-width:445px;
+  }
+}
+@media screen and (max-width: 300px){
+  .top-nav-bar .border-img {
+    min-width: 220px;
+    max-width: 220px;
+  }
+  .top-nav-bar .options-container{
+    min-width:385px;
+  }
+  .top-nav-bar .wrapper {
+    font-size: 15px;
+  }
+  .top-nav-bar .option{
+    padding-top: 20px;
+  }  
 }
