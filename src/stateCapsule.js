@@ -10,7 +10,7 @@ export const initialState = {
   lastCommit: {},
   answers: [],
   lastAnswer: '',
-  scrollerDelay: 20, // Duration in seconds 
+  scrollerDelay: 25, // Duration in seconds 
   msgIndex: 0,
   maxIndex: 5,
   selected: 'about',

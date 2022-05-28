@@ -1,6 +1,6 @@
-import { Fragment, useContext } from "react";
-import { AppContext } from "../../App";
-import "./scrollDisplay.css";
+import { Fragment, useContext } from 'react'
+import { AppContext } from '../../App'
+import s from './scroller.module.css'
 
 export default function ScrollDisplay() {
     const { state } = useContext(AppContext)
@@ -35,19 +35,20 @@ export default function ScrollDisplay() {
         <Fragment>
             Web app using: Reactjs, FontAwesome, AOS, SVG Backgrounds, Axios & Use Sound...
         </Fragment>
-    ];
+    ]
 
     return [
-        <section key="SD-identifier" className="scroll-display">
-            <div className="border-img">
-                <div className="inner-container">
-                    <div className="msg-display">
-                        {scrollerSwitch === 'on' ?
-                            <div className="scroll-text">
-                                {messages[msgIndex]}
-                            </div>
-                            :
-                            null
+        <section key='scroller-key'>
+            <div className={s.border_img}>
+                <div className={s.inner_container}>
+                    <div className={s.msg_display}>
+                        {
+                        scrollerSwitch === 'on' ?
+                        <div className={s.scroll_text}>
+                            {messages[msgIndex]}
+                        </div>
+                        :
+                        null
                         }
                     </div>
                 </div>

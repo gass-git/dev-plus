@@ -1,4 +1,4 @@
-.scroll-display .border-img {
+.border_img {
   margin: 0 auto;
   border-radius: 8px;
   border-style: solid;
@@ -8,7 +8,7 @@
   height: 30px;
   /*box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;*/
 }
-.scroll-display .border-img .inner-container {
+.inner_container {
   height: 56px;
   margin: -14px -14px 0 -14px;
   border-radius: 2px;
@@ -21,7 +21,7 @@
   );
   border: 1px solid rgba(14, 16, 98, 0.4);
 }
-.msg-display {
+.msg_display {
   width: 98%;
   height: 38px;
   margin: 9px auto 0 auto;
@@ -32,7 +32,7 @@
   box-shadow: rgb(0, 0, 0) 1px 1px 2px 0px inset,
     rgba(0, 0, 0, 0.3) -1px -1px 2px 1px inset;
 }
-.msg-display .scroll-text {
+.scroll_text {
   margin-top: 15px;
   width: 1600px;
   height: 30px;

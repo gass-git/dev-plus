@@ -1,6 +1,6 @@
 import React from 'react'
 import MainContent from './mainContent'
-import { ScrollDisplay, MainMenu, BasicInfo, FooterContent, Links } from '../utilities/componentsImports'
+import { Scroller, MainMenu, BasicInfo, FooterContent, Links } from '../utilities/componentsImports'
 
 export default function Layout() {
   return (
@@ -8,7 +8,7 @@ export default function Layout() {
       <main className="main-wrapper" data-aos="zoom-in" data-aos-duration="500">
 
         <section className="first-row">
-          <ScrollDisplay />
+          <Scroller />
         </section>
 
         <section className="second-row">
