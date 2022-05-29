@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from 'react'
 import './mainMenu.css'
-import useSound from "use-sound"
+import useSound from 'use-sound'
 import selectionSound from '../../assets/sounds/game-selection-sound.wav'
-import { AppContext } from "../../App"
-import { useNavigate } from "react-router-dom"
+import { AppContext } from '../../App'
+import { useNavigate } from 'react-router-dom'
 
 export default function MainMenu() {
   const { state, dispatch } = useContext(AppContext)
@@ -34,29 +34,29 @@ export default function MainMenu() {
     else if (entry === 'activity') { setFloorNumber(1) }
   }
 
-  return [
-    <section key="main-menu-identifier" className="main-menu">
-      <div className="border-img">
-        <div className="inner-container">
-          <div className="menu-wrapper">
-            <div className="option" onClick={() => select('about')}>
+  return (
+    <section key='main-menu-identifier' className='main-menu'>
+      <div className='border-img'>
+        <div className='inner-container'>
+          <div className='menu-wrapper'>
+            <div className='option' onClick={() => select('about')}>
               <div
-                className="label">
+                className='label'>
                 About
               </div>
             </div>
-            <div className="option" onClick={() => select('skills')}>
-              <div className="label">
+            <div className='option' onClick={() => select('skills')}>
+              <div className='label'>
                 Skills
               </div>
             </div>
-            <div className="option" onClick={() => select('projects')}>
-              <div className="label">
+            <div className='option' onClick={() => select('projects')}>
+              <div className='label'>
                 Projects
               </div>
             </div>
-            <div className="option" onClick={() => select('activity')}>
-              <div className="label">
+            <div className='option' onClick={() => select('activity')}>
+              <div className='label'>
                 Activity
               </div>
             </div>
@@ -70,5 +70,5 @@ export default function MainMenu() {
         </div>
       </div>
     </section>
-  ]
+  )
 }

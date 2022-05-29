@@ -1,16 +1,16 @@
-import React, { useState, useContext, Fragment } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect } from "react"
-import { faPaperclip, faCaretLeft, faCaretRight, faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons"
-import { faTimesCircle, faFolder, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
+import React, { useState, useContext, Fragment } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect } from 'react'
+import { faPaperclip, faCaretLeft, faCaretRight, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle, faFolder, faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 import { faGitAlt } from '@fortawesome/free-brands-svg-icons'
 import './projects.css'
-import useSound from "use-sound"
-import tickSound from "../../assets/sounds/tick-sound.wav"
+import useSound from 'use-sound'
+import tickSound from '../../assets/sounds/tick-sound.wav'
 import selectionSound from '../../assets/sounds/game-selection-sound.wav'
-import { AppContext } from "../../App"
+import { AppContext } from '../../App'
 import { space3 } from '../../utilities/spaces'
-import { ACTIONS } from "../../stateCapsule"
+import { ACTIONS } from '../../stateCapsule'
 
 
 export default function Projects() {
@@ -38,27 +38,27 @@ export default function Projects() {
 
     const LinkField = () => {
       if (link) {
-        return [
-          <a key={link} href={link} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faPaperclip} className="icon shadow-04" />
+        return (
+          <a key={link} href={link} target='_blank' rel='noreferrer'>
+            <FontAwesomeIcon icon={faPaperclip} className='icon shadow-04' />
             {space3} {repos[current].url}
           </a>
-        ]
+        )
       } else {
-        return [
-          <div key={link} className="not-available">
-            <FontAwesomeIcon icon={faTimesCircle} className="icon shadow-04" />
+        return (
+          <div key={link} className='not-available'>
+            <FontAwesomeIcon icon={faTimesCircle} className='icon shadow-04' />
             {space3} No link available
           </div>
-        ]
+        )
       }
     }
 
     const GitRepoLink = () => {
       return (
         <div id='repo-link' style={{ marginTop: '9px' }}>
-          <a key={repos[current].name} href={`https://github.com/gass-git/${repos[current].name}`} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faGitAlt} className="icon shadow-04" />
+          <a key={repos[current].name} href={`https://github.com/gass-git/${repos[current].name}`} target='_blank' rel='noreferrer'>
+            <FontAwesomeIcon icon={faGitAlt} className='icon shadow-04' />
             {space3} Repository
           </a>
         </div>
@@ -67,20 +67,20 @@ export default function Projects() {
 
     return [
       <Fragment key={repos[current].created_at}>
-        <div className="about">
+        <div className='about'>
           {repos[current].about}
         </div>
-        <div className="link">
+        <div className='link'>
           <LinkField />
           <GitRepoLink />
         </div>
-        <div className="tags-wrapper">
+        <div className='tags-wrapper'>
           {repos[current].topics.map((topic) => {
-            return [
-              <div key={topic} className="tag">
+            return (
+              <div key={topic} className='tag'>
                 {topic}
               </div>
-            ];
+            )
           })}
         </div>
       </Fragment>
@@ -138,44 +138,33 @@ export default function Projects() {
     }
   }
   function handleLeftArrowClass() {
-    if (current === totalRepos - 1) {
-      return "icon shadow-08 pointer animate"
-    }
-    else if (current !== 0) {
-      return "icon shadow-08 pointer"
-    }
-    else {
-      return "icon shadow-08"
-    }
+    if (current === totalRepos - 1) return 'icon shadow-08 pointer animate'
+    else if (current !== 0) return 'icon shadow-08 pointer'
+    else return 'icon shadow-08'
   }
   function handleRightArrowClass() {
-    if (current === 0) {
-      return "icon shadow-08 pointer animate";
-    }
-    else if (current < totalRepos - 1) {
-      return "icon shadow-08 pointer";
-    }
-    else {
-      return "icon shadow-08";
-    }
+    if (current === 0) return 'icon shadow-08 pointer animate'
+    else if (current < totalRepos - 1) return 'icon shadow-08 pointer'
+    else return 'icon shadow-08'
   }
-  return [
-    <section key="projects-identifier" className="projects">
-      <div className="content">
+
+  return (
+    <section key='projects-identifier' className='projects'>
+      <div className='content'>
 
         {/* @MEDIA - small screens */}
-        <div className="switcher-box">
-          <div className="arrow-left">
+        <div className='switcher-box'>
+          <div className='arrow-left'>
             <FontAwesomeIcon
               icon={faCaretLeft}
               className={handleLeftArrowClass()}
               onClick={() => previewsProject()}
             />
           </div>
-          <div className="project-name">
+          <div className='project-name'>
             {repos[current].name}
           </div>
-          <div className="arrow-right">
+          <div className='arrow-right'>
             <FontAwesomeIcon
               icon={faCaretRight}
               className={handleRightArrowClass()}
@@ -185,48 +174,48 @@ export default function Projects() {
         </div>
 
         {/* LEFT SIDE */}
-        <div className="left-side">
+        <div className='left-side'>
           <RepoDetails />
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="right-side">
-          <div className="top-arrow-box">
+        <div className='right-side'>
+          <div className='top-arrow-box'>
             <FontAwesomeIcon
               icon={faSortUp}
-              className={currentSection > 1 ? "icon shadow-08" : "icon shadow-08 opacity-05"}
+              className={currentSection > 1 ? 'icon shadow-08' : 'icon shadow-08 opacity-05'}
               onClick={handleUpClick}
             />
           </div>
-          <div className="options-wrapper">
+          <div className='options-wrapper'>
             {indexes.map((i) => {
               if (parseInt(i) < totalRepos) {
-                return [
+                return (
                   <div
                     key={i}
-                    className={current === i ? "option selected" : "option not-selected"}
+                    className={current === i ? 'option selected' : 'option not-selected'}
                     onClick={() => select(i)}
                   >
-                    <div className="folder">
+                    <div className='folder'>
                       <FontAwesomeIcon
                         icon={current === i ? faFolderOpen : faFolder}
-                        className={current === i ? "icon-yellow shadow-08" : "icon-white shadow-08"}
+                        className={current === i ? 'icon-yellow shadow-08' : 'icon-white shadow-08'}
                       />
                     </div>
-                    <div className="project-name">
+                    <div className='project-name'>
                       {repos[i].name}
                     </div>
 
                   </div>
-                ]
+                )
               }
-              else { return null }
+              else return null
             })}
           </div>
-          <div className="bottom-arrow-box">
+          <div className='bottom-arrow-box'>
             <FontAwesomeIcon
               icon={faSortDown}
-              className={currentSection !== totalSections ? "icon shadow-08" : "icon shadow-08 opacity-05"}
+              className={currentSection !== totalSections ? 'icon shadow-08' : 'icon shadow-08 opacity-05'}
               onClick={handleDownClick}
             />
           </div>
@@ -234,5 +223,5 @@ export default function Projects() {
 
       </div>
     </section>
-  ]
+  )
 }

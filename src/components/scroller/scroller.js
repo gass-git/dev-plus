@@ -16,7 +16,7 @@ export default function ScrollDisplay() {
 
     let messages = [
         <Fragment>
-            Welcome fellow visitor from {userLocation ? userLocation : "Planet Earth"}!
+            Welcome fellow visitor from {userLocation ? userLocation : 'Planet Earth'}!
             I'm glad you came by, feel free to take a look around...
         </Fragment>,
         <Fragment>
@@ -38,12 +38,12 @@ export default function ScrollDisplay() {
     ]
 
     return (
-        <section key="SD-identifier" className="scroll-display">
-            <div className="border-img">
-                <div className="inner-container">
-                    <div className="msg-display">
+        <section key='SD-identifier' className='scroll-display'>
+            <div className='border-img'>
+                <div className='inner-container'>
+                    <div className='msg-display'>
                         {scrollerSwitch === 'on' ?
-                            <div className="scroll-text">
+                            <div className='scroll-text'>
                                 {messages[msgIndex]}
                             </div>
                             :
