@@ -1,6 +1,9 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Activity, Projects, Skills, About } from '../utilities/componentsImports'
+import Activity from '../components/activity/activity'
+import Projects from '../components/projects/projects'
+import Skills from '../components/skills/skills'
+import About from '../components/about/about'
 
 export default function Content() {
   return (

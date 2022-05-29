@@ -1,4 +1,4 @@
-.border_img {
+.scroll-display .border-img {
   margin: 0 auto;
   border-radius: 8px;
   border-style: solid;
@@ -8,20 +8,20 @@
   height: 30px;
   /*box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;*/
 }
-.inner_container {
+
+.scroll-display .border-img .inner-container {
   height: 56px;
   margin: -14px -14px 0 -14px;
   border-radius: 2px;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(38, 51, 107, 0.75),
-    rgb(38, 51, 107, 0.75) 1px,
-    rgba(35, 41, 63, 0.85) 2px,
-    rgba(32, 39, 66, 0.85) 3px
-  );
+  background: repeating-linear-gradient(0deg,
+      rgba(38, 51, 107, 0.75),
+      rgb(38, 51, 107, 0.75) 1px,
+      rgba(35, 41, 63, 0.85) 2px,
+      rgba(32, 39, 66, 0.85) 3px);
   border: 1px solid rgba(14, 16, 98, 0.4);
 }
-.msg_display {
+
+.msg-display {
   width: 98%;
   height: 38px;
   margin: 9px auto 0 auto;
@@ -32,7 +32,8 @@
   box-shadow: rgb(0, 0, 0) 1px 1px 2px 0px inset,
     rgba(0, 0, 0, 0.3) -1px -1px 2px 1px inset;
 }
-.scroll_text {
+
+.msg-display .scroll-text {
   margin-top: 15px;
   width: 1600px;
   height: 30px;
@@ -48,10 +49,12 @@
   color: rgb(241, 190, 50, 0.8);
   /*border: 1px solid orange;*/
 }
+
 @keyframes move-left {
   from {
     transform: translateX(100%);
   }
+
   to {
     transform: translateX(-100%);
   }

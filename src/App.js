@@ -1,16 +1,12 @@
-// ---------------------------------------------------------------------------
 import React, { useEffect, useReducer } from 'react'
 import { appReducer, initialState, ACTIONS } from './stateCapsule'
+import { getAnswers, getReputation, getSkillScores } from './api/stackOverflow'
+import { getRepos, getGitEvents } from './api/github'
+import { processVisit, getUniqueVisits, getUserLocation } from './api/visits'
+import getWritings from './api/getWritings'
 import Layout from './skeleton/layout'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-// ---------------------------------------------------------------------------
-import {
-  getAnswers, getReputation, getSkillScores, getRepos, getGitEvents, processVisit,
-  getUniqueVisits, getUserLocation, getWritings
-} from './utilities/importsAPI'
-// ---------------------------------------------------------------------------
-
 
 export const AppContext = React.createContext(null)
 

@@ -1,15 +1,12 @@
-import React, {Fragment} from "react";
+export default function Date({ entry }) {
+  let x = new window.Date(entry * 1000)
+  let year = x.getFullYear()
+  let month = x.getMonth() + 1
+  let day = x.getDate()
 
-export default function Date ({ entry }){
-  let x = new window.Date(entry * 1000),
-      year = x.getFullYear(), 
-      month = x.getMonth() + 1, 
-      day = x.getDate();
-  
-  if(day < 10) { day = "0" + day }
-  if(month < 10) { month = "0" + month }
+  if (day < 10) day = `0${day}`
+  if (month < 10) month = `0${month}`
 
-  let convertedDate = year + "-" + month + "-" + day;
-  return <Fragment>{convertedDate}</Fragment>;
+  return `${year}-${month}-${day}`
 }
 

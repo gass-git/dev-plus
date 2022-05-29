@@ -1,8 +1,8 @@
-import React, { Fragment, useState } from "react"
+import React, { Fragment, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import './about.css'
-import useSound from "use-sound"
+import useSound from 'use-sound'
 import tickSound from '../../assets/sounds/tick-sound.wav'
 
 export default function About() {
@@ -27,37 +27,31 @@ export default function About() {
       , logic and <span className="highlight">mental labyrinth</span>.  The hunger for challenge is never satisfied, so I'm always
       pushing myself to go beyond, for the pure joy of it.
     </Fragment>
-  ];
+  ]
 
   function handleCurrent() {
-    if (current === textArray.length - 1) {
-      setCurrent(0);
-    } else {
-      setCurrent(current + 1)
-    }
-    playSound();
+    playSound()
+
+    if (current === textArray.length - 1) setCurrent(0)
+    else setCurrent(current + 1)
   }
   function down() {
-    if (current === textArray.length - 1) {
-      return false
-    }
-    else {
-      return true
-    }
+    if (current === textArray.length - 1) return false
+    else return true
   }
 
-  return [
-    <section key="about-identifier" className="about">
-      <div className="content">
+  return (
+    <section key='about-identifier' className='about'>
+      <div className='content'>
         {textArray[current]}
       </div>
-      <div className="arrow-box">
+      <div className='arrow-box'>
         <FontAwesomeIcon
           icon={down() ? faCaretDown : faAngleDoubleUp}
           onClick={() => handleCurrent()}
-          className="icon shadow-08"
+          className='icon shadow-08'
         />
       </div>
     </section>
-  ]
+  )
 }

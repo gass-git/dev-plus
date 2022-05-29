@@ -1,6 +1,10 @@
 import React from 'react'
 import MainContent from './mainContent'
-import { Scroller, MainMenu, BasicInfo, FooterContent, Links } from '../utilities/componentsImports'
+import Scroller from '../components/scroller/scroller'
+import MainMenu from '../components/mainMenu/mainMenu'
+import BasicInfo from '../components/basicInfo/basicInfo'
+import FooterContent from '../components/footerContent/footerContent'
+import Links from '../components/links/links'
 
 export default function Layout() {
   return (
