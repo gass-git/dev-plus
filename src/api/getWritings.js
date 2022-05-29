@@ -3,7 +3,7 @@ import { ACTIONS } from '../stateCapsule'
 
 let posts_api = 'https://blog.gass.dev/api/posts'
 
-const { SET_POSTS } = ACTIONS;
+const { SET_POSTS } = ACTIONS
 
 function getWritings({ dispatch }) {
   let newArray = []

@@ -1,7 +1,7 @@
-import axios from "axios"
+import axios from 'axios'
 import { ACTIONS } from '../stateCapsule'
 
-const { SET_VISITS, SET_LOCATION } = ACTIONS;
+const { SET_VISITS, SET_LOCATION } = ACTIONS
 
 function getUniqueVisits({ dispatch }) {
   axios.get('https://api.gass.dev/unique_visitors')
@@ -10,7 +10,7 @@ function getUniqueVisits({ dispatch }) {
     })
 }
 function getUserLocation({ dispatch }) {
-  axios.get("https://geolocation-db.com/json/")
+  axios.get('https://geolocation-db.com/json/')
     .then((resp) => {
       dispatch({
         type: SET_LOCATION,
@@ -22,4 +22,4 @@ function processVisit() {
   axios.post('https://api.gass.dev/save_ip')
 }
 
-export { getUniqueVisits, getUserLocation, processVisit };
+export { getUniqueVisits, getUserLocation, processVisit }
