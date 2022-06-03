@@ -23,12 +23,11 @@ export default function Projects() {
   const [playTickSound] = useSound(tickSound, { volume: 0.6 })
   const [playSelectionSound] = useSound(selectionSound, { volume: 1 })
 
-  const { UPDATE_SELECTED } = ACTIONS;
-
   let totalRepos = repos.length
   let totalSections = Math.ceil(totalRepos / 4)
 
   useEffect(() => {
+    const { UPDATE_SELECTED } = ACTIONS
     dispatch({ type: UPDATE_SELECTED, optionSelected: 'projects' })
   }, [dispatch])
 

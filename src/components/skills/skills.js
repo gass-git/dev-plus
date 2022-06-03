@@ -23,12 +23,12 @@ export default function Skills() {
   const { scores } = state
   const [section, setSection] = useState(1)
   const [playTickSound] = useSound(tickSound, { volume: 0.6 })
-  const { UPDATE_SELECTED } = ACTIONS
 
   function handleArrowClick() {
     section === 1 ? setSection(2) : setSection(1)
     playTickSound()
   }
+
   useEffect(() => {
     /**
      *  The skills component when it gets resized to a smaller screen 
@@ -46,8 +46,11 @@ export default function Skills() {
   })
 
   useEffect(() => {
+    const { UPDATE_SELECTED } = ACTIONS
     dispatch({ type: UPDATE_SELECTED, optionSelected: 'skills' })
-  }, [dispatch])
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const Skill = ({ lang, label }) => {
     function handleIcon(lang) {

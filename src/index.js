@@ -6,7 +6,6 @@ import './globalStyles/media.css';
 import './globalStyles/loader.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import TopNavBar from './components/topNavBar/topNavBar'
 
 ReactDOM.render(
   <React.StrictMode>
